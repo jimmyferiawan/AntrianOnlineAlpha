@@ -46,17 +46,6 @@
                 </a>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#form-login" aria-expanded="false">Login</button>
             </div>
-            
-            <form action="user/login.php" method="post" id="form-login" class="collapse navbar-collapse navbar-form navbar-right">
-                <div class="form-group">
-                    <input type="text" name="username_pasien" id="username-login" class="form-control" placeholder="username">
-                </div>
-                <div class="form-group">
-                    <input type="password" name="password_pasien" id="password-login" class="form-control" placeholder="password">
-                </div>
-                <button class="btn btn-primary" type="submit" name="pasien_submit">Masuk</button>
-            </form>
-
         </div>
     </nav>
     <div class="container">
