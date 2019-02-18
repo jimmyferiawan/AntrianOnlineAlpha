@@ -69,7 +69,7 @@
     </nav>	
 
 <div class="container">
-	<h1 class="text-center"><b>INFO ANTRIAN</h1>
+	<h1 class="text-center"><b>INFO ANTRIAN <h3><?php include 'operator/Jamserver.php'; ?></h3></h1>
 <div class="jumbotron">
 	<div class="row text-center">
 		<div class="col-sm-6">
@@ -77,7 +77,11 @@
 			<h1>17</h1>
 			<h3>orang</h3>
 		</div>
-		
+		<div class="col-sm-6">
+            <h3><b></h3>
+   
+            <h3></h3>
+        </div>
 		<div class="col-sm-6">
 			<h3><b>Total Antrian</h3>
 			<h1>30</h1>
