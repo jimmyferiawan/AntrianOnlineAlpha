@@ -70,7 +70,7 @@
                         </div>
                         <div class="form-group col-lg-6">
                             <label for="nama_lengkap">Nama Lengkap</label>
-                            <input type="text" name="nama-lengkap" id="nama-lengkap" class="form-control" placeholder="nama lengkap">
+                            <input type="text" name="nama_lengkap" id="nama-lengkap" class="form-control" placeholder="nama lengkap">
                         </div>
                         <div class="form-group col-lg-6">
                             <label for="nik">NIK</label>
@@ -83,10 +83,10 @@
                         <div class="form-group col-lg-12">
                             <label>Jenis Kelamin</label>
                             <div class="radio">
-                                <label><input type="radio" name="jenis_kelamin" checked>Laki-laki</label>
+                                <label><input type="radio" name="jenis_kelamin" value="L" checked>Laki-laki</label>
                             </div>
                             <div class="radio">
-                                <label><input type="radio" name="jenis_kelamin">Perempuan</label>
+                                <label><input type="radio" name="jenis_kelamin" value="P">Perempuan</label>
                             </div>
                         </div>
                         <div class="form-group col-lg-12">
