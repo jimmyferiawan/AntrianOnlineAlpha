@@ -47,7 +47,7 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#form-login" aria-expanded="false">Login</button>
             </div>
             
-            <form action="user_antrian.php" method="post" id="form-login" class="collapse navbar-collapse navbar-form navbar-right">
+            <form action="user/login.php" method="post" id="form-login" class="collapse navbar-collapse navbar-form navbar-right">
                 <div class="form-group">
                     <input type="text" name="username_pasien" id="username-login" class="form-control" placeholder="username">
                 </div>
@@ -63,7 +63,7 @@
         <div class="row">
             <div>   
                 <div id="profile">
-                    <form action="login.php" method="post">
+                    <form action="user/daftar.php" method="post">
                         <div class="form-group col-lg-6">
                             <label for="username">Username</label>
                             <input type="text" name="username" id="username" class="form-control" placeholder="username">
