@@ -69,7 +69,7 @@
                             <input type="text" name="username" id="username" class="form-control" placeholder="username">
                         </div>
                         <div class="form-group col-lg-6">
-                            <label for="nama-lengkap">Nama Lengkap</label>
+                            <label for="nama_lengkap">Nama Lengkap</label>
                             <input type="text" name="nama-lengkap" id="nama-lengkap" class="form-control" placeholder="nama lengkap">
                         </div>
                         <div class="form-group col-lg-6">
@@ -81,7 +81,7 @@
                             <input type="text" name="no_hp" id="no_hp" class="form-control">
                         </div>
                         <div class="form-group col-lg-12">
-                            <label for="no_hp">Jenis Kelamin</label>
+                            <label>Jenis Kelamin</label>
                             <div class="radio">
                                 <label><input type="radio" name="jenis_kelamin" checked>Laki-laki</label>
                             </div>
