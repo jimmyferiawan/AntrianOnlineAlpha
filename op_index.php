@@ -77,11 +77,7 @@
 			<h1>17</h1>
 			<h3>orang</h3>
 		</div>
-		<div class="col-sm-6">
-            <h3><b></h3>
-   
-            <h3></h3>
-        </div>
+		
 		<div class="col-sm-6">
 			<h3><b>Total Antrian</h3>
 			<h1>30</h1>
