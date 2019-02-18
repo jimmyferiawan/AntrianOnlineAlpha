@@ -46,31 +46,20 @@
                 </a>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#form-login" aria-expanded="false">Login</button>
             </div>
-            
-            <form action="user_antrian.php" method="post" id="form-login" class="collapse navbar-collapse navbar-form navbar-right">
-                <div class="form-group">
-                    <input type="text" name="username_pasien" id="username-login" class="form-control" placeholder="username">
-                </div>
-                <div class="form-group">
-                    <input type="password" name="password_pasien" id="password-login" class="form-control" placeholder="password">
-                </div>
-                <button class="btn btn-primary" type="submit" name="pasien_submit">Masuk</button>
-            </form>
-
         </div>
     </nav>
     <div class="container">
         <div class="row">
             <div>   
                 <div id="profile">
-                    <form action="login.php" method="post">
+                    <form action="user/daftar.php" method="post">
                         <div class="form-group col-lg-6">
                             <label for="username">Username</label>
                             <input type="text" name="username" id="username" class="form-control" placeholder="username">
                         </div>
                         <div class="form-group col-lg-6">
-                            <label for="nama-lengkap">Nama Lengkap</label>
-                            <input type="text" name="nama-lengkap" id="nama-lengkap" class="form-control" placeholder="nama lengkap">
+                            <label for="nama_lengkap">Nama Lengkap</label>
+                            <input type="text" name="nama_lengkap" id="nama-lengkap" class="form-control" placeholder="nama lengkap">
                         </div>
                         <div class="form-group col-lg-6">
                             <label for="nik">NIK</label>
@@ -81,12 +70,12 @@
                             <input type="text" name="no_hp" id="no_hp" class="form-control">
                         </div>
                         <div class="form-group col-lg-12">
-                            <label for="no_hp">Jenis Kelamin</label>
+                            <label>Jenis Kelamin</label>
                             <div class="radio">
-                                <label><input type="radio" name="jenis_kelamin" checked>Laki-laki</label>
+                                <label><input type="radio" name="jenis_kelamin" value="L" checked>Laki-laki</label>
                             </div>
                             <div class="radio">
-                                <label><input type="radio" name="jenis_kelamin">Perempuan</label>
+                                <label><input type="radio" name="jenis_kelamin" value="P">Perempuan</label>
                             </div>
                         </div>
                         <div class="form-group col-lg-12">

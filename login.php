@@ -37,24 +37,24 @@
 			
 		<div class="box col-sm-12 col-lg-4 col-lg-offset-4" align="center">
 		<h4>Login Us</h4>
-			<form action="user_antrian.php">
+			<form action="user/login.php" method="POST">
 				<div class="form-group col-sm-12 col-lg-12">
 				<div class="input-group">
   					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  					<input type="text" class="form-control" placeholder="username">
+  					<input type="text" name="username_pasien" class="form-control" placeholder="username">
 				</div>
 				</div>
 				<p>
 				<div class="form-group col-sm-12 col-lg-12">
 				<div class="input-group">
 					<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-					<input type="text" class="form-control" placeholder="password">
+					<input type="password" name="password_pasien" class="form-control" placeholder="password">
 				</div>
 				</div>
 				<p>
 				<div class="form-group col-sm-12 col-lg-12">
 				<div class="input-group" style="width: 100%;">
-					<input type="submit" class="btn btn-primary" style="width: 100%; background-color: #36d7b7; border: none;" value="Login">
+					<input type="submit" name="pasien_submit" class="btn btn-primary" style="width: 100%; background-color: #36d7b7; border: none;" value="Login">
 				</div>
 				</div>
 			</form>
