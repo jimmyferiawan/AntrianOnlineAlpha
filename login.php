@@ -13,9 +13,7 @@
 	.box {
 		background-color: #fff;
 		padding: 20px;
-		box-shadow: 1px 1px 30px;
-		border-top: solid 4px #36d7b7;
-		margin-top: 170px;
+		border: 0px;
 	}
 
 	.box h4 {
@@ -35,38 +33,48 @@
 	.box form .input-group input {
 		border-radius: 0px;
 	}
+
+	body {
+		background-color: #2CBF65;
+		background-image: url("img/bg2.jpg");
+		background-size: cover;
+	}
+
 </style>
 </head>
 <body>
 		<div class="container">
-		<div class="row">
-			
-		<div class="box col-sm-12 col-lg-4 col-lg-offset-4" align="center">
-		<h4>Login Us</h4>
-			<form action="user/login.php" method="POST">
-				<div class="form-group col-sm-12 col-lg-12">
-				<div class="input-group">
-  					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  					<input type="text" name="username_pasien" class="form-control" placeholder="username">
-				</div>
-				</div>
-				<p>
-				<div class="form-group col-sm-12 col-lg-12">
-				<div class="input-group">
-					<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+
+		<div class="row" style="margin-top: 150px;">
+			<div class="box col-sm-12 col-lg-4 col-lg-offset-2" style="background-color: #239A51; padding: 0px; height: 357px;">
+				<img src="img/queue2.jpg" class="img-responsive col-sm-12" style="opacity: 0.5; border-radius: 0px; height: 357px; padding: 0; position: absolute; z-index: 0;">
+				<ul class="list-inline center-block text-center" style="z-index: 1; padding-top: 250px; position: relative;">
+					<li><a href="#"><img src="img/fblogo.png" style="width: 30px;"></a></li>
+					<li><a href="#"><img src="img/twitterlogo.png" style="width: 30px;"></a></li>
+					<li><a href="#"><img src="img/gogglelogo.png" style="width: 30px;"></a></li>
+				</ul>
+				<h6 style="z-index: 1; position: relative; padding-top: 10px;" class="text-center"><a href="user_regist.php" style="color: white;">Belum Punya Akun ?</a></h6>
+				<h6 style="z-index: 1; position: relative;" class="text-center"><a href="user_regist.php" style="color: white;"><u>Daftar</u></a></h6>
+			</div>
+			<div class="box col-sm-12 col-lg-3 col-lg-offset-0">
+				<form action="user/login.php" method="POST">
+					<img class="img-responsiv center-block" src="img/logo.png" width="100px">
+					<div class="form-group">
+					<input type="text" name="username_pasien" class="form-control" placeholder="username">
+					</div>
+					<div class="form-group">
 					<input type="password" name="password_pasien" class="form-control" placeholder="password">
-				</div>
-				</div>
-				<p>
-				<div class="form-group col-sm-12 col-lg-12">
-				<div class="input-group" style="width: 100%;">
-					<input type="submit" name="pasien_submit" class="btn btn-primary" style="width: 100%; background-color: #36d7b7; border: none;" value="Login">
-				</div>
-				</div>
-			</form>
-		<h5>Belum punya akun ? <a href="user_regist.php"><b><u>daftar disini</u></b></a></h5>
-		</div>
-	</div>
-		</div>
+					</div>
+					<div class="form-group">
+					<label class="checkbox-inline"><input type="checkbox">show password</label>
+					</div>
+					<div class="form-group">
+					<button class="btn btn-primary btn-block">Login</button>
+					</div>
+					<div class="form-group">
+						<a href="" class="form-inline text-center center-block"><h5>forgot password?</h5></a>
+					</div>
+				</form>
+			</div>
 </body>
 </html>
