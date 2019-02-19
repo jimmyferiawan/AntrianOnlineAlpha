@@ -91,7 +91,7 @@
     </nav>	
 
 <div class="container">
-	<h1 class="text-center"><b>INFO ANTRIAN</h1>
+	<h1 class="text-center"><b>INFO ANTRIAN <h3><?php include 'operator/Jamserver.php'; ?></h3></h1>
 <div class="jumbotron">
 	<div class="row text-center">
 		<div class="col-sm-6">
