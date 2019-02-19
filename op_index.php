@@ -46,6 +46,28 @@
 </style>
 </head>
 <body>
+<?php
+  include "koneksi.php";
+  $sql = mysqli_query($conn, "select * from temp");
+  $count = mysqli_num_rows($sql);
+  
+  $s = mysqli_query($conn, "select now from antri");
+  $row = mysqli_fetch_array($s);
+  $now = $row[0];
+  
+  
+  if(isset($_POST["next"])){
+	  $now = 1 + $now;
+	  $s = mysqli_query($conn, "UPDATE antri SET now=$now");
+	  
+  }
+  
+  if(isset($_REQUEST["validasi"])){
+	  $offnama = $_REQUEST["onnama"];  
+	  $sql = mysqli_query($conn, "INSERT INTO temp() value()");
+  }
+?>
+
 <nav class="navbar navbar-default" style="margin-bottom: 0px; ">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -74,13 +96,13 @@
 	<div class="row text-center">
 		<div class="col-sm-6">
 			<h3><b>Saat Ini</h3>
-			<h1>17</h1>
+			<?php echo "<h1>".$now."</h1>";?>
 			<h3>orang</h3>
 		</div>
 		
 		<div class="col-sm-6">
 			<h3><b>Total Antrian</h3>
-			<h1>30</h1>
+			<h1><?php echo $count; ?></h1>
 			<h3>orang</h3>
 		</div>
 	</div>
@@ -90,23 +112,28 @@
 <div class="container">
 
 <div class="col-sm-5">
-	<form class="form-horizontal" action="">
+	<form class="form-horizontal" action="op_index.php" method="post">
 	<h1 class="text-center"><b>OFFLINE</h1>
 	<hr>
 	<div class="form-group">
 		<label for="nama" class="control-label col-sm-2">Nama:</label>
 		<div class="col-sm-10">
-			<input type="text" class="form-control" id="nama" placeholder="Nama">
+			<input type="text" class="form-control" id="offnama" placeholder="Nama">
 		</div>
 	</div>
 
 	<div class="form-group">
 		<div class="col-sm-10 col-sm-offset-2 col-lg-11 col-lg-offset-1 text-center">
-		<button class="btn btn-primary col-lg-11 col-lg-offset-1">NEXT</button>
+		<button class="btn btn-primary col-lg-11 col-lg-offset-1" name="antri" id="antri">ANTRI</button>
 		</div>
 	</div>	
 	</form>
 	<hr>
+	<div class="form-group">
+		<div class="col-sm-10 col-sm-offset-2 col-lg-11 col-lg-offset-1 text-center">
+		<button class="btn btn-success btn-lg col-lg-11 col-lg-offset-1" name="next" id="next">NEXT</button>
+		</div>
+	</div>
 </div>
 <div class="col-sm-2">
 
@@ -116,9 +143,15 @@
 	<h1 class="text-center"><b>ONLINE</h1>
 	<hr>
   <div class="form-group">
+    <label for="nama" class="control-label col-sm-2" style="text-align: left;">PIN:</label>
+	<div class="col-sm-10">
+		<input type="text" class="form-control" id="onnama" >
+	</div>
+  </div>
+  <div class="form-group">
     <label for="nama" class="control-label col-sm-2" style="text-align: left;">Nama:</label>
 	<div class="col-sm-10">
-		<input type="text" class="form-control" id="nama" readonly>
+		<input type="text" class="form-control" id="onnama" readonly>
 	</div>
   </div>
   <div class="form-group">
@@ -147,7 +180,7 @@
   </div>
   <div class="form-group">
   	<div class="col-sm-12 col-lg-10 col-lg-offset-2 text-center">
-	<input type="submit" class="btn btn-primary col-lg-12" value="Online Validasi">
+	<input type="submit" class="btn btn-primary col-lg-12" name="validasi" id="validasi" value="Online Validasi">
 	</div>
   </div>
 </form>
