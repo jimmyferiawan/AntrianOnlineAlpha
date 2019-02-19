@@ -1,4 +1,10 @@
-</!DOCTYPE html>
+<?php
+	session_start();
+	if(isset($_SESSION['u'])) {
+		header('Loation: user_antrian.php');
+	}
+?>
+<!DOCTYPE html>
 <html>
 <head>
 	<title></title>
