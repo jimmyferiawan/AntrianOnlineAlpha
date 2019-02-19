@@ -25,12 +25,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Binary admin</a> 
+                <a class="navbar-brand" href="index.php">Binary admin</a> 
             </div>
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.php" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
@@ -42,28 +42,28 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
 				
 					
                     <li>
-                        <a class="active-menu"  href="index.html"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                        <a class="active-menu"  href="index.php"><i class="fa fa-dashboard fa-3x"></i>New  Notification </a>
                     </li>
                      <li>
-                        <a  href="ui.html"><i class="fa fa-desktop fa-3x"></i> UI Elements</a>
+                        <a  href="ui.php"><i class="fa fa-desktop fa-3x"></i> UI Elements</a>
                     </li>
                     <li>
-                        <a  href="tab-panel.html"><i class="fa fa-qrcode fa-3x"></i> Tabs & Panels</a>
+                        <a  href="tab-panel.php"><i class="fa fa-qrcode fa-3x"></i> Tabs & Panels</a>
                     </li>
 						   <li  >
-                        <a   href="chart.html"><i class="fa fa-bar-chart-o fa-3x"></i> Morris Charts</a>
+                        <a   href="chart.php"><i class="fa fa-bar-chart-o fa-3x"></i> Morris Charts</a>
                     </li>	
                       <li  >
-                        <a  href="table.html"><i class="fa fa-table fa-3x"></i> Table Examples</a>
+                        <a  href="table.php"><i class="fa fa-table fa-3x"></i> Table Examples</a>
                     </li>
                     <li  >
-                        <a  href="form.html"><i class="fa fa-edit fa-3x"></i> Forms </a>
+                        <a  href="form.php"><i class="fa fa-edit fa-3x"></i> Forms </a>
                     </li>				
 					 <li  >
-                        <a   href="login.html"><i class="fa fa-bolt fa-3x"></i> Login</a>
+                        <a   href="login.php"><i class="fa fa-bolt fa-3x"></i> Login</a>
                     </li>	
                      <li  >
-                        <a   href="registeration.html"><i class="fa fa-laptop fa-3x"></i> Registeration</a>
+                        <a   href="registeration.php"><i class="fa fa-laptop fa-3x"></i> Registeration</a>
                     </li>	
 					                   
                     <li>
@@ -94,7 +94,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
                         </ul>
                       </li>  
                   <li  >
-                        <a  href="blank.html"><i class="fa fa-square-o fa-3x"></i> Blank Page</a>
+                        <a  href="blank.php"><i class="fa fa-square-o fa-3x"></i> Blank Page</a>
                     </li>	
                 </ul>
                
@@ -119,8 +119,8 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
                     <i class="fa fa-envelope-o"></i>
                 </span>
                 <div class="text-box" >
-                    <p class="main-text">120 New</p>
-                    <p class="text-muted">Messages</p>
+                    <p class="main-text">120 New</p><br>
+                    <p class="text-muted"> New Opreator </p>
                 </div>
              </div>
 		     </div>
@@ -130,8 +130,8 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
                     <i class="fa fa-bars"></i>
                 </span>
                 <div class="text-box" >
-                    <p class="main-text">30 Tasks</p>
-                    <p class="text-muted">Remaining</p>
+                    <p class="main-text">30 Tasks</p><br>
+                    <p class="text-muted">New Location</p>
                 </div>
              </div>
 		     </div>
@@ -141,8 +141,8 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
                     <i class="fa fa-bell-o"></i>
                 </span>
                 <div class="text-box" >
-                    <p class="main-text">240 New</p>
-                    <p class="text-muted">Notifications</p>
+                    <p class="main-text">240 New</p><br>
+                    <p class="text-muted">New User </p>
                 </div>
              </div>
 		     </div>
@@ -152,8 +152,8 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
                     <i class="fa fa-rocket"></i>
                 </span>
                 <div class="text-box" >
-                    <p class="main-text">3 Orders</p>
-                    <p class="text-muted">Pending</p>
+                    <p class="main-text">3 Orders</p><br>
+                    <p class="text-muted">Online Now</p>
                 </div>
              </div>
 		     </div>
