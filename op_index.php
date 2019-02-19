@@ -62,9 +62,16 @@
 	  
   }
   
-  if(isset($_REQUEST["validasi"])){
-	  $offnama = $_REQUEST["onnama"];  
-	  $sql = mysqli_query($conn, "INSERT INTO temp() value()");
+  if(isset($_POST["antri"])){
+	  $sql = mysqli_query($conn, "select * from pasien");
+	  $cnt = mysqli_num_rows($sql)+1;
+	  $j = '';
+	  for($i=0;$i<4-strlen($cnt);$i++){
+		$j = '0'.$j;
+	  }
+	  $pid = "P".$j.$cnt;
+	  $offnama = $_POST["offnama"];  
+	  $sql = mysqli_query($conn, "INSERT INTO pasien('ID_pasien','username_pasien') value('$pid','$offnama')");
   }
 ?>
 
@@ -118,7 +125,7 @@
 	<div class="form-group">
 		<label for="nama" class="control-label col-sm-2">Nama:</label>
 		<div class="col-sm-10">
-			<input type="text" class="form-control" id="offnama" placeholder="Nama">
+			<input type="text" class="form-control" name="offnama" id="offnama" placeholder="Nama">
 		</div>
 	</div>
 
