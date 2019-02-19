@@ -4,7 +4,8 @@
 
         $uname = $conn->real_escape_string($_POST['username_pasien']);
         $pass = $conn->real_escape_string($_POST['password_pasien']);
-
+        
+        // query mysql
         $kolom = "ID_pasien, username_pasien, nama_pasien, jenis_kelamin_pasien, alamat_pasien, no_hp_pasien, foto_profil_pasien, no_bpjs_pasien";
         $where = "WHERE username_pasien='$uname' AND password_pasien='$pass'";
         $sql = "SELECT $kolom FROM pasien $where";
@@ -19,14 +20,16 @@
                 $data = $row;
             }
         }
+        $conn->close();
+        
         if($is_login == true) {
-            echo "id(NIK): ". $data['ID_pasien'] ."<br>";
-            echo "username: ". $data['username_pasien'] ."<br>";
-            echo "nama: ". $data['nama_pasien'] ."<br>";
-            echo "jenis kelamin: ". $data['jenis_kelamin_pasien'] ."<br>";
-            echo "alamat: ". $data['alamat_pasien'] ."<br>";
-            echo "no telepon: ". $data['no_hp_pasien'] ."<br>";
-            echo "no bpjs: ". $data['no_bpjs_pasien'] ."<br>"; 
+            session_start();
+            $_SESSION['u'] = 'pasien';
+            $_SESSION['u_nik'] = $data['ID_pasien'];
+            $_SESSION['u_username'] = $data['username_pasien'];
+            $_SESSION['u_nama'] = $data['nama_pasien'];
+            header("Location: /user_antrian.php");
+
         } else {
             echo "<h1>username atau password salah</h1>";
         }

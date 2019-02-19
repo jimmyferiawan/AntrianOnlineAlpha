@@ -1,3 +1,8 @@
+<?php 
+    session_start();
+    $is_login = isset($_SESSION['u']) ? true : false;
+    $btn_antri_disabled = $is_login ? "" : "disabled";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,7 +60,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="">Ambil Antrian</a></li>
                 <li><a href="user_editbio.php">pengaturan</a></li>
-                <li><a href="login.php">keluar</a></li>
+                <li><a href="user/logout.php">keluar</a></li>
             </ul>
             </div>
         </div>
@@ -97,7 +102,7 @@
                     </div>
                     <div class="panel-body">
                         <h1 style="font-weight: 30px; font-size: 200px; padding-top: 0px; margin-top: 0px; text-shadow: 1px 1px 5px; ">17</h1>
-                        <a href="output_antrian.php"><button class="btn btn-primary">Ambil Antrian</button></a>
+                        <a href="output_antrian.php"><button class="btn btn-primary <?= $btn_antri_disabled ?>">Ambil Antrian</button></a>
                         <button type="button" class="btn btn-default btn-md">
                         <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
                         </button>
