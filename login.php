@@ -40,6 +40,26 @@
 		background-size: cover;
 	}
 
+	.form-control {
+		box-shadow: none;
+		border-radius: 0px;
+		border: none;
+		border-bottom: 1px solid #55efc4; 
+	}
+
+	.form-group > .btn {
+		border-radius: 0px;
+		background-color: #00b894;
+		border-color: #00b894;
+	}
+
+	.form-group > .form-control:focus {
+		border: none;
+		border-bottom: 2px solid #55efc4;
+		box-shadow: none;
+	}
+
+
 </style>
 </head>
 <body>
@@ -72,7 +92,7 @@
 					<button class="btn btn-primary btn-block">Login</button>
 					</div>
 					<div class="form-group">
-						<a href="" class="form-inline text-center center-block"><h5>forgot password?</h5></a>
+						<a href="#" class="form-inline text-center center-block"><h6>forgot password?</h6></a>
 					</div>
 				</form>
 			</div>
