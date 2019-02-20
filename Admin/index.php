@@ -1,14 +1,14 @@
 ﻿<!DOCTYPE html>
 <?php session_start() ?>
 
-<?php if (!isset($_SESSION['admin'])) 
+<?php if (!isset($_SESSION["id"]["id_nimda"])) 
  {
 echo "<script> alret('LOGIN FIRST');</script>";
 echo "<script> location='../index.php';</script>";
-header('location:login.php');
+header('location:../login_AD.php');
 exit();
  } ?>
- 
+
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
