@@ -63,10 +63,10 @@
 					<input type="text" name="username_pasien" class="form-control" placeholder="username">
 					</div>
 					<div class="form-group">
-					<input type="password" name="password_pasien" class="form-control" placeholder="password">
+					<input type="password" name="password_pasien" class="form-control" placeholder="password" id="password_pasien">
 					</div>
 					<div class="form-group">
-					<label class="checkbox-inline"><input type="checkbox">show password</label>
+					<label class="checkbox-inline"><input type="checkbox" id="tampilkanpwd">show password</label>
 					</div>
 					<div class="form-group">
 					<button class="btn btn-primary btn-block">Login</button>
@@ -76,5 +76,23 @@
 					</div>
 				</form>
 			</div>
+		<script>
+			var cbShowPwd = document.getElementById('tampilkanpwd');
+			var inputPwd = document.getElementById('password_pasien');
+
+			if(cbShowPwd.checked === true) {
+				inputPwd.type = 'text';
+			} else {
+				inputPwd.type = 'password';
+			}
+			
+			cbShowPwd.addEventListener('click', function() {
+				if(this.checked === true) {
+					inputPwd.type = 'text';
+				} else {
+					inputPwd.type = 'password';
+				}
+			});
+		</script>
 </body>
 </html>
