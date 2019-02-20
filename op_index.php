@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta http-equiv="refresh" content="60" > 
 	<meta charset="utf-8"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
@@ -48,11 +49,11 @@
 <body>
 <?php
   include "koneksi.php";
-  $sql = mysqli_query($conn, "select * from temp");
-  $count = mysqli_num_rows($sql);
+  $sqltemp = mysqli_query($conn, "select * from temp ");
+  $count = mysqli_num_rows($sqltemp);
   
-  $s = mysqli_query($conn, "select now from antri");
-  $row = mysqli_fetch_array($s);
+  $sqlantri = mysqli_query($conn, "select now from antri");
+  $row = mysqli_fetch_array($sqlantri);
   $now = $row[0];
   
   
@@ -63,15 +64,21 @@
   }
   
   if(isset($_POST["antri"])){
-	  $sql = mysqli_query($conn, "select * from pasien");
-	  $cnt = mysqli_num_rows($sql)+1;
+	  $offnama = $_POST['offnama'];
+	  $sqlpasien = mysqli_query($conn, "select * from pasien");
+	  $cnt = mysqli_num_rows($sqlpasien)+1;
 	  $j = '';
-	  for($i=0;$i<4-strlen($cnt);$i++){
+	  for($i=0;$i<6-strlen($cnt);$i++){
 		$j = '0'.$j;
 	  }
 	  $pid = "P".$j.$cnt;
-	  $offnama = $_POST["offnama"];  
-	  $sql = mysqli_query($conn, "INSERT INTO pasien('ID_pasien','username_pasien') value('$pid','$offnama')");
+	  $s = mysqli_query($conn, "INSERT INTO pasien(ID_pasien, username_pasien) values('$pid','$offnama')");	  
+	  
+	  $cnt = mysqli_num_rows($sqltemp)+1;
+	  $tgl = date('d-m-y');
+	  $jam = date('h:i:s');
+	  $s = mysqli_query($conn, "INSERT INTO temp(id_user_temp, no_antrian,jam_ambil_antrian, tgl) values('$pid','$cnt','$jam','$tgl')");
+      header("refresh: 0;");
   }
 ?>
 
@@ -134,7 +141,8 @@
 		<button class="btn btn-primary col-lg-11 col-lg-offset-1" name="antri" id="antri">ANTRI</button>
 		</div>
 	</div>	
-	</form>
+  </form>
+	<form class="form-horizontal" action="op_index.php" method="post">
 	<hr>
 	<div class="form-group">
 		<div class="col-sm-10 col-sm-offset-2 col-lg-11 col-lg-offset-1 text-center">
@@ -142,6 +150,7 @@
 		</div>
 	</div>
 </div>
+</form>
 <div class="col-sm-2">
 
 </div>
