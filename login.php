@@ -66,14 +66,14 @@
 		<div class="container">
 
 		<div class="row" style="margin-top: 150px;">
-			<div class="box col-sm-12 col-lg-4 col-lg-offset-2" style="background-color: #239A51; padding: 0px; height: 357px;">
-				<img src="img/queue2.jpg" class="img-responsive col-sm-12" style="opacity: 0.5; border-radius: 0px; height: 357px; padding: 0; position: absolute; z-index: 0;">
+			<div class="box col-sm-12 col-lg-4 col-lg-offset-2" style="background-color: #239A51; padding: 0px; height: 348px;">
+				<img src="img/queue2.jpg" class="img-responsive col-sm-12" style="opacity: 0.5; border-radius: 0px; height: 348px; padding: 0; position: absolute; z-index: 0;">
 				<ul class="list-inline center-block text-center" style="z-index: 1; padding-top: 250px; position: relative;">
 					<li><a href="#"><img src="img/fblogo.png" style="width: 30px;"></a></li>
 					<li><a href="#"><img src="img/twitterlogo.png" style="width: 30px;"></a></li>
 					<li><a href="#"><img src="img/gogglelogo.png" style="width: 30px;"></a></li>
 				</ul>
-				<h6 style="z-index: 1; position: relative; padding-top: 10px;" class="text-center"><a href="user_regist.php" style="color: white;">Belum Punya Akun ?</a></h6>
+				<h6 style="z-index: 1; position: relative; padding-top: 10px; color: white;" class="text-center">Belum Punya Akun ?</h6>
 				<h6 style="z-index: 1; position: relative;" class="text-center"><a href="user_regist.php" style="color: white;"><u>Daftar</u></a></h6>
 			</div>
 			<div class="box col-sm-12 col-lg-3 col-lg-offset-0">
