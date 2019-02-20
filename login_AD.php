@@ -48,7 +48,7 @@
 				<div class="form-group col-sm-12 col-lg-12">
 				<div class="input-group">
 					<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-					<input type="text" class="form-control"  name="password_op"  placeholder="password">
+					<input type="password" class="form-control"  name="password_op"  placeholder="password">
 				</div>
 				</div>
 				

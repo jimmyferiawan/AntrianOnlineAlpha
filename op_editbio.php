@@ -62,7 +62,7 @@
                 <li><a href="op_index.php">Info Antrian</a></li>
                 <li class="active"><a href="op_editbio.php">pengaturan</a></li>
                 <li><a href="op_requser.php">request operator baru</a></li>
-                <li><a href="login_admin.php">keluar</a></li>
+                <li><a href="operator/logout.php">keluar</a></li>
             </ul>
             </div>
         </div>
@@ -79,11 +79,11 @@
                         </div>
                         <div class="form-group col-xs-6">
                             <label for="password">Password</label>
-                            <input type="text" name="password" id="password" class="form-control" placeholder="user12345">
+                            <input type="password" name="password" id="password" class="form-control" placeholder="user12345">
                         </div>
                         <div class="form-group col-xs-6">
                             <label for="password_re">Konfirmasi Password</label>
-                            <input type="text" name="password_re" id="password_re" class="form-control" placeholder="user12345">
+                            <input type="password" name="password_re" id="password_re" class="form-control" placeholder="user12345">
                         </div>
 
                         <div class="col-lg-12">

@@ -62,7 +62,7 @@
                 <li><a href="op_index.php">Info Antrian</a></li>
                 <li><a href="op_editbio.php">pengaturan</a></li>
                 <li  class="active"><a href="">request operator baru</a></li>
-                <li><a href="login_admin.php">keluar</a></li>
+                <li><a href="operator/logout.php">keluar</a></li>
             </ul>
             </div>
         </div>

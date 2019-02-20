@@ -62,8 +62,12 @@ exit();
   $count = mysqli_num_rows($sqltemp);
   
   $sqlantri = mysqli_query($conn, "select now from antri");
-  $row = mysqli_fetch_array($sqlantri);
-  $now = $row[0];
+  if (mysqli_num_rows($sqlantri)>0){
+	$row = mysqli_fetch_array($sqlantri);
+	$now = $row[0];
+  }else{
+	  $now = 0;
+  }
   
   
   if(isset($_POST["next"])){
