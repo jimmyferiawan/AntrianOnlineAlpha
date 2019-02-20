@@ -1,5 +1,14 @@
 <!DOCTYPE html>
 <html>
+<?php session_start() ?>
+
+<?php if (!isset( $_SESSION["id"]["id_op"])) 
+ {
+echo "<script> alret('LOGIN FIRST');</script>";
+echo "<script> location='login_AD.php';</script>";
+header('location:login_AD.php');
+exit();
+ } ?>
 <head>
 	<meta http-equiv="refresh" content="60" > 
 	<meta charset="utf-8"> 
@@ -98,7 +107,7 @@
                 <li class="active"><a href="">Info Antrian</a></li>
                 <li><a href="op_editbio.php">pengaturan</a></li>
                 <li><a href="op_requser.php">request operator baru</a></li>
-                <li><a href="login_admin.php">keluar</a></li>
+                <li><a href="operator/logout.php">keluar</a></li>
             </ul>
             </div>
         </div>
