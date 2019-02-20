@@ -5,6 +5,15 @@
  -->
 <!DOCTYPE html>
 <html lang="id">
+<?php session_start() ?>
+
+<?php if (!isset( $_SESSION["id"]["id_op"])) 
+ {
+echo "<script> alret('LOGIN FIRST');</script>";
+echo "<script> location='login_AD.php';</script>";
+header('location:login_AD.php');
+exit();
+ } ?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,7 +54,25 @@
     </style>
 </head>
 <body>
+<?php
+  if(isset($_REQUEST['update_op'])){
+	$pass = $_REQUEST['password'];
+	$pass_re = $_REQUEST['password_re'];
+	if($pass==$pass_re){
+		echo "ok";
+	}else{
+		echo "<script type='text/javascript'>
+			alert('password tidak sama');
+			</script>";
+	}
+	
+	
+  }
+  $user_op = $_SESSION["id"]["user_op"]; 
+  
+  
 
+?>
 <nav class="navbar navbar-default navbar-fixed-top" style="margin-bottom: 0px; ">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -72,22 +99,22 @@
         <div class="row">
             <div>   
                 <div id="profile">
-                    <form action="user/user-daftar.php" method="post">
+                    <form action="op_editbio.php" method="post">
                         <div class="form-group col-lg-12">
                             <label for="username">Username</label>
-                            <input type="text" name="username" id="username" class="form-control" placeholder="user1">
+                            <input type="text" name="username" id="username" class="form-control" value="<?php echo $user_op;?>" readonly>
                         </div>
                         <div class="form-group col-xs-6">
                             <label for="password">Password</label>
-                            <input type="password" name="password" id="password" class="form-control" placeholder="user12345">
+                            <input type="password" name="password" id="password" class="form-control" >
                         </div>
                         <div class="form-group col-xs-6">
                             <label for="password_re">Konfirmasi Password</label>
-                            <input type="password" name="password_re" id="password_re" class="form-control" placeholder="user12345">
+                            <input type="password" name="password_re" id="password_re" class="form-control" >
                         </div>
 
                         <div class="col-lg-12">
-                            <button class="btn btn-primary col-lg-4" type="submit" name="pasien_submit">Update</button>
+                            <button class="btn btn-primary col-lg-4" type="submit" name="update_op">Update</button>
                             <button class="btn btn-danger col-lg-4" style="float: right;" type="reset">Batal</button>
                         </div>
                     </form>

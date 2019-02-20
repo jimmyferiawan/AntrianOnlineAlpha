@@ -58,12 +58,12 @@ exit();
 <body>
 <?php
   include "koneksi.php";
-  $sqltemp = mysqli_query($conn, "select * from temp ");
-  $count = mysqli_num_rows($sqltemp);
+  $sql_temp = mysqli_query($conn, "select * from temp ");
+  $count = mysqli_num_rows($sql_temp);
   
-  $sqlantri = mysqli_query($conn, "select now from antri");
-  if (mysqli_num_rows($sqlantri)>0){
-	$row = mysqli_fetch_array($sqlantri);
+  $sql_antri = mysqli_query($conn, "select now from antri");
+  if (mysqli_num_rows($sql_antri)>0){
+	$row = mysqli_fetch_array($sql_antri);
 	$now = $row[0];
   }else{
 	  $now = 0;
@@ -78,8 +78,8 @@ exit();
   
   if(isset($_POST["antri"])){
 	  $offnama = $_POST['offnama'];
-	  $sqlpasien = mysqli_query($conn, "select * from pasien");
-	  $cnt = mysqli_num_rows($sqlpasien)+1;
+	  $sql_pasien = mysqli_query($conn, "select * from pasien");
+	  $cnt = mysqli_num_rows($sql_pasien)+1;
 	  $j = '';
 	  for($i=0;$i<6-strlen($cnt);$i++){
 		$j = '0'.$j;
@@ -87,20 +87,26 @@ exit();
 	  $pid = "P".$j.$cnt;
 	  $s = mysqli_query($conn, "INSERT INTO pasien(ID_pasien, username_pasien) values('$pid','$offnama')");	  
 	  
-	  $cnt = mysqli_num_rows($sqltemp)+1;
+	  $cnt = mysqli_num_rows($sql_temp)+1;
 	  $tgl = date('d-m-y');
 	  $jam = date('h:i:s');
 	  $s = mysqli_query($conn, "INSERT INTO temp(id_user_temp, no_antrian,jam_ambil_antrian, tgl) values('$pid','$cnt','$jam','$tgl')");
       header("refresh: 0;");
   }
+   $id_op = $_SESSION["id"]["id_op"];
+   $sql_op = mysqli_query($conn, "select username_op from oprator where ID_op='$id_op'");
+   $list_op = mysqli_fetch_array($sql_op);
+   $user_op = $list_op[0];
+   $_SESSION["id"]["user_op"]=  $user_op; 
 ?>
 
 <nav class="navbar navbar-default" style="margin-bottom: 0px; ">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="">
-                    LOGO
+                    LOGO 
                 </a>
+				<?php echo $user_op;?>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navheader-collapse" aria-expanded="false">
                     <span class="glyphicon glyphicon-menu-hamburger"></span>
                 </button>
