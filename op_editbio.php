@@ -55,24 +55,22 @@ exit();
 </head>
 <body>
 <?php
+include "koneksi.php";
+
+  $user_op = $_SESSION["id"]["user_op"];
   if(isset($_REQUEST['update_op'])){
 	$pass = $_REQUEST['password'];
 	$pass_re = $_REQUEST['password_re'];
-	if($pass==$pass_re){
-		echo "ok";
-	}else{
-		echo "<script type='text/javascript'>
-			alert('password tidak sama');
-			</script>";
+	$sql = mysqli_query($conn, "UPDATE oprator SET password_op='$pass' WHERE username_op='$user_op'");
+	if($sql){
+		echo "<script>alert('Password berhasil diubah');
+		location='op_index.php';</script>";
 	}
-	
-	
   }
-  $user_op = $_SESSION["id"]["user_op"]; 
-  
-  
-
 ?>
+
+
+
 <nav class="navbar navbar-default navbar-fixed-top" style="margin-bottom: 0px; ">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -87,8 +85,8 @@ exit();
             <div class="collapse navbar-collapse navheader-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="op_index.php">Info Antrian</a></li>
-                <li class="active"><a href="op_editbio.php">pengaturan</a></li>
-                <li><a href="op_requser.php">request operator baru</a></li>
+				<li><a href="op_requser.php">request operator baru</a></li>
+                <li class="active"><a href="op_editbio.php">pengaturan</a></li>              
                 <li><a href="operator/logout.php">keluar</a></li>
             </ul>
             </div>
@@ -99,7 +97,7 @@ exit();
         <div class="row">
             <div>   
                 <div id="profile">
-                    <form action="op_editbio.php" method="post">
+                    <form id="update" action="op_editbio.php" method="post">
                         <div class="form-group col-lg-12">
                             <label for="username">Username</label>
                             <input type="text" name="username" id="username" class="form-control" value="<?php echo $user_op;?>" readonly>
@@ -125,4 +123,16 @@ exit();
     <script src="framework/js/jquery-3.3.1.min.js"></script>
     <script src="framework/js/bootstrap.min.js"></script>
 </body>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#update').submit(function() {
+			var pass = $('#password').val();							
+			var pass_re = $('#password_re').val();			
+			if (pass != pass_re) {		
+				alert('Password yang anda masukkan tidak sama !!');
+				return false;
+			}
+		});
+	});
+</script>
 </html>
