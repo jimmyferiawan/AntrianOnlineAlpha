@@ -85,10 +85,6 @@
                         <br>
                         <select name="daftar-nama" id="daftar-nama" class="form-control">
                             <option selected disabled>Nama Tempat</option>
-                            <option value="1">RS a</option>
-                            <option value="2">RS b</option>
-                            <option value="3">RS c</option>
-                            <option value="4">RS d</option>
                         </select>
 
                         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d32656920.102451846!2d117.88880000000002!3d-2.357836599999986!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2de681b4659a3d67%3A0xf9c1001731bf6113!2sPuskesmas+Martapura!5e0!3m2!1sen!2sid!4v1546747816789" width="325" height="350" frameborder="0" style="border:0; margin-top: 10px;" allowfullscreen class="img-responsive col-xs-12 col-md-12 col-lg-12"></iframe>                        
@@ -114,5 +110,39 @@
 
     <script src="framework/js/jquery-3.3.1.min.js"></script>
     <script src="framework/js/bootstrap.min.js"></script>
+    <script src="framework/js/axios.min.js"></script>
+    <script>
+        var jenisTempat = document.getElementById('jenis-tempat');
+        var daftarNama = document.getElementById('daftar-nama');
+        var formData = new FormData();
+
+        function updateDaftarnama(listNamaTempat) {
+            daftarNama.options.length = 0;
+            var defaultOption = '<option selected disabled>Nama Tempat</option>';
+            daftarNama.innerHTML = defaultOption;
+            
+            for(var i of listNamaTempat) {
+                daftarNama.add(new Option(i.nama, i.id));
+            }
+        }
+        jenisTempat.addEventListener('change', function() {
+            
+            formData.set('id', this.value);
+            var idLokasi = this.value;
+
+            axios.get('/user/pilih-tempat.php', {
+                    params: {
+                        id: idLokasi
+                    }
+                })
+                .then(function(response) {
+                    updateDaftarnama(response.data);
+                })
+                .catch(function(error) {
+                    // TODO: lakukan sesuatu ketika error ambil data
+                    // contoh: tampil alert error atau modal dialog error
+                });
+        })
+    </script>
 </body>
 </html>
