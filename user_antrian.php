@@ -59,8 +59,8 @@
             <div class="collapse navbar-collapse navheader-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="">Ambil Antrian</a></li>
-                <li><a href="user_editbio.php">pengaturan</a></li>
-                <li><a href="user/logout.php">keluar</a></li>
+                <li class="<?= $btn_antri_disabled ?>"><a href="user_editbio.php" >pengaturan</a></li>
+                <li class="<?= $btn_antri_disabled ?>"><a href="user/logout.php" >keluar</a></li>
             </ul>
             </div>
         </div>
