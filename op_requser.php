@@ -45,7 +45,18 @@
     </style>
 </head>
 <body>
-    
+<?php
+include "koneksi.php";
+
+  if(isset($_REQUEST['daftar'])){
+	  $user = $_REQUEST['username'];
+	  $pass = $_REQUEST['password'];
+	  $pass_re = $_REQUEST['password_re'];
+	  $s = mysqli_query($conn, "SELECT * FROM oprator");
+	  $oid = mysqli_num_rows($s)+1;
+	  $sql = mysqli_query($conn, "INSERT INTO oprator VALUES('$oid','$user','$pass','2')");
+  }
+?>
 <nav class="navbar navbar-default navbar-fixed-top" style="margin-bottom: 0px; ">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -60,8 +71,8 @@
             <div class="collapse navbar-collapse navheader-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="op_index.php">Info Antrian</a></li>
-                <li><a href="op_editbio.php">pengaturan</a></li>
-                <li  class="active"><a href="">request operator baru</a></li>
+				<li  class="active"><a href="">request operator baru</a></li>
+                <li><a href="op_editbio.php">pengaturan</a></li>               
                 <li><a href="operator/logout.php">keluar</a></li>
             </ul>
             </div>
@@ -72,7 +83,7 @@
         <div class="row">
             <div>   
                 <div id="profile">
-                    <form action="user/user-daftar.php" method="post">
+                    <form id="regist" action="op_requser.php" method="post">
                         <div class="form-group col-lg-6">
                             <label for="username">Username</label>
                             <input type="text" name="username" id="username" class="form-control" placeholder="username">
@@ -116,7 +127,7 @@
                         </div>
 
                         <div class="col-lg-12">
-                            <button class="btn btn-primary col-lg-4" type="submit" name="pasien_submit">Daftar</button>
+                            <button class="btn btn-primary col-lg-4" type="submit" name="daftar">Daftar</button>
                             <button class="btn btn-danger col-lg-4" style="float: right;" type="reset">Batal</button>
                         </div>
                     </form>
@@ -127,4 +138,16 @@
     <script src="framework/js/jquery-3.3.1.min.js"></script>
     <script src="framework/js/bootstrap.min.js"></script>
 </body>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#regist').submit(function() {
+			var pass = $('#password').val();							
+			var pass_re = $('#password_re').val();			
+			if (pass != pass_re) {		
+				alert('Password yang anda masukkan tidak sama !!');
+				return false;
+			}
+		});
+	});
+</script>
 </html>

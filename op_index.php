@@ -115,8 +115,8 @@ exit();
             <div class="collapse navbar-collapse navheader-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="">Info Antrian</a></li>
-                <li><a href="op_editbio.php">pengaturan</a></li>
-                <li><a href="op_requser.php">request operator baru</a></li>
+				<li><a href="op_requser.php">request operator baru</a></li>
+                <li><a href="op_editbio.php">pengaturan</a></li>               
                 <li><a href="operator/logout.php">keluar</a></li>
             </ul>
             </div>
