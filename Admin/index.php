@@ -1,5 +1,14 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<?php session_start() ?>
+
+<?php if (!isset($_SESSION["id"]["id_nimda"])) 
+ {
+echo "<script> alret('LOGIN FIRST');</script>";
+echo "<script> location='../index.php';</script>";
+header('location:../login_AD.php');
+exit();
+ } ?>
+
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,91 +25,15 @@
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
 <body>
-    <div id="wrapper">
-        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.php">Binary admin</a> 
-            </div>
-  <div style="color: white;
-padding: 15px 50px 5px 50px;
-float: right;
-font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.php" class="btn btn-danger square-btn-adjust">Logout</a> </div>
-        </nav>   
+                    <?php include 'navbar_atas.php'; ?> 
            <!-- /. NAV TOP  -->
-                <nav class="navbar-default navbar-side" role="navigation">
-            <div class="sidebar-collapse">
-                <ul class="nav" id="main-menu">
-				<li class="text-center">
-                    <img src="assets/img/find_user.png" class="user-image img-responsive"/>
-					</li>
+          
 				
 					
-                    <li>
-                        <a class="active-menu"  href="index.php"><i class="fa fa-dashboard fa-3x"></i>New  Notification </a>
-                    </li>
-                     <li>
-                        <a  href="ui.php"><i class="fa fa-desktop fa-3x"></i> UI Elements</a>
-                    </li>
-                    <li>
-                        <a  href="tab-panel.php"><i class="fa fa-qrcode fa-3x"></i> Tabs & Panels</a>
-                    </li>
-						   <li  >
-                        <a   href="chart.php"><i class="fa fa-bar-chart-o fa-3x"></i> Morris Charts</a>
-                    </li>	
-                      <li  >
-                        <a  href="table.php"><i class="fa fa-table fa-3x"></i> Table Examples</a>
-                    </li>
-                    <li  >
-                        <a  href="form.php"><i class="fa fa-edit fa-3x"></i> Forms </a>
-                    </li>				
-					 <li  >
-                        <a   href="login.php"><i class="fa fa-bolt fa-3x"></i> Login</a>
-                    </li>	
-                     <li  >
-                        <a   href="registeration.php"><i class="fa fa-laptop fa-3x"></i> Registeration</a>
-                    </li>	
+                   <?php include 'navbar_kiri.php'; ?>
 					                   
-                    <li>
-                        <a href="#"><i class="fa fa-sitemap fa-3x"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">Second Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#">Second Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#">Second Level Link<span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-
-                                </ul>
-                               
-                            </li>
-                        </ul>
-                      </li>  
-                  <li  >
-                        <a  href="blank.php"><i class="fa fa-square-o fa-3x"></i> Blank Page</a>
-                    </li>	
-                </ul>
-               
-            </div>
-            
-        </nav>  
+                 
+         
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
             <div id="page-inner">
@@ -111,53 +44,13 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.php" class="b
                     </div>
                 </div>              
                  <!-- /. ROW  -->
-                  <hr />
-                <div class="row">
-                <div class="col-md-3 col-sm-6 col-xs-6">           
-			<div class="panel panel-back noti-box">
-                <span class="icon-box bg-color-red set-icon">
-                    <i class="fa fa-envelope-o"></i>
-                </span>
-                <div class="text-box" >
-                    <p class="main-text">120 New</p><br>
-                    <p class="text-muted"> New Opreator </p>
-                </div>
-             </div>
-		     </div>
-                    <div class="col-md-3 col-sm-6 col-xs-6">           
-			<div class="panel panel-back noti-box">
-                <span class="icon-box bg-color-green set-icon">
-                    <i class="fa fa-bars"></i>
-                </span>
-                <div class="text-box" >
-                    <p class="main-text">30 Tasks</p><br>
-                    <p class="text-muted">New Location</p>
-                </div>
-             </div>
-		     </div>
-                    <div class="col-md-3 col-sm-6 col-xs-6">           
-			<div class="panel panel-back noti-box">
-                <span class="icon-box bg-color-blue set-icon">
-                    <i class="fa fa-bell-o"></i>
-                </span>
-                <div class="text-box" >
-                    <p class="main-text">240 New</p><br>
-                    <p class="text-muted">New User </p>
-                </div>
-             </div>
-		     </div>
-                    <div class="col-md-3 col-sm-6 col-xs-6">           
-			<div class="panel panel-back noti-box">
-                <span class="icon-box bg-color-brown set-icon">
-                    <i class="fa fa-rocket"></i>
-                </span>
-                <div class="text-box" >
-                    <p class="main-text">3 Orders</p><br>
-                    <p class="text-muted">Online Now</p>
-                </div>
-             </div>
-		     </div>
-			</div>
+                  <?php include 'Proses/indikator.php'; ?>
+
+            <!-- storange  -->
+                    
+                   <?php include 'Proses/storange.php'; ?>
+
+
                  <!-- /. ROW  -->
                 <hr />                
                 <div class="row">
@@ -181,14 +74,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.php" class="b
              </div>
 		     </div>
                     
-                    
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel back-dash">
-                               <i class="fa fa-dashboard fa-3x"></i><strong> &nbsp; SPEED</strong>
-                             <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing sit ametsit amet elit ftr. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                        </div>
-                       
-                    </div>
+                   
                     <div class="col-md-3 col-sm-12 col-xs-12 ">
                         <div class="panel ">
           <div class="main-temp-back">
@@ -230,28 +116,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.php" class="b
                         </div>
                     </div>            
                 </div>
-                    <div class="col-md-3 col-sm-12 col-xs-12">                       
-                    <div class="panel panel-primary text-center no-boder bg-color-green">
-                        <div class="panel-body">
-                            <i class="fa fa-bar-chart-o fa-5x"></i>
-                            <h3>120 GB </h3>
-                        </div>
-                        <div class="panel-footer back-footer-green">
-                           Disk Space Available
-                            
-                        </div>
-                    </div>
-                    <div class="panel panel-primary text-center no-boder bg-color-red">
-                        <div class="panel-body">
-                            <i class="fa fa-edit fa-5x"></i>
-                            <h3>20,000 </h3>
-                        </div>
-                        <div class="panel-footer back-footer-red">
-                            Articles Pending
-                            
-                        </div>
-                    </div>                         
-                        </div>
+              
                 
            </div>
                  <!-- /. ROW  -->

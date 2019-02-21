@@ -4,6 +4,15 @@
     - berasumsi bahwa file css dan js ada di root server
  -->
 <!DOCTYPE html>
+<?php session_start() ?>
+
+<?php if (!isset( $_SESSION["id"]["id_dk"])) 
+ {
+echo "<script> alret('LOGIN FIRST');</script>";
+echo "<script> location='login_AD.php';</script>";
+header('location:login_AD.php');
+exit();
+ } ?>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -51,7 +60,7 @@
             </div>
             <div class="collapse navbar-collapse navheader-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="login.php">keluar</a></li>
+                <li><a href="operator/logout.php">keluar</a></li>
             </ul>
             </div>
         </div>
