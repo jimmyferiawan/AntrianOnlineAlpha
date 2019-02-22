@@ -21,6 +21,11 @@
             color: #fff;
             background-color: #36d7b7;
             border-color: #36d7b7;
+            border-radius: 0px;
+        }
+
+        .btn-danger {
+            border-radius: 0px;
         }
 
         .btn-primary:hover {
@@ -35,11 +40,35 @@
             background-color: white;
         }
 
+        .form-control {
+            border-radius: 0;
+            border: none;
+            border-bottom: 2px solid #beebd6;
+            box-shadow: none;
+        }
+
+        .form-control:focus {
+            box-shadow: none;
+            border: none;
+            border-bottom: 2px solid #36d7b7;
+        }
+
+        .navbar-default {
+            background-color: white;
+        }
+
+        input[type=text] {
+            color: #7f8c8d;
+        }
+        
+        input[type=radio] {
+            background-color: #36d7b7;
+        }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
+        <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="user_antrian.php">
                     Logo
@@ -48,26 +77,26 @@
             </div>
         </div>
     </nav>
-    <div class="container">
+    <div class="container" style="width: 85%;">
         <div class="row">
             <div>   
                 <div id="profile">
                     <form action="user/daftar.php" method="post">
                         <div class="form-group col-lg-6">
                             <label for="username">Username</label>
-                            <input type="text" name="username" id="username" class="form-control" placeholder="username">
+                            <input type="text" name="username" id="username" class="form-control">
                         </div>
                         <div class="form-group col-lg-6">
                             <label for="nama_lengkap">Nama Lengkap</label>
-                            <input type="text" name="nama_lengkap" id="nama-lengkap" class="form-control" placeholder="nama lengkap">
+                            <input type="text" name="nama_lengkap" id="nama-lengkap" class="form-control">
                         </div>
-                        <div class="form-group col-lg-6">
-                            <label for="nik">NIK</label>
-                            <input type="text" name="nik" id="nik" class="form-control" placeholder="nik">
+                        <div class="form-group col-xs-6">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" class="form-control">
                         </div>
-                        <div class="form-group col-lg-6">
-                            <label for="no_hp">Nomor Hp</label>
-                            <input type="text" name="no_hp" id="no_hp" class="form-control">
+                        <div class="form-group col-xs-6">
+                            <label for="password_re">Konfirmasi Password</label>
+                            <input type="password" name="password_re" id="password_re" class="form-control">
                         </div>
                         <div class="form-group col-lg-12">
                             <label>Jenis Kelamin</label>
@@ -80,15 +109,15 @@
                         </div>
                         <div class="form-group col-lg-12">
                             <label for="alamat">Alamat</label>
-                            <textarea class="form-control" name="alamat" rows="1" id="alamat"></textarea>
+                            <textarea class="form-control" name="alamat" rows="4" id="alamat"></textarea>
                         </div> 
-                        <div class="form-group col-xs-6">
-                            <label for="password">Password</label>
-                            <input type="password" name="password" id="password" class="form-control" placeholder="password">
+                        <div class="form-group col-lg-6">
+                            <label for="nik">NIK</label>
+                            <input type="text" name="nik" id="nik" class="form-control">
                         </div>
-                        <div class="form-group col-xs-6">
-                            <label for="password_re">Konfirmasi Password</label>
-                            <input type="password" name="password_re" id="password_re" class="form-control" placeholder="ketik ulang password">
+                        <div class="form-group col-lg-6">
+                            <label for="no_hp">Nomor Hp</label>
+                            <input type="text" name="no_hp" id="no_hp" class="form-control">
                         </div>
                         <div class="form-group col-lg-12">
                             <label for="bpjs">Nomor BPJS</label>
@@ -96,8 +125,8 @@
                         </div>
 
                         <div class="col-lg-12">
-                            <button class="btn btn-primary col-lg-4" type="submit" name="pasien_submit">Daftar</button>
-                            <button class="btn btn-danger col-lg-4" style="float: right;" type="reset">Batal</button>
+                            <button class="btn btn-primary col-lg-3" type="submit" name="pasien_submit">Daftar</button>
+                            <button class="btn btn-danger col-lg-3" style="float: right;" type="reset">Batal</button>
                         </div>
                     </form>
                 </div>
