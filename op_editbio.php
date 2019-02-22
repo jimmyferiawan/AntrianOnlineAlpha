@@ -67,6 +67,7 @@ include "koneksi.php";
 		location='op_index.php';</script>";
 	}
   }
+  $tingkat_op = $_SESSION['id']['tingkat_op'];
 ?>
 
 
@@ -85,8 +86,10 @@ include "koneksi.php";
             <div class="collapse navbar-collapse navheader-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="op_index.php">Info Antrian</a></li>
-				<li><a href="op_requser.php">request operator baru</a></li>
-                <li class="active"><a href="op_editbio.php">pengaturan</a></li>              
+				<?php
+				if($tingkat_op==1){
+				echo '<li><a href="op_requser.php">request operator baru</a></li>';}?>
+				<li class="active"><a href="op_editbio.php">pengaturan</a></li>              
                 <li><a href="operator/logout.php">keluar</a></li>
             </ul>
             </div>

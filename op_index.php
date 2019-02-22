@@ -93,11 +93,13 @@ exit();
 	  $s = mysqli_query($conn, "INSERT INTO temp(id_user_temp, no_antrian,jam_ambil_antrian, tgl) values('$pid','$cnt','$jam','$tgl')");
       header("refresh: 0;");
   }
-   $id_op = $_SESSION["id"]["id_op"];
-   $sql_op = mysqli_query($conn, "select username_op from oprator where ID_op='$id_op'");
-   $list_op = mysqli_fetch_array($sql_op);
-   $user_op = $list_op[0];
-   $_SESSION["id"]["user_op"]=  $user_op; 
+	$id_op = $_SESSION["id"]["id_op"];
+	$sql_op = mysqli_query($conn, "select username_op, tingkat_op from oprator where ID_op='$id_op'");
+	$list_op = mysqli_fetch_array($sql_op);
+	$user_op = $list_op[0];
+	$tingkat_op = $list_op[1];
+	$_SESSION["id"]["user_op"] =  $user_op;
+	$_SESSION["id"]["tingkat_op"] =  $tingkat_op;
 ?>
 
 <nav class="navbar navbar-default" style="margin-bottom: 0px; ">
@@ -115,7 +117,9 @@ exit();
             <div class="collapse navbar-collapse navheader-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="">Info Antrian</a></li>
-				<li><a href="op_requser.php">request operator baru</a></li>
+				<?php
+				if($tingkat_op==1){
+				echo '<li><a href="op_requser.php">request operator baru</a></li>';}?>
                 <li><a href="op_editbio.php">pengaturan</a></li>               
                 <li><a href="operator/logout.php">keluar</a></li>
             </ul>

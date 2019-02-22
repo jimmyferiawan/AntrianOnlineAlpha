@@ -49,12 +49,16 @@
 include "koneksi.php";
 
   if(isset($_REQUEST['daftar'])){
+	  $oid = $_REQUEST['nik'];
 	  $user = $_REQUEST['username'];
+	  $nama = $_REQUEST['nama_lengkap'];
+	  $alamat = $_REQUEST['alamat'];
+	  $no_hp = $_REQUEST['no_hp'];
+	  $jk = $_REQUEST['jenis_kelamin'];
 	  $pass = $_REQUEST['password'];
-	  $pass_re = $_REQUEST['password_re'];
-	  $s = mysqli_query($conn, "SELECT * FROM oprator");
-	  $oid = mysqli_num_rows($s)+1;
-	  $sql = mysqli_query($conn, "INSERT INTO oprator VALUES('$oid','$user','$pass','2')");
+	  $lokasi = $_REQUEST['lokasi'];
+	  $sql = mysqli_query($conn, "INSERT INTO oprator VALUES('$oid','$user','$pass','2','$nama','$no_hp','$jk','$alamat','$lokasi','N')");
+	  echo "<script>location='op_index.php';</script>";
   }
 ?>
 <nav class="navbar navbar-default navbar-fixed-top" style="margin-bottom: 0px; ">
@@ -86,27 +90,27 @@ include "koneksi.php";
                     <form id="regist" action="op_requser.php" method="post">
                         <div class="form-group col-lg-6">
                             <label for="username">Username</label>
-                            <input type="text" name="username" id="username" class="form-control" placeholder="username">
+                            <input type="text" name="username" id="username" class="form-control" placeholder="username" required>
                         </div>
                         <div class="form-group col-lg-6">
-                            <label for="nama-lengkap">Nama Lengkap</label>
-                            <input type="text" name="nama-lengkap" id="nama-lengkap" class="form-control" placeholder="nama lengkap">
+                            <label for="nama_lengkap">Nama Lengkap</label>
+                            <input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control" placeholder="nama lengkap">
                         </div>
                         <div class="form-group col-lg-6">
                             <label for="nik">NIK</label>
-                            <input type="text" name="nik" id="nik" class="form-control" placeholder="nik">
+                            <input type="text" name="nik" id="nik" class="form-control" placeholder="nik" required>
                         </div>
                         <div class="form-group col-lg-6">
                             <label for="no_hp">Nomor Hp</label>
                             <input type="text" name="no_hp" id="no_hp" class="form-control">
                         </div>
                         <div class="form-group col-lg-12">
-                            <label for="no_hp">Jenis Kelamin</label>
+                            <label for="jenis_kelamin">Jenis Kelamin</label>
                             <div class="radio">
-                                <label><input type="radio" name="jenis_kelamin" checked>Laki-laki</label>
+                                <label><input type="radio" name="jenis_kelamin" value="L" checked>Laki-laki</label>
                             </div>
                             <div class="radio">
-                                <label><input type="radio" name="jenis_kelamin">Perempuan</label>
+                                <label><input type="radio" value="P" name="jenis_kelamin">Perempuan</label>
                             </div>
                         </div>
                         <div class="form-group col-lg-12">
@@ -115,15 +119,15 @@ include "koneksi.php";
                         </div> 
                         <div class="form-group col-xs-6">
                             <label for="password">Password</label>
-                            <input type="password" name="password" id="password" class="form-control" placeholder="password">
+                            <input type="password" name="password" id="password" class="form-control" placeholder="password" required>
                         </div>
                         <div class="form-group col-xs-6">
                             <label for="password_re">Konfirmasi Password</label>
-                            <input type="password" name="password_re" id="password_re" class="form-control" placeholder="ketik ulang password">
+                            <input type="password" name="password_re" id="password_re" class="form-control" placeholder="ketik ulang password" required>
                         </div>
                         <div class="form-group col-lg-12">
-                            <label for="bpjs">Tempat Bertugas</label>
-                            <input type="text" name="bpjs" id="bpjs" class="form-control">
+                            <label for="lokasi">Tempat Bertugas</label>
+                            <input type="text" name="lokasi" id="lokasi" class="form-control">
                         </div>
 
                         <div class="col-lg-12">
@@ -146,6 +150,10 @@ include "koneksi.php";
 			if (pass != pass_re) {		
 				alert('Password yang anda masukkan tidak sama !!');
 				return false;
+			}
+			else{
+				alert('Data berhasil disimpan');
+				
 			}
 		});
 	});
