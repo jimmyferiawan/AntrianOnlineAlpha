@@ -17,7 +17,7 @@
                                 <a href="#">Rumah Sakit <span class="fa arrow"></a>
                                     <ul class="nav nav-third-level">
                                     <li>
-                                        <a href="#">Tambah Data Rumahsakit  </a>
+                                        <a href="">Tambah Data Rumahsakit  </a>
                                     </li>
                                     <li>
                                         <a href="#">Edit Data Rumahsakit </a>
@@ -33,13 +33,13 @@
                                 <a href="#">Pukesmas <span class="fa arrow"></a>
                                     <ul class="nav nav-third-level">
                                     <li>
-                                        <a href="#">Tambah Data Pukesmas</a>
+                                        <a href="puskesmas/user_regist_puskesmas.php">Tambah Data Pukesmas</a>
                                     </li>
                                     <li>
-                                        <a href="#">Edit Data Pukesmas</a>
+                                        <a href="puskesmas/user_editbio_puskesmas.php">Edit Data Pukesmas</a>
                                     </li>
                                     <li>
-                                        <a href="#">Hapus Data Pukesmas</a>
+                                        <a href="puskesmas/user_hapus_puskesmas.php">Hapus Data Pukesmas</a>
                                     </li>
 
                                 </ul>
