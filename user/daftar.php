@@ -25,7 +25,7 @@
         } else {
             echo "<script>
                 alert('berhasil klik ok untuk menuju halaman login');
-                window.location.replace('/login.php');
+                window.location.replace('/AntrianOnlineAlpha/login.php');
             </script>";
         }
         

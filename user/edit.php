@@ -49,14 +49,14 @@
             exit;
         }
     ?>
-    <span>Berhasil update data! Menuju halaman <a href="/user_antrian.php">antrian</a> dalam <label id="countdown"></label></span>
+    <span>Berhasil update data! Menuju halaman <a href="../user_antrian.php">antrian</a> dalam <label id="countdown"></label></span>
     <script>
         var detik = 5;
         function countdown() {
             detik = detik - 1;
 
             if (detik <= 0) {
-                window.location = '/user_antrian.php'
+                window.location = '/AntrianOnlineAlpha/user_antrian.php'
             } else {
                 document.getElementById('countdown').innerHTML = detik;
                 setTimeout("countdown()", 1000);

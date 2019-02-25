@@ -104,7 +104,7 @@
         <div class="row">
             <div>   
                 <div id="profile">
-                    <form action="user/edit.php" method="post" enctype="multipart/form-data">
+                    <form action="/AntrianOnlineAlpha/user/edit.php" method="post" enctype="multipart/form-data">
                         <div class="form-group col-lg-12">
                             <label for="user-profile">Foto</label>
                             <input type="file" name="user_profile" id="user-profile" class="form-control col-lg-4" placeholder="user1" <?= $disable_input ?>>
