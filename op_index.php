@@ -102,7 +102,7 @@ exit();
 	$_SESSION["id"]["tingkat_op"] =  $tingkat_op;
 ?>
 
-<nav class="navbar navbar-default" style="margin-bottom: 0px; ">
+<!-- <nav class="navbar navbar-default" style="margin-bottom: 0px; ">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="">
@@ -125,7 +125,10 @@ exit();
             </ul>
             </div>
         </div>
-    </nav>	
+    </nav>	 -->
+    <?php include 'navbar.php'; ?>
+
+    
 
 <div class="container">
 	<h1 class="text-center"><b>INFO ANTRIAN <h3><?php include 'operator/Jamserver.php'; ?></h3></h1>
