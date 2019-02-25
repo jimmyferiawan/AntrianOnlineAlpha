@@ -22,7 +22,7 @@
 					<?php endif ?> -->
 
 
-                <!-- <li class="<?= $btn_antri_disabled ?>"><a href="user/logout.php" >keluar</a></li> -->
+	                <!-- <li class="<?= $btn_antri_disabled ?>"><a href="user/logout.php" >keluar</a></li> -->
 
 					<li class="dropdown">
 		          	<a href="#" class="dropdown-toggle" style="text-transform: capitalize;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['u']; ?> <span class="caret"></span></a>
