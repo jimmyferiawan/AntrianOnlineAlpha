@@ -13,6 +13,11 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="">Ambil Antrian</a></li>
                 <li class="<?= $btn_antri_disabled ?>"><a href="user_editbio.php" >pengaturan</a></li>
+                	<?php if (isset($_SESSION['u'])): ?>
+					<li style="text-transform: capitalize;"><a href="profil.php"><span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['u']; ?></a></li>
+					
+					<?php else: ?>
+					<?php endif ?>
                 <li class="<?= $btn_antri_disabled ?>"><a href="user/logout.php" >keluar</a></li>
             </ul>
             </div>
