@@ -3,6 +3,8 @@
     - bootstrap butuh jquery agar manipulasi seperti dropdown bisa bekerja
     - berasumsi bahwa file css dan js ada di root server
  -->
+<?php include 'navbar.php'; ?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -61,8 +63,27 @@ include "koneksi.php";
 	  echo "<script>location='op_index.php';</script>";
   }
 ?>
+<!-- <nav class="navbar navbar-default navbar-fixed-top" style="margin-bottom: 0px; ">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="">
+                    LOGO
+                </a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navheader-collapse" aria-expanded="false">
+                    <span class="glyphicon glyphicon-menu-hamburger"></span>
+                </button>
 
-<?php include 'navbar.php'; ?>
+            </div>
+            <div class="collapse navbar-collapse navheader-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="op_index.php">Info Antrian</a></li>
+				<li  class="active"><a href="">request operator baru</a></li>
+                <li><a href="op_editbio.php">pengaturan</a></li>               
+                <li><a href="operator/logout.php">keluar</a></li>
+            </ul>
+            </div>
+        </div>
+    </nav>   -->
 
     <div class="container">
         <div class="row">
