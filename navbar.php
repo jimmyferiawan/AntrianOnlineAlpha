@@ -41,7 +41,7 @@
 				<?php
 				if($tingkat_op==1){
 				echo '<li><a href="op_requser.php">request operator baru</a></li>';}?>
-				<li class="active"><a href="">Info Antrian</a></li>
+				<li class="active"><a href="op_index.php">Info Antrian</a></li>
                 <!-- <li><a href="op_editbio.php">pengaturan</a></li>               
                 <li><a href="operator/logout.php">keluar</a></li> -->
                 <li class="dropdown">
