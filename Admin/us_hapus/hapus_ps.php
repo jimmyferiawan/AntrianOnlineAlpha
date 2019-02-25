@@ -50,74 +50,74 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#form-login" aria-expanded="false">Login</button>
 
             </div>
- <?php include 'proses/back.php'; ?>
+ <?php include 'proses_us/back.php'; ?>
         </div>
     </nav>
     <div class="container">
         <div class="row">
            <?php
 
- $sql = " SELECT ID_pukesmas, nama_pukesmas , alamat_pukesmas , pemilik_pukesmas FROM pukesmas ";
+ $sql = " SELECT ID_pasien, username_pasien  , alamat_pasien  ,   no_bpjs_pasien  FROM pasien ";
 
         $hasil = $conn->query($sql);
 
         if(!$hasil) {
             if($conn->errno == 1062) {
                 // 1062 error kode duplicate primary key
-                echo "<h1>ID Puskesmas sudah ada sudah digunakan</h1>";
+                echo "<h1>ID Pasien sudah ada sudah digunakan</h1>";
             } else {
                 echo "Maaf terjadi kesalahan ". $conn->error; // fungsi debug 
            
             }
         } else {
             echo '<table class="table table-bordered table-hover text-center" >
-        <thead>
-            <tr>
-                <th>NO</th>
-                <th >ID Puskesmas</th>
-                <th>Nama Puskesmas</th>
-                <th>Alamat Puskesmas</th>
-                <th>Pemilik puskesmas</th>
-                <th>Aksi</th>
+		<thead>
+			<tr>
+				<th>NO</th>
+				<th >ID Pasien</th>
+				<th>Nama pasien</th>
+				<th>Alamat pasien</th>
+				<th>No bpjs</th>
+				<th>Aksi</th>
 
-            </tr>
-        </thead>
-        <tbody>';
-        
+			</tr>
+		</thead>
+		<tbody>';
+		
 
 if ($hasil ->num_rows >=0){
-        $no=1;
-        while($row = $hasil->fetch_assoc()){
-            echo "
-            <td align='right'>".$no."</td>
-            <td>".$row["ID_pukesmas"]."</td>
-            <td align='left'>".$row["nama_pukesmas"]."</td>
-            <td>".$row["alamat_pukesmas"]."</td>
-            <td>".$row["pemilik_pukesmas"]."</td>
-            <td><form method='post' action='proses/edit.php'>
-                    <input type='submit' name='hapus' value='Edit'>
-                    <input type='hidden' name='npm' value='".$row["ID_pukesmas"]."'>
-                </form>
-                
-            </td></tr>"
-            ;
-            $no++;
-        }
-    }
-    echo "</table>";
+		$no=1;
+		while($row = $hasil->fetch_assoc()){
+			echo "
+			<td align='right'>".$no."</td>
+			<td>".$row["ID_pasien"]."</td>
+			<td align='left'>".$row["username_pasien"]."</td>
+			<td>".$row["alamat_pasien"]."</td>
+			<td>".$row["no_bpjs_pasien"]."</td>
+			<td><form method='post' action='proses_us/delete.php'>
+					<input type='submit' name='hapus' value='Hapus'>
+					<input type='hidden' name='npm' value='".$row["ID_pasien"]."'>
+				</form>
+				
+			</td></tr>"
+			;
+			$no++;
+		}
+	}
+	echo "</table>";
 
-//  echo '<tr>
-//          <td>'.$row[0].'</td>
-//          <td>'.$row[1].'</td>
-//          <td>'.$row[2].'</td>
-//          <td class="right">'.$row[3].'</td>
-//          <td>
-//          <button class="btn btn-primary col-md-12" type="submit" name="pasien_submit">Hapus</button>
-//          </td>
-//      </tr>';
+// 	echo '<tr>
+// 			<td>'.$row[0].'</td>
+// 			<td>'.$row[1].'</td>
+// 			<td>'.$row[2].'</td>
+// 			<td class="right">'.$row[3].'</td>
+// 			<td>
+// 			<button class="btn btn-primary col-md-12" type="submit" name="pasien_submit">Hapus</button>
+// 			</td>
+// 		</tr>';
 // }
 // echo '
-//  </tbody>
+// 	</tbody>
 // </table>';
 
 

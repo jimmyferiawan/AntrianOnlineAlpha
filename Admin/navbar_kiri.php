@@ -84,7 +84,7 @@
                         <a  href="ui.php"><i class="fa fa-desktop fa-3x"></i>New Validation</a>
                     </li>
                     <li>
-                        <a  href="tab-panel.php"><i class="fa fa-qrcode fa-3x"></i> User Control </a>
+                        <a  href="user_control.php"><i class="fa fa-qrcode fa-3x"></i> User Control </a>
                     </li>
 						   <li  >
                         <a  href="chart.php"><i class="fa fa-bar-chart-o fa-3x"></i> Traffic Static </a>

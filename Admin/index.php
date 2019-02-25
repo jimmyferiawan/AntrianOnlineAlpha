@@ -32,14 +32,14 @@ exit();
 					
                    <?php include 'navbar_kiri.php'; ?>
 					                   
-                 
+               
          
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Admin Dashboard</h2>   
+                     <h2>Admin Dashboard </h2>   
                         <h5>Welcome Jhon Deo , Love to see you back. </h5>
                     </div>
                 </div>              
