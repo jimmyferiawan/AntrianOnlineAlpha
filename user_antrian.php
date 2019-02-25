@@ -1,9 +1,17 @@
-<?php 
+<!-- <?php 
     session_start();
     $is_login = isset($_SESSION['u']);
     // echo isset($_SESSION['u_nama']). "asfasf";
     $btn_antri_disabled = $is_login ? "" : "disabled";
-?>
+?> -->
+
+<?php if (!isset( $_SESSION['u'])) 
+ {
+echo "<script> alret('LOGIN FIRST');</script>";
+echo "<script> location='login.php';</script>";
+header('location:login.php');
+exit();
+ } ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
