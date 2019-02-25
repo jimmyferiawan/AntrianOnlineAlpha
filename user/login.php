@@ -28,7 +28,7 @@
             $_SESSION['u_id_pasien'] = $data['ID_pasien'];
             $_SESSION['u_username'] = $data['username_pasien'];
             $_SESSION['u_nama'] = $data['nama_pasien'];
-            header("Location: /user_antrian.php");
+            header("Location: /AntrianOnlineAlpha/user_antrian.php");
 
         } else {
             echo "<h1>username atau password salah</h1>";

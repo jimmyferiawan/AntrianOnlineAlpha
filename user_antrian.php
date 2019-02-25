@@ -1,6 +1,7 @@
 <?php 
     session_start();
-    $is_login = isset($_SESSION['u']) ? true : false;
+    $is_login = isset($_SESSION['u']);
+    // echo isset($_SESSION['u_nama']). "asfasf";
     $btn_antri_disabled = $is_login ? "" : "disabled";
 ?>
 <!DOCTYPE html>
@@ -130,7 +131,7 @@
             formData.set('id', this.value);
             var idLokasi = this.value;
 
-            axios.get('/user/pilih-tempat.php', {
+            axios.get('/AntrianOnlineAlpha/user/pilih-tempat.php', {
                     params: {
                         id: idLokasi
                     }

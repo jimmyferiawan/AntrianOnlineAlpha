@@ -81,7 +81,7 @@
         <div class="row">
             <div>   
                 <div id="profile">
-                    <form action="user/daftar.php" method="post">
+                    <form action="/AntrianOnlineAlpha/user/daftar.php" method="post">
                         <div class="form-group col-lg-6">
                             <label for="username">Username</label>
                             <input type="text" name="username" id="username" class="form-control">
