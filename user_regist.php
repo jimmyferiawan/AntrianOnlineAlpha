@@ -64,13 +64,19 @@
         input[type=radio] {
             background-color: #36d7b7;
         }
+
+        .commentform {
+            font-weight: lighter;
+            padding-top: 7px;
+            position: absolute;
+        }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="user_antrian.php">
+                <a class="navbar-brand" href="login.php">
                     Logo
                 </a>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#form-login" aria-expanded="false">Login</button>
@@ -90,15 +96,15 @@
                             <label for="nama_lengkap">Nama Lengkap</label>
                             <input type="text" name="nama_lengkap" id="nama-lengkap" class="form-control">
                         </div>
-                        <div class="form-group col-xs-6">
+                        <div class="form-group col-sm-12 col-md-6 col-lg-6">
                             <label for="password">Password</label>
                             <input type="password" name="password" id="password" class="form-control">
                         </div>
-                        <div class="form-group col-xs-6">
+                        <div class="form-group col-sm-12 col-md-6 col-lg-6">
                             <label for="password_re">Konfirmasi Password</label>
                             <input type="password" name="password_re" id="password_re" class="form-control">
                         </div>
-                        <div class="form-group col-lg-12">
+                        <div class="form-group col-sm-12 col-md-12 col-lg-12">
                             <label>Jenis Kelamin</label>
                             <div class="radio">
                                 <label><input type="radio" name="jenis_kelamin" value="L" checked>Laki-laki</label>
