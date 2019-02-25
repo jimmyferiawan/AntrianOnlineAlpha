@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	if(isset($_SESSION['u'])) {
-		header('Loation: user_antrian.php');
+		header('Location: /AntrianOnlineAlpha/user_antrian.php');
 	}
 ?>
 <!DOCTYPE html>
@@ -57,7 +57,7 @@
 				<h6 style="z-index: 1; position: relative;" class="text-center"><a href="user_regist.php" style="color: white;"><u>Daftar</u></a></h6>
 			</div>
 			<div class="box col-sm-12 col-lg-3 col-lg-offset-0">
-				<form action="user/login.php" method="POST">
+				<form action="/AntrianOnlineAlpha/user/login.php" method="POST">
 					<img class="img-responsiv center-block" src="img/logo.png" width="100px">
 					<div class="form-group">
 					<input type="text" name="username_pasien" class="form-control" placeholder="username">
