@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Feb 2019 pada 04.00
--- Versi server: 10.1.36-MariaDB
--- Versi PHP: 7.1.22
+-- Generation Time: 25 Feb 2019 pada 07.00
+-- Versi Server: 10.1.21-MariaDB
+-- PHP Version: 7.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -38,10 +36,7 @@ CREATE TABLE `antri` (
 --
 
 INSERT INTO `antri` (`lokasi`, `now`) VALUES
-('A001', 15),
-('A002', 12),
-('A001', 15),
-('A002', 12);
+('A003', 2);
 
 -- --------------------------------------------------------
 
@@ -105,15 +100,16 @@ CREATE TABLE `klinik` (
   `pemilik_klinik` varchar(200) NOT NULL,
   `no_op_klinik` varchar(50) NOT NULL,
   `no_telp_klinik` varchar(20) NOT NULL,
-  `cuti_klinik` varchar(100) NOT NULL
+  `cuti_klinik` varchar(100) NOT NULL,
+  `antrian` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `klinik`
 --
 
-INSERT INTO `klinik` (`ID_klinik`, `nama_klinik`, `alamat_klinik`, `jambuka_klinik`, `jamtutup_klinik`, `pemilik_klinik`, `no_op_klinik`, `no_telp_klinik`, `cuti_klinik`) VALUES
-('B001', 'budi dama', 'disini', '0200', '0600', 'andi', '0248', '05484', '');
+INSERT INTO `klinik` (`ID_klinik`, `nama_klinik`, `alamat_klinik`, `jambuka_klinik`, `jamtutup_klinik`, `pemilik_klinik`, `no_op_klinik`, `no_telp_klinik`, `cuti_klinik`, `antrian`) VALUES
+('B001', 'budi dama', 'disini', '0200', '0600', 'andi', '0248', '05484', '', '');
 
 -- --------------------------------------------------------
 
@@ -134,19 +130,26 @@ CREATE TABLE `nimda` (
 --
 
 CREATE TABLE `oprator` (
-  `ID_op` varchar(5) NOT NULL,
+  `ID_op` varchar(16) NOT NULL,
   `username_op` varchar(30) NOT NULL,
   `password_op` varchar(30) NOT NULL,
-  `tingkat_op` varchar(2) NOT NULL
+  `tingkat_op` varchar(2) NOT NULL,
+  `nama_op` varchar(30) NOT NULL,
+  `no_op` varchar(14) NOT NULL,
+  `jk_op` varchar(1) NOT NULL,
+  `alamat_op` varchar(50) NOT NULL,
+  `lokasi_op` varchar(50) NOT NULL,
+  `status_op` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `oprator`
 --
 
-INSERT INTO `oprator` (`ID_op`, `username_op`, `password_op`, `tingkat_op`) VALUES
-('1', 'admin', 'admin', '1'),
-('2', 'admin2', 'admin2', '2');
+INSERT INTO `oprator` (`ID_op`, `username_op`, `password_op`, `tingkat_op`, `nama_op`, `no_op`, `jk_op`, `alamat_op`, `lokasi_op`, `status_op`) VALUES
+('1', 'admin', 'admin', '1', '', '', '', '', '', ''),
+('2', 'admin2', 'admin3', '2', '', '', '', '', '', ''),
+('3', 'yuto', '123', '2', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -171,7 +174,12 @@ CREATE TABLE `pasien` (
 --
 
 INSERT INTO `pasien` (`ID_pasien`, `username_pasien`, `password_pasien`, `nama_pasien`, `jenis_kelamin_pasien`, `alamat_pasien`, `no_hp_pasien`, `foto_profil_pasien`, `no_bpjs_pasien`) VALUES
-('P000001', 'pasien', 'pasien', 'Andi Noob', 'L', 'disini', '0854788451', '', '157448584');
+('P000001', 'pasien', 'pasien', 'Andi Noob', 'L', 'disini', '0854788451', '', '157448584'),
+('P000002', 'aladyne', '', '', '', '', '', '', NULL),
+('P000003', 'afelin', '', '', '', '', '', '', NULL),
+('P000004', 'lijn', '', '', '', '', '', '', NULL),
+('P000005', 'khgjfd', '', '', '', '', '', '', NULL),
+('P000006', 'karra', '', '', '', '', '', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -188,15 +196,16 @@ CREATE TABLE `pukesmas` (
   `pemilik_pukesmas` varchar(200) NOT NULL,
   `no_op_pukesmas` varchar(50) NOT NULL,
   `no_telp_pukesmas` varchar(20) NOT NULL,
-  `cuti_pukesmas` varchar(100) NOT NULL
+  `cuti_pukesmas` varchar(100) NOT NULL,
+  `antrian` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `pukesmas`
 --
 
-INSERT INTO `pukesmas` (`ID_pukesmas`, `nama_pukesmas`, `alamat_pukesmas`, `jambuka_pukesmas`, `jamtutup_pukesmas`, `pemilik_pukesmas`, `no_op_pukesmas`, `no_telp_pukesmas`, `cuti_pukesmas`) VALUES
-('A001', 'Dinas Kesehatan kediri', 'disini', '0500', '0500', 'bagas', '0263', '56959596', '');
+INSERT INTO `pukesmas` (`ID_pukesmas`, `nama_pukesmas`, `alamat_pukesmas`, `jambuka_pukesmas`, `jamtutup_pukesmas`, `pemilik_pukesmas`, `no_op_pukesmas`, `no_telp_pukesmas`, `cuti_pukesmas`, `antrian`) VALUES
+('A001', 'Dinas Kesehatan kediri', 'disini', '0500', '0500', 'bagas', '0263', '56959596', '', '');
 
 -- --------------------------------------------------------
 
@@ -213,15 +222,16 @@ CREATE TABLE `rumahsakit` (
   `pemilik_rumahsakit` varchar(200) NOT NULL,
   `no_op_rumahsakit` varchar(50) NOT NULL,
   `no_telp_rumahsakit` varchar(20) NOT NULL,
-  `cuti_rumahsakit` varchar(100) NOT NULL
+  `cuti_rumahsakit` varchar(100) NOT NULL,
+  `antrian` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `rumahsakit`
 --
 
-INSERT INTO `rumahsakit` (`ID_rumahsakit`, `nama_rumahsakit`, `alamat_rumahsakit`, `jambuka_rumahsakit`, `jamtutup_rumahsakit`, `pemilik_rumahsakit`, `no_op_rumahsakit`, `no_telp_rumahsakit`, `cuti_rumahsakit`) VALUES
-('C001', 'Al kemaruk', 'disnin', '0360', '0400', 'bagas', '054884', '456885', '');
+INSERT INTO `rumahsakit` (`ID_rumahsakit`, `nama_rumahsakit`, `alamat_rumahsakit`, `jambuka_rumahsakit`, `jamtutup_rumahsakit`, `pemilik_rumahsakit`, `no_op_rumahsakit`, `no_telp_rumahsakit`, `cuti_rumahsakit`, `antrian`) VALUES
+('C001', 'Al kemaruk', 'disnin', '0360', '0400', 'bagas', '054884', '456885', '', '');
 
 -- --------------------------------------------------------
 
@@ -231,10 +241,36 @@ INSERT INTO `rumahsakit` (`ID_rumahsakit`, `nama_rumahsakit`, `alamat_rumahsakit
 
 CREATE TABLE `temp` (
   `id_user_temp` varchar(10) NOT NULL,
-  `no_antrian` varchar(30) NOT NULL,
-  `jam_ambil_antrian` varchar(30) NOT NULL,
-  `lokasi` varchar(200) NOT NULL,
-  `tgl` varchar(50) NOT NULL,
+  `no_antrian` varchar(5) NOT NULL,
+  `jam_ambil_antrian` varchar(10) NOT NULL,
+  `lokasi` varchar(80) NOT NULL,
+  `tgl` varchar(10) NOT NULL,
+  `id_oprator_temp` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `temp`
+--
+
+INSERT INTO `temp` (`id_user_temp`, `no_antrian`, `jam_ambil_antrian`, `lokasi`, `tgl`, `id_oprator_temp`) VALUES
+('P000002', '1', '04:54:32', '', '20-02-19', ''),
+('P000003', '2', '04:54:37', '', '20-02-19', ''),
+('P000004', '3', '04:54:43', '', '20-02-19', ''),
+('P000005', '4', '05:03:09', '', '21-02-19', ''),
+('P000006', '5', '03:30:18', '', '22-02-19', '');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tempbesok`
+--
+
+CREATE TABLE `tempbesok` (
+  `id_user_temp` varchar(10) NOT NULL,
+  `no_antrian` varchar(5) NOT NULL,
+  `jam_ambil_antrian` varchar(10) NOT NULL,
+  `lokasi` varchar(80) NOT NULL,
+  `tgl` varchar(10) NOT NULL,
   `id_oprator_temp` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -243,59 +279,64 @@ CREATE TABLE `temp` (
 --
 
 --
--- Indeks untuk tabel `dokter`
+-- Indexes for table `dokter`
 --
 ALTER TABLE `dokter`
   ADD PRIMARY KEY (`ID_dk`);
 
 --
--- Indeks untuk tabel `dokterumum`
+-- Indexes for table `dokterumum`
 --
 ALTER TABLE `dokterumum`
   ADD PRIMARY KEY (`ID_dokterumum`);
 
 --
--- Indeks untuk tabel `klinik`
+-- Indexes for table `klinik`
 --
 ALTER TABLE `klinik`
   ADD PRIMARY KEY (`ID_klinik`);
 
 --
--- Indeks untuk tabel `nimda`
+-- Indexes for table `nimda`
 --
 ALTER TABLE `nimda`
   ADD PRIMARY KEY (`ID_nimda`);
 
 --
--- Indeks untuk tabel `oprator`
+-- Indexes for table `oprator`
 --
 ALTER TABLE `oprator`
   ADD PRIMARY KEY (`ID_op`);
 
 --
--- Indeks untuk tabel `pasien`
+-- Indexes for table `pasien`
 --
 ALTER TABLE `pasien`
   ADD PRIMARY KEY (`ID_pasien`);
 
 --
--- Indeks untuk tabel `pukesmas`
+-- Indexes for table `pukesmas`
 --
 ALTER TABLE `pukesmas`
   ADD PRIMARY KEY (`ID_pukesmas`);
 
 --
--- Indeks untuk tabel `rumahsakit`
+-- Indexes for table `rumahsakit`
 --
 ALTER TABLE `rumahsakit`
   ADD PRIMARY KEY (`ID_rumahsakit`);
 
 --
--- Indeks untuk tabel `temp`
+-- Indexes for table `temp`
 --
 ALTER TABLE `temp`
   ADD PRIMARY KEY (`id_user_temp`);
-COMMIT;
+
+--
+-- Indexes for table `tempbesok`
+--
+ALTER TABLE `tempbesok`
+  ADD PRIMARY KEY (`id_user_temp`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
