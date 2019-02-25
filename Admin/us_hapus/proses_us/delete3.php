@@ -7,7 +7,7 @@ $hapus = $conn->query($sql);
 if($hapus)
 	 echo "<script>
                 alert('hapus  Data Berhasil');
-                window.location.replace('../../nav_usercontrol.php');
+                window.location.replace('../../index.php');
             </script>";
 else echo "gagal";
 ?>

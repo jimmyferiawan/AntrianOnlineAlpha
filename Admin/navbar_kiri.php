@@ -81,7 +81,7 @@
                       </li>
                       <!-- End option   -->
                       <li>
-                        <a  href="ui.php"><i class="fa fa-desktop fa-3x"></i>New Validation</a>
+                        <a  href="validation_op.php"><i class="fa fa-desktop fa-3x"></i>New Validation</a>
                     </li>
                     <li>
                         <a  href="user_control.php"><i class="fa fa-qrcode fa-3x"></i> User Control </a>

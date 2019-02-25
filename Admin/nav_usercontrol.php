@@ -22,13 +22,13 @@
                 <div class="col-md-4 col-sm-4">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                           Opreator
+                           Opreator Valid
                         </div>
                         <div class="panel-body">
                            <h1><?php echo $_SESSION['ct_oprator']  ?> </h1>
                         </div>
                         <div class="panel-footer">
-                            Panel Footer
+                            <a href="us_hapus/hapus_op.php">Show Data</a>
                         </div>
                     </div>
                 </div>
