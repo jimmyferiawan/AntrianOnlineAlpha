@@ -10,6 +10,8 @@ $num6='0';
 $num7='0';
 $num8='0';
 $num9='0';
+$num11='0';
+$num12='0';
 
 $ambil1=$conn->query("SELECT * FROM pasien  ");
 $ambil2=$conn->query("SELECT * FROM dokter  ");
@@ -20,6 +22,9 @@ $ambil6=$conn->query("SELECT * FROM klinik  ");
 $ambil7=$conn->query("SELECT * FROM rumahsakit  ");
 $ambil8=$conn->query("SELECT * FROM oprator where status_op =2  ");
 $ambil9=$conn->query("SELECT * FROM oprator where status_op =1  ");
+$ambil11=$conn->query("SELECT * FROM temp  ");
+$ambil12=$conn->query("SELECT * FROM tempbesok  ");
+
 
 	  WHILE ($unit1 =$ambil1->fetch_assoc()){ 
 
@@ -48,6 +53,12 @@ $ambil9=$conn->query("SELECT * FROM oprator where status_op =1  ");
      WHILE ($unit9 =$ambil9->fetch_assoc()){ 
 
      $num9++; }
+     WHILE ($unit11 =$ambil11->fetch_assoc()){ 
+
+     $num11++; }
+      WHILE ($unit12 =$ambil12->fetch_assoc()){ 
+
+     $num12++; }
 
 
 $_SESSION['ct_pasien'] =  $num1;
@@ -59,10 +70,12 @@ $_SESSION['ct_klinik'] =  $num6;
 $_SESSION['ct_rumahsakit'] =  $num7;
 $_SESSION['ct_op_not'] =  $num8;
 $_SESSION['ct_op_yes'] =  $num9;
+$_SESSION['ct_not_temp'] =  $num11;
+$_SESSION['ct_not_tempbsk'] = $num12;
 
 
-
-
+$num10= $num4+$num5+$num6+$num7;
+$_SESSION['ct_cp_total'] =  $num10;
 
 
  ?>

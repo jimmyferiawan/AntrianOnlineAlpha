@@ -62,7 +62,7 @@ include "koneksi.php";
 	  $jk = $_REQUEST['jenis_kelamin'];
 	  $pass = $_REQUEST['password'];
 	  $lokasi = $_REQUEST['lokasi'];
-	  $sql = mysqli_query($conn, "INSERT INTO oprator VALUES('$oid','$user','$pass','2','$nama','$no_hp','$jk','$alamat','$lokasi','N')");
+	  $sql = mysqli_query($conn, "INSERT INTO oprator VALUES('$oid','$user','$pass','2','$nama','$no_hp','$jk','$alamat','$lokasi','2')");
 	  echo "<script>location='op_index.php';</script>";
   }
 ?>

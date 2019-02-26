@@ -2,9 +2,10 @@
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
                 <li class="text-center">
+                      <?php include 'Proses/jam.php'; ?>
                     <img src="../img/bg.jpg" class="user-image img-responsive"/>
                     </li>
-
+                  
                     <li>
                         <a  href="index.php"><i class="fa fa-dashboard fa-3x"></i>New Notifications </a>
                     </li>
@@ -86,16 +87,18 @@
                     <li>
                         <a  href="user_control.php"><i class="fa fa-qrcode fa-3x"></i> User Control </a>
                     </li>
-						   <li  >
+                     <!-- dimatikan karena tidak ada fungsi      -->
+						  <!--  <li  >
                         <a  href="chart.php"><i class="fa fa-bar-chart-o fa-3x"></i> Traffic Static </a>
-                    </li>	
-                      <li  >
+                    </li> -->
+                   
+                     <!--  <li  >
                         <a  href="table.php"><i class="fa fa-table fa-3x"></i> Data Puksemas</a>
                     </li>
                     <li  >
                         <a  href="form.php"><i class="fa fa-edit fa-3x"></i> Forms </a>
-                    </li>				
-						
+                    </li>		 -->		
+						<!-- sampai ini  -->
                  
                   <li  >
                      
