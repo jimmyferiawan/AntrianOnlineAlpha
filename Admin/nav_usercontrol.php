@@ -25,7 +25,7 @@
                            Opreator Valid
                         </div>
                         <div class="panel-body">
-                           <h1><?php echo $_SESSION['ct_oprator']  ?> </h1>
+                           <h1><?php echo $_SESSION['ct_op_yes'] ?> </h1>
                         </div>
                         <div class="panel-footer">
                             <a href="us_hapus/hapus_op.php">Show Data</a>

@@ -29,12 +29,12 @@
             while($row = $hasil->fetch_assoc()) {
                 $data = $row;
                    $_SESSION["st"]["up"] = $data['status_op'];
-              if ($_SESSION["st"]["up"]==2) {
+          //     if ($_SESSION["st"]["up"]==2) {
             
-          }else{
+          // }else{
           
 
-          }
+          
         }
 
 
