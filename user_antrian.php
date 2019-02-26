@@ -109,10 +109,10 @@ exit();
                         <h5 class="panel-title">Nomor antrian sekarang</h5>
                     </div>
                     <div class="panel-body">
-                        <h1 style="font-weight: 30px; font-size: 200px; padding-top: 0px; margin-top: 0px; text-shadow: 1px 1px 5px; ">17</h1>
+                        <h1 style="font-weight: 30px; font-size: 200px; padding-top: 0px; margin-top: 0px; text-shadow: 1px 1px 5px; " id="nomor-antrian">0</h1>
                         <a href="output_antrian.php"><button class="btn btn-primary <?= $btn_antri_disabled ?>">Ambil Antrian</button></a>
-                        <button type="button" class="btn btn-default btn-md">
-                        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                        <button type="button" class="btn btn-default btn-md" id="refresh-antrian">
+                            <span class="glyphicon glyphicon-refresh" aria-hidden="true" ></span>
                         </button>
                     </div>
                 </div>
@@ -126,35 +126,84 @@ exit();
     <script>
         var jenisTempat = document.getElementById('jenis-tempat');
         var daftarNama = document.getElementById('daftar-nama');
-        var formData = new FormData();
+        var nomorAntrian = document.getElementById('nomor-antrian');
+        var btnRefreshAntrian = document.getElementById('refresh-antrian');
 
-        function updateDaftarnama(listNamaTempat) {
+        function updateDaftarnama(listNamaTempat, idJenisTempat) {
+            // update daftar instansi ketika jenis tempat diubah
             daftarNama.options.length = 0;
             var defaultOption = '<option selected disabled>Nama Tempat</option>';
             daftarNama.innerHTML = defaultOption;
+            daftarNama.setAttribute('data-id-tempat', idJenisTempat);
             
             for(var i of listNamaTempat) {
-                daftarNama.add(new Option(i.nama, i.id));
+                var select = new Option(i.nama, i.id_instansi);
+                // select.setAttribute('data-id-tempat' ,idJenisTempat);
+                daftarNama.add(select);
             }
         }
+
+        function getAntrianSekarang(idInstansi, idTempat) {
+            // mendapatkan antrian sekarang per instansi
+            axios.get('/AntrianOnlineAlpha/user/pilih-tempat.php', {
+                params: {
+                    id_instansi: idInstansi,
+                    id_jenis_tempat: idTempat
+                }
+            })
+            .then(function(response) {
+                console.log(response.data);
+                updateAntrian(response.data);
+            })
+            .catch(function(error) {
+                console.log("error getAntrianSekarang(idInstansi, idTempat): " + error)
+            });
+        }
+
+        function updateAntrian(nomorAntrianSekarang) {
+            // ganti angka nomor antrian
+            nomorAntrian.innerText = nomorAntrianSekarang;
+        }
+        
+        function refreshAntrian() {
+            // tombol refresh
+            if (daftarNama.hasAttribute('data-id-tempat')) {
+                var idInstansi = daftarNama.value;
+                var idTempat = daftarNama.getAttribute('data-id-tempat');
+
+                getAntrianSekarang(idInstansi, idTempat);
+            }
+        }
+
+        // pilih jenis tempat berobat
         jenisTempat.addEventListener('change', function() {
-            
-            formData.set('id', this.value);
             var idLokasi = this.value;
 
             axios.get('/AntrianOnlineAlpha/user/pilih-tempat.php', {
                     params: {
-                        id: idLokasi
+                        id_tempat: idLokasi
                     }
                 })
                 .then(function(response) {
-                    updateDaftarnama(response.data);
+                    updateDaftarnama(response.data, idLokasi);
                 })
                 .catch(function(error) {
                     // TODO: lakukan sesuatu ketika error ambil data
                     // contoh: tampil alert error atau modal dialog error
                 });
-        })
+        });
+
+        daftarNama.addEventListener('change', function() {
+            if (this.hasAttribute("data-id-tempat")) {
+                var idTempat = this.getAttribute('data-id-tempat');
+                var idInstansi = this.value;
+
+                getAntrianSekarang(this.value, idTempat);
+            }
+            
+        });
+
+        btnRefreshAntrian.addEventListener('click', refreshAntrian);
     </script>
 </body>
 </html>
