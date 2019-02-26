@@ -39,7 +39,7 @@
             <ul class="nav navbar-nav navbar-right">
                
 				<?php
-				if($tingkat_op==1){
+				if($_SESSION["id"]["tingkat_op"]==1){
 				echo '<li><a href="op_requser.php">request operator baru</a></li>';}?>
 				<li class="active"><a href="op_index.php">Info Antrian</a></li>
                 <!-- <li><a href="op_editbio.php">pengaturan</a></li>               
