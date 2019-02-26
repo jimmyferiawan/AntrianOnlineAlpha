@@ -132,7 +132,7 @@ exit();
 
 </div>
 
-<div class="container" style="margin-top: 20px;">
+<div class="container" style="margin-top: 90px;">
 	<div class="row">
 		<div class="col-lg-6">
 			<div class="jumbotron" style="border-radius: 3px; border: none; background-color: #71EEB8; margin-bottom: 1px; margin-top: 40px;">
