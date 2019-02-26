@@ -1,4 +1,5 @@
-<!-- 
+<?php include '../../koneksi.php'; ?>
+<?php include '../navbar_editor.php'; ?><!-- 
     - format diganti .php kecil semua
     - bootstrap butuh jquery agar manipulasi seperti dropdown bisa bekerja
     - berasumsi bahwa file css dan js ada di root server
@@ -38,16 +39,6 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="user_antrian.php">
-                    Logo
-                </a>
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#form-login" aria-expanded="false">Login</button>
-            </div> <?php include 'proses/back.php'; ?>
-        </div>
-    </nav>
     <div class="container">
         <div class="row">
             <div>   
