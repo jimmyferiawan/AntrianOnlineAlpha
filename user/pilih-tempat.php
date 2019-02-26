@@ -7,21 +7,22 @@
     ];
 
     if("GET" == $_SERVER["REQUEST_METHOD"]) {
-        if(isset($_GET["id"])) {
-            require_once "../koneksi.php";
+        require_once "../koneksi.php";
+        if(isset($_GET["id_tempat"])) {
 
-            $idTempat = $_GET["id"];
+            $idTempat = $conn->real_escape_string($_GET["id_tempat"]);
             $data = array();
 
             $idInstansi = "ID_".$tempat[$idTempat];
             $namaInstansi = "nama_".$tempat[$idTempat];
-            $sql = "SELECT $idInstansi, $namaInstansi FROM ". $tempat[$idTempat]; 
+
+            $sql = "SELECT $idInstansi, $namaInstansi, antrian FROM ". $tempat[$idTempat]; 
             
             $query = $conn->query($sql);
 
             if($query) {
                 while($row = $query->fetch_assoc()) {
-                    $_temp["id"] = $row[$idInstansi];
+                    $_temp["id_instansi"] = $row[$idInstansi];
                     $_temp["nama"] = $row[$namaInstansi];
                     array_push($data, $_temp);
                 }
@@ -29,6 +30,26 @@
             
             echo json_encode($data);
            
+        }
+
+        if(isset($_GET["id_instansi"])) {
+            $id_instansi = $conn->real_escape_string($_GET["id_instansi"]);
+            $id_jenis_tempat = $conn->real_escape_string($_GET["id_jenis_tempat"]);
+            // echo $id_jenis_tempat;
+            $where = "WHERE ID_".$tempat[$id_jenis_tempat]. "='$id_instansi'";
+            $sql = "SELECT antrian FROM ". $tempat[$id_jenis_tempat] . " $where";
+            $query = $conn->query($sql);
+
+            if($query->num_rows > 0) {
+                $data_antrian = "";
+                while($row = $query->fetch_assoc()) {
+                    $data_antrian = $row['antrian'];
+                }
+                echo $data_antrian;
+            } else {
+                echo "0";
+            }
+            
         }
         
     }
