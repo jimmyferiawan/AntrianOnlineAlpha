@@ -127,105 +127,103 @@ exit();
         </div>
     </nav>	
 
-<div class="container">
-	<h1 class="text-center"><b>INFO ANTRIAN <h3><?php include 'operator/Jamserver.php'; ?></h3></h1>
-<div class="jumbotron">
-	<div class="row text-center">
-		<div class="col-sm-6">
-			<h3><b>Saat Ini</h3>
-			<?php echo "<h1>".$now."</h1>";?>
-			<h3>orang</h3>
+</div>
+
+<div class="container" style="margin-top: 20px;">
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="jumbotron" style="border-radius: 3px; border: none; background-color: #71EEB8; margin-bottom: 1px; margin-top: 40px;">
+				<div class="row text-center">
+					<div class="col-sm-5">
+						<?php echo "<h1 style='font-size: 150px; font-weight: bold;'>".$now."</h1>";?>
+						<h4><i>SAAT INI</i></h4>
+					</div>
+						<div class="col-sm-2">
+							<h1 style="font-size: 130px;">:</h1>
+						</div>
+					<div class="col-sm-5">
+						<h1 style="font-size: 150px; font-weight: bold;"><?php echo $count; ?></h1>
+						<h4><i>TOTAL</i></h4>
+					</div>
+				</div>
+			</div>
+			<form action="op_index.php" method="post">
+			<div class="form-group">
+			<button class="btn btn-success btn-lg col-lg-12" name="next" id="next" style="border-radius: 3px; background-color: #48887B;">Lanjut</button>
+			</div>
+			</form>
 		</div>
-		
-		<div class="col-sm-6">
-			<h3><b>Total Antrian</h3>
-			<h1><?php echo $count; ?></h1>
-			<h3>orang</h3>
-		</div>
+		<div class="col-lg-6">
+			<ul class="nav nav-tabs col-sm-10" id="mytab" role="tablist">
+  				<li role="presentation"  class="active"><a role="tab" href="#online" aria-controls="online" data-toggle="tab">Online</a></li>
+  				<li role="presentation"><a role="tab" href="#offline" aria-controls="offline" data-toggle="tab">Offline</a></li>
+			</ul>
+			<div class="tab-content col-lg-10" style="box-shadow: 1px 1px 5px -2px;">
+				<div class="tab-pane active" id="online">
+			<form class="form-horizontal" action="" style="margin-top: 20px;">
+  <div class="form-group">
+	<div class="col-sm-4">
+		<label for="nama" style="text-align: left;">PIN:</label>
+		<input type="text" class="form-control" id="onnama" >
 	</div>
+  </div>
+  <div class="form-group">
+	<div class="col-sm-10">
+		<label for="nama" style="text-align: left;">Nama:</label>
+		<input type="text" class="form-control" id="onnama" readonly>
+	</div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-5">
+    	<label for="antrian" style="text-align: left;">No Antrian:</label>
+		<input type="text" class="form-control" id="antrian" readonly>
+	</div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-3">
+    	<label for="jam" style="text-align: left;">Jam:</label>
+		<input type="text" class="form-control" id="jam" readonly>
+	</div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-5">
+    	<label for="tgl" style="text-align: left;">Tanggal:</label>
+		<input type="text" class="form-control" id="tgl" readonly>
+	</div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-12">
+    	<label for="lokasi" style="text-align: left;">Lokasi:</label>
+		<input type="text" class="form-control" id="lokasi" readonly>
+	</div>
+  </div>
+  <div class="form-group">
+  	<div class="col-sm-12 col-lg-4 col-lg-offset-4 text-center">
+	<input type="submit" class="btn btn-primary col-lg-12" style="background-color:  #48887B; border-radius: 0px; border: none;" name="validasi" id="validasi" value="Validasi">
+	</div>
+  </div>
+</form>
 </div>
-</div>
-
-<div class="container">
-
-<div class="col-sm-5">
-	<form class="form-horizontal" action="op_index.php" method="post">
-	<h1 class="text-center"><b>OFFLINE</h1>
-	<hr>
+<div class="tab-pane" id="offline">
+<form class="form-horizontal" action="op_index.php" method="post" style="margin-top: 20px;">
 	<div class="form-group">
-		<label for="nama" class="control-label col-sm-2">Nama:</label>
-		<div class="col-sm-10">
+		<div class="col-sm-12">
+			<label for="nama">Nama:</label>
 			<input type="text" class="form-control" name="offnama" id="offnama" placeholder="Nama">
 		</div>
 	</div>
 
 	<div class="form-group">
-		<div class="col-sm-10 col-sm-offset-2 col-lg-11 col-lg-offset-1 text-center">
-		<button class="btn btn-primary col-lg-11 col-lg-offset-1" name="antri" id="antri">ANTRI</button>
+		<div class="col-sm-10 col-lg-12 text-center">
+		<button class="btn btn-primary col-lg-12" style="background-color:  #48887B; border-radius: 0px; border: none;" name="antri" id="antri">ANTRI</button>
 		</div>
 	</div>	
   </form>
-	<form class="form-horizontal" action="op_index.php" method="post">
-	<hr>
-	<div class="form-group">
-		<div class="col-sm-10 col-sm-offset-2 col-lg-11 col-lg-offset-1 text-center">
-		<button class="btn btn-success btn-lg col-lg-11 col-lg-offset-1" name="next" id="next">NEXT</button>
+</div>
+</div>
 		</div>
 	</div>
 </div>
-</form>
-<div class="col-sm-2">
-
-</div>
-<div class="col-sm-5">
-	<form class="form-horizontal" action="">
-	<h1 class="text-center"><b>ONLINE</h1>
-	<hr>
-  <div class="form-group">
-    <label for="nama" class="control-label col-sm-2" style="text-align: left;">PIN:</label>
-	<div class="col-sm-10">
-		<input type="text" class="form-control" id="onnama" >
-	</div>
-  </div>
-  <div class="form-group">
-    <label for="nama" class="control-label col-sm-2" style="text-align: left;">Nama:</label>
-	<div class="col-sm-10">
-		<input type="text" class="form-control" id="onnama" readonly>
-	</div>
-  </div>
-  <div class="form-group">
-    <label for="antrian" class="control-label col-sm-2" style="text-align: left;">Antrian:</label>
-    <div class="col-sm-10">
-		<input type="text" class="form-control" id="antrian" readonly>
-	</div>
-  </div>
-  <div class="form-group">
-    <label for="jam" class="control-label col-sm-2" style="text-align: left;">Jam:</label>
-    <div class="col-sm-10">
-		<input type="text" class="form-control" id="jam" readonly>
-	</div>
-  </div>
-  <div class="form-group">
-    <label for="tgl" class="control-label col-sm-2" style="text-align: left;">Tanggal:</label>
-    <div class="col-sm-10">
-		<input type="text" class="form-control" id="tgl" readonly>
-	</div>
-  </div>
-  <div class="form-group">
-    <label for="lokasi" class="control-label col-sm-2" style="text-align: left;">Lokasi:</label>
-    <div class="col-sm-10">
-		<input type="text" class="form-control" id="lokasi" readonly>
-	</div>
-  </div>
-  <div class="form-group">
-  	<div class="col-sm-12 col-lg-10 col-lg-offset-2 text-center">
-	<input type="submit" class="btn btn-primary col-lg-12" name="validasi" id="validasi" value="Online Validasi">
-	</div>
-  </div>
-</form>
-</div>
-</div>
-
 <script src="framework/js/jquery-3.3.1.min.js"></script>
     <script src="framework/js/bootstrap.min.js"></script>
 </body>
