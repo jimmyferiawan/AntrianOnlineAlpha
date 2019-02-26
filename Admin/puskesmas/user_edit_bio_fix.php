@@ -3,6 +3,8 @@
     - bootstrap butuh jquery agar manipulasi seperti dropdown bisa bekerja
     - berasumsi bahwa file css dan js ada di root server
  -->
+ <?php include '../koneksi.php'; ?>
+ <?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -52,47 +54,48 @@
         <div class="row">
             <div>   
                 <div id="profile">
-                    <form action="proses/daftar.php" method="post">
+                    <form action="proses/edit2.php" method="post">
                         <div class="form-group col-lg-6">
                             <label for="ID_ps">ID Puskesmas</label>
-                            <input type="text" name="ID_ps" id="ID_ps" class="form-control" placeholder="ID " required>
+                            <input type="text" name="ID_ps1" value="<?php echo($_SESSION['PK_id']) ?>" id="ID_ps1" class="form-control" placeholder=" "  disabled="" >
                         </div>
                         <div class="form-group col-lg-6">
                             <label for="Nama_ps">Nama Puskesmas</label>
-                            <input type="text" name="Nama_ps" id="Nama_ps" class="form-control" placeholder="nama Puskesmas"required>
+                            <input type="text" name="Nama_ps" id="Nama_ps" value="<?php echo ($_SESSION['PK_NM'] ) ?>" class="form-control" placeholder="nama Puskesmas"required>
                         </div>
                         <div class="form-group col-lg-6">
                             <label for="Alamat_ps">Alamat Puskesmas</label>
-                            <input type="text" name="Alamat_ps" id="Alamat_ps" class="form-control" placeholder="Alamat Puskesmas"required>
+                            <input type="text" name="Alamat_ps" id="Alamat_ps" value="<?php echo ($_SESSION['PK_alamat'] ) ?>"  class="form-control" placeholder="Alamat Puskesmas"required>
                         </div>
                         <div class="form-group col-lg-6">
                             <label for="Jambuka_ps">Jam buka</label>
-                            <input type="text" name="Jambuka_ps" id="Jambuka_ps" class="form-control" placeholder="Jam Buka"required>
+                            <input type="text" name="Jambuka_ps"  value="<?php echo ($_SESSION['PK_JB'] ) ?>" id="Jambuka_ps" class="form-control" placeholder="Jam Buka"required>
                         </div>
                              <div class="form-group col-lg-6">
                             <label for="jamtutup_ps">Jam Tutup</label>
-                            <input type="text" name="Jamtutup_ps" id="jamtutup_ps" class="form-control" placeholder="jam Tutup"required>
+                            <input type="text" name="Jamtutup_ps"  value="<?php echo ($_SESSION['PK_JT'] ) ?>" id="jamtutup_ps" class="form-control" placeholder="jam Tutup"required>
                         </div>
                         <div class="form-group col-lg-6">
                             <label for="Namapemilik_ps">Pemilik Puskesmas</label>
-                            <input type="text" name="Namapemilik_ps" id="Namapemilik_ps" class="form-control" placeholder="nama lengkap Pemilik Puskesmas"required>
+                            <input type="text" name="Namapemilik_ps"  value="<?php echo ($_SESSION['PK_pemilik'] ) ?>" id="Namapemilik_ps" class="form-control" placeholder="nama lengkap Pemilik Puskesmas"required>
                         </div>
                         <div class="form-group col-lg-6">
                             <label for="Noop_ps">No Operator puskesmas</label>
-                            <input type="text" name="Noop_ps" id="Noop_ps" class="form-control" placeholder="No Opreator"required>
+                            <input type="text" name="Noop_ps" value="<?php echo ($_SESSION['PK_noop'] ) ?>" id="Noop_ps" class="form-control" placeholder="No Opreator"required>
                         </div>
                         <div class="form-group col-lg-6">
                             <label for="Notelp_ps">no Telpon Pukesmas</label>
-                            <input type="text" name="Notelp_ps" id="Notelp_ps" class="form-control" placeholder="No telon Puskesmas"required>
+                            <input type="text"  value="<?php echo ($_SESSION['PK_notlp']) ?>" name="Notelp_ps" id="Notelp_ps" class="form-control" placeholder="No telon Puskesmas"required>
                         </div>
 
                         <div class="form-group col-lg-6">
                             <label for="Cuti_ps">Cuti Puskesmas</label>
-                            <input type="text" name="Cuti_ps" id="Cuti_ps" class="form-control" placeholder="Cuti puskesmas"required>
+                            <input type="text" name="Cuti_ps"  value="<?php echo ($_SESSION['PK_cuti'] ) ?>" id="Cuti_ps" class="form-control" placeholder="Cuti puskesmas"required>
                         </div>
-                         <div class="form-group col-lg-7">
-                            <button class="btn-lg btn-primary col-lg-4" type="submit" name="pasien_submit">Daftar</button>
-                            
+
+                        <div class="col-lg-12">
+                            <button class="btn btn-primary col-lg-4" type="ubah" name="ubah">Edit Profil</button>
+                            <button class="btn btn-danger col-lg-4" style="float: right;" type="reset">Batal</button>
                         </div>
                     </form>
                 </div>
@@ -101,5 +104,12 @@
     </div>
     <script src="framework/js/jquery-3.3.1.min.js"></script>
     <script src="framework/js/bootstrap.min.js"></script>
+
+
+
+
+    </script>
+</body>
+</html>
 </body>
 </html>

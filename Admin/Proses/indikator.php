@@ -6,7 +6,7 @@
                     <i class="fa fa-envelope-o"></i>
                 </span>
                 <div class="text-box" >
-                    <p class="main-text">120 New</p><br>
+                    <p class="main-text"><?php echo $_SESSION['ct_op_not'] ?> New</p><br>
                     <p class="text-muted"> New Opreator </p>
                 </div>
              </div>

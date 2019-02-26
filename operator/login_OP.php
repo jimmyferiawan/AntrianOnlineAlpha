@@ -7,27 +7,37 @@
         // proses pengambilan data opreator 
         $uname = $conn->real_escape_string($_POST['username_op']);
         $pass = $conn->real_escape_string($_POST['password_op']);
-        $kolom = "ID_op, username_op, tingkat_op ";
+        $kolom = "ID_op, username_op, tingkat_op ,status_op ";
         $where = "WHERE username_op='$uname' AND password_op='$pass'";
         
         $sql = "SELECT $kolom FROM oprator $where";
 
         $hasil = $conn->query($sql);
         $data = array();
-
+     
         $is_login_op = false;
         $is_login_dk = false;
        $is_login_nimda = false;
-
+    
         // SESIION yang di pakai 
         // $_SESSION["id"]["id_op"] untuk oprator
         // $_SESSION["id"]["id_dk"] untuk dokter
 
         if($hasil->num_rows > 0) {
-            $is_login_op = true;
+        
+            
             while($row = $hasil->fetch_assoc()) {
                 $data = $row;
-            }
+                   $_SESSION["st"]["up"] = $data['status_op'];
+              if ($_SESSION["st"]["up"]==2) {
+            
+          }else{
+          
+
+          }
+        }
+
+
         }
 
         // jika login oprator salah maka otomatis mencob login dokter 
