@@ -45,7 +45,7 @@
                 <!-- <li><a href="op_editbio.php">pengaturan</a></li>               
                 <li><a href="operator/logout.php">keluar</a></li> -->
                 <li class="dropdown">
-		          	<a href="#" class="dropdown-toggle" style="text-transform: capitalize;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION["id"]["id_op"]; ?> <span class="caret"></span></a>
+		          	<a href="#" class="dropdown-toggle" style="text-transform: capitalize;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION["id"]["user_op"]; ?> <span class="caret"></span></a>
 		       		<ul class="dropdown-menu">
 		            <li><a href="op_editbio.php">Profil Operator</a></li>
 		            <li><a href="operator/logout.php">Keluar</a></li>
