@@ -95,7 +95,7 @@
 
                         <div class="col-lg-12">
                             <button class="btn btn-primary col-lg-4" type="ubah" name="ubah">Edit Profil</button>
-                            <button class="btn btn-danger col-lg-4" style="float: right;" type="reset">Batal</button>
+                            
                         </div>
                     </form>
                 </div>

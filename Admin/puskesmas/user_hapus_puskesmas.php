@@ -58,10 +58,11 @@
            
             }
         } else {
-            echo '<table class="table table-bordered table-hover text-center" >
+            ?>
+            <table  class="table table-bordered table-hover text-center" >
 		<thead>
 			<tr>
-				<th>NO</th>
+				<th algain=center>NO</th>
 				<th >ID Puskesmas</th>
 				<th>Nama Puskesmas</th>
 				<th>Alamat Puskesmas</th>
@@ -70,25 +71,25 @@
 
 			</tr>
 		</thead>
-		<tbody>';
+		<tbody>;
 		
-
+<?php 
 if ($hasil ->num_rows >=0){
 		$no=1;
 		while($row = $hasil->fetch_assoc()){
-			echo "
-			<td align='right'>".$no."</td>
-			<td>".$row["ID_pukesmas"]."</td>
-			<td align='left'>".$row["nama_pukesmas"]."</td>
-			<td>".$row["alamat_pukesmas"]."</td>
-			<td>".$row["pemilik_pukesmas"]."</td>
+	 ?>	
+			<td align='right'><?php echo $no; ?></td>
+			<td><?php echo  $row["ID_pukesmas"]?></td>
+			<td align='left'><?php echo $row["nama_pukesmas"]; ?></td>
+			<td><?php echo $row["alamat_pukesmas"]; ?></td>
+			<td><?php echo  $row["pemilik_pukesmas"] ; ?></td>
 			<td><form method='post' action='proses/delete.php'>
 					<input type='submit' name='hapus' value='Hapus'>
-					<input type='hidden' name='npm' value='".$row["ID_pukesmas"]."'>
+					<input type='hidden' name='npm' value='<?php echo $row["ID_pukesmas"] ?>'>
 				</form>
 				
-			</td></tr>"
-			;
+			</td></tr>
+		<?php 	;
 			$no++;
 		}
 	}
