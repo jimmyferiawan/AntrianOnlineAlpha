@@ -96,7 +96,7 @@
          $_SESSION["id"]["id_op"] = $data['ID_op'];
 
                 echo($_SESSION["id"]["id_op"]);
-                echo "<script>location='../OP_index.php'; </script>";
+                echo "<script>location='../op_index.php'; </script>";
             
             } else {}
 
