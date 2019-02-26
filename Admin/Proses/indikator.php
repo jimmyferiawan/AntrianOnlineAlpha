@@ -17,8 +17,8 @@
                     <i class="fa fa-bars"></i>
                 </span>
                 <div class="text-box" >
-                    <p class="main-text">30 Tasks</p><br>
-                    <p class="text-muted">New Location</p>
+                    <p class="main-text"><?php echo $_SESSION['ct_cp_total']; ?> Place</p><br>
+                    <p class="text-muted">All Location</p>
                 </div>
              </div>
 		     </div>
@@ -28,8 +28,8 @@
                     <i class="fa fa-bell-o"></i>
                 </span>
                 <div class="text-box" >
-                    <p class="main-text">240 New</p><br>
-                    <p class="text-muted">New User </p>
+                    <p class="main-text"><?php echo $_SESSION['ct_not_temp']; ?> New</p><br>
+                    <p class="text-muted">Online Order </p>
                 </div>
              </div>
 		     </div>
@@ -39,8 +39,8 @@
                     <i class="fa fa-rocket"></i>
                 </span>
                 <div class="text-box" >
-                    <p class="main-text">3 Orders</p><br>
-                    <p class="text-muted">Online Now</p>
+                    <p class="main-text"><?php echo $_SESSION['ct_not_tempbsk'];  ?> Order</p><br>
+                    <p class="text-muted">Temp Order</p>
                 </div>
              </div>
 		     </div>
