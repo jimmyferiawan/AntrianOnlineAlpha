@@ -25,7 +25,7 @@
            
             }
         } else {
-            echo '<table class="table table-bordered table-hover text-center" >
+            ?><table class="table table-bordered table-hover text-center" >
         <thead align="center">
             <tr>
                 <th>NO</th>
@@ -37,27 +37,27 @@
         </thead>
         <tbody>';
         
-
+<?php 
 if ($hasil ->num_rows >=0){
         $no=1;
         while($row = $hasil->fetch_assoc()){
-            echo "
-            <td align='center'>".$no."</td>
-            <td>".$row["ID_op"]."</td>
-            <td align='center'>".$row["username_op"]."</td>
+        ?>     
+            <td align='center'><?php echo $no ; ?></td>
+            <td><?php echo $row["ID_op"] ; ?></td>
+            <td align='center'><?php echo   $row["username_op"]; ?></td>
             <td><form method='post' action='Proses/proses_valid.php'>
                     <input type='submit' name='hapus' value='Upgrade'>
-                    <input type='hidden' name='npm' value='".$row["ID_op"]."'>
+                    <input type='hidden' name='npm' value='<?php echo $row["ID_op"]  ;?>'>
                 </form>
                 
-            </td></tr>"
+            </td></tr><?php 
             ;
             $no++;
         }
-    }
-    echo "</table>";
+    } ?>
+     </table>";
 
-
+<?php  
 
         } 
 
