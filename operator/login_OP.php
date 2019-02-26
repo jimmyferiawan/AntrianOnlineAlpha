@@ -28,6 +28,7 @@
             
             while($row = $hasil->fetch_assoc()) {
                 $data = $row;
+                 $is_login_op = true;
                    $_SESSION["st"]["up"] = $data['status_op'];
           //     if ($_SESSION["st"]["up"]==2) {
             
