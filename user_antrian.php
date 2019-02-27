@@ -1,9 +1,8 @@
-<!-- <?php 
+<?php 
     session_start();
     $is_login = isset($_SESSION['u']);
-    // echo isset($_SESSION['u_nama']). "asfasf";
     $btn_antri_disabled = $is_login ? "" : "disabled";
-?> -->
+?> 
 
 <?php if (!isset( $_SESSION['u'])) 
  {
@@ -96,7 +95,7 @@ exit();
                         </select>
                         <br>
                         <select name="daftar-nama" id="daftar-nama" class="form-control">
-                            <option selected disabled>Nama Tempat</option>
+                            <option selected disabled value="">Nama Tempat</option>
                         </select>
 
                         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d32656920.102451846!2d117.88880000000002!3d-2.357836599999986!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2de681b4659a3d67%3A0xf9c1001731bf6113!2sPuskesmas+Martapura!5e0!3m2!1sen!2sid!4v1546747816789" width="325" height="350" frameborder="0" style="border:0; margin-top: 10px;" allowfullscreen class="img-responsive col-xs-12 col-md-12 col-lg-12"></iframe>                        
@@ -110,7 +109,11 @@ exit();
                     </div>
                     <div class="panel-body">
                         <h1 style="font-weight: 30px; font-size: 200px; padding-top: 0px; margin-top: 0px; text-shadow: 1px 1px 5px; " id="nomor-antrian">0</h1>
-                        <a href="output_antrian.php"><button class="btn btn-primary <?= $btn_antri_disabled ?>">Ambil Antrian</button></a>
+                        <form action="output_antrian.php" method="post">
+                            <input type="hidden" name="id_tempat" value="" id="form_id_tempat">
+                            <input type="hidden" name="id_instansi" value="" id="form_id_instansi">
+                            <button class="btn btn-primary <?= $btn_antri_disabled ?>" id="btn-ambil-antrian" name="ambil_antrian" value="ambil-antrian">Ambil Antrian</button>
+                        </form>
                         <button type="button" class="btn btn-default btn-md" id="refresh-antrian">
                             <span class="glyphicon glyphicon-refresh" aria-hidden="true" ></span>
                         </button>
@@ -128,17 +131,20 @@ exit();
         var daftarNama = document.getElementById('daftar-nama');
         var nomorAntrian = document.getElementById('nomor-antrian');
         var btnRefreshAntrian = document.getElementById('refresh-antrian');
+        var btnAmbilAntrian = document.getElementById('btn-ambil-antrian');
+        var inpAntrianTempat = document.getElementById('form_id_tempat');
+        var inpAntrianInstansi = document.getElementById('form_id_instansi');
 
         function updateDaftarnama(listNamaTempat, idJenisTempat) {
             // update daftar instansi ketika jenis tempat diubah
             daftarNama.options.length = 0;
-            var defaultOption = '<option selected disabled>Nama Tempat</option>';
+            var defaultOption = '<option selected disabled value="">Nama Tempat</option>';
             daftarNama.innerHTML = defaultOption;
             daftarNama.setAttribute('data-id-tempat', idJenisTempat);
+            inpAntrianTempat.value = idJenisTempat;
             
             for(var i of listNamaTempat) {
                 var select = new Option(i.nama, i.id_instansi);
-                // select.setAttribute('data-id-tempat' ,idJenisTempat);
                 daftarNama.add(select);
             }
         }
@@ -152,17 +158,19 @@ exit();
                 }
             })
             .then(function(response) {
-                console.log(response.data);
-                updateAntrian(response.data);
+                updateAntrian(response.data.total);
+                // console.log(response.data);
             })
             .catch(function(error) {
-                console.log("error getAntrianSekarang(idInstansi, idTempat): " + error)
+                // console.log("error getAntrianSekarang(idInstansi, idTempat): " + error)
             });
         }
 
         function updateAntrian(nomorAntrianSekarang) {
             // ganti angka nomor antrian
             nomorAntrian.innerText = nomorAntrianSekarang;
+            // console.log(nomorAntrianSekarang);
+            
         }
         
         function refreshAntrian() {
@@ -199,10 +207,10 @@ exit();
                 var idInstansi = this.value;
 
                 getAntrianSekarang(this.value, idTempat);
+                inpAntrianInstansi.value = idInstansi;
             }
             
         });
-
         btnRefreshAntrian.addEventListener('click', refreshAntrian);
     </script>
 </body>
