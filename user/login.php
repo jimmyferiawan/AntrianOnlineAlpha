@@ -31,8 +31,8 @@
             header("Location: /AntrianOnlineAlpha/user_antrian.php");
 
         } else {
-            echo "<h1>username atau password salah</h1>";
-        }
+            echo "<script>alert('Password / Username  salah  !!');history.go(-1);</script>";
+
 
     }
     

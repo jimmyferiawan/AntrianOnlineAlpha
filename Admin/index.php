@@ -1,6 +1,10 @@
 ﻿<!DOCTYPE html>
 <?php session_start() ?>
 <?php include 'Proses/count.php'; ?>
+<?php include 'navbaradmintop.php'; ?>
+
+
+
 <?php if (!isset($_SESSION["id"]["id_nimda"])) 
  {
 echo "<script> alret('LOGIN FIRST');</script>";
@@ -35,11 +39,12 @@ exit();
                
          
         <!-- /. NAV SIDE  -->
+
         <div id="page-wrapper" >
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Admin Notificationn</h2>   
+                     <h2>Admin Notification</h2>   
                     </div>
                 </div>              
                  <!-- /. ROW  -->
