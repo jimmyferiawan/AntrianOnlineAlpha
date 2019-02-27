@@ -61,7 +61,17 @@ exit();
          src: url('framework/fonts/Roboto-Thin.ttf');
          }
 
-		
+	.segitiga{
+	width:0;
+	height:0;
+	border-style:solid;
+	border-width:20px;
+	border-color:transparent transparent transparent #36d7b7;
+	position: absolute;
+	left: 570px;
+	bottom: 65px;
+	}
+
 </style>
 </head>
 <body>
@@ -161,11 +171,10 @@ exit();
 			<div class="form-group">
 			<button class="btn btn-success btn-lg col-lg-12" name="next" id="next" style="border-radius: 0px; background-color: #48887B; border: none;">Lanjut</button>
 			</div>
-			</form>
-				</div>
-
+			</form>				
 			</div>
-			
+			<div class="segitiga"></div>
+				</div>
 		</div>
 		<div class="col-lg-6">
 			<ul class="nav nav-tabs col-sm-10" id="mytab" role="tablist">
