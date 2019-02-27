@@ -80,7 +80,7 @@ exit();
   $sql_temp = mysqli_query($conn, "select * from temp ");
   $count = mysqli_num_rows($sql_temp);
   
-  $sql_antri = mysqli_query($conn, "select now from antri");
+  $sql_antri = mysqli_query($conn, "select sekarang from antri");
   if (mysqli_num_rows($sql_antri)>0){
 	$row = mysqli_fetch_array($sql_antri);
 	$now = $row[0];
@@ -88,11 +88,28 @@ exit();
 	  $now = 0;
   }
   
+	$nama = "";
+	$no_antrian ="";
+	$tgl = "";
+	$jam = "";
+	$lokasi = "";
+  
+  if(isset($_POST["validasi"])){
+	  $pin = $_POST["pin"];
+	  $sql_pin = mysqli_query($conn, "SELECT p.nama_pasien, t.id_user_temp, t.no_antrian, t.jam_ambil_antrian, t.tgl, t.lokasi FROM pasien AS p INNER JOIN temp AS t WHERE t.pin='$pin' AND t.id_user_temp=p.ID_user");
+	  $row = mysqli_fetch_array($sql_pin);
+	  $nama = $row[0];
+	  $no_antrian =$row[1];
+	  $tgl = $row[2];
+	  $jam = $row[3];
+	  $lokasi = $row[4];
+  }
+  
   
   if(isset($_POST["next"])){
 	  if ($now<$count){
 		$now = 1 + $now;
-		$s = mysqli_query($conn, "UPDATE antri SET now=$now");
+		$s = mysqli_query($conn, "UPDATE antri SET sekarang=$now");
 	  }
   }
   
@@ -189,42 +206,42 @@ exit();
   				<li role="presentation" ><a role="tab" href="#offline" aria-controls="offline" data-toggle="tab">Offline</a></li>
 			</ul>
 			<div class="tab-content col-lg-10" style="box-shadow: 1px 1px 5px -2px;">
-				<div class="tab-pane active" id="online">
-			<form class="form-horizontal" action="" style="margin-top: 20px;">
+<div class="tab-pane active" id="online">
+<form class="form-horizontal" action="op_index.php" method="post" style="margin-top: 20px;">
   <div class="form-group">
 	<div class="col-sm-4">
 		<label for="nama" style="text-align: left;">PIN:</label>
-		<input type="text" class="form-control input-sm" id="onnama" >
+		<input type="text" class="form-control input-sm" id="pin" >
 	</div>
   </div>
   <div class="form-group">
 	<div class="col-sm-10">
 		<label for="nama" style="text-align: left;">Nama:</label>
-		<input type="text" class="form-control input-sm" id="onnama" readonly>
+		<input type="text" class="form-control input-sm" id="onnama" value="<?php echo $nama;?>" readonly>
 	</div>
   </div>
   <div class="form-group">
     <div class="col-sm-5">
     	<label for="antrian" style="text-align: left;">No Antrian:</label>
-		<input type="text" class="form-control input-sm" id="antrian" readonly>
+		<input type="text" class="form-control input-sm" id="antrian" value="<?php echo $no_antrian;?>" readonly>
 	</div>
   </div>
   <div class="form-group">
     <div class="col-sm-3">
     	<label for="jam" style="text-align: left;">Jam:</label>
-		<input type="text" class="form-control input-sm" id="jam" readonly>
+		<input type="text" class="form-control input-sm" id="jam" value="<?php echo $jam;?>" readonly>
 	</div>
   </div>
   <div class="form-group">
     <div class="col-sm-5">
     	<label for="tgl" style="text-align: left;">Tanggal:</label>
-		<input type="text" class="form-control input-sm" id="tgl" readonly>
+		<input type="text" class="form-control input-sm" id="tgl" value="<?php echo $tgl;?>" readonly>
 	</div>
   </div>
   <div class="form-group">
     <div class="col-sm-12">
     	<label for="lokasi" style="text-align: left;">Lokasi:</label>
-		<input type="text" class="form-control input-sm" id="lokasi" readonly>
+		<input type="text" class="form-control input-sm" id="lokasi" value="<?php echo $lokasi;?>" readonly>
 	</div>
   </div>
   <div class="form-group">
