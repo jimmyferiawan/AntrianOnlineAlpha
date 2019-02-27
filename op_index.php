@@ -66,7 +66,7 @@ exit();
 	height:0;
 	border-style:solid;
 	border-width:20px;
-	border-color:transparent transparent transparent #36d7b7;
+	border-color:transparent transparent transparent #71eeb8;
 	position: absolute;
 	left: 570px;
 	bottom: 65px;
