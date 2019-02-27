@@ -3,7 +3,7 @@ $noob1 = (rand(1, 10000) );
 $noob2 = (rand(1, 10000) );
 
 
-    $length = 2;
+    $length = 3;
     $randomBytes = openssl_random_pseudo_bytes($length);
     $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
     $charactersLength = strlen($characters);
@@ -12,7 +12,7 @@ $noob2 = (rand(1, 10000) );
     $result .= ($characters[ord($randomBytes[$i]) % $charactersLength]);
 	
 
-    $length2 = 2;
+    $length2 = 5;
     $randomBytes2 = openssl_random_pseudo_bytes($length2);
     $characters2 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
     $charactersLength2 = strlen($characters2);
