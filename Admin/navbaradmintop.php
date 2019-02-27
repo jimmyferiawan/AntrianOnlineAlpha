@@ -1,8 +1,23 @@
+<style>
+        /*.btn-ku{
+            background-color: #333;
+            color: #fff;
+        }
+        .btn-ku:hover{
+            background-color: #444;
+            color: #fff;
+        }*/
+        /*biar ga ada garis bawah*/ 
+        a:link{text-decoration:none;}
+        a:visited{text-decoration:none;}
+        a:hover{text-decoration:none;}
+    </style>
+
 <nav class="navbar-inverse navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
 
-                <a class="navbar-brand" href="user_antrian.php">
+                <a class="navbar-brand" href="user_antrian.php" style="color: white;">
                     ADMINISTRATOR
                 </a>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navheader-collapse" aria-expanded="false">
