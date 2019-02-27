@@ -1,4 +1,18 @@
-                        <nav class="navbar-default navbar-side" role="navigation">
+<?php 
+if( $(window).width() > 960 )
+{
+  $.ajax({
+    url: 'js/nbw-parallax.js',
+    dataType: "script",
+    success: function() {
+        //success
+    }
+  });
+}
+ ?>
+
+
+        <nav class="navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
                 <li class="text-center">
