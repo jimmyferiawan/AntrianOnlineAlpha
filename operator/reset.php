@@ -1,7 +1,7 @@
 <?php
 include "../koneksi.php";
 
-  $sql_antri = mysqli_query($conn, "select now from antri");
+  $sql_antri = mysqli_query($conn, "select sekarang from antri");
 	$row = mysqli_fetch_array($sql_antri);
 	$now = $row[0];
   $sql_date = mysqli_query($conn, "SELECT tgl FROM temp");
@@ -27,7 +27,7 @@ include "../koneksi.php";
 	}
 }
 
-$sql_reset = mysqli_query($conn, "UPDATE antri SET now='0'");
+$sql_reset = mysqli_query($conn, "UPDATE antri SET sekarang='0'");
 if($sql_reset){
 	echo "<script>location='../op_index.php';</script>";
 }
