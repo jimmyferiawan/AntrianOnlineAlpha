@@ -173,9 +173,10 @@ exit();
 						<h4 style="color: white;"><i>TOTAL</i></h4>
 					</div>
 					<form action="op_index.php" method="post">
-			<div class="form-group">
-			<button class="btn btn-success btn-md col-lg-6 col-lg-offset-3" name="next" id="next" style="border-radius: 0px; background-color: #36d7b7; border: 3px solid #36d7b7; border-radius: 50px;">Lanjut</button>
-			</div>
+					<div class="form-group">
+					<button class="btn btn-success btn-md col-lg-6 col-lg-offset-3" name="next" id="next" style="border-radius: 0px; background-color: #36d7b7; border: 3px solid #36d7b7; border-radius: 50px;">Lanjut
+					</button>
+					</div>
 			</form>				
 			</div>
 			<div class="segitiga"></div>
