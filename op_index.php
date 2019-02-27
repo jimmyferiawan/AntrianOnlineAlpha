@@ -39,13 +39,12 @@ exit();
 	.btn-primary {
             color: #fff;
             background-color: #36d7b7;
-            border-color: #36d7b7;
+            box-shadow: 1px 1px 7px -2px;
     }
 
     .btn-primary:hover {
             color: #fff;
-            background-color: #71eeb8;
-            border-color: #16a085
+            background-color: #36d7b7;
     }
 
     .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
@@ -70,6 +69,19 @@ exit();
 	position: absolute;
 	left: 570px;
 	bottom: 65px;
+	}
+
+	.form-control:focus {
+	            -webkit-border-image: -webkit-linear-gradient(top left, #79F1A4, #0E5CAD);
+	            -o-border-image: -o-linear-gradient(top left, #79F1A4, #0E5CAD);
+	            border-image: linear-gradient(to bottom right, #79F1A4, #0E5CAD);
+	        border-image-slice: 1;
+			border-image-width: 2px;
+			border-radius: 8px;	
+	    }
+
+	.form-control {
+		border-radius: 8px;
 	}
 
 </style>
@@ -157,10 +169,17 @@ exit();
 		<div class="col-lg-6">
 			<div class="jumbotron" style="border-radius: 3px; border: none; background-image: linear-gradient(to bottom right, #36d7b7,  #71eeb8); margin-bottom: 1px; margin-top: 40px;">
 				<div class="row text-center">
-					<div class="col-sm-12 col-sm-offset-6">
+					<div class="col-lg-12">
+						<div class="row">
+						<div class="col-lg-6">
+							<h2 style="color: white;">info<br>antrian</h2>
+						</div>
+						<div class="col-lg-6">
 						<button type="button" class="btn btn-default btn-md" id="refresh-antrian" style="background-color: transparent; border: none;">
                          <span class="glyphicon glyphicon-refresh" aria-hidden="true" style="color: white;"></span>
                         </button>
+            		   </div>
+						</div>
 					</div>
 					<div class="col-sm-5">
 						<?php echo "<h1 style='font-size: 150px; font-weight: bold; font-family: Roboto Thin; color: white;'>".$now."</h1>";?>
@@ -175,7 +194,7 @@ exit();
 					</div>
 					<form action="op_index.php" method="post">
 					<div class="form-group">
-					<button class="btn btn-success btn-md col-lg-6 col-lg-offset-3" name="next" id="next" style="border-radius: 0px; background-color: #36d7b7; border: 3px solid #36d7b7; border-radius: 50px;">Lanjut
+					<button class="btn btn-primary btn-md col-lg-6 col-lg-offset-3" name="next" id="next" style="margin-top: 15px;border-radius: 50px; background-color: #36d7b7; box-shadow: 1px 1px 5px -20px; border: none;">Lanjut
 					</button>
 					</div>
 			</form>				
@@ -193,37 +212,37 @@ exit();
 			<form class="form-horizontal" action="" style="margin-top: 20px;">
   <div class="form-group">
 	<div class="col-sm-4">
-		<label for="nama" style="text-align: left;">PIN:</label>
+		<label for="nama" style="text-align: left;">PIN</label>
 		<input type="text" class="form-control input-sm" id="onnama" >
 	</div>
   </div>
   <div class="form-group">
 	<div class="col-sm-10">
-		<label for="nama" style="text-align: left;">Nama:</label>
+		<label for="nama" style="text-align: left;">Nama</label>
 		<input type="text" class="form-control input-sm" id="onnama" readonly>
 	</div>
   </div>
   <div class="form-group">
     <div class="col-sm-5">
-    	<label for="antrian" style="text-align: left;">No Antrian:</label>
+    	<label for="antrian" style="text-align: left;">No Antrian</label>
 		<input type="text" class="form-control input-sm" id="antrian" readonly>
 	</div>
   </div>
   <div class="form-group">
     <div class="col-sm-3">
-    	<label for="jam" style="text-align: left;">Jam:</label>
+    	<label for="jam" style="text-align: left;">Jam</label>
 		<input type="text" class="form-control input-sm" id="jam" readonly>
 	</div>
   </div>
   <div class="form-group">
     <div class="col-sm-5">
-    	<label for="tgl" style="text-align: left;">Tanggal:</label>
+    	<label for="tgl" style="text-align: left;">Tanggal</label>
 		<input type="text" class="form-control input-sm" id="tgl" readonly>
 	</div>
   </div>
   <div class="form-group">
     <div class="col-sm-12">
-    	<label for="lokasi" style="text-align: left;">Lokasi:</label>
+    	<label for="lokasi" style="text-align: left;">Lokasi</label>
 		<input type="text" class="form-control input-sm" id="lokasi" readonly>
 	</div>
   </div>
@@ -245,7 +264,9 @@ exit();
 
 	<div class="form-group">
 		<div class="col-sm-10 col-lg-12 text-center">
-		<button class="btn btn-primary col-lg-4" style="background-color:  #48887B; border-radius: 0px; border: none;" name="antri" id="antri">ANTRI</button>
+		<button class="btn btn-primary col-lg-4" style="background-color: linear-gradient(to bottom right, 
+
+#79F1A4, #0E5CAD); border-radius: 0px; border: none;" name="antri" id="antri">ANTRI</button>
 		</div>
 	</div>	
   </form>
