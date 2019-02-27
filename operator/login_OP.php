@@ -28,12 +28,15 @@
             
             while($row = $hasil->fetch_assoc()) {
                 $data = $row;
+                $sekarang=$data['status_op'];
+       
+                if ( $sekarang == 2  ) {
+                   echo "<script>alert('Pasword / username salah !');history.go(-1);</script>";
+                } else {
                  $is_login_op = true;
-                   $_SESSION["st"]["up"] = $data['status_op'];
-          //     if ($_SESSION["st"]["up"]==2) {
-            
-          // }else{
-          
+                }
+                
+           
 
           
         }
