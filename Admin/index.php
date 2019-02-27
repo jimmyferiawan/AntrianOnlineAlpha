@@ -1,6 +1,10 @@
 ﻿<!DOCTYPE html>
 <?php session_start() ?>
 <?php include 'Proses/count.php'; ?>
+<?php include 'navbaradmintop.php'; ?>
+
+
+
 <?php if (!isset($_SESSION["id"]["id_nimda"])) 
  {
 echo "<script> alret('LOGIN FIRST');</script>";
