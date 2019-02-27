@@ -90,9 +90,10 @@ exit();
   
   
   if(isset($_POST["next"])){
-	  $now = 1 + $now;
-	  $s = mysqli_query($conn, "UPDATE antri SET now=$now");
-	  
+	  if ($now<$count){
+		$now = 1 + $now;
+		$s = mysqli_query($conn, "UPDATE antri SET now=$now");
+	  }
   }
   
   if(isset($_POST["antri"])){
