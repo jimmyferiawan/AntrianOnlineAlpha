@@ -44,7 +44,7 @@ exit();
 
     .btn-primary:hover {
             color: #fff;
-            background-color: #16a085;
+            background-color: #71eeb8;
             border-color: #16a085
     }
 
@@ -154,8 +154,13 @@ exit();
 <div class="container" style="margin-top: 90px;">
 	<div class="row">
 		<div class="col-lg-6">
-			<div class="jumbotron" style="border-radius: 3px; border: none; background-image: url('img/jackie-dilorenzo-1187244-unsplash.jpg'); background-size: cover; margin-bottom: 1px; margin-top: 40px; opacity: 0.8;">
+			<div class="jumbotron" style="border-radius: 3px; border: none; background-image: linear-gradient(to bottom right, #36d7b7,  #71eeb8); margin-bottom: 1px; margin-top: 40px;">
 				<div class="row text-center">
+					<div class="col-sm-12 col-sm-offset-6">
+						<button type="button" class="btn btn-default btn-md" id="refresh-antrian" style="background-color: transparent; border: none;">
+                         <span class="glyphicon glyphicon-refresh" aria-hidden="true" style="color: white;"></span>
+                        </button>
+					</div>
 					<div class="col-sm-5">
 						<?php echo "<h1 style='font-size: 150px; font-weight: bold; font-family: Roboto Thin; color: white;'>".$now."</h1>";?>
 						<h4 style="color: white;"><i>SAAT INI</i></h4>
@@ -169,7 +174,7 @@ exit();
 					</div>
 					<form action="op_index.php" method="post">
 			<div class="form-group">
-			<button class="btn btn-success btn-lg col-lg-12" name="next" id="next" style="border-radius: 0px; background-color: #48887B; border: none;">Lanjut</button>
+			<button class="btn btn-success btn-md col-lg-6 col-lg-offset-3" name="next" id="next" style="border-radius: 0px; background-color: #36d7b7; border: 3px solid #36d7b7; border-radius: 50px;">Lanjut</button>
 			</div>
 			</form>				
 			</div>
@@ -179,7 +184,7 @@ exit();
 		<div class="col-lg-6">
 			<ul class="nav nav-tabs col-sm-10" id="mytab" role="tablist">
   				<li role="presentation"  class="active"><a role="tab" href="#online" aria-controls="online" data-toggle="tab">Online</a></li>
-  				<li role="presentation"><a role="tab" href="#offline" aria-controls="offline" data-toggle="tab">Offline</a></li>
+  				<li role="presentation" ><a role="tab" href="#offline" aria-controls="offline" data-toggle="tab">Offline</a></li>
 			</ul>
 			<div class="tab-content col-lg-10" style="box-shadow: 1px 1px 5px -2px;">
 				<div class="tab-pane active" id="online">

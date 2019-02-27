@@ -41,7 +41,7 @@
 		}
 	}
 
-	@media (max-width: 970)
+	@media (max-width: 970px)
 	{
 		#gambar {
 			height: 50%;
