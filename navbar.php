@@ -46,7 +46,7 @@
 		       		<ul class="dropdown-menu">
 		            <li><a href="op_editbio.php">Profil Operator</a></li>
 		            <li><a href="operator/logout.php">Keluar</a></li>
-                    <li><a href="#">Reset</a></li>
+                    <li><a href="operator/reset.php">Reset</a></li>
 		            
             </ul>
             </div>
