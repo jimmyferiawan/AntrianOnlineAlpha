@@ -81,7 +81,7 @@ exit();
 	    }
 
 	.form-control {
-		border-radius: 8px;
+		border-radius: 2px;
 	}
 
 </style>
@@ -186,7 +186,7 @@ exit();
 
 <div class="container" style="margin-top: 90px;">
 	<div class="row">
-		<div class="col-lg-6" style="padding-right: 0px;">
+		<div class="col-lg-6">
 			<div class="jumbotron" style="border-radius: 3px; border: none; background-image: linear-gradient(to bottom right, #65FDF0,  #1D6FA3); padding: 45px 35px 45px;  padding-bottom: 20px; padding-top: 20px;">
 				<div class="row text-center" style="border: 2px solid white; border-radius: 5px;">
 					<div class="col-lg-12">
@@ -225,49 +225,49 @@ exit();
 			</div>
 				</div>
 		</div>
-		<div class="col-lg-6" style="padding-left: 0px;">
+		<div class="col-lg-5">
 			<ul class="nav nav-tabs col-sm-10" id="mytab" role="tablist">
-  				<li role="presentation"  class="active"><a role="tab" href="#online" aria-controls="online" data-toggle="tab">Online</a></li>
+  				<li role="presentation"  class="active"><a role="tab" href="#offline" aria-controls="online" data-toggle="tab">Offline</a></li>
   		
-  			<li role="presentation" ><a role="tab" href="#offline" aria-controls="offline" data-toggle="tab">Offline</a></li>
+  			<li role="presentation" ><a role="tab" href="#online" aria-controls="offline" data-toggle="tab">Online</a></li>
 			</ul>
 			<div class="tab-content col-lg-10" style="box-shadow: 1px 1px 5px -2px;">
-				<div class="tab-pane active" id="online">
+				<div class="tab-pane" id="online">
 			<form class="form-horizontal" action="op_index.php" method="post" style="margin-top: 20px;">
   <div class="form-group">
-	<div class="col-sm-4">
+	<div class="col-sm-12">
 		<label for="nama" style="text-align: left;">PIN</label>
 		<input type="text" class="form-control input-sm" id="pin" name="pin" >
 	</div>
   </div>
   <div class="form-group">
-	<div class="col-sm-10">
+	<div class="col-sm-12">
 		<label for="nama" style="text-align: left;">Nama</label>
-		<input type="text" class="form-control input-sm" id="onnama"  value="<?php echo $nama;?>" readonly>
+		<input type="text" class="form-control input-sm" id="onnama"  value="<?php echo $nama;?>" disabled>
 	</div>
   </div>
   <div class="form-group">
-    <div class="col-sm-5">
+    <div class="col-sm-12">
     	<label for="antrian" style="text-align: left;">No Antrian</label>
-		<input type="text" class="form-control input-sm" id="antrian" value="<?php echo $no_antrian;?>" readonly>
+		<input type="text" class="form-control input-sm" id="antrian" value="<?php echo $no_antrian;?>" disabled>
 	</div>
   </div>
   <div class="form-group">
-    <div class="col-sm-3">
+    <div class="col-sm-12">
     	<label for="jam" style="text-align: left;">Jam</label>
-		<input type="text" class="form-control input-sm" id="jam" value="<?php echo $jam;?>" readonly>
+		<input type="text" class="form-control input-sm" id="jam" value="<?php echo $jam;?>" disabled>
 	</div>
   </div>
   <div class="form-group">
-    <div class="col-sm-5">
+    <div class="col-sm-12">
     	<label for="tgl" style="text-align: left;">Tanggal</label>
-		<input type="text" class="form-control input-sm" id="tgl"  value="<?php echo $tgl;?>" value="<?php echo $lokasi;?>" readonly>
+		<input type="text" class="form-control input-sm" id="tgl"  value="<?php echo $tgl;?>" value="<?php echo $lokasi;?>" disabled>
 	</div>
   </div>
   <div class="form-group">
     <div class="col-sm-12">
     	<label for="lokasi" style="text-align: left;">Lokasi</label>
-		<input type="text" class="form-control input-sm" id="lokasi" readonly>
+		<input type="text" class="form-control input-sm" id="lokasi" disabled>
 	</div>
   </div>
   <div class="form-group">
@@ -277,7 +277,7 @@ exit();
   </div>
 </form>
 </div>
-<div class="tab-pane" id="offline">
+<div class="tab-pane active" id="offline">
 <form class="form-horizontal" action="op_index.php" method="post" style="margin-top: 20px;">
 	<div class="form-group">
 		<div class="col-sm-12">
