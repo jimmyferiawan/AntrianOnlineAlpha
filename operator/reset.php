@@ -10,7 +10,7 @@ $locthpas=$_SESSION['loc']['lokasi'];
 	$row = mysqli_fetch_array($sql_date);
 	$date = $row[0];
 
-  $s = mysqli_query($conn, "DELETE FROM temp WHERE lokasi =' $locthpas' AND no_antrian <= $now ");
+  // $s = mysqli_query($conn, "DELETE FROM temp WHERE lokasi =' $locthpas' AND no_antrian <= $now ");
 	$sql = mysqli_query($conn, "SELECT * FROM temp where lokasi =' $locthpas' ");
 	$count = mysqli_num_rows($sql);
 	if($count>0){

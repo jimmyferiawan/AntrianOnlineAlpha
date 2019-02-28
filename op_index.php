@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php session_start() ?>
-
+ <?php include 'operator/rdmpin.php'; ?>
 <?php if (!isset( $_SESSION["id"]["id_op"])) 
  {
 echo "<script> alret('LOGIN FIRST');</script>";
@@ -129,6 +129,9 @@ exit();
   }
   
   if(isset($_POST["antri"])){
+  	  $statuspsn ='1';
+  	  $statusonline ='1';
+  	  $pin=$_SESSION["op"]["pin"];
 	  $offnama = $_POST['offnama'];
 	  $sql_pasien = mysqli_query($conn, "select * from pasien");
 	  $cnt = mysqli_num_rows($sql_pasien)+1;
@@ -137,12 +140,12 @@ exit();
 		$j = '0'.$j;
 	  }
 	  $pid = "P".$j.$cnt;
-	  $s = mysqli_query($conn, "INSERT INTO pasien(ID_pasien, username_pasien) values('$pid','$offnama')");	  
+	  $s = mysqli_query($conn, "INSERT INTO pasien(ID_pasien, username_pasien ,status_pasien ) values('$pid','$offnama','$statuspsn')");	  
 	  
 	  $cnt = mysqli_num_rows($sql_temp)+1;
 	  $tgl = date('d-m-y');
 	  $jam = date('h:i:s');
-	  $s = mysqli_query($conn, "INSERT INTO temp(id_user_temp, no_antrian,jam_ambil_antrian,lokasi, tgl) values('$pid','$cnt','$jam','$lokasiberobat','$tgl')");
+	  $s = mysqli_query($conn, "INSERT INTO temp(id_user_temp, no_antrian,jam_ambil_antrian,lokasi, tgl, pin_temp, status_temp) values('$pid','$cnt','$jam','$lokasiberobat','$tgl','$pin','$statusonline')");
       header("refresh: 0;");
   }
 	$id_op = $_SESSION["id"]["id_op"];
