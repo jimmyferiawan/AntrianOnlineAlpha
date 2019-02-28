@@ -1,3 +1,76 @@
+<?php
+    ini_set('display_errors', '1');
+    
+    session_start();
+
+    if(!isset($_SESSION['u'])) {
+        header('Location: login.php');
+    }
+
+    if(isset($_POST['ambil_antrian'])) {
+        require_once "koneksi.php";
+        require_once "operator/chek.php";
+
+        
+        // mengembalikan total nomor antrian dari suatu instansi
+        function cek_antrian($conn, $id_instansi) {
+            $tempat = [
+                'A' => "pukesmas",                
+                'B' => "klinik",
+                'C' => "rumahsakit",
+                'D' => "dokterumum"
+            ];
+            $jenis_tempat = $tempat[$id_instansi[0]];
+            $kolom_nama_instansi = "nama_".$jenis_tempat;
+            // contoh query sql yang diharapkan untuk mendapatkan nama instansi dan total antrian
+            // SELECT antri.total,rumahsakit.nama_rumahsakit as lokasi FROM antri inner JOIN rumahsakit ON antri.lokasi=rumahsakit.ID_rumahsakit
+            // TODO: Edit jika sudah ada kolom antrian sekarang di table antri
+            $sql = "SELECT antri.total as total,$jenis_tempat.$kolom_nama_instansi as lokasi FROM antri inner JOIN $jenis_tempat ON antri.lokasi=$jenis_tempat.ID_$jenis_tempat WHERE lokasi='$id_instansi'";
+            $query = $conn->query($sql);
+            $data_total_antrian = "";
+            if($query) {
+                while($row = $query->fetch_assoc()) {
+                    $data_total_antrian = $row;
+                }
+            }
+
+            return $data_total_antrian;
+        }
+
+        // menmbahka jumlah antrian
+        function update_total_antrian($conn, $id_instansi, $total_baru) {
+
+            $sql = "UPDATE antri SET total=$total_baru WHERE lokasi='$id_instansi'";
+            $query = $conn->query($sql);
+            if($query) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        
+        $id_tempat = $conn->real_escape_string($_POST['id_tempat']);
+        $id_instansi = $conn->real_escape_string($_POST['id_instansi']);
+        $id_user_temp = $_SESSION['u_id_pasien'];
+        $antrian = cek_antrian($conn, $id_instansi);
+        $nama_instansi = $antrian['lokasi'];
+        $no_antrian = (int)$antrian['total'] + 1;
+        $jam_ambil_antrian = date("H:i:s");
+        $tgl = date("d/m/Y");
+        $pin = generate_pin();
+
+        $sql = "INSERT INTO temp (id_user_temp, no_antrian, jam_ambil_antrian, lokasi, tgl, pin) VALUES ('$id_user_temp', '$no_antrian', '$jam_ambil_antrian', '$id_instansi', '$tgl', '$pin')";
+        $query = $conn->query($sql);
+        if($query) {
+            // echo "berhasil";
+            $hasil = update_total_antrian($conn, $id_instansi, $no_antrian);
+            if(!$hasil) {
+                $pin = "Gagal menghasilkan pin silahkan ulangi kembali";
+            }
+            // var_dump($hasil);
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,12 +164,17 @@
                         <h2>17 / 30</h2>
                             <h4>anda telah berhasil mengantri,<br>tunjukkan ini ke tempat anda berobat</h4>
                                 <i class="glyphicon glyphicon-map-marker text-center col-xs-12 col-lg-12" style="margin-bottom: 5px;"></i>
-                                <span><h5><i>di <u>Puskesmas Bakti Husada</u></i></h5></span>
+                                <span><h5><i>di <u><?= $nama_instansi ?></u></i></h5></span>
                         <hr>
-                            <img src="https://chart.googleapis.com/chart?chl=wolf.inc&chs=300x300&cht=qr&chld=H%7C0" class="img-responsive col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 20px;">
+                        <div id="qrcode"></div>
                         <h5>tidak bisa scan ? Coba masukkan kode secara manual</h5>
                         <p>
-                        <h4 style="background-color: #36d7b7;">AER5 TYU8 IJH0 NMY7</h4>
+                        <h4 style="background-color: #36d7b7;" id="pin-antrian">
+                            <?php
+                                $pin_antrian = isset($pin) ? $pin : "";
+                                echo $pin_antrian;
+                            ?>
+                        </h4>
                         <p>
                     </div>
                 </div>
@@ -106,5 +184,20 @@
 
     <script src="framework/js/jquery-3.3.1.min.js"></script>
     <script src="framework/js/bootstrap.min.js"></script>
+    <script src="framework/js/qrcode.min.js"></script>
+    <script>
+        var qrText = document.getElementById('pin-antrian').innerText.trim();
+
+        var qrcode = new QRCode(document.getElementById('qrcode'), {
+            text: qrText,
+            width: 256,
+            height: 256,
+            colorDark : "#000000",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H,
+            idImage: "my-qr",
+            imageWidth: "100%"
+        });
+    </script>
 </body>
 </html>
