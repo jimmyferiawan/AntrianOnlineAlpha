@@ -1,10 +1,6 @@
 ﻿<!DOCTYPE html>
 <?php session_start() ?>
 <?php include 'Proses/count.php'; ?>
-<?php include 'navbaradmintop.php'; ?>
-
-
-
 <?php if (!isset($_SESSION["id"]["id_nimda"])) 
  {
 echo "<script> alret('LOGIN FIRST');</script>";
@@ -12,6 +8,8 @@ echo "<script> location='../index.php';</script>";
 header('location:../login_AD.php');
 exit();
  } ?>
+ <?php include 'navbaradmintop.php'; ?>
+
 
 <head>
       <meta charset="utf-8" />
@@ -39,7 +37,6 @@ exit();
                
          
         <!-- /. NAV SIDE  -->
-
         <div id="page-wrapper" >
             <div id="page-inner">
                 <div class="row">
@@ -405,7 +402,7 @@ exit();
     <script src="assets/js/morris/morris.js"></script>
       <!-- CUSTOM SCRIPTS -->
     <script src="assets/js/custom.js"></script>
-    
-   
+
+
 </body>
 </html>

@@ -93,9 +93,11 @@ include "koneksi.php";
             <div>   
                 <div id="profile">
                     <form id="regist" action="op_requser.php" method="post">
-                        <div class="form-group col-lg-6">
+                                      
+                             <div class="form-group col-lg-6">
                             <label for="username">Username</label>
-                            <input type="text" name="username" id="username" class="form-control" placeholder="username" required>
+                            <input type="text" name="username" onchange="<?php include 'operator/chek.php'; ?>" id="username" class="form-control" placeholder="username" required> 
+
                         </div>
                         <div class="form-group col-lg-6">
                             <label for="nama_lengkap">Nama Lengkap</label>

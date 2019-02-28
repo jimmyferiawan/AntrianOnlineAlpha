@@ -45,8 +45,9 @@
 		          	<a href="#" class="dropdown-toggle" style="text-transform: capitalize;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION["id"]["user_op"]; ?> <span class="caret"></span></a>
 		       		<ul class="dropdown-menu">
 		            <li><a href="op_editbio.php">Profil Operator</a></li>
-		            <li><a href="operator/logout.php">Keluar</a></li>
                     <li><a href="operator/reset.php">Reset</a></li>
+                    <li><a href="operator/tutup.php">Tutup</a></li>
+                    <li><a href="operator/logout.php">Keluar</a></li>
 		            
             </ul>
             </div>
