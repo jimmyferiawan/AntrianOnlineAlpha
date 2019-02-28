@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 25 Feb 2019 pada 07.00
--- Versi Server: 10.1.21-MariaDB
--- PHP Version: 7.1.1
+-- Generation Time: Feb 28, 2019 at 08:33 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -23,25 +25,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `antri`
+-- Table structure for table `antri`
 --
 
 CREATE TABLE `antri` (
   `lokasi` varchar(50) NOT NULL,
-  `now` int(30) NOT NULL
+  `sekarang` int(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `antri`
+-- Dumping data for table `antri`
 --
 
-INSERT INTO `antri` (`lokasi`, `now`) VALUES
-('A003', 2);
+INSERT INTO `antri` (`lokasi`, `sekarang`) VALUES
+('A003', 0),
+('A002', 0),
+('A001', 0);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `dokter`
+-- Table structure for table `dokter`
 --
 
 CREATE TABLE `dokter` (
@@ -54,7 +58,7 @@ CREATE TABLE `dokter` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `dokter`
+-- Dumping data for table `dokter`
 --
 
 INSERT INTO `dokter` (`ID_dk`, `username_dk`, `pasword_dk`, `id_praktek_dk`, `no_ijin_dk`, `alamat_tinngal_dk`) VALUES
@@ -63,7 +67,7 @@ INSERT INTO `dokter` (`ID_dk`, `username_dk`, `pasword_dk`, `id_praktek_dk`, `no
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `dokterumum`
+-- Table structure for table `dokterumum`
 --
 
 CREATE TABLE `dokterumum` (
@@ -79,7 +83,7 @@ CREATE TABLE `dokterumum` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `dokterumum`
+-- Dumping data for table `dokterumum`
 --
 
 INSERT INTO `dokterumum` (`ID_dokterumum`, `nama_dokterumum`, `alamat_dokterumum`, `jambuka_dokterumum`, `jamtutup_dokterumum`, `pemilik_dokterumum`, `no_op_dokterumum`, `no_telp_dokterumum`, `cuti_dokterumum`) VALUES
@@ -88,7 +92,7 @@ INSERT INTO `dokterumum` (`ID_dokterumum`, `nama_dokterumum`, `alamat_dokterumum
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `klinik`
+-- Table structure for table `klinik`
 --
 
 CREATE TABLE `klinik` (
@@ -105,7 +109,7 @@ CREATE TABLE `klinik` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `klinik`
+-- Dumping data for table `klinik`
 --
 
 INSERT INTO `klinik` (`ID_klinik`, `nama_klinik`, `alamat_klinik`, `jambuka_klinik`, `jamtutup_klinik`, `pemilik_klinik`, `no_op_klinik`, `no_telp_klinik`, `cuti_klinik`, `antrian`) VALUES
@@ -114,7 +118,7 @@ INSERT INTO `klinik` (`ID_klinik`, `nama_klinik`, `alamat_klinik`, `jambuka_klin
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `nimda`
+-- Table structure for table `nimda`
 --
 
 CREATE TABLE `nimda` (
@@ -123,10 +127,17 @@ CREATE TABLE `nimda` (
   `password_nimda` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `nimda`
+--
+
+INSERT INTO `nimda` (`ID_nimda`, `username_nimda`, `password_nimda`) VALUES
+('AD001', 'aku', 'aku');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `oprator`
+-- Table structure for table `oprator`
 --
 
 CREATE TABLE `oprator` (
@@ -143,18 +154,19 @@ CREATE TABLE `oprator` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `oprator`
+-- Dumping data for table `oprator`
 --
 
 INSERT INTO `oprator` (`ID_op`, `username_op`, `password_op`, `tingkat_op`, `nama_op`, `no_op`, `jk_op`, `alamat_op`, `lokasi_op`, `status_op`) VALUES
-('1', 'admin', 'admin', '1', '', '', '', '', '', ''),
-('2', 'admin2', 'admin3', '2', '', '', '', '', '', ''),
-('3', 'yuto', '123', '2', '', '', '', '', '', '');
+('1', 'admin', 'admin', '1', '', '', '', '', 'A003', '2'),
+('2', 'admin2', 'admin3', '2', '', '', '', '', 'A003', '1'),
+('3', 'yuto', '123', '1', '', '', '', '', 'A001', '1'),
+('5', 'coba2', 'coba2', '1', '', '', '', '', 'A003', '1');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pasien`
+-- Table structure for table `pasien`
 --
 
 CREATE TABLE `pasien` (
@@ -166,25 +178,32 @@ CREATE TABLE `pasien` (
   `alamat_pasien` varchar(300) NOT NULL,
   `no_hp_pasien` varchar(13) NOT NULL,
   `foto_profil_pasien` varchar(50) NOT NULL,
-  `no_bpjs_pasien` varchar(13) DEFAULT NULL
+  `no_bpjs_pasien` varchar(13) DEFAULT NULL,
+  `status_pasien` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pasien`
+-- Dumping data for table `pasien`
 --
 
-INSERT INTO `pasien` (`ID_pasien`, `username_pasien`, `password_pasien`, `nama_pasien`, `jenis_kelamin_pasien`, `alamat_pasien`, `no_hp_pasien`, `foto_profil_pasien`, `no_bpjs_pasien`) VALUES
-('P000001', 'pasien', 'pasien', 'Andi Noob', 'L', 'disini', '0854788451', '', '157448584'),
-('P000002', 'aladyne', '', '', '', '', '', '', NULL),
-('P000003', 'afelin', '', '', '', '', '', '', NULL),
-('P000004', 'lijn', '', '', '', '', '', '', NULL),
-('P000005', 'khgjfd', '', '', '', '', '', '', NULL),
-('P000006', 'karra', '', '', '', '', '', '', NULL);
+INSERT INTO `pasien` (`ID_pasien`, `username_pasien`, `password_pasien`, `nama_pasien`, `jenis_kelamin_pasien`, `alamat_pasien`, `no_hp_pasien`, `foto_profil_pasien`, `no_bpjs_pasien`, `status_pasien`) VALUES
+('P000001', 'noob', 'noob', '', '', '', '', '', NULL, 1),
+('P000002', 'noob', '', '', '', '', '', '', NULL, 1),
+('P000003', 'dirimu', '', '', '', '', '', '', NULL, 1),
+('P000004', 'd8iriku', '', '', '', '', '', '', NULL, 1),
+('P000005', 'aku', '', '', '', '', '', '', NULL, 1),
+('P000006', 'aku', '', '', '', '', '', '', NULL, 1),
+('P000007', 'bagas', '', '', '', '', '', '', NULL, 0),
+('P000008', 'aku', '', '', '', '', '', '', NULL, 0),
+('P000009', 'noob', '', '', '', '', '', '', NULL, 0),
+('P000010', 'noob', '', '', '', '', '', '', NULL, 0),
+('P000011', 'aku', '', '', '', '', '', '', NULL, 0),
+('P000012', 'aku', '', '', '', '', '', '', NULL, 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pukesmas`
+-- Table structure for table `pukesmas`
 --
 
 CREATE TABLE `pukesmas` (
@@ -201,16 +220,17 @@ CREATE TABLE `pukesmas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pukesmas`
+-- Dumping data for table `pukesmas`
 --
 
 INSERT INTO `pukesmas` (`ID_pukesmas`, `nama_pukesmas`, `alamat_pukesmas`, `jambuka_pukesmas`, `jamtutup_pukesmas`, `pemilik_pukesmas`, `no_op_pukesmas`, `no_telp_pukesmas`, `cuti_pukesmas`, `antrian`) VALUES
-('A001', 'Dinas Kesehatan kediri', 'disini', '0500', '0500', 'bagas', '0263', '56959596', '', '');
+('A001', 'ok', 'ya', '', '', '', '', '', '', ''),
+('A003', 'disnin', 'alah mbuh', '0855', '0123', 'bagas', '023', '0122', '032', '15');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `rumahsakit`
+-- Table structure for table `rumahsakit`
 --
 
 CREATE TABLE `rumahsakit` (
@@ -227,7 +247,7 @@ CREATE TABLE `rumahsakit` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `rumahsakit`
+-- Dumping data for table `rumahsakit`
 --
 
 INSERT INTO `rumahsakit` (`ID_rumahsakit`, `nama_rumahsakit`, `alamat_rumahsakit`, `jambuka_rumahsakit`, `jamtutup_rumahsakit`, `pemilik_rumahsakit`, `no_op_rumahsakit`, `no_telp_rumahsakit`, `cuti_rumahsakit`, `antrian`) VALUES
@@ -236,7 +256,7 @@ INSERT INTO `rumahsakit` (`ID_rumahsakit`, `nama_rumahsakit`, `alamat_rumahsakit
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `temp`
+-- Table structure for table `temp`
 --
 
 CREATE TABLE `temp` (
@@ -245,24 +265,33 @@ CREATE TABLE `temp` (
   `jam_ambil_antrian` varchar(10) NOT NULL,
   `lokasi` varchar(80) NOT NULL,
   `tgl` varchar(10) NOT NULL,
-  `id_oprator_temp` varchar(20) NOT NULL
+  `pin_temp` varchar(20) NOT NULL,
+  `status_temp` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `temp`
+-- Dumping data for table `temp`
 --
 
-INSERT INTO `temp` (`id_user_temp`, `no_antrian`, `jam_ambil_antrian`, `lokasi`, `tgl`, `id_oprator_temp`) VALUES
-('P000002', '1', '04:54:32', '', '20-02-19', ''),
-('P000003', '2', '04:54:37', '', '20-02-19', ''),
-('P000004', '3', '04:54:43', '', '20-02-19', ''),
-('P000005', '4', '05:03:09', '', '21-02-19', ''),
-('P000006', '5', '03:30:18', '', '22-02-19', '');
+INSERT INTO `temp` (`id_user_temp`, `no_antrian`, `jam_ambil_antrian`, `lokasi`, `tgl`, `pin_temp`, `status_temp`) VALUES
+('', '1', '08:05:48', '', '28-02-19', '5132Spz2905tsA', 2),
+('P000001', '1', '07:20:44', 'A003', '28-02-19', '3325iZV6804nHl', 1),
+('P000002', '2', '07:21:53', 'A003', '28-02-19', '9763YkC6483rcr', 1),
+('P000003', '3', '07:22:03', 'A003', '28-02-19', '9299duG9103Mmm', 1),
+('P000004', '4', '07:22:10', 'A003', '28-02-19', '8874LRX7377rpq', 1),
+('P000005', '5', '07:25:45', 'A003', '28-02-19', '2135hOk3819hTh', 1),
+('P000006', '6', '07:28:08', 'A003', '28-02-19', '556iFT9924kXd', 1),
+('P000007', '7', '08:12:22', 'A003', '28-02-19', '', 0),
+('P000008', '8', '08:14:45', 'A003', '28-02-19', '', 0),
+('P000009', '9', '08:17:14', 'A003', '28-02-19', '', 0),
+('P000010', '10', '08:19:09', 'A003', '28-02-19', '', 0),
+('P000011', '11', '08:19:48', 'A003', '28-02-19', '', 0),
+('P000012', '12', '08:31:41', 'A003', '28-02-19', '5358OSs4256FfW', 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tempbesok`
+-- Table structure for table `tempbesok`
 --
 
 CREATE TABLE `tempbesok` (
@@ -337,6 +366,7 @@ ALTER TABLE `temp`
 --
 ALTER TABLE `tempbesok`
   ADD PRIMARY KEY (`id_user_temp`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
