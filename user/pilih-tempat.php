@@ -36,16 +36,18 @@
             $id_instansi = $conn->real_escape_string($_GET["id_instansi"]);
             $id_jenis_tempat = $conn->real_escape_string($_GET["id_jenis_tempat"]);
             // echo $id_jenis_tempat;
-            $where = "WHERE ID_".$tempat[$id_jenis_tempat]. "='$id_instansi'";
-            $sql = "SELECT antrian FROM ". $tempat[$id_jenis_tempat] . " $where";
+            // $where = "WHERE ID_".$tempat[$id_jenis_tempat]. "='$id_instansi'";
+            // $sql = "SELECT antrian FROM ". $tempat[$id_jenis_tempat] . " $where";
+            $where = "WHERE lokasi='$id_instansi'";
+            $sql = "SELECT sekarang,total FROM antri $where";
             $query = $conn->query($sql);
 
             if($query->num_rows > 0) {
                 $data_antrian = "";
                 while($row = $query->fetch_assoc()) {
-                    $data_antrian = $row['antrian'];
+                    $data_antrian = $row;
                 }
-                echo $data_antrian;
+                echo json_encode($data_antrian);
             } else {
                 echo "0";
             }
