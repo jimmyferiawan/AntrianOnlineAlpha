@@ -8,6 +8,7 @@ echo "<script> location='../index.php';</script>";
 header('location:../login_AD.php');
 exit();
  } ?>
+<?php include 'navbaradmintop.php'; ?>
 
 <head>
       <meta charset="utf-8" />
