@@ -19,8 +19,7 @@
         $where = "WHERE ID_pasien = '$id'";
         $sql = "SELECT $kolom FROM pasien $where";
         $data = array();
-        echo $sql;
-        exit;
+
         $query = $conn->query($sql);
         if($query) {
             while($row = $query->fetch_assoc()) {
