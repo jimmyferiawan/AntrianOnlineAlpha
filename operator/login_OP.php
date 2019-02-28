@@ -7,7 +7,7 @@
         // proses pengambilan data opreator 
         $uname = $conn->real_escape_string($_POST['username_op']);
         $pass = $conn->real_escape_string($_POST['password_op']);
-        $kolom = "ID_op, username_op, tingkat_op ,status_op ";
+        $kolom = "ID_op, username_op, tingkat_op ,status_op,  lokasi_op  ";
         $where = "WHERE username_op='$uname' AND password_op='$pass'";
         
         $sql = "SELECT $kolom FROM oprator $where";
@@ -29,6 +29,7 @@
             while($row = $hasil->fetch_assoc()) {
                 $data = $row;
                 $sekarang=$data['status_op'];
+
        
                 if ( $sekarang == 2  ) {
                    echo "<script>alert('Pasword / username salah !');history.go(-1);</script>";
@@ -97,9 +98,51 @@
        // jika login oprator benar
         if($is_login_op == true) {
          $_SESSION["id"]["id_op"] = $data['ID_op'];
+                echo  $_SESSION["loc"]["lokasi"] =  $data['lokasi_op'];
+               echo  $loct=$data['lokasi_op'];
+              echo ($_SESSION["id"]["id_op"]);
 
-                echo($_SESSION["id"]["id_op"]);
-                echo "<script>location='../op_index.php'; </script>";
+
+                 $newantri = " lokasi  ";
+                 $newantri2 = "WHERE lokasi  = '$loct'";
+
+
+
+                $sql2 = "SELECT $newantri FROM antri $newantri2";
+
+                $hasil2 = $conn->query($sql2);
+                $data2 = array();
+
+
+                 if($hasil2->num_rows > 0) {
+                       echo "<script>location='../op_index.php'; </script>";
+               
+                    }
+                    else{
+
+                       $sql3 = "INSERT INTO antri(lokasi, sekarang) values('$loct','0')";
+                        $hasil3 = $conn->query($sql3);
+                        echo "<script>location='../op_index.php'; </script>";
+
+                    }
+
+                         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+               
             
             } else {}
 

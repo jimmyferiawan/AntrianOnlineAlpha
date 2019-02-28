@@ -88,14 +88,18 @@ exit();
 </head>
 <body>
 <?php
+// sesion tempat diambil dari oprator (lokasi)
+ $lokasiberobat = $_SESSION["loc"]["lokasi"];
+// end
   include "koneksi.php";
-  $sql_temp = mysqli_query($conn, "select * from temp ");
+  $sql_temp = mysqli_query($conn, "select * from temp where lokasi  = '$lokasiberobat' ");
   $count = mysqli_num_rows($sql_temp);
   
-  $sql_antri = mysqli_query($conn, "select now from antri");
+  $sql_antri = mysqli_query($conn, "select sekarang from antri where lokasi = '$lokasiberobat'  ");
   if (mysqli_num_rows($sql_antri)>0){
 	$row = mysqli_fetch_array($sql_antri);
 	$now = $row[0];
+	$_SESSION["loc"]["sekarang"]=$now;
   }else{
 	  $now = 0;
   }
@@ -120,7 +124,7 @@ exit();
   if(isset($_POST["next"])){
 	  if ($now<$count){
 		$now = 1 + $now;
-		$s = mysqli_query($conn, "UPDATE antri SET sekarang=$now");
+		$s = mysqli_query($conn, "UPDATE antri SET sekarang = $now where lokasi =  '$lokasiberobat'");
 	  }
   }
   
@@ -138,7 +142,7 @@ exit();
 	  $cnt = mysqli_num_rows($sql_temp)+1;
 	  $tgl = date('d-m-y');
 	  $jam = date('h:i:s');
-	  $s = mysqli_query($conn, "INSERT INTO temp(id_user_temp, no_antrian,jam_ambil_antrian, tgl) values('$pid','$cnt','$jam','$tgl')");
+	  $s = mysqli_query($conn, "INSERT INTO temp(id_user_temp, no_antrian,jam_ambil_antrian,lokasi, tgl) values('$pid','$cnt','$jam','$lokasiberobat','$tgl')");
       header("refresh: 0;");
   }
 	$id_op = $_SESSION["id"]["id_op"];
@@ -198,6 +202,7 @@ exit();
 						</div>
 					</div>
 					<div class="col-sm-5">
+					
 						<?php echo "<h1 style='font-size: 150px; font-weight: bold; font-family: Roboto Thin; color: white;'>".$now."</h1>";?>
 						<h4 style="color: white;"><i>SAAT INI</i></h4>
 					</div>
