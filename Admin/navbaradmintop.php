@@ -94,18 +94,80 @@
     <ul class="dropdown-menu">
       <li class="dropdown-submenu">
         <a href="#">A & E Passer</a>
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu" style="position: absolute; left: 100%">
           <li><a href="#">Elementary</a></li>
           <li><a href="#">Secondary</a></li>
         </ul>
       </li>
     </ul>
   </li>         
+         <li class="dropdown-submenu ">
+    <a tabindex="-1" class="dropdown-toggle topLevel" data-toggle="dropdown" href="#">
+        News
+        <i class="icon icon-caret-right"></i>
+      </a>
+    <ul class="dropdown-menu">
+      <li class="dropdown-submenu">
+        <a href="#">A & E Passer</a>
+        <ul class="dropdown-menu" style="position: absolute; left: 100%">
+          <li><a href="#">Elementary</a></li>
+          <li><a href="#">Secondary</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>         
+   <li class="dropdown-submenu ">
+    <a tabindex="-1" class="dropdown-toggle topLevel" data-toggle="dropdown" href="#">
+        News
+        <i class="icon icon-caret-right"></i>
+      </a>
+    <ul class="dropdown-menu">
+      <li class="dropdown-submenu">
+        <a href="#">A & E Passer</a>
+        <ul class="dropdown-menu" style="position: absolute; left: 100%">
+          <li><a href="#">Elementary</a></li>
+          <li><a href="#">Secondary</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>         
+   <li class="dropdown-submenu ">
+    <a tabindex="-1" class="dropdown-toggle topLevel" data-toggle="dropdown" href="#">
+        News
+        <i class="icon icon-caret-right"></i>
+      </a>
+    <ul class="dropdown-menu">
+      <li class="dropdown-submenu">
+        <a href="#">A & E Passer</a>
+        <ul class="dropdown-menu" style="position: absolute; left: 100%">
+          <li><a href="#">Elementary</a></li>
+          <li><a href="#">Secondary</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>         
+
+
            <!--  <li><a href="#">Rumah Sakit</a></li>
             <li><a href="#">Puskesmas</a></li>
             <li><a href="#">Klinik</a></li> -->
             <li role="separator" class="divider"></li>
             <li><a href="#">Dokter Umum</a></li>
+             <li class="dropdown-submenu ">
+    <a tabindex="-1" class="dropdown-toggle topLevel" data-toggle="dropdown" href="#">
+        News
+        <i class="icon icon-caret-right"></i>
+      </a>
+    <ul class="dropdown-menu">
+      <li class="dropdown-submenu">
+        <a href="#">A & E Passer</a>
+        <ul class="dropdown-menu" style="position: absolute; left: 100%">
+          <li><a href="#">Elementary</a></li>
+          <li><a href="#">Secondary</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>         
           </ul>
         </li>
         <li><a href="#"><span class="glyphicon glyphicon-check"></span> New Validation</a></li>
