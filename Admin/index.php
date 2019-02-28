@@ -8,7 +8,8 @@ echo "<script> location='../index.php';</script>";
 header('location:../login_AD.php');
 exit();
  } ?>
-<?php include 'navbaradmintop.php'; ?>
+ <?php include 'navbaradmintop.php'; ?>
+
 
 <head>
       <meta charset="utf-8" />
@@ -401,7 +402,7 @@ exit();
     <script src="assets/js/morris/morris.js"></script>
       <!-- CUSTOM SCRIPTS -->
     <script src="assets/js/custom.js"></script>
-    
-   
+
+
 </body>
 </html>
