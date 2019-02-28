@@ -186,47 +186,50 @@ exit();
 
 <div class="container" style="margin-top: 90px;">
 	<div class="row">
-		<div class="col-lg-6">
-			<div class="jumbotron" style="border-radius: 3px; border: none; background-image: linear-gradient(to bottom right, #36d7b7,  #71eeb8); margin-bottom: 1px; margin-top: 40px;">
-				<div class="row text-center">
+		<div class="col-lg-6" style="padding-right: 0px;">
+			<div class="jumbotron" style="border-radius: 3px; border: none; background-image: linear-gradient(to bottom right, #65FDF0,  #1D6FA3); padding: 45px 35px 45px;  padding-bottom: 20px; padding-top: 20px;">
+				<div class="row text-center" style="border: 2px solid white; border-radius: 5px;">
 					<div class="col-lg-12">
-						<div class="row">
-						<div class="col-lg-6">
-							<h2 style="color: white;">info<br>antrian</h2>
-						</div>
-						<div class="col-lg-6">
-						<button type="button" class="btn btn-default btn-md" id="refresh-antrian" style="background-color: transparent; border: none;">
+						<div class="col-lg-12 col-lg-offset-6">
+						<button type="button" class="btn btn-default btn-lg" id="refresh-antrian" style="background-color: transparent; border: none; margin-top: 10px; margin-right: 30px;">
                          <span class="glyphicon glyphicon-refresh" aria-hidden="true" style="color: white;"></span>
                         </button>
             		   </div>
+					</div>
+					<div class="col-lg-12">
+						<div class="row">
+						<div class="col-lg-6">
+							<h4 style="color: white; text-transform: uppercase; text-align: left; border-left: 2px solid white;  padding-left: 10px; font-weight: bold;"><span style="letter-spacing: 10px;">info</span><br><span style="letter-spacing: 5px;">antrian</span></h4>
+						</div>
 						</div>
 					</div>
 					<div class="col-sm-5">
-					
-						<?php echo "<h1 style='font-size: 150px; font-weight: bold; font-family: Roboto Thin; color: white;'>".$now."</h1>";?>
-						<h4 style="color: white;"><i>SAAT INI</i></h4>
+						<?php echo "<h1 style='font-size: 170px; font-family: Roboto Thin; color: white; margin-bottom: 0px;'>".$now."</h1>";?>
+						<h4 style="color: white; text-transform: uppercase; font-weight: bolder; margin-top: 0px;">SAAT INI</h4>
 					</div>
 						<div class="col-sm-2">
 							<h1 style="font-size: 100px; padding-top: 20px; color: white;">:</h1>
 						</div>
 					<div class="col-sm-5">
-						<h1 style="font-size: 150px; font-weight: bold; font-family: Roboto Thin; color: white;"><?php echo $count; ?></h1>
-						<h4 style="color: white;"><i>TOTAL</i></h4>
+						<h1 style="font-size: 170px; font-family: Roboto Thin; color: white; margin-bottom: 0px;"><?php echo $count; ?></h1>
+						<h4 style="color: white; text-transform: uppercase; font-weight: bolder; margin-top: 0px;">TOTAL</h4>
 					</div>
+				<div class="col-lg-12" style="padding-bottom: 40px;">
 					<form action="op_index.php" method="post">
 					<div class="form-group">
-					<button class="btn btn-primary btn-md col-lg-6 col-lg-offset-3" name="next" id="next" style="margin-top: 15px;border-radius: 50px; background-color: #36d7b7; box-shadow: 1px 1px 5px -20px; border: none;">Lanjut
+					<button class="btn btn-primary btn-lg col-lg-4 col-lg-offset-4" name="next" id="next" style="margin-top: 15px;border-radius: 50px; background-color: white; color: #36d7b7; box-shadow: 1px 1px 8px -4px black; border: none; font-weight: bolder;">L A N J U T
 					</button>
 					</div>
-			</form>				
+			</form>
+			</div>				
 			</div>
-			<div class="segitiga"></div>
 				</div>
 		</div>
-		<div class="col-lg-6">
+		<div class="col-lg-6" style="padding-left: 0px;">
 			<ul class="nav nav-tabs col-sm-10" id="mytab" role="tablist">
   				<li role="presentation"  class="active"><a role="tab" href="#online" aria-controls="online" data-toggle="tab">Online</a></li>
-  				<li role="presentation" ><a role="tab" href="#offline" aria-controls="offline" data-toggle="tab">Offline</a></li>
+  		
+  			<li role="presentation" ><a role="tab" href="#offline" aria-controls="offline" data-toggle="tab">Offline</a></li>
 			</ul>
 			<div class="tab-content col-lg-10" style="box-shadow: 1px 1px 5px -2px;">
 				<div class="tab-pane active" id="online">
@@ -269,7 +272,7 @@ exit();
   </div>
   <div class="form-group">
   	<div class="col-sm-12 col-lg-4 col-lg-offset-4 text-center">
-	<input type="submit" class="btn btn-primary col-lg-12" style="background-color:  #48887B; border-radius: 0px; border: none;" name="validasi" id="validasi" value="Validasi">
+	<input type="submit" class="btn btn-primary col-lg-12" style="background-color:  linear-gradient(to bottom right, #79F1A4, #0E5CAD); border-radius: 0px; border: none;" name="validasi" id="validasi" value="Validasi">
 	</div>
   </div>
 </form>
