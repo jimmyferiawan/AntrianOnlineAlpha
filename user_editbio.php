@@ -16,10 +16,11 @@
         require_once "koneksi.php";
         $id = $_SESSION["u_id_pasien"];
         $kolom = "ID_pasien, username_pasien, nama_pasien, jenis_kelamin_pasien, alamat_pasien, no_hp_pasien, foto_profil_pasien, no_bpjs_pasien";
-        $where = "WHERE ID_pasien = $id";
+        $where = "WHERE ID_pasien = '$id'";
         $sql = "SELECT $kolom FROM pasien $where";
         $data = array();
-
+        echo $sql;
+        exit;
         $query = $conn->query($sql);
         if($query) {
             while($row = $query->fetch_assoc()) {
@@ -34,6 +35,7 @@
             }
         }
     }
+    var_dump($data);
 
 ?>
 <!DOCTYPE html>
