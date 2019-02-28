@@ -1,5 +1,7 @@
 <?php
-    if(isset($_POST['pasien_login'])){
+    ini_set('display_errors', '1');
+    echo $_POST['username_pasien'];
+    if(isset($_POST['username_pasien']) && isset($_POST['password_pasien'])){
         require_once '../koneksi.php';
 
         $uname = $conn->real_escape_string($_POST['username_pasien']);
@@ -34,6 +36,5 @@
             echo "<script>alert('Password / Username  salah  !!');history.go(-1);</script>";
         }
 
-    }
     }
 ?>
