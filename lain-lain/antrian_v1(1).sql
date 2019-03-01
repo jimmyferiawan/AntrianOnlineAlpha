@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2019 at 08:33 AM
+-- Generation Time: Mar 01, 2019 at 02:37 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -30,17 +30,18 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `antri` (
   `lokasi` varchar(50) NOT NULL,
-  `sekarang` int(30) NOT NULL
+  `sekarang` int(30) NOT NULL,
+  `total` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `antri`
 --
 
-INSERT INTO `antri` (`lokasi`, `sekarang`) VALUES
-('A003', 0),
-('A002', 0),
-('A001', 0);
+INSERT INTO `antri` (`lokasi`, `sekarang`, `total`) VALUES
+('A003', 0, 0),
+('A002', 0, 0),
+('A001', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -104,16 +105,15 @@ CREATE TABLE `klinik` (
   `pemilik_klinik` varchar(200) NOT NULL,
   `no_op_klinik` varchar(50) NOT NULL,
   `no_telp_klinik` varchar(20) NOT NULL,
-  `cuti_klinik` varchar(100) NOT NULL,
-  `antrian` varchar(5) NOT NULL
+  `cuti_klinik` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `klinik`
 --
 
-INSERT INTO `klinik` (`ID_klinik`, `nama_klinik`, `alamat_klinik`, `jambuka_klinik`, `jamtutup_klinik`, `pemilik_klinik`, `no_op_klinik`, `no_telp_klinik`, `cuti_klinik`, `antrian`) VALUES
-('B001', 'budi dama', 'disini', '0200', '0600', 'andi', '0248', '05484', '', '');
+INSERT INTO `klinik` (`ID_klinik`, `nama_klinik`, `alamat_klinik`, `jambuka_klinik`, `jamtutup_klinik`, `pemilik_klinik`, `no_op_klinik`, `no_telp_klinik`, `cuti_klinik`) VALUES
+('B001', 'budi dama', 'disini', '0200', '0600', 'andi', '0248', '05484', '');
 
 -- --------------------------------------------------------
 
@@ -198,7 +198,9 @@ INSERT INTO `pasien` (`ID_pasien`, `username_pasien`, `password_pasien`, `nama_p
 ('P000009', 'noob', '', '', '', '', '', '', NULL, 0),
 ('P000010', 'noob', '', '', '', '', '', '', NULL, 0),
 ('P000011', 'aku', '', '', '', '', '', '', NULL, 0),
-('P000012', 'aku', '', '', '', '', '', '', NULL, 1);
+('P000012', 'aku', '', '', '', '', '', '', NULL, 1),
+('P000013', 'bagas', '', '', '', '', '', '', NULL, 1),
+('P000014', 'aji', '', '', '', '', '', '', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -215,17 +217,16 @@ CREATE TABLE `pukesmas` (
   `pemilik_pukesmas` varchar(200) NOT NULL,
   `no_op_pukesmas` varchar(50) NOT NULL,
   `no_telp_pukesmas` varchar(20) NOT NULL,
-  `cuti_pukesmas` varchar(100) NOT NULL,
-  `antrian` varchar(5) NOT NULL
+  `cuti_pukesmas` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pukesmas`
 --
 
-INSERT INTO `pukesmas` (`ID_pukesmas`, `nama_pukesmas`, `alamat_pukesmas`, `jambuka_pukesmas`, `jamtutup_pukesmas`, `pemilik_pukesmas`, `no_op_pukesmas`, `no_telp_pukesmas`, `cuti_pukesmas`, `antrian`) VALUES
-('A001', 'ok', 'ya', '', '', '', '', '', '', ''),
-('A003', 'disnin', 'alah mbuh', '0855', '0123', 'bagas', '023', '0122', '032', '15');
+INSERT INTO `pukesmas` (`ID_pukesmas`, `nama_pukesmas`, `alamat_pukesmas`, `jambuka_pukesmas`, `jamtutup_pukesmas`, `pemilik_pukesmas`, `no_op_pukesmas`, `no_telp_pukesmas`, `cuti_pukesmas`) VALUES
+('A001', 'ok', 'ya', '', '', '', '', '', ''),
+('A003', 'disnin', 'alah mbuh', '0855', '0123', 'bagas', '023', '0122', '032');
 
 -- --------------------------------------------------------
 
@@ -242,16 +243,15 @@ CREATE TABLE `rumahsakit` (
   `pemilik_rumahsakit` varchar(200) NOT NULL,
   `no_op_rumahsakit` varchar(50) NOT NULL,
   `no_telp_rumahsakit` varchar(20) NOT NULL,
-  `cuti_rumahsakit` varchar(100) NOT NULL,
-  `antrian` varchar(5) NOT NULL
+  `cuti_rumahsakit` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `rumahsakit`
 --
 
-INSERT INTO `rumahsakit` (`ID_rumahsakit`, `nama_rumahsakit`, `alamat_rumahsakit`, `jambuka_rumahsakit`, `jamtutup_rumahsakit`, `pemilik_rumahsakit`, `no_op_rumahsakit`, `no_telp_rumahsakit`, `cuti_rumahsakit`, `antrian`) VALUES
-('C001', 'Al kemaruk', 'disnin', '0360', '0400', 'bagas', '054884', '456885', '', '');
+INSERT INTO `rumahsakit` (`ID_rumahsakit`, `nama_rumahsakit`, `alamat_rumahsakit`, `jambuka_rumahsakit`, `jamtutup_rumahsakit`, `pemilik_rumahsakit`, `no_op_rumahsakit`, `no_telp_rumahsakit`, `cuti_rumahsakit`) VALUES
+('C001', 'Al kemaruk', 'disnin', '0360', '0400', 'bagas', '054884', '456885', '');
 
 -- --------------------------------------------------------
 
@@ -274,19 +274,8 @@ CREATE TABLE `temp` (
 --
 
 INSERT INTO `temp` (`id_user_temp`, `no_antrian`, `jam_ambil_antrian`, `lokasi`, `tgl`, `pin_temp`, `status_temp`) VALUES
-('', '1', '08:05:48', '', '28-02-19', '5132Spz2905tsA', 2),
-('P000001', '1', '07:20:44', 'A003', '28-02-19', '3325iZV6804nHl', 1),
-('P000002', '2', '07:21:53', 'A003', '28-02-19', '9763YkC6483rcr', 1),
-('P000003', '3', '07:22:03', 'A003', '28-02-19', '9299duG9103Mmm', 1),
-('P000004', '4', '07:22:10', 'A003', '28-02-19', '8874LRX7377rpq', 1),
-('P000005', '5', '07:25:45', 'A003', '28-02-19', '2135hOk3819hTh', 1),
-('P000006', '6', '07:28:08', 'A003', '28-02-19', '556iFT9924kXd', 1),
-('P000007', '7', '08:12:22', 'A003', '28-02-19', '', 0),
-('P000008', '8', '08:14:45', 'A003', '28-02-19', '', 0),
-('P000009', '9', '08:17:14', 'A003', '28-02-19', '', 0),
-('P000010', '10', '08:19:09', 'A003', '28-02-19', '', 0),
-('P000011', '11', '08:19:48', 'A003', '28-02-19', '', 0),
-('P000012', '12', '08:31:41', 'A003', '28-02-19', '5358OSs4256FfW', 1);
+('P000013', '1', '08:53:41', 'A003', '28-02-19', '4756ZmS9517LwA', 1),
+('P000014', '2', '08:53:47', 'A003', '28-02-19', '9597ChW8020EQH', 1);
 
 -- --------------------------------------------------------
 
