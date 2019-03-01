@@ -10,15 +10,15 @@
         $jenis_kelamin = $conn->real_escape_string($_POST['jenis_kelamin']);
         $alamat = $conn->real_escape_string($_POST['alamat']);
         $pwd = $conn->real_escape_string($_POST['password']);
-        $pwd_new = $conn->real_escape_string($_POST['password_re']);
+        $pwd_new = $conn->real_escape_string(trim($_POST['password_re']));
         $bpjs = $conn->real_escape_string($_POST['bpjs']);
 
+        $pwd_verif = $pwd_new == "" ? "":",password_pasien='$pwd_new'";
         // verifikasi password
 
-        $kolom = "ID_pasien, username_pasien, nama_pasien, jenis_kelamin_pasien, alamat_pasien, no_hp_pasien, no_bpjs_pasien";
         $where = "WHERE ID_pasien='$ID_pasien' AND password_pasien='$pwd'";
-        $sql = "UPDATE pasien SET username_pasien='$username', password_pasien='$pwd_new', nama_pasien='$nama', no_hp_pasien='$no_hp', jenis_kelamin_pasien='$jenis_kelamin', alamat_pasien='$alamat', no_bpjs_pasien='$bpjs' $where";
-        // echo $sql. "<br>";
+        $sql = "UPDATE pasien SET username_pasien='$username', nama_pasien='$nama', no_hp_pasien='$no_hp', jenis_kelamin_pasien='$jenis_kelamin', alamat_pasien='$alamat', no_bpjs_pasien='$bpjs'$pwd_verif $where";
+        
         $query = $conn->query($sql);
         $isSuksesUpdate = false;
         if($query) {
