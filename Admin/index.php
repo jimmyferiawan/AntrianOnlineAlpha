@@ -27,6 +27,7 @@ exit();
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
 <body>
+    <div class="container">
                     <?php include 'navbar_atas.php'; ?> 
            <!-- /. NAV TOP  -->
           
@@ -403,6 +404,6 @@ exit();
       <!-- CUSTOM SCRIPTS -->
     <script src="assets/js/custom.js"></script>
 
-
+</div>
 </body>
 </html>

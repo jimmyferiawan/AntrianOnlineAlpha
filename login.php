@@ -58,10 +58,10 @@
 				<h6 style="z-index: 1; position: relative;" class="text-center"><a href="user_regist.php" style="color: white;"><u>Daftar</u></a></h6>
 			</div>
 			<div class="box col-sm-12 col-lg-3 col-lg-offset-0">
-				<form action="user/login.php" method="POST">
+				<form action="user/login.php" method="POST" id="form-login">
 					<img class="img-responsiv center-block" src="img/logo.png" width="100px">
 					<div class="form-group">
-					<input type="text" name="username_pasien" class="form-control" placeholder="username">
+					<input type="text" name="username_pasien" class="form-control" placeholder="username" id="inputusername">
 					</div>
 					<div class="form-group">
 					<input type="password" name="password_pasien" class="form-control" placeholder="password" id="inputpassword">
@@ -79,13 +79,36 @@
 			</div>
 			<script>
 				var inputPassword = document.getElementById('inputpassword');
+				var inputUsername = document.getElementById('inputusername');
 				var showPassword = document.getElementById('showpassword');
-
+				var formLogin = document.getElementById('form-login');
 				inputPassword.type = showPassword.checked === true ? 'text' : 'password';
 
 				showPassword.addEventListener('click', function() {
 					console.log(this);
 					inputPassword.type = this.checked === true ? 'text' : 'password';
+				})
+
+				formLogin.addEventListener('submit', function(e) {
+					e.preventDefault();
+					if(inputPassword.value.trim() === "" && inputUsername.value.trim() === "") {
+						alert("anda belum mengisi form");
+						return false;
+					}
+					if(inputUsername.value.trim() === "") {
+						alert("username tidak boleh kosong");
+						return false;
+					}
+					if(inputPassword.value.trim() === "") {
+						alert("password tidak boleh kosong");
+						return false;
+					}
+					if(inputUsername.value.trim() !== "" && inputPassword.value.trim() !== "") {
+						this.submit();
+						return true;
+					} else {
+						return false;
+					}
 				})
 			</script>
 </body>
