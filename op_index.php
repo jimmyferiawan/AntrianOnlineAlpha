@@ -93,16 +93,12 @@ exit();
 // end
   include "koneksi.php";
   $sql_temp = mysqli_query($conn, "select * from temp where lokasi  = '$lokasiberobat' ");
-  $count = mysqli_num_rows($sql_temp);
   
-  $sql_antri = mysqli_query($conn, "select sekarang from antri where lokasi = '$lokasiberobat'  ");
-  if (mysqli_num_rows($sql_antri)>0){
+  $sql_antri = mysqli_query($conn, "select sekarang, total from antri where lokasi = '$lokasiberobat'  ");
 	$row = mysqli_fetch_array($sql_antri);
 	$now = $row[0];
+	$total = $row[1];
 	$_SESSION["loc"]["sekarang"]=$now;
-  }else{
-	  $now = 0;
-  }
   
   $nama = "";
 	$no_antrian ="";
@@ -122,7 +118,7 @@ exit();
   }
   
   if(isset($_POST["next"])){
-	  if ($now<$count){
+	  if ($now<$total){
 		$now = 1 + $now;
 		$s = mysqli_query($conn, "UPDATE antri SET sekarang = $now where lokasi =  '$lokasiberobat'");
 	  }
@@ -132,15 +128,11 @@ exit();
   	  $statuspsn ='1';
   	  $statusonline ='1';
   	  $pin=$_SESSION["op"]["pin"];
-	  $offnama = $_POST['offnama'];
-	  $sql_pasien = mysqli_query($conn, "select * from pasien");
-	  $cnt = mysqli_num_rows($sql_pasien)+1;
-	  $j = '';
-	  for($i=0;$i<6-strlen($cnt);$i++){
-		$j = '0'.$j;
-	  }
-	  $pid = "P".$j.$cnt;
-	  $s = mysqli_query($conn, "INSERT INTO pasien(ID_pasien, username_pasien ,status_pasien ) values('$pid','$offnama','$statuspsn')");	  
+	  $pid = $_POST['offnama'];
+	  $s = mysqli_query($conn, "INSERT INTO pasien(ID_pasien ,status_pasien ) values('$pid','$statuspsn')");	  
+	  
+	  $total = 1 + $total;
+	  $s = mysqli_query($conn, "UPDATE antri SET total = $total where lokasi =  '$lokasiberobat'");
 	  
 	  $cnt = mysqli_num_rows($sql_temp)+1;
 	  $tgl = date('d-m-y');
@@ -191,7 +183,7 @@ exit();
 							<h1 style="font-size: 100px; padding-top: 20px; color: white;">:</h1>
 						</div>
 					<div class="col-sm-5">
-						<h1 style="font-size: 170px; font-family: Roboto Thin; color: white; margin-bottom: 0px;"><?php echo $count; ?></h1>
+						<h1 style="font-size: 170px; font-family: Roboto Thin; color: white; margin-bottom: 0px;"><?php echo $total; ?></h1>
 						<h4 style="color: white; text-transform: uppercase; font-weight: bolder; margin-top: 0px;">TOTAL</h4>
 					</div>
 				<div class="col-lg-12" style="padding-bottom: 40px;">

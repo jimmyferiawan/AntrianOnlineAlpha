@@ -36,7 +36,8 @@ $sql_antri = mysqli_query($conn, "select sekarang, total from antri where lokasi
 	}
 }
 
-$sql_reset = mysqli_query($conn, "UPDATE antri SET sekarang=0, total=0 where lokasi = '$locthpas'");
+  $total = $total - $now ;
+$sql_reset = mysqli_query($conn, "UPDATE antri SET sekarang=0, total='$total' where lokasi = '$locthpas'");
 if($sql_reset){
 	echo "<script>location='../op_index.php';</script>";
 }
