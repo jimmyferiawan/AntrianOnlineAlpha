@@ -1,6 +1,6 @@
 <?php
 
-    if(isset($_POST["pasien_edit"])) {
+    if(isset($_POST["username"])) {
         require_once '../koneksi.php';
 
         $ID_pasien = $conn->real_escape_string($_POST['nik']);
@@ -22,12 +22,16 @@
         $query = $conn->query($sql);
         $isSuksesUpdate = false;
         if($query) {
+            $isSuksesUpdate = true;
             if($conn->affected_rows > 0) {
                 // echo "berhasil update data";
                 $isSuksesUpdate = true;
+            } else {
+                // echo 'Error: password salah';
+                $isSuksesUpdate = false;
             }
         } else {
-            echo 'Error: '. $conn->error ."<br>";
+            // echo 'Error: '. $conn->error ."<br>";
             $isSuksesUpdate = false;
         }
 
@@ -44,7 +48,7 @@
 <body>
     <?php
         if($isSuksesUpdate==false) {
-            echo '<span>Gagal update data! Kembali di halaman pengaturan<a href="/user_editbio.php">antrian</a></span></body></html>';
+            echo '<span>Gagal update data! Kembali di halaman <a href="/AntrianOnlineAlpha/user_editbio.php">pengaturan antrian</a></span></body></html>';
 
             exit;
         }
