@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.6.6deb4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 01, 2019 at 02:37 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- Host: localhost:3306
+-- Generation Time: Mar 01, 2019 at 09:11 AM
+-- Server version: 10.1.37-MariaDB-0+deb9u1
+-- PHP Version: 7.2.15-1+0~20190209065123.16+stretch~1.gbp3ad8c0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `antrian_v1`
+-- Database: `antrian_v1_4`
 --
 
 -- --------------------------------------------------------
@@ -30,8 +28,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `antri` (
   `lokasi` varchar(50) NOT NULL,
-  `sekarang` int(30) NOT NULL,
-  `total` int(5) NOT NULL
+  `sekarang` int(30) NOT NULL DEFAULT '0',
+  `total` int(5) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -39,9 +37,11 @@ CREATE TABLE `antri` (
 --
 
 INSERT INTO `antri` (`lokasi`, `sekarang`, `total`) VALUES
+('A001', 0, 0),
 ('A003', 0, 0),
-('A002', 0, 0),
-('A001', 0, 0);
+('B001', 0, 0),
+('C001', 0, 0),
+('D001', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -297,6 +297,12 @@ CREATE TABLE `tempbesok` (
 --
 
 --
+-- Indexes for table `antri`
+--
+ALTER TABLE `antri`
+  ADD PRIMARY KEY (`lokasi`);
+
+--
 -- Indexes for table `dokter`
 --
 ALTER TABLE `dokter`
@@ -355,7 +361,6 @@ ALTER TABLE `temp`
 --
 ALTER TABLE `tempbesok`
   ADD PRIMARY KEY (`id_user_temp`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

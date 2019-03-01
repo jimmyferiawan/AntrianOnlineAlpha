@@ -142,7 +142,7 @@ exit();
             daftarNama.innerHTML = defaultOption;
             daftarNama.setAttribute('data-id-tempat', idJenisTempat);
             inpAntrianTempat.value = idJenisTempat;
-            
+            // console.log(listNamaTempat);
             for(var i of listNamaTempat) {
                 var select = new Option(i.nama, i.id_instansi);
                 daftarNama.add(select);
@@ -194,6 +194,7 @@ exit();
                 })
                 .then(function(response) {
                     updateDaftarnama(response.data, idLokasi);
+                    // consoloe.log(response);
                 })
                 .catch(function(error) {
                     // TODO: lakukan sesuatu ketika error ambil data

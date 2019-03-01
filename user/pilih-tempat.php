@@ -16,8 +16,7 @@
             $idInstansi = "ID_".$tempat[$idTempat];
             $namaInstansi = "nama_".$tempat[$idTempat];
 
-            $sql = "SELECT $idInstansi, $namaInstansi, antrian FROM ". $tempat[$idTempat]; 
-            
+            $sql = "SELECT $idInstansi, $namaInstansi FROM ". $tempat[$idTempat];
             $query = $conn->query($sql);
 
             if($query) {
