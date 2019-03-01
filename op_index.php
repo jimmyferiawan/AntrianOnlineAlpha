@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<?php session_unset(); ?>
 <?php session_start() ?>
  <?php include 'operator/rdmpin.php'; ?>
 <?php if (!isset( $_SESSION["id"]["id_op"])) 

@@ -1,6 +1,7 @@
 </!DOCTYPE html>
 <html>
 <head>
+	<?php session_unset(); ?>
 	<meta name="viewport" content="width=device-width">
 	<title></title>
 <!--<link href="framework/css/bootstrap.css" rel="stylesheet">-->
