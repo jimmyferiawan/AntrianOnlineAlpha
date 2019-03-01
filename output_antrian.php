@@ -73,7 +73,7 @@
         $tgl = date("d/m/Y");
         $pin = generate_pin();
 
-        $sql = "INSERT INTO temp (id_user_temp, no_antrian, jam_ambil_antrian, lokasi, tgl, pin) VALUES ('$id_user_temp', '$no_antrian', '$jam_ambil_antrian', '$id_instansi', '$tgl', '$pin')";
+        $sql = "INSERT INTO temp (id_user_temp, no_antrian, jam_ambil_antrian, lokasi, tgl, pin_temp, status_temp) VALUES ('$id_user_temp', '$no_antrian', '$jam_ambil_antrian', '$id_instansi', '$tgl', '$pin', 2)";
         $query = $conn->query($sql);
         if($query) {
             // echo "berhasil";
@@ -82,7 +82,10 @@
                 $pin = "Gagal menghasilkan pin silahkan ulangi kembali";
             }
             // var_dump($hasil);
+            $_SESSION['u_antrian_nomor'] = $no_antrian;
+            $_SESSION['u_antrian_lokasi'] = $nama_instansi; 
         }
+        $conn->close();
     }
 ?>
 <!DOCTYPE html>
@@ -201,7 +204,7 @@
     <script src="framework/js/qrcode.min.js"></script>
     <script>
         var qrText = document.getElementById('pin-antrian').innerText.trim();
-
+            
         var qrcode = new QRCode(document.getElementById('qrcode'), {
             text: qrText,
             width: 256,

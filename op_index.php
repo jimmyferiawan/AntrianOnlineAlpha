@@ -2,7 +2,6 @@
 <html>
 <?php session_unset(); ?>
 <?php session_start() ?>
- <?php include 'operator/rdmpin.php'; ?>
 <?php if (!isset( $_SESSION["id"]["id_op"])) 
  {
 echo "<script> alret('LOGIN FIRST');</script>";
@@ -94,16 +93,12 @@ exit();
 // end
   include "koneksi.php";
   $sql_temp = mysqli_query($conn, "select * from temp where lokasi  = '$lokasiberobat' ");
-  $count = mysqli_num_rows($sql_temp);
   
-  $sql_antri = mysqli_query($conn, "select sekarang from antri where lokasi = '$lokasiberobat'  ");
-  if (mysqli_num_rows($sql_antri)>0){
+  $sql_antri = mysqli_query($conn, "select sekarang, total from antri where lokasi = '$lokasiberobat'  ");
 	$row = mysqli_fetch_array($sql_antri);
 	$now = $row[0];
+	$total = $row[1];
 	$_SESSION["loc"]["sekarang"]=$now;
-  }else{
-	  $now = 0;
-  }
   
   $nama = "";
 	$no_antrian ="";
@@ -113,7 +108,7 @@ exit();
   
   if(isset($_POST["validasi"])){
 	  $pin = $_REQUEST["pin"];
-	  $sql_pin = mysqli_query($conn, "SELECT p.nama_pasien, t.id_user_temp, t.no_antrian, t.jam_ambil_antrian, t.tgl, t.lokasi FROM pasien AS p INNER JOIN temp AS t WHERE t.pin='$pin' AND t.id_user_temp=p.ID_pasien");
+	  $sql_pin = mysqli_query($conn, "SELECT p.nama_pasien, t.id_user_temp, t.no_antrian, t.jam_ambil_antrian, t.tgl, t.lokasi FROM pasien AS p INNER JOIN temp AS t WHERE t.pin_temp='$pin' AND t.id_user_temp=p.ID_pasien");
 	  $row = mysqli_fetch_array($sql_pin);
 	  $nama = $row[0];
 	  $no_antrian =$row[1];
@@ -123,7 +118,7 @@ exit();
   }
   
   if(isset($_POST["next"])){
-	  if ($now<$count){
+	  if ($now<$total){
 		$now = 1 + $now;
 		$s = mysqli_query($conn, "UPDATE antri SET sekarang = $now where lokasi =  '$lokasiberobat'");
 	  }
@@ -133,15 +128,11 @@ exit();
   	  $statuspsn ='1';
   	  $statusonline ='1';
   	  $pin=$_SESSION["op"]["pin"];
-	  $offnama = $_POST['offnama'];
-	  $sql_pasien = mysqli_query($conn, "select * from pasien");
-	  $cnt = mysqli_num_rows($sql_pasien)+1;
-	  $j = '';
-	  for($i=0;$i<6-strlen($cnt);$i++){
-		$j = '0'.$j;
-	  }
-	  $pid = "P".$j.$cnt;
-	  $s = mysqli_query($conn, "INSERT INTO pasien(ID_pasien, username_pasien ,status_pasien ) values('$pid','$offnama','$statuspsn')");	  
+	  $pid = $_POST['offnama'];
+	  $s = mysqli_query($conn, "INSERT INTO pasien(ID_pasien ,status_pasien ) values('$pid','$statuspsn')");	  
+	  
+	  $total = 1 + $total;
+	  $s = mysqli_query($conn, "UPDATE antri SET total = $total where lokasi =  '$lokasiberobat'");
 	  
 	  $cnt = mysqli_num_rows($sql_temp)+1;
 	  $tgl = date('d-m-y');
@@ -158,30 +149,7 @@ exit();
 	$_SESSION["id"]["tingkat_op"] =  $tingkat_op;
 ?>
 
-<!-- <nav class="navbar navbar-default" style="margin-bottom: 0px; ">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="">
-                    LOGO 
-                </a>
-				<?php echo $user_op;?>
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navheader-collapse" aria-expanded="false">
-                    <span class="glyphicon glyphicon-menu-hamburger"></span>
-                </button>
 
-            </div>
-            <div class="collapse navbar-collapse navheader-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="">Info Antrian</a></li>
-				<?php
-				if($tingkat_op==1){
-				echo '<li><a href="op_requser.php">request operator baru</a></li>';}?>
-                <li><a href="op_editbio.php">pengaturan</a></li>               
-                <li><a href="operator/logout.php">keluar</a></li>
-            </ul>
-            </div>
-        </div>
-    </nav>	 -->
     <?php include 'navbar.php'; ?>
 
     
@@ -215,7 +183,7 @@ exit();
 							<h1 style="font-size: 100px; padding-top: 20px; color: white;">:</h1>
 						</div>
 					<div class="col-sm-5">
-						<h1 style="font-size: 170px; font-family: Roboto Thin; color: white; margin-bottom: 0px;"><?php echo $count; ?></h1>
+						<h1 style="font-size: 170px; font-family: Roboto Thin; color: white; margin-bottom: 0px;"><?php echo $total; ?></h1>
 						<h4 style="color: white; text-transform: uppercase; font-weight: bolder; margin-top: 0px;">TOTAL</h4>
 					</div>
 				<div class="col-lg-12" style="padding-bottom: 40px;">
