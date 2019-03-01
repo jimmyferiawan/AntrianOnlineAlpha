@@ -108,7 +108,7 @@ exit();
   
   if(isset($_POST["validasi"])){
 	  $pin = $_REQUEST["pin"];
-	  $sql_pin = mysqli_query($conn, "SELECT p.nama_pasien, t.id_user_temp, t.no_antrian, t.jam_ambil_antrian, t.tgl, t.lokasi FROM pasien AS p INNER JOIN temp AS t WHERE t.pin='$pin' AND t.id_user_temp=p.ID_pasien");
+	  $sql_pin = mysqli_query($conn, "SELECT p.nama_pasien, t.id_user_temp, t.no_antrian, t.jam_ambil_antrian, t.tgl, t.lokasi FROM pasien AS p INNER JOIN temp AS t WHERE t.pin_temp='$pin' AND t.id_user_temp=p.ID_pasien");
 	  $row = mysqli_fetch_array($sql_pin);
 	  $nama = $row[0];
 	  $no_antrian =$row[1];
