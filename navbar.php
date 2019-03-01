@@ -1,3 +1,31 @@
+<style type="text/css">
+.triangle {
+  position: relative;
+  margin: 3em;
+  padding: 1em;
+  box-sizing: border-box;
+  background: #bada55;
+  box-shadow: 0px 3px 3px 0 rgba(0, 0, 0, 0.4);
+}
+.triangle::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin-left: -0.5em;
+    bottom: -2em;
+    left: 50%;
+    box-sizing: border-box;
+    
+    border: 1em solid black;
+    border-color: transparent transparent #bada55 #bada55;
+    
+    transform-origin: 0 0;
+    transform: rotate(-225deg);
+    
+    box-shadow: -3px 3px 3px 0 rgba(0, 0, 0, 0.4);
+  }
+</style>
 <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
