@@ -107,7 +107,7 @@
         <div class="row">
             <div>   
                 <div id="profile">
-                    <form action="/AntrianOnlineAlpha/user/edit.php" method="post" enctype="multipart/form-data">
+                    <form action="user/edit.php" method="post" enctype="multipart/form-data" id="form-edit-data">
                         <div class="form-group col-lg-12">
                             <label for="user-profile">Foto</label>
                             <input type="file" name="user_profile" id="user-profile" class="form-control col-lg-4" placeholder="user1" <?= $disable_input ?>>
@@ -170,5 +170,18 @@
     </div>
     <script src="framework/js/jquery-3.3.1.min.js"></script>
     <script src="framework/js/bootstrap.min.js"></script>
+    <script>
+        var formEdit = document.getElementById("form-edit-data");
+        var pwd = document.getElementById("password");
+
+        formEdit.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if(pwd.value.trim() == 0) {
+                alert("tolong isi password untuk menkonfirmasi perubahan");
+            } else {
+                this.submit();
+            }
+        })
+    </script>
 </body>
 </html>
