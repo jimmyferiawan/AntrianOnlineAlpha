@@ -82,7 +82,7 @@
       </ul> -->
       
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-bell"></span> New Notifications</a></li>
+        <li><a href="index.php"><span class="glyphicon glyphicon-bell"></span> New Notifications</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-dashboard"></span> Ubah Data <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -111,9 +111,9 @@
       <li class="dropdown-submenu">
         <a href="#">Puskesmas</a>
         <ul class="dropdown-menu" style="position: absolute; left: 100%">
-          <li><a href="#">Tambah</a></li>
-          <li><a href="#">Edit</a></li>
-          <li><a href="#">Hapus</a></li>
+          <li><a href="puskesmas/user_regist_puskesmas.php">Tambah</a></li>
+          <li><a href="puskesmas/user_editbio_puskesmas.php">Edit</a></li>
+          <li><a href="puskesmas/user_hapus_puskesmas.php">Hapus</a></li>
         </ul>
       </li>
     </ul>
@@ -158,8 +158,8 @@
   </li>         
           </ul>
         </li>
-        <li><a href="#"><span class="glyphicon glyphicon-check"></span> New Validation</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> User Control</a></li>
+        <li><a href="validation_op.php"><span class="glyphicon glyphicon-check"></span> New Validation</a></li>
+        <li><a href="user_control.php"><span class="glyphicon glyphicon-user"></span> User Control</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

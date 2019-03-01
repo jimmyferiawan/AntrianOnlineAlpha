@@ -2,7 +2,6 @@
 <html>
 <?php session_unset(); ?>
 <?php session_start() ?>
- <?php include 'operator/rdmpin.php'; ?>
 <?php if (!isset( $_SESSION["id"]["id_op"])) 
  {
 echo "<script> alret('LOGIN FIRST');</script>";
@@ -158,30 +157,7 @@ exit();
 	$_SESSION["id"]["tingkat_op"] =  $tingkat_op;
 ?>
 
-<!-- <nav class="navbar navbar-default" style="margin-bottom: 0px; ">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="">
-                    LOGO 
-                </a>
-				<?php echo $user_op;?>
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navheader-collapse" aria-expanded="false">
-                    <span class="glyphicon glyphicon-menu-hamburger"></span>
-                </button>
 
-            </div>
-            <div class="collapse navbar-collapse navheader-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="">Info Antrian</a></li>
-				<?php
-				if($tingkat_op==1){
-				echo '<li><a href="op_requser.php">request operator baru</a></li>';}?>
-                <li><a href="op_editbio.php">pengaturan</a></li>               
-                <li><a href="operator/logout.php">keluar</a></li>
-            </ul>
-            </div>
-        </div>
-    </nav>	 -->
     <?php include 'navbar.php'; ?>
 
     
