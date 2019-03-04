@@ -48,11 +48,15 @@ exit();
         }
 
         .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
-            color: #36d7b7;
-        }
+            color: #000000;
+            background-color: transparent;
 
-        .navbar-default .navbar-nav li>a:hover {
-            color: #36d7b7;
+            border-bottom: 2px solid #36d7b7;          
+        }
+        
+        .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+            background-color: transparent;
+            color: grey;
         }
         #form-ambil-antrian {
             display: inline-block;
@@ -106,7 +110,32 @@ exit();
                             <option selected disabled value="">Nama Tempat</option>
                         </select>
 
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d32656920.102451846!2d117.88880000000002!3d-2.357836599999986!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2de681b4659a3d67%3A0xf9c1001731bf6113!2sPuskesmas+Martapura!5e0!3m2!1sen!2sid!4v1546747816789" width="325" height="350" frameborder="0" style="border:0; margin-top: 10px;" allowfullscreen class="img-responsive col-xs-12 col-md-12 col-lg-12"></iframe>                        
+                        <!-- coba gogel map  -->
+ <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+ <div id="map" style="width: 300px; height: 300px;"></div> 
+ <script type="text/javascript">
+              
+//              menentukan koordinat titik tengah peta
+              var myLatlng = new google.maps.LatLng(-6.176587,106.827115);
+ 
+//              pengaturan zoom dan titik tengah peta
+              var myOptions = {
+                  zoom: 13,
+                  center: myLatlng
+              };
+              
+//              menampilkan output pada element
+              var map = new google.maps.Map(document.getElementById("map"), myOptions);
+              
+//              menambahkan marker
+              var marker = new google.maps.Marker({
+                   position: myLatlng,
+                   map: map,
+                   title:"Monas"
+              });
+              
+        </script>                      
+        <!-- coba -->              
                     </div>
                 </div>
             </div>

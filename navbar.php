@@ -1,37 +1,12 @@
 <style type="text/css">
-.triangle {
-  position: relative;
-  margin: 3em;
-  padding: 1em;
-  box-sizing: border-box;
-  background: #bada55;
-  box-shadow: 0px 3px 3px 0 rgba(0, 0, 0, 0.4);
-}
-.triangle::after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 0;
-    margin-left: -0.5em;
-    bottom: -2em;
-    left: 50%;
-    box-sizing: border-box;
-    
-    border: 1em solid black;
-    border-color: transparent transparent #bada55 #bada55;
-    
-    transform-origin: 0 0;
-    transform: rotate(-225deg);
-    
-    box-shadow: -3px 3px 3px 0 rgba(0, 0, 0, 0.4);
-  }
+
 </style>
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top" style="background-color: white; box-shadow: 0px -1px 4px -1px;">
         <div class="container-fluid">
             <div class="navbar-header">
 <?php if (isset($_SESSION['u'])): ?>
                 <a class="navbar-brand" href="user_antrian.php">
-                    LOGO
+                    AntriSehat
                 </a>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navheader-collapse" aria-expanded="false">
                     <span class="glyphicon glyphicon-menu-hamburger"></span>
@@ -39,16 +14,17 @@
 
             </div>
             <div class="collapse navbar-collapse navheader-collapse">
-
+            <ul class="nav navbar-nav" style="font-family: Roboto Thin">
+                <li><a href=""><i class="glyphicon glyphicon-home"></i> Home</a></li>
+                <li class="active"><a href=""><i class="glyphicon glyphicon-forward"></i> Antri</a></li>
+                <li><a href=""><i class="glyphicon glyphicon-envelope"></i> Antri</a></li>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="user_antrian.php">Ambil Antrian</a></li>
 					<li class="dropdown">
-		          	<a href="#" class="dropdown-toggle" style="text-transform: capitalize;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['u']; ?> <span class="caret"></span></a>
+		          	<a href="#" class="dropdown-toggle" style="text-transform: capitalize;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['u']; ?> <span class="caret"></span> </a>
 		       		<ul class="dropdown-menu">
 		            <li><a href="user_editbio.php">Profil Pengguna</a></li>
-		            <li><a href="user/logout.php">Keluar</a></li>
-		            
-
+		            <li><a href="user/logout.php">Keluar</a></li>           
             </ul>
             </div>
         </div>
@@ -67,7 +43,7 @@
                
 				<?php
 				if($_SESSION["id"]["tingkat_op"]==1){
-				echo '<li><a href="op_requser.php">request operator baru</a></li>';}?>
+				echo '<li><a href="op_requser.php">operator baru</a></li>';}?>
 				<li class="active"><a href="op_index.php">Info Antrian</a></li>               
                 <li class="dropdown">
 		          	<a href="#" class="dropdown-toggle" style="text-transform: capitalize;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION["id"]["user_op"]; ?> <span class="caret"></span></a>
