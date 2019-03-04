@@ -152,16 +152,15 @@ exit();
   	  $statuspsn ='1';
   	  $statusonline ='1';
   	  $pin=$_SESSION["op"]["pin"];
-	  $pid = $_POST['offnama'];
+	  $pid = $_POST['nik'];
 	  $s = mysqli_query($conn, "INSERT INTO pasien(ID_pasien ,status_pasien ) values('$pid','$statuspsn')");	  
 	  
 	  $total = 1 + $total;
 	  $s = mysqli_query($conn, "UPDATE antri SET total = $total where lokasi =  '$lokasiberobat'");
 	  
-	  $cnt = mysqli_num_rows($sql_temp)+1;
 	  $tgl = date('d-m-y');
 	  $jam = date('h:i:s');
-	  $s = mysqli_query($conn, "INSERT INTO temp(id_user_temp, no_antrian,jam_ambil_antrian,lokasi, tgl, pin_temp, status_temp) values('$pid','$cnt','$jam','$lokasiberobat','$tgl','$pin','$statusonline')");
+	  $s = mysqli_query($conn, "INSERT INTO temp(id_user_temp, no_antrian,jam_ambil_antrian,lokasi, tgl, pin_temp, status_temp) values('$pid','$total','$jam','$lokasiberobat','$tgl','$pin','$statusonline')");
       header("refresh: 0;");
   }
 	$id_op = $_SESSION["id"]["id_op"];
@@ -231,9 +230,12 @@ exit();
 				<div class="tab-pane" id="online">
 			<form class="form-horizontal" action="op_index.php" method="post" style="margin-top: 20px;">
   <div class="form-group">
-	<div class="col-sm-12">
+	<div class="col-sm-8">
 		<label for="nama" style="text-align: left;">PIN</label>
 		<input type="text" class="form-control input-sm" id="pin" name="pin" >
+	</div>
+	<div class="col-sm-4">
+		<input type="submit" class="btn btn-primary" style="background-color:  linear-gradient(to bottom right, #79F1A4, #0E5CAD); border-radius: 0px; border: none; margin-top:25px;" name="check" id="check" value="Check">
 	</div>
   </div>
   <div class="form-group">
@@ -277,8 +279,8 @@ exit();
 <form class="form-horizontal" action="op_index.php" method="post" style="margin-top: 20px;">
 	<div class="form-group">
 		<div class="col-sm-12">
-			<label for="nama">Nama:</label>
-			<input type="text" class="form-control input-sm" name="offnama" id="offnama" placeholder="Nama">
+			<label for="nik">NIK:</label>
+			<input type="text" class="form-control input-sm" name="nik" id="nik" placeholder="NIK" required>
 		</div>
 	</div>
 
