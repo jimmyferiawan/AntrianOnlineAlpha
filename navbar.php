@@ -17,7 +17,7 @@
             <ul class="nav navbar-nav" style="font-family: Roboto Thin">
                 <li><a href=""><i class="glyphicon glyphicon-home"></i> Home</a></li>
                 <li class="active"><a href=""><i class="glyphicon glyphicon-forward"></i> Antri</a></li>
-                <li><a href=""><i class="glyphicon glyphicon-envelope"></i> Antri</a></li>
+                <li><a href=""><i class="glyphicon glyphicon-envelope"></i> Pesan</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
 					<li class="dropdown">
