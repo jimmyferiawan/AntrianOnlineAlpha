@@ -6,7 +6,7 @@
             <div class="navbar-header">
 <?php if (isset($_SESSION['u'])): ?>
                 <a class="navbar-brand" href="user_antrian.php">
-                    LOGO
+                    AntriSehat
                 </a>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navheader-collapse" aria-expanded="false">
                     <span class="glyphicon glyphicon-menu-hamburger"></span>
@@ -14,16 +14,21 @@
 
             </div>
             <div class="collapse navbar-collapse navheader-collapse">
+            <ul class="nav navbar-nav" style="font-family: Roboto Thin">
+                <li>
+                    <a href="">
+                        <i class="glyphicon glyphicon-home"></i> Home</span>
+                    </a>
+                </li>
+                <li class="active"><a href=""><i class="glyphicon glyphicon-forward"></i> Ambil Antrian</a></li>
 
+            </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="user_antrian.php">Ambil Antrian</a></li>
 					<li class="dropdown">
 		          	<a href="#" class="dropdown-toggle" style="text-transform: capitalize;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['u']; ?> <span class="caret"></span></a>
 		       		<ul class="dropdown-menu">
 		            <li><a href="user_editbio.php">Profil Pengguna</a></li>
-		            <li><a href="user/logout.php">Keluar</a></li>
-		            
-
+		            <li><a href="user/logout.php">Keluar</a></li>           
             </ul>
             </div>
         </div>

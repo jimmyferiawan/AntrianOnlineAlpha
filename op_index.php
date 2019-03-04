@@ -50,38 +50,39 @@ exit();
 
     .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
             color: #36d7b7;
-            background-color: white;
     }
 
-    .navbar-default .navbar-nav>.active>a{
-    
-    }
+    .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: #555;
+    background-color: green;
+	}
 
+ 	
     .navbar-default .navbar-nav li:hover::after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 0;
-    margin-left: -0.5px;
-    bottom: -2px;
-    top: 52px;
-    left: 60%;
-    box-sizing: border-box;
-    
-    border: 5px solid black;
-    border-color: transparent transparent #fff #fff;
-    
-    transform-origin: 0 0;
-    transform: rotate(-225deg);
-    
-    box-shadow: -3px 3px 3px 0 rgba(0, 0, 0, 0.4);
+	    content: "";
+	    position: absolute;
+	    width: 0;
+	    height: 0;
+	    margin-left: -0.5px;
+	    bottom: -2px;
+	    top: 52px;
+	    left: 60%;
+	    box-sizing: border-box;
+	    
+	    border: 5px solid black;
+	    border-color: transparent transparent #fff #fff;
+	    
+	    transform-origin: 0 0;
+	    transform: rotate(-225deg);
+	    
+	    box-shadow: -3px 3px 3px 0 rgba(0, 0, 0, 0.4);
 
-    color: #36d7b7;
+	    color: #36d7b7;
     }
 
     .navbar-default .navbar-nav li>a:hover {
     	display: hidden;
-            color: #36d7b7;  
+        color: #36d7b7;  
     }
 
    @font-face {
@@ -90,9 +91,9 @@ exit();
          }
 
 	.form-control:focus {
-	            -webkit-border-image: -webkit-linear-gradient(top left, #79F1A4, #0E5CAD);
-	            -o-border-image: -o-linear-gradient(top left, #79F1A4, #0E5CAD);
-	            border-image: linear-gradient(to bottom right, #79F1A4, #0E5CAD);
+	        -webkit-border-image: -webkit-linear-gradient(top left, #79F1A4, #0E5CAD);
+	        -o-border-image: -o-linear-gradient(top left, #79F1A4, #0E5CAD);
+	        border-image: linear-gradient(to bottom right, #79F1A4, #0E5CAD);
 	        border-image-slice: 1;
 			border-image-width: 2px;
 			border-radius: 8px;	
@@ -100,6 +101,11 @@ exit();
 
 	.form-control {
 		border-radius: 2px;
+	}
+
+	.dropdown-menu > li > a:hover {
+		background-color: green;
+		border: none;
 	}
 
 </style>
