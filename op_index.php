@@ -49,10 +49,15 @@ exit();
     }
 
     .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
-            
+            color: #36d7b7;
+            background-color: white;
     }
 
-    .navbar-default .navbar-nav>.active>a::after{
+    .navbar-default .navbar-nav>.active>a{
+    
+    }
+
+    .navbar-default .navbar-nav li:hover::after {
     content: "";
     position: absolute;
     width: 0;
@@ -60,19 +65,22 @@ exit();
     margin-left: -0.5px;
     bottom: -2px;
     top: 52px;
-    left: 68px;
+    left: 60%;
     box-sizing: border-box;
     
-    border: 8px solid black;
+    border: 5px solid black;
     border-color: transparent transparent #fff #fff;
     
     transform-origin: 0 0;
     transform: rotate(-225deg);
     
     box-shadow: -3px 3px 3px 0 rgba(0, 0, 0, 0.4);
+
+    color: #36d7b7;
     }
 
     .navbar-default .navbar-nav li>a:hover {
+    	display: hidden;
             color: #36d7b7;  
     }
 
