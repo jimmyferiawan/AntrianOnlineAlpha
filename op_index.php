@@ -114,7 +114,7 @@ exit();
 	$row = mysqli_fetch_array($sql_antri);
 	$now = $row[0];
 	$total = $row[1];
-	$_SESSION["loc"]["sekarang"]=$now;
+	$_SESSION["loc"]["sekarang"]=$now-1;
   
   $nama = "";
 	$no_antrian ="";
@@ -135,8 +135,8 @@ exit();
   
   if(isset($_POST["next"])){
 	  if ($now<$total){
-		$now = 1 + $now;
-		$s = mysqli_query($conn, "UPDATE antri SET sekarang = $now where lokasi =  '$lokasiberobat'");
+		include 'operator/next.php';
+
 	  }
   }
   
