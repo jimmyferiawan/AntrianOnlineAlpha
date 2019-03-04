@@ -48,7 +48,7 @@ exit();
         }
 
         .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
-            color: #000000;
+            
             background-color: transparent;
 
             border-bottom: 2px solid #36d7b7;          
@@ -58,9 +58,30 @@ exit();
             background-color: transparent;
             color: grey;
         }
+      
         #form-ambil-antrian {
             display: inline-block;
         }
+
+        .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+            background-color: transparent;
+            }
+
+        .navbar-default .navbar-nav>.open>a:hover {
+            border: none;
+        }
+
+        .navbar-default .navbar-nav>li>a {
+            font-size: 13px;
+
+            padding: 15px 20px;
+        }
+
+        .navbar-default .navbar-nav>li>a:hover:not(#aw) {
+            border-bottom: 2px solid #36d7b7;
+        }
+    
+
     </style>
 </head>
 <body>
