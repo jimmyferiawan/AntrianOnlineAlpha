@@ -82,7 +82,7 @@
 
 			</tr>
 		</thead>
-		<tbody>';
+		<tbody>
 		
 <?php 
 if ($hasil ->num_rows >=0){
@@ -104,7 +104,7 @@ if ($hasil ->num_rows >=0){
 			$no++;
 		}
 	}?>
-	echo "</table>";
+	</table>
 <?php // 	echo '<tr>
 // 			<td>'.$row[0].'</td>
 // 			<td>'.$row[1].'</td>

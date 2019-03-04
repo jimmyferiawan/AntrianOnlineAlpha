@@ -82,7 +82,7 @@
 
 			</tr>
 		</thead>
-		<tbody>;
+		<tbody>
 		
 <?php  
 if ($hasil ->num_rows >=0){
