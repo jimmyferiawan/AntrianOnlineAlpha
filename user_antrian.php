@@ -63,7 +63,7 @@ exit();
         }
 
         .navbar-default .navbar-nav>li>a {
-            font-size: 12px;
+            font-size: 13px;
 
             padding: 15px 20px;
         }

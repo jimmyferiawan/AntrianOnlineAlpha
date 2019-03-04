@@ -15,9 +15,9 @@
             </div>
             <div class="collapse navbar-collapse navheader-collapse">
             <ul class="nav navbar-nav" style="font-family: arial">
-                <li><a href=""><i class="glyphicon glyphicon-home"></i> Home</a></li>
-                <li class="active"><a href=""><i class="glyphicon glyphicon-forward"></i> Antri</a></li>
-                <li><a href=""><i class="glyphicon glyphicon-envelope"></i> Pesan</a></li>
+                <li><a href=""><i class="glyphicon glyphicon-home"></i> home</a></li>
+                <li class="active"><a href=""><i class="glyphicon glyphicon-forward"></i> antri</a></li>
+                <li><a href=""><i class="glyphicon glyphicon-envelope"></i> pesan</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
 					<li class="dropdown">
