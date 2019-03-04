@@ -70,7 +70,7 @@
            
             }
         } else {
-            echo '<table class="table table-bordered table-hover text-center" >
+             ?><table class="table table-bordered table-hover text-center" >
 		<thead>
 			<tr>
 				<th>NO</th>
@@ -82,29 +82,29 @@
 
 			</tr>
 		</thead>
-		<tbody>';
-		
-
+		<tbody>
+<?php  
 if ($hasil ->num_rows >=0){
 		$no=1;
 		while($row = $hasil->fetch_assoc()){
-			echo "
-			<td align='right'>".$no."</td>
-			<td>".$row["ID_pasien"]."</td>
-			<td align='left'>".$row["username_pasien"]."</td>
-			<td>".$row["alamat_pasien"]."</td>
-			<td>".$row["no_bpjs_pasien"]."</td>
+			?>
+			<td align='right'><?php echo $no  ;?></td>
+			<td><?php echo $row["ID_pasien"];?></td>
+			<td align='left'><?php echo $row["username_pasien"];?></td>
+			<td><?php echo  $row["alamat_pasien"] ;?></td>
+			<td><?php echo $row["no_bpjs_pasien"] ;?></td>
 			<td><form method='post' action='proses_us/delete.php'>
-					<input type='submit' name='hapus' value='Hapus'>
-					<input type='hidden' name='npm' value='".$row["ID_pasien"]."'>
+					<input class="btn-success form-control" type='submit' name='hapus' value='Hapus'>
+					<input type='hidden' name='npm' value='<?php echo $row["ID_pasien"] ?>'>
 				</form>
 				
-			</td></tr>"
+			</td></tr><?php
 			;
 			$no++;
 		}
-	}
-	echo "</table>";
+	}?>
+ </table>;
+<?php  
 
 // 	echo '<tr>
 // 			<td>'.$row[0].'</td>
@@ -129,9 +129,4 @@ if ($hasil ->num_rows >=0){
     <script src="framework/js/bootstrap.min.js"></script>
 </body>
 </html>
-        </div>
-    </div>
-    <script src="framework/js/jquery-3.3.1.min.js"></script>
-    <script src="framework/js/bootstrap.min.js"></script>
-</body>
-</html>
+      
