@@ -109,10 +109,10 @@ exit();
                     </div>
                     <div class="panel-body">
                         <h1 style="font-weight: 30px; font-size: 200px; padding-top: 0px; margin-top: 0px; text-shadow: 1px 1px 5px; " id="nomor-antrian">0</h1>
-                        <form action="output_antrian.php" method="post">
+                        <form action="output_antrian.php" method="post" id="form-ambil-antrian">
                             <input type="hidden" name="id_tempat" value="" id="form_id_tempat">
                             <input type="hidden" name="id_instansi" value="" id="form_id_instansi">
-                            <button class="btn btn-primary <?= $btn_antri_disabled ?>" id="btn-ambil-antrian" name="ambil_antrian" value="ambil-antrian">Ambil Antrian</button>
+                            <button type="submit" class="btn btn-primary <?= $btn_antri_disabled ?>" id="btn-ambil-antrian" name="ambil_antrian" value="ambil-antrian">Ambil Antrian</button>
                         </form>
                         <button type="button" class="btn btn-default btn-md" id="refresh-antrian">
                             <span class="glyphicon glyphicon-refresh" aria-hidden="true" ></span>
@@ -134,6 +134,7 @@ exit();
         var btnAmbilAntrian = document.getElementById('btn-ambil-antrian');
         var inpAntrianTempat = document.getElementById('form_id_tempat');
         var inpAntrianInstansi = document.getElementById('form_id_instansi');
+        var formAmbilAntrian = document.getElementById('form-ambil-antrian');
 
         function updateDaftarnama(listNamaTempat, idJenisTempat) {
             // update daftar instansi ketika jenis tempat diubah
@@ -213,6 +214,26 @@ exit();
             
         });
         btnRefreshAntrian.addEventListener('click', refreshAntrian);
+
+        formAmbilAntrian.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var k = inpAntrianTempat.value.trim();
+            var l = inpAntrianInstansi.value.trim();
+            if(k === "" && l === "") {
+                // console.log(`tempat: ${inpAntrianTempat.value}, instansi: ${ inpAntrianInstansi.value}`);
+                alert("tolong pilih jenis tempat dan nama tempat!");
+                return false;
+            } else if(k === "") {
+                alert("tolong pilih jenis tempat!");
+                return false;
+            } else if(l === "") {
+                alert("tolong nama tempat!");
+                return false;
+            } else {
+                // console.log(`tempat: ${inpAntrianTempat.value}, instansi: ${ inpAntrianInstansi.value}`);
+                this.submit();
+            }
+        });
     </script>
 </body>
 </html>
