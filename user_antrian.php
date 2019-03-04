@@ -68,9 +68,11 @@ exit();
             padding: 15px 20px;
         }
 
-        .navbar-default .navbar-nav>li>a:hover {
+        .navbar-default .navbar-nav>li>a:hover:not(#aw) {
             border-bottom: 2px solid #36d7b7;
         }
+    
+
     </style>
 </head>
 <body>
