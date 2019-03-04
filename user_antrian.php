@@ -58,6 +58,7 @@ exit();
             background-color: transparent;
             color: grey;
         }
+      
         #form-ambil-antrian {
             display: inline-block;
         }
