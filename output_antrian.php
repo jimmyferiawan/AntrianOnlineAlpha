@@ -93,7 +93,6 @@
             }
             
         }
-        // echo "test";
         $antrian = cek_antrian($conn, $id_instansi);
         $sekarang = $antrian['sekarang'];
         $total = $antrian['total'];
@@ -196,7 +195,7 @@
                                 <span><h5><i>di <u><?= $nama_instansi ?></u></i></h5></span>
                         <hr>
                         
-                        <div id="qrcode" class="""></div>
+                        <div id="qrcode" class=""></div>
                         <h5>tidak bisa scan ? Coba masukkan kode secara manual</h5>
                         <p>
                         <h4 style="background-color: #36d7b7;" id="pin-antrian">
