@@ -1,5 +1,5 @@
 <?php
-    ini_set('display_errors', '1');
+    // ini_set('display_errors', '1');
     // echo $_POST['username_pasien'];
     if(isset($_POST['username_pasien']) && isset($_POST['password_pasien'])){
         require_once '../koneksi.php';
