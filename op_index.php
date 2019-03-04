@@ -74,7 +74,6 @@ exit();
     	display: hidden;
         color: #36d7b7;
 
-        border-bottom: 2px solid #36d7b7; 
     }
 
    @font-face {

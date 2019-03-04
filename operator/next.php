@@ -1,7 +1,7 @@
 <?php 
 
-
-$sql_op = mysqli_query($conn, "select  	no_antrian, status_temp, pin_temp  from temp where lokasi = '$lokasiberobat'&& no_antrian='$now'  ");
+$nexta = $now+1;
+$sql_op = mysqli_query($conn, "SELECT no_antrian, status_temp, pin_temp  FROM temp WHERE lokasi = '$lokasiberobat' AND no_antrian='$nexta'  ");
 
 
 $sql_antri = mysqli_query($conn, "select  total from antri where lokasi = '$lokasiberobat'  ");
@@ -16,21 +16,17 @@ $sql_antri = mysqli_query($conn, "select  total from antri where lokasi = '$loka
 	 $_SESSION["nx"]["no_antrian"] =  $nx_antri;
 	 $_SESSION["nx"]["status_temp"] = $nx_status;
 	 $_SESSION["nx"]["pin_temp"] = $nx_pin;
-	$pin=( $_SESSION["nx"]["pin_temp"]);
-	$qq= $_SESSION["nx"]["status_temp"] ;
-	$tot=$_SESSION["loc"]["total"];
-	$hsl=$tot+1;
+	//$pin=( $_SESSION["nx"]["pin_temp"]);
+	//$qq= $_SESSION["nx"]["status_temp"] ;
+	//$tot=$_SESSION["loc"]["total"];
+	$hsl=$total+1;
 
- echo "<script>alert( '$pin');</script>";
-
-
-if ($qq==2) {
-
-
- 		$now = 2 + $now;
-		$s = mysqli_query($conn, "UPDATE antri SET sekarang = $now where lokasi =  '$lokasiberobat'");
-		$s = mysqli_query($conn, "UPDATE temp SET no_antrian  = $hsl where pin_temp  =  '$pin'");
-		$s = mysqli_query($conn, "UPDATE antri SET total = $hsl where lokasi =  '$lokasiberobat'");
+if ($nx_status==2) {
+	if($total-$now>=2){
+ 		$now = $now + 2;
+		$s = mysqli_query($conn, "UPDATE antri SET sekarang = $now ,total = $hsl where lokasi =  '$lokasiberobat'");
+		$s = mysqli_query($conn, "UPDATE temp SET no_antrian  = $hsl where pin_temp  =  '$nx_pin'");
+	}
 } else {
  		$now = 1 + $now;
 		$s = mysqli_query($conn, "UPDATE antri SET sekarang = $now where lokasi =  '$lokasiberobat'");
