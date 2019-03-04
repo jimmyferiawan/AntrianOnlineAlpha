@@ -224,9 +224,12 @@ exit();
 				<div class="tab-pane" id="online">
 			<form class="form-horizontal" action="op_index.php" method="post" style="margin-top: 20px;">
   <div class="form-group">
-	<div class="col-sm-12">
+	<div class="col-sm-8">
 		<label for="nama" style="text-align: left;">PIN</label>
 		<input type="text" class="form-control input-sm" id="pin" name="pin" >
+	</div>
+	<div class="col-sm-4">
+		<input type="submit" class="btn btn-primary" style="background-color:  linear-gradient(to bottom right, #79F1A4, #0E5CAD); border-radius: 0px; border: none; margin-top:25px;" name="check" id="check" value="Check">
 	</div>
   </div>
   <div class="form-group">
