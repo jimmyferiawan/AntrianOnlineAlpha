@@ -98,9 +98,9 @@
        // jika login oprator benar
         if($is_login_op == true) {
          $_SESSION["id"]["id_op"] = $data['ID_op'];
-                echo  $_SESSION["loc"]["lokasi"] =  $data['lokasi_op'];
-               echo  $loct=$data['lokasi_op'];
-              echo ($_SESSION["id"]["id_op"]);
+                 $_SESSION["loc"]["lokasi"] =  $data['lokasi_op'];
+                $loct=$data['lokasi_op'];
+               ($_SESSION["id"]["id_op"]);
 
 
                  $newantri = " lokasi  ";
