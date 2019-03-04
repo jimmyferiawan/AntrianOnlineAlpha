@@ -20,6 +20,11 @@ exit();
     <link rel="stylesheet" href="framework/css/bootstrap.min.css">
     <title>Document</title>
     <style>
+        .clearfix {
+            content: "";
+            clear: both;
+            display: table;
+        }
         body{
             padding-top: 70px;
             padding-bottom: 24px;
@@ -52,6 +57,10 @@ exit();
         .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
             background-color: transparent;
             color: grey;
+        }
+      
+        #form-ambil-antrian {
+            display: inline-block;
         }
 
         .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
@@ -154,16 +163,29 @@ exit();
             <div class="col-sm-12 col-md-8 col-lg-8">
                 <div class="panel panel-success text-center">
                     <div class="panel-heading">
-                        <h5 class="panel-title">Nomor antrian sekarang</h5>
+                        <div class="panel-title row">
+                            <div class="col-xs-6">
+                                Nomor antrian sekarang
+                            </div>
+                            <div class="col-xs-6">
+                                Nomor antrian total
+                            </div>
+                        </div>
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <h1 style="font-weight: 30px; font-size: 200px; padding-top: 0px; margin-top: 0px; text-shadow: 1px 1px 5px; " id="nomor-antrian-sekarang">0</h1>
+                        
+                    </div>
+                    <div class="panel-body col-xs-6 col-sm-6 col-md-6 col-lg-6">
                         <h1 style="font-weight: 30px; font-size: 200px; padding-top: 0px; margin-top: 0px; text-shadow: 1px 1px 5px; " id="nomor-antrian">0</h1>
-                        <form action="output_antrian.php" method="post">
+                    </div>
+                    <div class="col-xs-6 col-xs-offset-3">
+                        <form action="output_antrian.php" method="post" id="form-ambil-antrian">
                             <input type="hidden" name="id_tempat" value="" id="form_id_tempat">
                             <input type="hidden" name="id_instansi" value="" id="form_id_instansi">
-                            <button class="btn btn-primary <?= $btn_antri_disabled ?>" id="btn-ambil-antrian" name="ambil_antrian" value="ambil-antrian">Ambil Antrian</button>
+                            <button type="submit" class="btn btn-primary <?= $btn_antri_disabled ?>" id="btn-ambil-antrian" name="ambil_antrian" value="ambil-antrian">Ambil Antrian</button>
                         </form>
-                        <button type="button" class="btn btn-default btn-md" id="refresh-antrian">
+                        <button type="button" class="btn btn-default btn-md" id="refresh-antrian" alt="refresh antrian">
                             <span class="glyphicon glyphicon-refresh" aria-hidden="true" ></span>
                         </button>
                     </div>
@@ -179,10 +201,12 @@ exit();
         var jenisTempat = document.getElementById('jenis-tempat');
         var daftarNama = document.getElementById('daftar-nama');
         var nomorAntrian = document.getElementById('nomor-antrian');
+        var nomorAntrianSekarang = document.getElementById('nomor-antrian-sekarang');
         var btnRefreshAntrian = document.getElementById('refresh-antrian');
         var btnAmbilAntrian = document.getElementById('btn-ambil-antrian');
         var inpAntrianTempat = document.getElementById('form_id_tempat');
         var inpAntrianInstansi = document.getElementById('form_id_instansi');
+        var formAmbilAntrian = document.getElementById('form-ambil-antrian');
 
         function updateDaftarnama(listNamaTempat, idJenisTempat) {
             // update daftar instansi ketika jenis tempat diubah
@@ -207,7 +231,7 @@ exit();
                 }
             })
             .then(function(response) {
-                updateAntrian(response.data.total);
+                updateAntrian(response.data.total, response.data.sekarang);
                 // console.log(response.data);
             })
             .catch(function(error) {
@@ -215,10 +239,10 @@ exit();
             });
         }
 
-        function updateAntrian(nomorAntrianSekarang) {
+        function updateAntrian(nomorAntrianTotal, antrianSekarang) {
             // ganti angka nomor antrian
-            nomorAntrian.innerText = nomorAntrianSekarang;
-            // console.log(nomorAntrianSekarang);
+            nomorAntrian.innerText = nomorAntrianTotal;
+            nomorAntrianSekarang.innerText =  antrianSekarang;
             
         }
         
@@ -262,6 +286,26 @@ exit();
             
         });
         btnRefreshAntrian.addEventListener('click', refreshAntrian);
+
+        formAmbilAntrian.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var k = inpAntrianTempat.value.trim();
+            var l = inpAntrianInstansi.value.trim();
+            if(k === "" && l === "") {
+                // console.log(`tempat: ${inpAntrianTempat.value}, instansi: ${ inpAntrianInstansi.value}`);
+                alert("tolong pilih jenis tempat dan nama tempat!");
+                return false;
+            } else if(k === "") {
+                alert("tolong pilih jenis tempat!");
+                return false;
+            } else if(l === "") {
+                alert("tolong nama tempat!");
+                return false;
+            } else {
+                // console.log(`tempat: ${inpAntrianTempat.value}, instansi: ${ inpAntrianInstansi.value}`);
+                this.submit();
+            }
+        });
     </script>
 </body>
 </html>

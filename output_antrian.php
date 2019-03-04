@@ -1,13 +1,16 @@
 <?php
+    
     session_start();
-
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+    
     if(!isset($_SESSION['u'])) {
         header('Location: login.php');
     }
 
-    if(isset($_POST['ambil_antrian'])) {
+    if(isset($_POST['id_tempat']) && isset($_POST['id_instansi'])) {
         require_once "koneksi.php";
-
+        
         function generate_pin() {
             $angka1 = (rand(1, 1000000) );
             $angka2 = (rand(1, 1000000));
@@ -39,16 +42,16 @@
             // contoh query sql yang diharapkan untuk mendapatkan nama instansi dan total antrian
             // SELECT antri.total,rumahsakit.nama_rumahsakit as lokasi FROM antri inner JOIN rumahsakit ON antri.lokasi=rumahsakit.ID_rumahsakit
             // TODO: Edit jika sudah ada kolom antrian sekarang di table antri
-            $sql = "SELECT antri.total as total,$jenis_tempat.$kolom_nama_instansi as lokasi FROM antri inner JOIN $jenis_tempat ON antri.lokasi=$jenis_tempat.ID_$jenis_tempat WHERE lokasi='$id_instansi'";
+            $sql = "SELECT antri.sekarang as sekarang, antri.total as total,$jenis_tempat.$kolom_nama_instansi as lokasi FROM antri inner JOIN $jenis_tempat ON antri.lokasi=$jenis_tempat.ID_$jenis_tempat WHERE lokasi='$id_instansi'";
             $query = $conn->query($sql);
-            $data_total_antrian = "";
+            $antrian = "";
             if($query) {
                 while($row = $query->fetch_assoc()) {
-                    $data_total_antrian = $row;
+                    $antrian = $row;
                 }
             }
 
-            return $data_total_antrian;
+            return $antrian;
         }
 
         // menmbahka jumlah antrian
@@ -80,11 +83,22 @@
             $hasil = update_total_antrian($conn, $id_instansi, $no_antrian);
             if(!$hasil) {
                 $pin = "Gagal menghasilkan pin silahkan ulangi kembali";
+            } else if($conn->error) {
+                $pin = $conn->error;
+            }else {
+                // var_dump($hasil);
+                $_SESSION['u_antrian_nomor'] = $no_antrian;
+                $_SESSION['u_antrian_lokasi'] = $nama_instansi;
+                $_SESSION['u_antrian_pin'] = $pin; 
             }
-            // var_dump($hasil);
-            $_SESSION['u_antrian_nomor'] = $no_antrian;
-            $_SESSION['u_antrian_lokasi'] = $nama_instansi; 
+            
         }
+        // echo "test";
+        $antrian = cek_antrian($conn, $id_instansi);
+        $sekarang = $antrian['sekarang'];
+        $total = $antrian['total'];
+        // echo "sekarang: $sekarang<br>";
+        // echo "total: $total";
         $conn->close();
     }
 ?>
@@ -146,8 +160,6 @@
             border-top: 3px solid #36d7b7;
             width: 10%;
             }
-
-        
     </style>
 </head>
 <body>
@@ -167,7 +179,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="disabled"><a href="">Ambil Antrian</a></li>
                 <li><a href="user_editbio.php">pengaturan</a></li>
-                <li><a href="login.php">keluar</a></li>
+                <li><a href="user/logout.php">keluar</a></li>
             </ul>
             </div>
         </div>
@@ -178,12 +190,13 @@
             <div class="col-sm-12 col-lg-4 col-lg-offset-4">
                 <div class="panel">
                     <div class="panel-body">
-                        <h2>17 / 30</h2>
+                        <h2><?= $sekarang ?> / <?= $total ?></h2>
                             <h4>anda telah berhasil mengantri,<br>tunjukkan ini ke tempat anda berobat</h4>
                                 <i class="glyphicon glyphicon-map-marker text-center col-xs-12 col-lg-12" style="margin-bottom: 5px;"></i>
                                 <span><h5><i>di <u><?= $nama_instansi ?></u></i></h5></span>
                         <hr>
-                        <div id="qrcode"></div>
+                        
+                        <div id="qrcode" class="""></div>
                         <h5>tidak bisa scan ? Coba masukkan kode secara manual</h5>
                         <p>
                         <h4 style="background-color: #36d7b7;" id="pin-antrian">
