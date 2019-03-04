@@ -43,11 +43,15 @@ exit();
         }
 
         .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
-            color: #36d7b7;
-        }
+            color: #000000;
+            background-color: transparent;
 
-        .navbar-default .navbar-nav li>a:hover {
-            color: #36d7b7;
+            border-bottom: 2px solid #36d7b7;          
+        }
+        
+        .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+            background-color: transparent;
+            color: grey;
         }
     </style>
 </head>

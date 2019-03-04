@@ -44,20 +44,10 @@ exit();
     }
 
     .btn-primary:hover {
-            color: #fff;
-            background-color: #36d7b7;
+        color: #fff;
+        background-color: #36d7b7;
     }
-
-    .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
-            color: #36d7b7;
-    }
-
-    .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
-    color: #555;
-    background-color: green;
-	}
-
- 	
+	
     .navbar-default .navbar-nav li:hover::after {
 	    content: "";
 	    position: absolute;
@@ -80,9 +70,11 @@ exit();
 	    color: #36d7b7;
     }
 
-    .navbar-default .navbar-nav li>a:hover {
+    .navbar-default .navbar-nav li:hover {
     	display: hidden;
-        color: #36d7b7;  
+        color: #36d7b7;
+
+        border-bottom: 2px solid #36d7b7; 
     }
 
    @font-face {

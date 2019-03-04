@@ -15,17 +15,13 @@
             </div>
             <div class="collapse navbar-collapse navheader-collapse">
             <ul class="nav navbar-nav" style="font-family: Roboto Thin">
-                <li>
-                    <a href="">
-                        <i class="glyphicon glyphicon-home"></i> Home</span>
-                    </a>
-                </li>
-                <li class="active"><a href=""><i class="glyphicon glyphicon-forward"></i> Ambil Antrian</a></li>
-
+                <li><a href=""><i class="glyphicon glyphicon-home"></i> Home</a></li>
+                <li class="active"><a href=""><i class="glyphicon glyphicon-forward"></i> Antri</a></li>
+                <li><a href=""><i class="glyphicon glyphicon-envelope"></i> Antri</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
 					<li class="dropdown">
-		          	<a href="#" class="dropdown-toggle" style="text-transform: capitalize;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['u']; ?> <span class="caret"></span></a>
+		          	<a href="#" class="dropdown-toggle" style="text-transform: capitalize;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['u']; ?> <span class="caret"></span> </a>
 		       		<ul class="dropdown-menu">
 		            <li><a href="user_editbio.php">Profil Pengguna</a></li>
 		            <li><a href="user/logout.php">Keluar</a></li>           
