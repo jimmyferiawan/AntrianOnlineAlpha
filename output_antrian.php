@@ -160,8 +160,6 @@
             border-top: 3px solid #36d7b7;
             width: 10%;
             }
-
-        
     </style>
 </head>
 <body>
@@ -197,7 +195,8 @@
                                 <i class="glyphicon glyphicon-map-marker text-center col-xs-12 col-lg-12" style="margin-bottom: 5px;"></i>
                                 <span><h5><i>di <u><?= $nama_instansi ?></u></i></h5></span>
                         <hr>
-                        <div id="qrcode"></div>
+                        
+                        <div id="qrcode" class="></div>
                         <h5>tidak bisa scan ? Coba masukkan kode secara manual</h5>
                         <p>
                         <h4 style="background-color: #36d7b7;" id="pin-antrian">
