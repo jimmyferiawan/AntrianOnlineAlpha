@@ -1,6 +1,5 @@
 
 <?php include '../../koneksi.php'; ?>
-
         <!-- 
     - format diganti .php kecil semua
     - bootstrap butuh jquery agar manipulasi seperti dropdown bisa bekerja
@@ -94,7 +93,7 @@ if ($hasil ->num_rows >=0){
 			<td><?php echo  $row["alamat_pasien"] ;?></td>
 			<td><?php echo $row["no_bpjs_pasien"] ;?></td>
 			<td><form method='post' action='proses_us/delete.php'>
-					<input class="btn-success form-control" type='submit' name='hapus' value='Hapus'>
+					<input class="btn-danger form-control" type='submit' name='hapus' value='Hapus'>
 					<input type='hidden' name='npm' value='<?php echo $row["ID_pasien"] ?>'>
 				</form>
 				
