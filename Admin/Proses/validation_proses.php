@@ -46,7 +46,7 @@ if ($hasil ->num_rows >=0){
             <td><?php echo $row["ID_op"] ; ?></td>
             <td align='center'><?php echo   $row["username_op"]; ?></td>
             <td><form method='post' action='Proses/proses_valid.php'>
-                    <input class="btn-primary form-control" type='submit' name='hapus' value='Upgrade'>
+                    <input class="btn-success form-control" type='submit' name='hapus' value='Upgrade'>
                     <input type='hidden' name='npm' value='<?php echo $row["ID_op"]  ;?>'>
                 </form>
                 
