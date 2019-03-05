@@ -141,7 +141,7 @@ exit();
             </div>
         <div class="col-lg-4">
                         <div class="row">
-                        <div class="col-lg-12"><img src="img/bgad2.jpg" class="img-responsive" alt="" style=" width: 100%; height: 400px;"></div>
+                        <div class="col-lg-12"><img src="img/bgad2.jpg" class="img-responsive" alt="" style=" width: 100%; height: 350px;"></div>
                         <div class="col-lg-12" style="padding: 10px 0px;">
                             <img src="img/bgad2.jpg" class="img-responsive col-sm-3 col-lg-3" alt="">
                             <img src="img/bgad2.jpg" class="img-responsive col-sm-3 col-lg-3" alt="">
@@ -196,11 +196,21 @@ Senin   07.30–16.00</td>
                             </div>
                         </div>
                     </div>
+                    <div class="col-lg-8 col-lg-offset-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="panel-title">Ulasan Mengenai Tempat</div>
+            </div>
+            <div class="panel-body">
+                dawdawd
+            </div>
+        </div>
+    </div>
                 </div>
                 
             </div>
         </div>
-
+    
     <script src="framework/js/jquery-3.3.1.min.js"></script>
     <script src="framework/js/bootstrap.min.js"></script>
     <script src="framework/js/axios.min.js"></script>
