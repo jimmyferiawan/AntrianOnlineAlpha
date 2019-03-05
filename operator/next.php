@@ -20,27 +20,31 @@ $sql_antri = mysqli_query($conn, "select  total from antri where lokasi = '$loka
 	//$qq= $_SESSION["nx"]["status_temp"] ;
 	//$tot=$_SESSION["loc"]["total"];
 	$hsl=$total+1;
-
+	$skrg =$now+1;
 	$loop = 1;
 	$sql_antri = mysqli_query($conn, "SELECT no_antrian, status_temp, pin_temp  FROM temp WHERE lokasi = '$lokasiberobat' AND no_antrian>$now ORDER BY no_antrian ASC ");
 	$count = mysqli_num_rows($sql_antri);
 	if($count>0){
 		while ($row = mysqli_fetch_assoc($sql_antri)){
 			if($row['status_temp']==2){
-				if($total-$now>=$loop){
+				if($total-$now>$loop){
 					$s = mysqli_query($conn, "UPDATE temp SET no_antrian  = $hsl where pin_temp  =  '".$row['pin_temp']."'");
-					$s = mysqli_query($conn, "UPDATE antri SET total = $hsl where lokasi =  '$lokasiberobat'");
-					$loop++;
+					$s = mysqli_query($conn, "UPDATE antri SET total = $hsl, sekarang=$skrg where lokasi =  '$lokasiberobat'");
+					$skrg++;
 					$hsl++;
+					$loop++;
+				}else{
+					break;
 				}
 			}else{
-				goto end;
+				$now= $now + 1;
+				$s = mysqli_query($conn, "UPDATE antri SET sekarang = $now where lokasi =  '$lokasiberobat'");
+				break;
 			}
 		}
 	}
-	end:
-	$now = $now+$loop;
-	$s = mysqli_query($conn, "UPDATE antri SET sekarang = $now where lokasi =  '$lokasiberobat'");
+	
+	
 
 
 
