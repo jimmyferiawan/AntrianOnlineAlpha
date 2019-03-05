@@ -59,9 +59,9 @@
 	<div class="background-wall"></div>
 		<div class="container">
 
-		<div class="row" style="margin-top: 150px;">
+		<div class="row" style="margin-top: 150px; position: relative;">
 			<div class="box col-sm-12 col-lg-4 col-lg-offset-2" style="background-color: #239A51; padding: 0px; height: 357px;">
-				<img src="img/queue2.jpg" class="img-responsive col-sm-12" style="opacity: 0.5; border-radius: 0px; height: 357px; padding: 0; position: absolute; z-index: 0;">
+				<img src="img/queue2.jpg" class="img-responsive col-sm-12" style="opacity: 0.5; border-radius: 0px; height: 357px; padding: 0; position: absolute; z-index: 0; display: block; margin: auto;">
 				<ul class="list-inline center-block text-center" style="z-index: 1; padding-top: 250px; position: relative;">
 					<li><a href="#"><img src="img/fblogo.png" style="width: 30px;"></a></li>
 					<li><a href="#"><img src="img/twitterlogo.png" style="width: 30px;"></a></li>
@@ -83,7 +83,7 @@
 					<label class="checkbox-inline"><input type="checkbox" id="showpassword">show password</label>
 					</div>
 					<div class="form-group">
-					<button class="btn btn-primary btn-block" name="pasien_login" type="submit">Login</button>
+					<button class="btn btn-success btn-block" name="pasien_login" type="submit">Login</button>
 					</div>
 					<div class="form-group">
 						<a href="" class="form-inline text-center center-block"><h5>forgot password?</h5></a>
