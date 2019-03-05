@@ -151,7 +151,7 @@ exit();
 	  
 	  $tgl = date('d-m-y');
 	  $jam = date('h:i:s');
-	  $s = mysqli_query($conn, "INSERT INTO temp(id_user_temp, no_antrian,jam_ambil_antrian,lokasi, tgl, pin_temp, status_temp) values('$pid','$total','$jam','$lokasiberobat','$tgl','$pin','$statusonline')");
+	  $s = mysqli_query($conn, "INSERT INTO temp(id_user_temp, no_antrian,jam_ambil_antrian,lokasi, tgl, pin_temp, status_temp) values('$pid',$total,'$jam','$lokasiberobat','$tgl','$pin','$statusonline')");
       header("refresh: 0;");
   }
 	$id_op = $_SESSION["id"]["id_op"];
