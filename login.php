@@ -36,14 +36,27 @@
 	}
 
 	body {
-		background-color: #2CBF65;
 		background-image: url("img/bg2.jpg");
 		background-size: cover;
+		z-index: 0;
 	}
+
+    .background-wall {
+			width: 100%;
+			height: 100%;
+			background-color: #2CBF65;
+			opacity: 0.5;
+			position: absolute;
+			z-index: =0;
+    }
+    .container {
+    	opacity: 1;
+    }
 
 </style>
 </head>
 <body>
+	<div class="background-wall"></div>
 		<div class="container">
 
 		<div class="row" style="margin-top: 150px;">
@@ -111,5 +124,6 @@
 					}
 				})
 			</script>
+			
 </body>
 </html>
