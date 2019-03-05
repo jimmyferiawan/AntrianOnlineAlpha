@@ -3,8 +3,8 @@ include "../koneksi.php";
 session_start();
 $locthpas=$_SESSION['loc']['lokasi'];
 
-  
-$sql = 'UPDATE antri SET sekarang=0 where lokasi="'.$locthpas.'"';
+ $s = mysqli_query($conn, "DELETE FROM temp WHERE lokasi = $locthpas");
+$sql = 'UPDATE antri SET sekarang=0 , total=0 where lokasi="'.$locthpas.'"';
 $hapus = $conn->query($sql);
 if($hapus)
 	 echo "<script>

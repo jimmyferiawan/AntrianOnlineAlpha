@@ -95,7 +95,7 @@ if ($hasil ->num_rows >=0){
 			<td><?php echo $row["tingkat_op"]; ?></td>
 			<td><?php echo $row["status_op"]; ?></td>
 			<td><form method='post' action='proses_us/delete3.php'>
-					<input type='submit' name='hapus' value='Hapus'>
+					<input class="btn-danger form-control" type='submit' name='hapus' value='Hapus'>
 					<input type='hidden' name='npm' value='<?php echo $row["ID_op"]; ?>'>
 				</form>
 				

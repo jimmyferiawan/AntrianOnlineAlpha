@@ -31,8 +31,8 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Morris Charts</h2>   
-                        <h5>Welcome Jhon Deo , Love to see you back. </h5>
+                   <!--   <h2>Morris Charts</h2>   
+                        <h5>Welcome Jhon Deo , Love to see you back. </h5> -->
                        
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                          Validation New Oprator
+                          Validation New Operator
                         </div>
                         <div class="panel-body">
                             <div class="panel-group" id="accordion">
