@@ -1,5 +1,4 @@
 <?php
-    session_unset();
 	session_start();
 	if(isset($_SESSION['u'])) {
 		header('Location: user_antrian.php');
