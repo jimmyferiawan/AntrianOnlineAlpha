@@ -71,7 +71,7 @@
 			</div>
 			<div class="box col-sm-12 col-lg-3 col-lg-offset-0">
 				<form action="user/login.php" method="POST" id="form-login">
-					<img class="img-responsiv center-block" src="img/logo.png" width="100px">
+					<img class="img-responsiv center-block" src="img/logoas.png" style="width: 88%; padding-bottom: 19px;">
 					<div class="form-group">
 					<input type="text" name="username_pasien" class="form-control" placeholder="username" id="inputusername">
 					</div>
