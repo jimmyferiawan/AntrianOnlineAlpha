@@ -221,7 +221,11 @@ Senin   07.30–16.00</td>
                     </div>
                 </div>
                 <div class="col-lg-3">
-                    
+                    <i class="glyphicon glyphicon-star"></i>
+                    <i class="glyphicon glyphicon-star"></i>
+                    <i class="glyphicon glyphicon-star"></i>
+                    <i class="glyphicon glyphicon-star"></i>
+                    <i class="glyphicon glyphicon-star"></i>
                 </div>
             </div>
         </div>
