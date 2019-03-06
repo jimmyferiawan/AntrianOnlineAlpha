@@ -84,10 +84,10 @@
 					<label class="checkbox-inline"><input type="checkbox" id="showpassword">show password</label>
 					</div>
 					<div class="form-group">
-					<button class="btn btn-success btn-block" name="pasien_login" type="submit">Login</button>
+					<button class="btn btn-block" style="color: white; background-color: #19CC78FF" nam#71EEB8en_login" type="submit">Login</button>
 					</div>
 					<div class="form-group">
-						<a href="" class="form-inline text-center center-block"><h5>forgot password?</h5></a>
+						<a href="" class="form-inline text-center center-block" style="color: #19CC78FF"><h5>forgot password?</h5></a>
 					</div>
 				</form>
 			</div>
