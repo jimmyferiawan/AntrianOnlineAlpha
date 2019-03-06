@@ -84,7 +84,7 @@ if ($hasil ->num_rows >=0){
 			<td><?php echo $row["alamat_pukesmas"]; ?></td>
 			<td><?php echo  $row["pemilik_pukesmas"] ; ?></td>
 			<td><form method='post' action='proses/delete.php'>
-					<input type='submit' name='hapus' value='Hapus'>
+					<input type='submit' name='hapus' class="btn btn-success" value='Hapus'>
 					<input type='hidden' name='npm' value='<?php echo $row["ID_pukesmas"] ?>'>
 				</form>
 				

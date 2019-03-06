@@ -9,11 +9,19 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
+    <!-- Bootstrap DataTables CSS -->
+<!-- Jquery -->
+<script type="text/javascript" language="javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<!-- Jquery DataTables -->
+<script type="text/javascript" language="javascript" src="http:////cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+<!-- Bootstrap dataTables Javascript -->
+<script type="text/javascript" language="javascript" src="http://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/bootstrap/3/dataTables.bootstrap.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../../framework/css/bootstrap.min.css">
     <title>User</title>
     <style>
+
         body{
             padding-top: 70px;
             padding-bottom: 24px;
@@ -69,7 +77,7 @@
            
             }
         } else {
-             ?><table class="table table-bordered table-hover text-center" >
+             ?><table class="table table-hover text-center  table-striped table-bordered table-paginate" cellspacing="0" width="100%" >
 		<thead>
 			<tr>
 				<th>NO</th>
@@ -126,6 +134,12 @@ if ($hasil ->num_rows >=0){
     </div>
     <script src="framework/js/jquery-3.3.1.min.js"></script>
     <script src="framework/js/bootstrap.min.js"></script>
+<!-- Panggil Fungsi -->
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+ $('.table-paginate').dataTable();
+ } );
+</script>
 </body>
 </html>
       
