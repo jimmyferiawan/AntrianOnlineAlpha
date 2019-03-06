@@ -16,6 +16,7 @@ exit();
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Antri Sehat</title>
 	<!-- BOOTSTRAP STYLES-->
+    
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
@@ -27,37 +28,29 @@ exit();
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
 <body>
-    <div class="container">
-                    <?php include 'navbar_atas.php'; ?> 
+   
+                <?php include 'navbar_atas.php'; ?>
            <!-- /. NAV TOP  -->
-          
-				
-					
-                   <?php include 'navbar_kiri.php'; ?>
-					                   
-               
-         
+             
+                
+                <?php include 'navbar_kiri.php'; ?>
+                                       
+                
+        
         <!-- /. NAV SIDE  -->
-        <!-- <div id="page-wrapper" >
+        <div id="page-wrapper" >
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>Admin Notification</h2>   
+                   <!--   <h2>Morris Charts</h2>   
+                        <h5>Welcome Jhon Deo , Love to see you back. </h5> -->
+                       
                     </div>
-                </div>              
+                </div>
                  <!-- /. ROW  -->
-                  <?php include 'Proses/indikator.php'; ?>
-
-            <!-- storange  -->
-                    
-                   <?php include 'Proses/storange.php'; ?>
-
- -->
-       
-                      
-                    </div>
-                </div>     
-                 <!-- /. ROW  -->           
+                 <hr />
+             <?php include 'Proses/indikator.php'; ?>
+             <?php include 'Proses/storange.php'; ?>
     </div>
              <!-- /. PAGE INNER  -->
             </div>

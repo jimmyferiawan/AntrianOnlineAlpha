@@ -83,8 +83,8 @@ if ($hasil ->num_rows >=0){
             <td align='left'><?php echo $row["nama_pukesmas"] ; ?></td>
             <td><?php echo  $row["alamat_pukesmas"]; ?></td>
             <td><?php echo   $row["pemilik_pukesmas"];?></td>
-            <td><form method='post' action='proses/edit.php'>
-                    <input type='submit' name='hapus' value='Edit'>
+            <td><form method='post'  action='proses/edit.php'>
+                    <input type='submit' class="btn btn-success" name='hapus' value='Edit'>
                     <input type='hidden' name='npm' value='<?php echo $row["ID_pukesmas"]?>'>
                 </form>
                 

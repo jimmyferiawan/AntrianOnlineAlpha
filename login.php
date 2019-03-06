@@ -35,18 +35,20 @@
 	}
 
 	body {
-		background-image: url("img/bg2.jpg");
-		background-size: cover;
+		background-color: #2CBF65;
 		z-index: 0;
 	}
 
     .background-wall {
 			width: 100%;
 			height: 100%;
-			background-color: #2CBF65;
+			background-image: url("img/bg2.jpg");
+			background-size: cover;
+			filter: blur(3px);
 			opacity: 0.5;
 			position: absolute;
 			z-index: =0;
+
     }
     .container {
     	opacity: 1;
@@ -55,12 +57,12 @@
 </style>
 </head>
 <body>
-	<div class="background-wall"></div>
+	<div class="background-wall""></div>
 		<div class="container">
 
 		<div class="row" style="margin-top: 150px; position: relative;">
 			<div class="box col-sm-12 col-lg-4 col-lg-offset-2" style="background-color: #239A51; padding: 0px; height: 357px;">
-				<img src="img/queue2.jpg" class="img-responsive col-sm-12" style="opacity: 0.5; border-radius: 0px; height: 357px; padding: 0; position: absolute; z-index: 0; display: block; margin: auto;">
+				<img src="img/queue2.jpg" class="img-responsive col-sm-12" style="opacity: 0.4; border-radius: 0px; height: 357px; padding: 0; position: absolute; z-index: 0; display: block; margin: auto;">
 				<ul class="list-inline center-block text-center" style="z-index: 1; padding-top: 250px; position: relative;">
 					<li><a href="#"><img src="img/fblogo.png" style="width: 30px;"></a></li>
 					<li><a href="#"><img src="img/twitterlogo.png" style="width: 30px;"></a></li>
@@ -71,7 +73,7 @@
 			</div>
 			<div class="box col-sm-12 col-lg-3 col-lg-offset-0">
 				<form action="user/login.php" method="POST" id="form-login">
-					<img class="img-responsiv center-block" src="img/logo.png" width="100px">
+					<img class="img-responsiv center-block" src="img/logoas.png" style="width: 88%; padding-bottom: 19px;">
 					<div class="form-group">
 					<input type="text" name="username_pasien" class="form-control" placeholder="username" id="inputusername">
 					</div>
@@ -82,10 +84,10 @@
 					<label class="checkbox-inline"><input type="checkbox" id="showpassword">show password</label>
 					</div>
 					<div class="form-group">
-					<button class="btn btn-success btn-block" name="pasien_login" type="submit">Login</button>
+					<button class="btn btn-block" style="color: white; background-color: #19CC78FF" nam#71EEB8en_login" type="submit">Login</button>
 					</div>
 					<div class="form-group">
-						<a href="" class="form-inline text-center center-block"><h5>forgot password?</h5></a>
+						<a href="" class="form-inline text-center center-block" style="color: #19CC78FF"><h5>forgot password?</h5></a>
 					</div>
 				</form>
 			</div>
