@@ -1,15 +1,52 @@
 <?php
     
     session_start();
-    ini_set('display_errors', 1);
-    error_reporting(E_ALL);
+    // ini_set('display_errors', 1);
+    // error_reporting(E_ALL);
+    require_once "koneksi.php";
+
+    // mengembalikan total nomor antrian dari suatu instansi
+    function cek_antrian($conn, $id_instansi) {
+        $tempat = [
+            'A' => "pukesmas",                
+            'B' => "klinik",
+            'C' => "rumahsakit",
+            'D' => "dokterumum"
+        ];
+        $jenis_tempat = $tempat[$id_instansi[0]];
+        $kolom_nama_instansi = "nama_".$jenis_tempat;
+        // contoh query sql yang diharapkan untuk mendapatkan nama instansi dan total antrian
+        // SELECT antri.total,rumahsakit.nama_rumahsakit as lokasi FROM antri inner JOIN rumahsakit ON antri.lokasi=rumahsakit.ID_rumahsakit
+        $sql = "SELECT antri.sekarang as sekarang, antri.total as total,$jenis_tempat.$kolom_nama_instansi as nama_lokasi FROM antri inner JOIN $jenis_tempat ON antri.lokasi=$jenis_tempat.ID_$jenis_tempat WHERE lokasi='$id_instansi'";
+        $query = $conn->query($sql);
+        $antrian = "";
+        if($query) {
+            while($row = $query->fetch_assoc()) {
+                $antrian = $row;
+            }
+        }
+
+        return $antrian;
+    }
     
     if(!isset($_SESSION['u'])) {
         header('Location: login.php');
     }
 
-    if(isset($_POST['id_tempat']) && isset($_POST['id_instansi'])) {
-        require_once "koneksi.php";
+    if(isset($_SESSION['u_antrian_nomor']) && isset($_SESSION['u_antrian_pin']) && isset($_SESSION['u_antrian_lokasi'])) {
+        
+        $lokasi = $_SESSION['u_antrian_lokasi'];
+        // todo jangan ambil antrian user dari user
+        $no_antrian = $_SESSION['u_antrian_nomor'];
+        $pin = $_SESSION['u_antrian_pin'];
+        $antrian = cek_antrian($conn, $lokasi);
+        $sekarang = $antrian['sekarang'];
+        $nama_instansi = $antrian['nama_lokasi'];
+        $total = $antrian['total'];
+        $conn->close();
+    }
+
+    if(isset($_POST['id_tempat']) && isset($_POST['id_instansi']) && !isset($_SESSION['u_antrian_nomor'])) {
         
         function generate_pin() {
             $angka1 = (rand(1, 1000000) );
@@ -29,31 +66,6 @@
             return $h1.$h2.$h3;
         }
 
-        // mengembalikan total nomor antrian dari suatu instansi
-        function cek_antrian($conn, $id_instansi) {
-            $tempat = [
-                'A' => "pukesmas",                
-                'B' => "klinik",
-                'C' => "rumahsakit",
-                'D' => "dokterumum"
-            ];
-            $jenis_tempat = $tempat[$id_instansi[0]];
-            $kolom_nama_instansi = "nama_".$jenis_tempat;
-            // contoh query sql yang diharapkan untuk mendapatkan nama instansi dan total antrian
-            // SELECT antri.total,rumahsakit.nama_rumahsakit as lokasi FROM antri inner JOIN rumahsakit ON antri.lokasi=rumahsakit.ID_rumahsakit
-            // TODO: Edit jika sudah ada kolom antrian sekarang di table antri
-            $sql = "SELECT antri.sekarang as sekarang, antri.total as total,$jenis_tempat.$kolom_nama_instansi as lokasi FROM antri inner JOIN $jenis_tempat ON antri.lokasi=$jenis_tempat.ID_$jenis_tempat WHERE lokasi='$id_instansi'";
-            $query = $conn->query($sql);
-            $antrian = "";
-            if($query) {
-                while($row = $query->fetch_assoc()) {
-                    $antrian = $row;
-                }
-            }
-
-            return $antrian;
-        }
-
         // menmbahka jumlah antrian
         function update_total_antrian($conn, $id_instansi, $total_baru) {
 
@@ -70,7 +82,7 @@
         $id_instansi = $conn->real_escape_string($_POST['id_instansi']);
         $id_user_temp = $_SESSION['u_id_pasien'];
         $antrian = cek_antrian($conn, $id_instansi);
-        $nama_instansi = $antrian['lokasi'];
+        $nama_instansi = $antrian['nama_lokasi'];
         $no_antrian = (int)$antrian['total'] + 1;
         $jam_ambil_antrian = date("H:i:s");
         $tgl = date("d/m/Y");
@@ -88,8 +100,8 @@
             }else {
                 // var_dump($hasil);
                 $_SESSION['u_antrian_nomor'] = $no_antrian;
-                $_SESSION['u_antrian_lokasi'] = $nama_instansi;
-                $_SESSION['u_antrian_pin'] = $pin; 
+                $_SESSION['u_antrian_lokasi'] = $id_instansi;
+                $_SESSION['u_antrian_pin'] = $pin;
             }
             
         }
@@ -190,12 +202,14 @@
                 <div class="panel">
                     <div class="panel-body">
                         <h2><?= $sekarang ?> / <?= $total ?></h2>
-                            <h4>anda telah berhasil mengantri,<br>tunjukkan ini ke tempat anda berobat</h4>
-                                <i class="glyphicon glyphicon-map-marker text-center col-xs-12 col-lg-12" style="margin-bottom: 5px;"></i>
-                                <span><h5><i>di <u><?= $nama_instansi ?></u></i></h5></span>
-                        <hr>
+                        <h4>anda telah berhasil mengantri,<br>tunjukkan ini ke tempat anda berobat</h4>
+                            <i class="glyphicon glyphicon-map-marker text-center col-xs-12 col-lg-12" style="margin-bottom: 5px;"></i>
+                            <span><h5><i>di <u><?= $nama_instansi ?></u></i></h5></span>
+                        <h5><?= $no_antrian ?></h5>
                         
-                        <div id="qrcode" class=""></div>
+                        <div class="row">
+                            <div id="qrcode" class="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2"></div>
+                        </div>
                         <h5>tidak bisa scan ? Coba masukkan kode secara manual</h5>
                         <p>
                         <h4 style="background-color: #36d7b7;" id="pin-antrian">
