@@ -113,7 +113,7 @@ exit();
 	$row = mysqli_fetch_array($sql_antri);
 	$now = $row[0];
 	$total = $row[1];
-	$_SESSION["loc"]["sekarang"]=$now-1;
+	//$_SESSION["loc"]["sekarang"]=$now-1;
   
   $nama = "";
 	$no_antrian ="";
