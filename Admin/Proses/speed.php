@@ -38,4 +38,4 @@ $hasil2= round($kb / $deltat, 3)."Kb/s";
 
 ?>
 <h4><?php echo $hasil; ?></h4>
-<?php echo "masih percobaan"; ?>
+

@@ -2,7 +2,7 @@
                 <div class="row">
                 <div class="col-md-3 col-sm-6 col-xs-6">           
 			<div class="panel panel-back noti-box">
-                <span class="icon-box bg-color-red set-icon">
+                <span class="icon-box bg-color-white set-icon">
                     <i class="fa fa-envelope-o"></i>
                 </span>
                 <div class="text-box" >
@@ -13,7 +13,7 @@
 		     </div>
                     <div class="col-md-3 col-sm-6 col-xs-6">           
 			<div class="panel panel-back noti-box">
-                <span class="icon-box bg-color-green set-icon">
+                <span class="icon-box bg-color-white set-icon">
                     <i class="fa fa-bars"></i>
                 </span>
                 <div class="text-box" >
@@ -24,7 +24,7 @@
 		     </div>
                     <div class="col-md-3 col-sm-6 col-xs-6">           
 			<div class="panel panel-back noti-box">
-                <span class="icon-box bg-color-blue set-icon">
+                <span class="icon-box bg-color-white set-icon">
                     <i class="fa fa-bell-o"></i>
                 </span>
                 <div class="text-box" >
@@ -35,7 +35,7 @@
 		     </div>
                     <div class="col-md-3 col-sm-6 col-xs-6">           
 			<div class="panel panel-back noti-box">
-                <span class="icon-box bg-color-brown set-icon">
+                <span class="icon-box bg-color-white set-icon">
                     <i class="fa fa-rocket"></i>
                 </span>
                 <div class="text-box" >
@@ -45,3 +45,4 @@
              </div>
 		     </div>
 			</div>
+            

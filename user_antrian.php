@@ -137,9 +137,9 @@ exit();
                         <form action="output_antrian.php" method="post" id="form-ambil-antrian">
                             <input type="hidden" name="id_tempat" value="" id="form_id_tempat">
                             <input type="hidden" name="id_instansi" value="" id="form_id_instansi">
-                            <div class="form-group">
-                            <button type="submit" class="btn btn-primary <?= $btn_antri_disabled ?>" id="btn-ambil-antrian" name="ambil_antrian" value="ambil-antrian" style="border-radius: 0px;">Ambil Antrian</button>
-                            </div>
+                            
+                                <button class="btn btn-primary <?= $btn_antri_disabled ?>" id="btn-ambil-antrian" style="border-radius: 0px;">Ambil Antrian</button>
+                            
                         </form>       
                     </div>
                 </div>
@@ -234,6 +234,30 @@ Senin   07.30–16.00</td>
             </div>
         </div>
     
+    <div class="container">        
+        <!-- Modal -->
+        <div class="modal fade" id="modal-konfirmasi-ambil-antrian" role="dialog">
+            <div class="modal-dialog">
+            
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Konfirmasi Antrian</h4>
+                </div>
+                <div class="modal-body">
+                    <p id="isi-text-modal">Apakah anda yakin ingin mengantri di ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-primary" id="konfirmasi-antri">Ya</button>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+    </div>
     <script src="framework/js/jquery-3.3.1.min.js"></script>
     <script src="framework/js/bootstrap.min.js"></script>
     <script src="framework/js/axios.min.js"></script>
@@ -247,6 +271,7 @@ Senin   07.30–16.00</td>
         var inpAntrianTempat = document.getElementById('form_id_tempat');
         var inpAntrianInstansi = document.getElementById('form_id_instansi');
         var formAmbilAntrian = document.getElementById('form-ambil-antrian');
+        var btnKonfirmasiAntri = document.getElementById('konfirmasi-antri');
 
         function updateDaftarnama(listNamaTempat, idJenisTempat) {
             // update daftar instansi ketika jenis tempat diubah
@@ -326,7 +351,24 @@ Senin   07.30–16.00</td>
             
         });
         btnRefreshAntrian.addEventListener('click', refreshAntrian);
-
+        
+        btnAmbilAntrian.addEventListener('click', function(e) {
+            e.preventDefault();
+            var k = inpAntrianTempat.value.trim();
+            var l = inpAntrianInstansi.value.trim();
+            if(k === "" && l === "") {
+                // console.log(`tempat: ${inpAntrianTempat.value}, instansi: ${ inpAntrianInstansi.value}`);
+                alert("tolong pilih jenis tempat dan nama tempat!");
+            } else if(k === "") {
+                alert("tolong pilih jenis tempat!");
+            } else if(l === "") {
+                alert("tolong pilih nama tempat!");
+            } else {
+                $('#modal-konfirmasi-ambil-antrian').modal();
+            }
+            
+        });
+        
         formAmbilAntrian.addEventListener('submit', function(e) {
             e.preventDefault();
             var k = inpAntrianTempat.value.trim();
@@ -339,13 +381,18 @@ Senin   07.30–16.00</td>
                 alert("tolong pilih jenis tempat!");
                 return false;
             } else if(l === "") {
-                alert("tolong nama tempat!");
+                alert("tolong pilih nama tempat!");
                 return false;
             } else {
                 // console.log(`tempat: ${inpAntrianTempat.value}, instansi: ${ inpAntrianInstansi.value}`);
                 this.submit();
             }
         });
+
+        btnKonfirmasiAntri.addEventListener('click', function(e) {
+            e.preventDefault();
+            formAmbilAntrian.submit();
+        })
     </script>
 </body>
 </html>
