@@ -157,13 +157,12 @@ exit();
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <div class="jumbotron" style="padding-top: 10px;">
+                        <div class="jumbotron" style="padding-top: 10px; padding-bottom: 20px; margin-bottom: 10px; background-color: transparent; border: solid 1px DarkTurquoise;">
                             <div class="row text-center">
-                                <div class="col-lg-12 col-lg-offset-6"><button type="button" class="btn btn-default btn-md" id="refresh-antrian" alt="refresh antrian" style="background-color: transparent; border: none;">
-                            <span class="glyphicon glyphicon-refresh" aria-hidden="true" ></span>
-                        </button>     </div>
-                                <div class="col-lg-6"><h5 id="nomor-antrian-sekarang">0</h5> <h4>sekarang</h4></div>
-                                <div class="col-lg-6"><h5 id="nomor-antrian">0</h5> <h4>total</h4></div>
+                                <div class="col-lg-8 col-lg-offset-2" style="background-color: LightSkyBlue; color: white;"><h4 style="letter-spacing: 2px;">info antrian</h4></div>
+                                <div class="col-lg-6"><h1 id="nomor-antrian-sekarang">0</h1> <h4>SEKARANG</h4></div>
+                                <div class="col-lg-6"><h1 id="nomor-antrian">0</h1> <h4>TOTAL</h4></div>
+                                <hr>
                             </div>
                         </div>
                         <div class="panel panel-default" style="padding: 15px;">
@@ -202,7 +201,7 @@ Senin   07.30–16.00</td>
                         </div>
                     </div>
                     <div class="col-lg-8 col-lg-offset-4">
-        <div class="panel panel-primary">
+        <div class="panel panel-info">
             <div class="panel-heading">
                 <div class="panel-title">Ulasan Mengenai Tempat</div>
             </div>
@@ -225,7 +224,7 @@ Senin   07.30–16.00</td>
                     <i class="glyphicon glyphicon-star"></i>
                     <i class="glyphicon glyphicon-star"></i>
                     <i class="glyphicon glyphicon-star"></i>
-                    <i class="glyphicon glyphicon-star"></i>
+                    <i class="glyphicon glyphicon-star-empty"></i>
                 </div>
             </div>
         </div>
