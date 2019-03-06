@@ -111,14 +111,12 @@ exit();
 
 
     <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-4 col-lg-4">
+        <div class="col-sm-12 col-md-4 col-lg-4">
                 <div class="panel panel-success">
                     <div class="panel-heading">
                         <h5 class="panel-title">Pilih Tempat Berobat</h5>
                     </div>
-                    <div class="panel-body">
-                        
+                    <div class="panel-body">  
                         <select name="jenis-tempat" id="jenis-tempat" class="form-control">
                             <option selected disabled>Jenis tempat</option>
                             <option value="1">Rumah Sakit</option>
@@ -130,70 +128,89 @@ exit();
                         <select name="daftar-nama" id="daftar-nama" class="form-control">
                             <option selected disabled value="">Nama Tempat</option>
                         </select>
-
-                        <!-- coba gogel map  -->
- <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
- <div id="map" style="width: 300px; height: 300px;"></div> 
- <script type="text/javascript">
-              
-//              menentukan koordinat titik tengah peta
-              var myLatlng = new google.maps.LatLng(-6.176587,106.827115);
- 
-//              pengaturan zoom dan titik tengah peta
-              var myOptions = {
-                  zoom: 13,
-                  center: myLatlng
-              };
-              
-//              menampilkan output pada element
-              var map = new google.maps.Map(document.getElementById("map"), myOptions);
-              
-//              menambahkan marker
-              var marker = new google.maps.Marker({
-                   position: myLatlng,
-                   map: map,
-                   title:"Monas"
-              });
-              
-        </script>                      
-        <!-- coba -->              
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-8 col-lg-8">
-                <div class="panel panel-success text-center">
-                    <div class="panel-heading">
-                        <div class="panel-title row">
-                            <div class="col-xs-6">
-                                Nomor antrian sekarang
-                            </div>
-                            <div class="col-xs-6">
-                                Nomor antrian total
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-body col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        <h1 style="font-weight: 30px; font-size: 200px; padding-top: 0px; margin-top: 0px; text-shadow: 1px 1px 5px; " id="nomor-antrian-sekarang">0</h1>
-                        
-                    </div>
-                    <div class="panel-body col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        <h1 style="font-weight: 30px; font-size: 200px; padding-top: 0px; margin-top: 0px; text-shadow: 1px 1px 5px; " id="nomor-antrian">0</h1>
-                    </div>
-                    <div class="col-xs-6 col-xs-offset-3">
+                        <br>
                         <form action="output_antrian.php" method="post" id="form-ambil-antrian">
                             <input type="hidden" name="id_tempat" value="" id="form_id_tempat">
                             <input type="hidden" name="id_instansi" value="" id="form_id_instansi">
-                            <button type="submit" class="btn btn-primary <?= $btn_antri_disabled ?>" id="btn-ambil-antrian" name="ambil_antrian" value="ambil-antrian">Ambil Antrian</button>
-                        </form>
-                        <button type="button" class="btn btn-default btn-md" id="refresh-antrian" alt="refresh antrian">
-                            <span class="glyphicon glyphicon-refresh" aria-hidden="true" ></span>
-                        </button>
+                            <div class="form-group">
+                            <button type="submit" class="btn btn-primary <?= $btn_antri_disabled ?>" id="btn-ambil-antrian" name="ambil_antrian" value="ambil-antrian" style="border-radius: 0px;">Ambil Antrian</button>
+                            </div>
+                        </form>       
                     </div>
                 </div>
             </div>
+        <div class="col-lg-4">
+                        <div class="row">
+                        <div class="col-lg-12"><img src="img/bgad2.jpg" class="img-responsive" alt="" style=" width: 100%; height: 350px;"></div>
+                        <div class="col-lg-12" style="padding: 10px 0px;">
+                            <img src="img/bgad2.jpg" class="img-responsive col-sm-3 col-lg-3" alt="">
+                            <img src="img/bgad2.jpg" class="img-responsive col-sm-3 col-lg-3" alt="">
+                            <img src="img/bgad2.jpg" class="img-responsive col-sm-3 col-lg-3" alt="">
+                            <img src="img/bgad2.jpg" class="img-responsive col-sm-3 col-lg-3" alt="">
+                        </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="jumbotron" style="padding-top: 10px;">
+                            <div class="row text-center">
+                                <div class="col-lg-12 col-lg-offset-6"><button type="button" class="btn btn-default btn-md" id="refresh-antrian" alt="refresh antrian" style="background-color: transparent; border: none;">
+                            <span class="glyphicon glyphicon-refresh" aria-hidden="true" ></span>
+                        </button>     </div>
+                                <div class="col-lg-6"><h5 id="nomor-antrian-sekarang">0</h5> <h4>sekarang</h4></div>
+                                <div class="col-lg-6"><h5 id="nomor-antrian">0</h5> <h4>total</h4></div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default" style="padding: 15px;">
+                            <div class="list-group">
+                            <h4 class="list-group-item-heading">Info Tempat</h4>
+                            <p class="list-group-item-text">
+                                 <table>
+                                     <tr>
+                                         <th colspan="1">Nama</th>
+                                         <td>Dinas Kesehatan Kota Surabaya</td>
+                                     </tr>
+                                      <tr>
+                                         <th>Alamat</th>
+                                         <td>Jl. Raya Jemursari No.197, Sidosermo, Wonocolo, Kota SBY, Jawa Timur 60239</td>
+                                     </tr>
+                                     <tr>
+                                         <th>Jam Buka</th>
+                                         <td>Selasa 07.30–16.00
+Rabu    07.30–16.00
+Kamis   07.30–16.00
+Jumat   07.30–16.00
+Sabtu   Tutup
+Minggu  Tutup
+Senin   07.30–16.00</td>
+                                     </tr>
+                                     <tr>
+                                         <th>Provinsi</th>
+                                         <td>Jawa Timur</td>
+                                     </tr>
+                                     <tr>
+                                         <th>No Telepon</th>
+                                         <td>(031) 8439473</td>
+                                     </tr>
+                                 </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-lg-offset-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="panel-title">Ulasan Mengenai Tempat</div>
+            </div>
+            <div class="panel-body">
+                dawdawd
+            </div>
         </div>
     </div>
-
+                </div>
+                
+            </div>
+        </div>
+    
     <script src="framework/js/jquery-3.3.1.min.js"></script>
     <script src="framework/js/bootstrap.min.js"></script>
     <script src="framework/js/axios.min.js"></script>

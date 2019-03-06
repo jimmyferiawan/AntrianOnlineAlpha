@@ -42,7 +42,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                          Validation New Oprator
+                          Validation New Operator
                         </div>
                         <div class="panel-body">
                             <div class="panel-group" id="accordion">
