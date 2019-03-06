@@ -1,5 +1,10 @@
 <?php 
     session_start();
+    if(isset($_SESSION['u_antrian_pin']) && isset($_SESSION['u_antrian_lokasi']) && isset($_SESSION['u_antrian_nomor'])) {
+        echo "sudah antri";
+        header("Location: output_antrian.php");
+    }
+    
     $is_login = isset($_SESSION['u']);
     $btn_antri_disabled = $is_login ? "" : "disabled";
 ?> 
