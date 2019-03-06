@@ -1,12 +1,13 @@
 <?php 
 
-$nexta = $now+1;
+/*$nexta = $now+1;
 $sql_op = mysqli_query($conn, "SELECT no_antrian, status_temp, pin_temp  FROM temp WHERE lokasi = '$lokasiberobat' AND no_antrian='$nexta'  ");
 
 
-$sql_antri = mysqli_query($conn, "select  total from antri where lokasi = '$lokasiberobat'  ");
+	$sql_antri = mysqli_query($conn, "select  total, sekarang from antri where lokasi = '$lokasiberobat'  ");
 	$row = mysqli_fetch_array($sql_antri);
 	$total = $row[0];
+	$skrg = $row[1];
 	$_SESSION["loc"]["total"]=$total;
 
 	$list_op = mysqli_fetch_array($sql_op);
@@ -18,41 +19,39 @@ $sql_antri = mysqli_query($conn, "select  total from antri where lokasi = '$loka
 	 $_SESSION["nx"]["pin_temp"] = $nx_pin;
 	//$pin=( $_SESSION["nx"]["pin_temp"]);
 	//$qq= $_SESSION["nx"]["status_temp"] ;
-	//$tot=$_SESSION["loc"]["total"];"
-	$hsl=$total+1;
-	$skrg =$now+1;
+	//$tot=$_SESSION["loc"]["total"];*/
+	$sql_op = mysqli_query($conn, "select  total, sekarang from antri where lokasi = '$lokasiberobat'  ");
+	$col = mysqli_fetch_array($sql_op);
+	$total = $col[0];
+	$now = $col[1];
 	$loop = 1;
+	
+	//cek apakah masih ada data antri yang offline
 	$sql_stat = mysqli_query($conn, "SELECT status_temp FROM temp WHERE status_temp=1 AND lokasi = '$lokasiberobat' AND no_antrian>$now ORDER BY no_antrian ASC ");
 	$count_stat = mysqli_num_rows($sql_stat);
+	
 	$sql_antri = mysqli_query($conn, "SELECT no_antrian, status_temp, pin_temp  FROM temp WHERE lokasi = '$lokasiberobat' AND no_antrian>$now ORDER BY no_antrian ASC ");
 	$count = mysqli_num_rows($sql_antri);
+	
 	if($count_stat>0){
 	if($count>0){
 		while ($row = mysqli_fetch_assoc($sql_antri)){
 			if($row['status_temp']==2){
 				if($total-$now>=$loop){
-					$s = mysqli_query($conn, "UPDATE temp SET no_antrian  = $hsl where pin_temp  =  '".$row['pin_temp']."'");
-					$s = mysqli_query($conn, "UPDATE antri SET total = $hsl where lokasi =  '$lokasiberobat'");
-					$skrg++;
-					$hsl++;
-					$loop++;	
+					$now++;
+					$total++;
+					$s = mysqli_query($conn, "UPDATE temp SET no_antrian  = $total where pin_temp  =  '".$row['pin_temp']."'");
+					$loop++;
 				}else{
-					$s = mysqli_query($conn, "UPDATE antri SET  sekarang=$skrg where lokasi =  '$lokasiberobat'");
-					
+					break;
 				}
 			}else{
-				$now= $now + 1;
-				$s = mysqli_query($conn, "UPDATE antri SET sekarang = $now where lokasi =  '$lokasiberobat'");
+				$now++;
 				break;
 			}
 		}
+		$s = mysqli_query($conn, "UPDATE antri SET sekarang=$now , total = $total where lokasi =  '$lokasiberobat'");
 	}
 	}
-	
-	
-
-
-
-
-
+	 header("refresh: 0;");
  ?>
