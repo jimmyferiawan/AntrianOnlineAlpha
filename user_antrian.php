@@ -202,7 +202,22 @@ Senin   07.30–16.00</td>
                 <div class="panel-title">Ulasan Mengenai Tempat</div>
             </div>
             <div class="panel-body">
-                dawdawd
+                <div class="col-lg-1" style="padding-right: 0; padding-top: 5px;">
+                    <img src="img/usr.png" class="img-circle" alt="" width="25" height="25">
+                </div><!--kolom image user-->
+                <div class="col-lg-8" style="padding-left: 0;">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <b>Noob User</b>
+                        </div>
+                        <div class="col-lg-12">
+                            Pelayanan Cepat Memuaskan....Terima Kasih Banyak.....
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    
+                </div>
             </div>
         </div>
     </div>
