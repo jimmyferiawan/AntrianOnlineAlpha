@@ -146,12 +146,12 @@ exit();
             </div>
         <div class="col-lg-4">
                         <div class="row">
-                        <div class="col-lg-12"><img src="img/bgad2.jpg" class="img-responsive" alt="" style=" width: 100%; height: 350px;"></div>
+                        <div class="col-lg-12"><img id="foto1" src="img/bgad2.jpg" class="img-responsive" alt="" style=" width: 100%; height: 350px;"></div>
                         <div class="col-lg-12" style="padding: 10px 0px;">
-                            <img src="img/bgad2.jpg" class="img-responsive col-sm-3 col-lg-3" alt="">
-                            <img src="img/bgad2.jpg" class="img-responsive col-sm-3 col-lg-3" alt="">
-                            <img src="img/bgad2.jpg" class="img-responsive col-sm-3 col-lg-3" alt="">
-                            <img src="img/bgad2.jpg" class="img-responsive col-sm-3 col-lg-3" alt="">
+                            <img id="foto2" src="img/bgad2.jpg" class="img-responsive col-sm-3 col-lg-3" alt="">
+                            <img id="foto3" src="img/bgad2.jpg" class="img-responsive col-sm-3 col-lg-3" alt="">
+                            <img id="foto4" src="img/bgad2.jpg" class="img-responsive col-sm-3 col-lg-3" alt="">
+                            <img id="foto5" src="img/bgad2.jpg" class="img-responsive col-sm-3 col-lg-3" alt="">
                         </div>
 
                         </div>
@@ -173,11 +173,11 @@ exit();
                                  <table>
                                      <tr>
                                          <th colspan="1">Nama</th>
-                                         <td>Dinas Kesehatan Kota Surabaya</td>
+                                         <td id="info-nama">Dinas Kesehatan Kota Surabaya</td>
                                      </tr>
                                       <tr>
                                          <th>Alamat</th>
-                                         <td>Jl. Raya Jemursari No.197, Sidosermo, Wonocolo, Kota SBY, Jawa Timur 60239</td>
+                                         <td id="info-alamat">Jl. Raya Jemursari No.197, Sidosermo, Wonocolo, Kota SBY, Jawa Timur 60239</td>
                                      </tr>
                                      <tr>
                                          <th>Jam Buka</th>
@@ -195,7 +195,7 @@ Senin   07.30–16.00</td>
                                      </tr>
                                      <tr>
                                          <th>No Telepon</th>
-                                         <td>(031) 8439473</td>
+                                         <td id="info-notelp">(031) 8439473</td>
                                      </tr>
                                  </table>
                             </div>
@@ -273,6 +273,15 @@ Senin   07.30–16.00</td>
         var inpAntrianInstansi = document.getElementById('form_id_instansi');
         var formAmbilAntrian = document.getElementById('form-ambil-antrian');
         var btnKonfirmasiAntri = document.getElementById('konfirmasi-antri');
+        var isiTextModal = document.getElementById('isi-text-modal');
+        var infoNama = document.getElementById('info-nama');
+        var infoAlamat = document.getElementById('info-alamat');
+        var infoNoTelp = document.getElementById('info-notelp');
+        var fotoInstansi1 = document.getElementById('foto1');
+        var fotoInstansi2 = document.getElementById('foto2');
+        var fotoInstansi3 = document.getElementById('foto3');
+        var fotoInstansi4 = document.getElementById('foto4');
+        var fotoInstansi5 = document.getElementById('foto5');
 
         function updateDaftarnama(listNamaTempat, idJenisTempat) {
             // update daftar instansi ketika jenis tempat diubah
@@ -297,19 +306,26 @@ Senin   07.30–16.00</td>
                 }
             })
             .then(function(response) {
-                updateAntrian(response.data.total, response.data.sekarang);
-                // console.log(response.data);
+                updateAntrian(response.data);
+                console.log(response.data);
             })
             .catch(function(error) {
                 // console.log("error getAntrianSekarang(idInstansi, idTempat): " + error)
             });
         }
 
-        function updateAntrian(nomorAntrianTotal, antrianSekarang) {
+        function updateAntrian(data) {
             // ganti angka nomor antrian
-            nomorAntrian.innerText = nomorAntrianTotal;
-            nomorAntrianSekarang.innerText =  antrianSekarang;
-            
+            nomorAntrian.innerText = data.total;
+            nomorAntrianSekarang.innerText = data.sekarang;
+            infoNama.innerText = data.nama_instansi;
+            infoAlamat.innerText = data.alamat_instansi;
+            infoNoTelp.innerText = data.telp_instansi;
+            fotoInstansi1.src = "img-tempat/" + data.foto1;
+            fotoInstansi2.src = "img-tempat/" + data.foto2;
+            fotoInstansi3.src = "img-tempat/" + data.foto3;
+            fotoInstansi4.src = "img-tempat/" + data.foto4;
+            fotoInstansi5.src = "img-tempat/" + data.foto5;
         }
         
         function refreshAntrian() {
@@ -333,7 +349,6 @@ Senin   07.30–16.00</td>
                 })
                 .then(function(response) {
                     updateDaftarnama(response.data, idLokasi);
-                    // consoloe.log(response);
                 })
                 .catch(function(error) {
                     // TODO: lakukan sesuatu ketika error ambil data
@@ -345,7 +360,8 @@ Senin   07.30–16.00</td>
             if (this.hasAttribute("data-id-tempat")) {
                 var idTempat = this.getAttribute('data-id-tempat');
                 var idInstansi = this.value;
-
+                var namaInstansi = this.options[this.selectedIndex].text;
+                this.setAttribute('data-nama-tempat', namaInstansi);
                 getAntrianSekarang(this.value, idTempat);
                 inpAntrianInstansi.value = idInstansi;
             }
@@ -365,6 +381,7 @@ Senin   07.30–16.00</td>
             } else if(l === "") {
                 alert("tolong pilih nama tempat!");
             } else {
+                $("#isi-text-modal").text("Apakah anda yakin ingin mengantri di " + daftarNama.options[daftarNama.selectedIndex].text + " ?");
                 $('#modal-konfirmasi-ambil-antrian').modal();
             }
             
@@ -393,7 +410,7 @@ Senin   07.30–16.00</td>
         btnKonfirmasiAntri.addEventListener('click', function(e) {
             e.preventDefault();
             formAmbilAntrian.submit();
-        })
+        });
     </script>
 </body>
 </html>
