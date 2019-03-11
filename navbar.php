@@ -5,6 +5,13 @@
         <div class="container-fluid">
             <div class="navbar-header">
 <?php if (isset($_SESSION['u'])): ?>
+            
+            <?php if (isset($_SESSION["id"]["id_op"])): ?>
+                <?php session_unset(); ?>
+                <?php header('location:login.php'); ?>
+            <?php endif ?>
+            
+
                 <a class="navbar-brand" href="user_antrian.php">
                     AntriSehat
                 </a>
@@ -30,6 +37,7 @@
         </div>
     </nav>
 <?php elseif (isset($_SESSION["id"]["id_op"])): ?>
+             
    				<a class="navbar-brand" href="op_index.php">
                     LOGO 
                 </a>
