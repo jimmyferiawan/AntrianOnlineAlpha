@@ -2,6 +2,14 @@
 <html>
 <head>
 	<?php session_unset(); ?>
+	<?php 
+	 if ( isset($_SESSION["u"])) {
+        session_unset();
+          header('location:login_AD.php');
+    }
+
+	 ?>
+
 	<meta name="viewport" content="width=device-width">
 	<title></title>
 <!--<link href="framework/css/bootstrap.css" rel="stylesheet">-->
