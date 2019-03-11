@@ -5,9 +5,6 @@
         <div class="container-fluid">
             <div class="navbar-header">
 <?php if (isset($_SESSION['u'])): ?>
-            
-       
-
                 <a class="navbar-brand" href="user_antrian.php">
                     AntriSehat
                 </a>
@@ -34,8 +31,8 @@
     </nav>
 <?php elseif (isset($_SESSION["id"]["id_op"])): ?>
              
-   				<a class="navbar-brand" href="op_index.php">
-                    LOGO 
+   				<a class="navbar-brand" href="op_index.php" style="padding-top: 6px;">
+                    <img src="img/logoas.png" alt="" width="auto" height="40px">
                 </a>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navheader-collapse" aria-expanded="false">
                     <span class="glyphicon glyphicon-menu-hamburger"></span>

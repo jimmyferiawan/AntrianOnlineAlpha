@@ -99,6 +99,16 @@ exit();
 	}
 
 </style>
+<script src="framework/js/jquery-3.3.1.min.js"></script>
+    <script src="framework/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+    	$("#check").click(function(){
+  		$("#offline").removeClass(".active");
+  		$("#online").addClass(".active");
+		});
+	});
+    </script>
 </head>
 <body>
 <?php
