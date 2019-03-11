@@ -100,21 +100,21 @@ if ($hasil ->num_rows >=0){
 			<td align='right'><?php echo $no  ;?></td>
 			<td><?php echo $row["id_tempat"];?></td>
 			<td align='left'>
-                 <img src="../../img/<?php echo $row["foto1"]; ?>" class="img-responsive img-thumbnail col-sm-3 col-lg-3" alt="">
+                 <img src="../../img-tempat/<?php echo $row["foto1"]; ?>" class="img-responsive img-thumbnail col-sm-3 col-lg-3" alt="">
                  <input class="col-md btn-sm" type="file" name="file" id="user-profile" class="form-control col-lg-4" placeholder="user1" >
                  </td>
 			     <td> 
-                 <img src="../../img/<?php echo $row["foto2"]; ?>" class="img-responsive img-thumbnail col-sm-3 col-lg-3" alt="">
+                 <img src="../../img-tempat/<?php echo $row["foto2"]; ?>" class="img-responsive img-thumbnail col-sm-3 col-lg-3" alt="">
                 <br>
                 <input class="col-sm btn-sm" type="file" name="file" id="user-profile" class="form-control col-lg-4" placeholder="user1"></td>
-            <td> <img src="../../img/<?php echo $row["foto3"]; ?>" class="img-responsive img-thumbnail col-sm-3 col-lg-3" alt="">
+            <td> <img src="../../img-tempat/<?php echo $row["foto3"]; ?>" class="img-responsive img-thumbnail col-sm-3 col-lg-3" alt="">
                 <br> 
                 <input class="col-md btn-sm"  type="file" name="file" id="user-profile" class="form-control col-lg-4" placeholder="user1" ></td>
-			<td> <img src="../../img/<?php echo $row["foto4"]; ?>" class="img-responsive img-thumbnail col-sm-3 col-lg-3" alt="">
+			<td> <img src="../../img-tempat/<?php echo $row["foto4"]; ?>" class="img-responsive img-thumbnail col-sm-3 col-lg-3" alt="">
                 <br>file
                  <input class="col-md btn-sm"  type="file" name="file" id="user-profile" class="form-control col-lg-4" placeholder="user1"></td>
 			<td> 
-                <img src="../../img/<?php echo $row["foto5"]; ?>" class="img-responsive img-thumbnail col-sm-3 col-lg-3" alt="">
+                <img src="../../img-tempat/<?php echo $row["foto5"]; ?>" class="img-responsive img-thumbnail col-sm-3 col-lg-3" alt="">
                 <br>
              <input class="col-md btn-sm"  type="file" name="file" id="user-profile" class="form-control col-lg-4" placeholder="user1" >
             <td>     

@@ -36,7 +36,7 @@
 
             </tr>
         </thead>
-        <tbody>';
+        <tbody>
         
 <?php 
 if ($hasil ->num_rows >=0){
@@ -57,7 +57,7 @@ if ($hasil ->num_rows >=0){
             $no++;
         }
     } ?>
-     </table>";
+     </table>
 
 <?php  
 
