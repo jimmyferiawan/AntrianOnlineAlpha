@@ -1,7 +1,7 @@
 </!DOCTYPE html>
 <html>
 <head>
-	<?php session_unset(); ?>
+	
 	<?php 
 	 if ( isset($_SESSION["u"])) {
         session_unset();
