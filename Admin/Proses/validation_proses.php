@@ -12,7 +12,7 @@
     
            <?php
 
- $sql = " SELECT ID_op, username_op  FROM oprator where  status_op ='2'  ";
+ $sql = " SELECT ID_op, username_op  , lokasi_op FROM oprator where  status_op ='2'  ";
 
         $hasil = $conn->query($sql);
 
@@ -31,6 +31,7 @@
                 <th>NO</th>
                 <th >ID Oprator</th>
                 <th>Nama oprator</th>
+                <th>Lokasi Oprator</th>
                 <th>Aksi</th>
 
             </tr>
@@ -45,13 +46,14 @@ if ($hasil ->num_rows >=0){
             <td align='center'><?php echo $no ; ?></td>
             <td><?php echo $row["ID_op"] ; ?></td>
             <td align='center'><?php echo   $row["username_op"]; ?></td>
+            <td align='center'><?php echo   $row["lokasi_op"]; ?></td>
             <td><form method='post' action='Proses/proses_valid.php'>
                     <input class="btn-success form-control" type='submit' name='hapus' value='Upgrade'>
                     <input type='hidden' name='npm' value='<?php echo $row["ID_op"]  ;?>'>
                 </form>
                 
             </td></tr><?php 
-            ;
+            
             $no++;
         }
     } ?>

@@ -48,7 +48,7 @@ exit();
         background-color: #36d7b7;
     }
 	
-    .navbar-default .navbar-nav li:hover::after {
+    .navbar-default .navbar-nav li:hover:not(#dropnot)::after {
 	    content: "";
 	    position: absolute;
 	    width: 0;
@@ -95,7 +95,6 @@ exit();
 	}
 
 	.dropdown-menu > li > a:hover {
-		background-color: green;
 		border: none;
 	}
 
@@ -121,16 +120,22 @@ exit();
 	$jam = "";
 	$lokasi = "";
   
-  if(isset($_POST["validasi"])){
+  if(isset($_POST["check"])){
 	  $pin = $_REQUEST["pin"];
+	  $_SESSION["pincheck"]=$pin;
 	  $sql_pin = mysqli_query($conn, "SELECT p.nama_pasien, t.id_user_temp, t.no_antrian, t.jam_ambil_antrian, t.tgl, t.lokasi FROM pasien AS p INNER JOIN temp AS t WHERE t.pin_temp='$pin' AND t.id_user_temp=p.ID_pasien");
 	  $row = mysqli_fetch_array($sql_pin);
 	  $nama = $row[0];
-	  $no_antrian =$row[1];
-	  $tgl = $row[2];
+	  $no_antrian =$row[2];
+	  $tgl = $row[4];
 	  $jam = $row[3];
-	  $lokasi = $row[4];
+	  $lokasi = $row[5];
   }
+  
+  if(isset($_POST["validasi"])){
+	  $pincheck = $_SESSION["pincheck"];
+	  $sql_valid = mysqli_query($conn, "UPDATE temp SET status_temp=1 WHERE pin_temp='$pincheck'");
+}
   
   if(isset($_POST["next"])){
 	  if ($now<$total){
@@ -250,13 +255,13 @@ exit();
   <div class="form-group">
     <div class="col-sm-12">
     	<label for="tgl" style="text-align: left;">Tanggal</label>
-		<input type="text" class="form-control input-sm" id="tgl"  value="<?php echo $tgl;?>" value="<?php echo $lokasi;?>" disabled>
+		<input type="text" class="form-control input-sm" id="tgl"  value="<?php echo $tgl;?>" disabled>
 	</div>
   </div>
   <div class="form-group">
     <div class="col-sm-12">
     	<label for="lokasi" style="text-align: left;">Lokasi</label>
-		<input type="text" class="form-control input-sm" id="lokasi" disabled>
+		<input type="text" class="form-control input-sm" id="lokasi" value="<?php echo $lokasi;?>" disabled>
 	</div>
   </div>
   <div class="form-group">

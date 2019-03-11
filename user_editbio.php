@@ -1,9 +1,12 @@
 <?php
+ 
     session_start();
 
     // tidak bisa edit jika belum login
     $disable_input = isset($_SESSION["u"]) ? "" : "disabled";
-
+    if ( !isset($_SESSION["u"])) {
+            header('location:login.php'); 
+    }
     $username = "";
     $nama_lengkap = "";
     $nik = "";

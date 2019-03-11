@@ -30,44 +30,50 @@ $df = disk_free_space("/");
 
 
  					<div class="row "> 
+
+
+
  						<!-- speed internet  -->
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel-body back-dash">
-                               <i class="fa fa-dashboard fa-3x"></i><strong> &nbsp; SPEED</strong>
-                             <p class="text-muted"><?php include 'speed.php';; ?></p>
+                    <div class="col-md-3 col-sm-6 col-xs-6panel panel-primary text-center no-boder bg-color-white">
+                        <div class="panel panel-back noti-box ">
+                               <i class="fa fa-dashboard fa-5x"></i><strong></strong>
+                             <h3 class="text-muted"><?php include 'speed.php';; ?></h3>
                         </div>
-                       
+                        <div class="panel-footer back-footer-blue">
+                             SPEED / second
+                            
+                        </div>
                     </div> 
  					<!-- Setorange free real                        -->
-                    <div class="col-md-3 col-sm-6 col-xs-6 panel panel-primary text-center no-boder bg-color-red">
-                        <div class="panel-body">
+                    <div class="col-md-3 col-sm-6 col-xs-6panel panel-primary text-center no-boder bg-color-white">
+                        <div class="panel  panel-back noti-box">
                             <i class="fa fa-bar-chart-o fa-5x"></i>
 
                             <h3><?php echo $_SESSION["storange"]["free"];  ?> </h3>
                         </div>
-                        <div class="panel-footer back-footer-red">
+                        <div class="panel-footer back-footer-blue">
                            Disk Space Available
                             
                         </div>
                     </div>
                     <!-- belum tau mau jadi apa  -->
-                    <div class="col-md-3 col-sm-6 col-xs-6panel panel-primary text-center no-boder bg-color-green">
-                        <div class="panel-body">
+                    <div class="col-md-3 col-sm-6 col-xs-6panel panel-primary text-center no-boder bg-color-white">
+                        <div class="panel   panel-back noti-box">
                             <i class="fa  fa-bar-chart-o fa-5x"></i>
                             <h3><?php echo $_SESSION["storange"]["total"]; ?> </h3>
                         </div>
-                        <div class="panel-footer back-footer-green">
+                        <div class="panel-footer back-footer-blue">
                             Disk Space Total
                             
                         </div>
                     </div>    
 					 <!-- belum tau mau jadi apa  -->
-                    <div class="col-md-3 col-sm-6 col-xs-6panel panel-primary text-center no-boder bg-color-green">
-                        <div class="panel-body">
+                    <div class="col-md-3 col-sm-6 col-xs-6panel panel-primary text-center no-boder bg-color-white">
+                        <div class="panel   panel-back noti-box">
                             <i class="fa fa-edit fa-5x"></i>
                             <h3>20,000 </h3>
                         </div>
-                        <div class="panel-footer back-footer-green">
+                        <div class="panel-footer back-footer-blue">
                             Articles Pending
                             
                         </div>
