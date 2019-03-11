@@ -12,6 +12,7 @@ $num8='0';
 $num9='0';
 $num11='0';
 $num12='0';
+$num13='0';
 
 $ambil1=$conn->query("SELECT * FROM pasien  ");
 $ambil2=$conn->query("SELECT * FROM dokter  ");
@@ -24,6 +25,7 @@ $ambil8=$conn->query("SELECT * FROM oprator where status_op =2  ");
 $ambil9=$conn->query("SELECT * FROM oprator where status_op =1  ");
 $ambil11=$conn->query("SELECT * FROM temp  ");
 $ambil12=$conn->query("SELECT * FROM tempbesok  ");
+$ambil13=$conn->query("SELECT * FROM foto_lokasi  ");
 
 
 	  WHILE ($unit1 =$ambil1->fetch_assoc()){ 
@@ -59,6 +61,10 @@ $ambil12=$conn->query("SELECT * FROM tempbesok  ");
       WHILE ($unit12 =$ambil12->fetch_assoc()){ 
 
      $num12++; }
+      WHILE ($unit13 =$ambil13->fetch_assoc()){ 
+
+     $num13++; }
+
 
 
 $_SESSION['ct_pasien'] =  $num1;
@@ -72,6 +78,7 @@ $_SESSION['ct_op_not'] =  $num8;
 $_SESSION['ct_op_yes'] =  $num9;
 $_SESSION['ct_not_temp'] =  $num11;
 $_SESSION['ct_not_tempbsk'] = $num12;
+$_SESSION['ct_temp'] = $num13;
 
 
 $num10= $num4+$num5+$num6+$num7;

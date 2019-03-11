@@ -45,5 +45,21 @@
                         </div>
                     </div>
                 </div>
+              
+
             </div>
-           
+               <div class="row text-center">
+                 <div class="col-md-4 col-sm-4">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            Foto tempat
+                        </div>
+                        <div class="panel-body">
+                            <h1> <?php echo $_SESSION['ct_temp']  ?></h1>
+                        </div>
+                        <div class="panel-footer">
+                              <a href="us_hapus/tambah_gambar.php">Show Data</a>
+                        </div>
+                    </div>
+                </div>
+                </div>

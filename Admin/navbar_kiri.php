@@ -3,7 +3,7 @@
                 <ul class="nav" id="main-menu">
                 <li class="text-center">
                       <?php include 'Proses/jam.php'; ?>
-                    <img src="../img/bg.jpg" class="user-image img-responsive"/>
+                    <img src="../img/logoas.png" class="user-image img-responsive"/>
                     </li>
                   
                     <li>
