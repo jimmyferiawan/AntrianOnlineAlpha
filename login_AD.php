@@ -11,7 +11,7 @@
 	 ?>
 
 	<meta name="viewport" content="width=device-width">
-	<title></title>
+		<title>Login Antri Sehat</title>
 <!--<link href="framework/css/bootstrap.css" rel="stylesheet">-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <style type="text/css">

@@ -19,7 +19,7 @@ exit();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="framework/css/bootstrap.min.css">
-    <title>User</title>
+    <title>Dokter Antri Sehat</title>
     <style>
         body{
             padding-top: 70px;
@@ -47,11 +47,11 @@ exit();
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top" style="background-color: white; box-shadow: 0px -1px 4px -1px;">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="">
-                        LOGO
+                     <img src="img/logoas.png" alt="" width="auto" height="40px">
                 </a>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navheader-collapse" aria-expanded="false">
                     <span class="glyphicon glyphicon-menu-hamburger"></span>

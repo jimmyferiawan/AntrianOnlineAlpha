@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Login Antri Sehat</title>
 <link href="framework/css/bootstrap.css" rel="stylesheet">
 <style type="text/css">
 	.box {
