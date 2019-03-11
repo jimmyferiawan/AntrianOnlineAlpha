@@ -266,7 +266,6 @@ Senin   07.30–16.00</td>
         var daftarNama = document.getElementById('daftar-nama');
         var nomorAntrian = document.getElementById('nomor-antrian');
         var nomorAntrianSekarang = document.getElementById('nomor-antrian-sekarang');
-        var btnRefreshAntrian = document.getElementById('refresh-antrian');
         var btnAmbilAntrian = document.getElementById('btn-ambil-antrian');
         var inpAntrianTempat = document.getElementById('form_id_tempat');
         var inpAntrianInstansi = document.getElementById('form_id_instansi');
@@ -326,16 +325,6 @@ Senin   07.30–16.00</td>
             fotoInstansi4.src = "img-tempat/" + data.foto4;
             fotoInstansi5.src = "img-tempat/" + data.foto5;
         }
-        
-        function refreshAntrian() {
-            // tombol refresh
-            if (daftarNama.hasAttribute('data-id-tempat')) {
-                var idInstansi = daftarNama.value;
-                var idTempat = daftarNama.getAttribute('data-id-tempat');
-
-                getAntrianSekarang(idInstansi, idTempat);
-            }
-        }
 
         // pilih jenis tempat berobat
         jenisTempat.addEventListener('change', function() {
@@ -366,7 +355,6 @@ Senin   07.30–16.00</td>
             }
             
         });
-        btnRefreshAntrian.addEventListener('click', refreshAntrian);
         
         btnAmbilAntrian.addEventListener('click', function(e) {
             e.preventDefault();
