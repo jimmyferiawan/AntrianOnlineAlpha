@@ -304,7 +304,5 @@ exit();
 	</div>
 </div>
 
-<script src="framework/js/jquery-3.3.1.min.js"></script>
-    <script src="framework/js/bootstrap.min.js"></script>
 </body>
 </html>
