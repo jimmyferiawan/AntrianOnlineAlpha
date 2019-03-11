@@ -48,7 +48,7 @@ exit();
         background-color: #36d7b7;
     }
 	
-    .navbar-default .navbar-nav li:hover::after {
+    .navbar-default .navbar-nav li:hover:not(#dropnot)::after {
 	    content: "";
 	    position: absolute;
 	    width: 0;
@@ -95,7 +95,6 @@ exit();
 	}
 
 	.dropdown-menu > li > a:hover {
-		background-color: green;
 		border: none;
 	}
 
