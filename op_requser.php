@@ -58,7 +58,7 @@ exit();
 <body>
 <?php
 include "koneksi.php";
-
+$lokasiberobat = $_SESSION["loc"]["lokasi"];
   if(isset($_REQUEST['daftar'])){
 	  $oid = $_REQUEST['nik'];
 	  $user = $_REQUEST['username'];
@@ -67,9 +67,35 @@ include "koneksi.php";
 	  $no_hp = $_REQUEST['no_hp'];
 	  $jk = $_REQUEST['jenis_kelamin'];
 	  $pass = $_REQUEST['password'];
-	  $lokasi = $_REQUEST['lokasi'];
-	  $sql = mysqli_query($conn, "INSERT INTO oprator VALUES('$oid','$user','$pass','2','$nama','$no_hp','$jk','$alamat','$lokasi','2')");
-	  echo "<script>location='op_index.php';</script>";
+	
+// pembuatan id
+
+$hasilid ='OP'. $oid;
+
+
+	  $sql = "INSERT INTO oprator VALUES('$hasilid','$user','$pass','2','$nama','$no_hp','$jk','$alamat','$lokasiberobat','2')";
+       $hasil = $conn->query($sql);
+
+        if(!$hasil) {
+            if($conn->errno == 1062) {
+                // 1062 error kode duplicate primary key
+                echo "<script>alert('UERNAME SUDAH DIGUNAKAN !!');history.go(-1);</script>";
+            } else {
+                echo "Maaf terjadi kesalahan ". $conn->error; // fungsi debug 
+           
+            }
+        } else {
+            echo "<script>
+                alert('berhasil Input Data');</script>
+              <script>location='op_index.php';</script>";
+        }
+        
+        $conn->close();
+
+
+
+
+
   }
 ?>
 <!-- <nav class="navbar navbar-default navbar-fixed-top" style="margin-bottom: 0px; ">
@@ -138,10 +164,6 @@ include "koneksi.php";
                             <label for="password_re">Konfirmasi Password</label>
                             <input type="password" name="password_re" id="password_re" class="form-control" placeholder="ketik ulang password" required>
                         </div>
-                        <div class="form-group col-lg-12">
-                            <label for="lokasi">Tempat Bertugas</label>
-                            <input type="text" name="lokasi" id="lokasi" class="form-control">
-                        </div>
 
                         <div class="col-lg-12">
                             <button class="btn btn-primary col-lg-4" type="submit" name="daftar">Daftar</button>
@@ -165,10 +187,11 @@ include "koneksi.php";
 				return false;
 			}
 			else{
-				alert('Data berhasil disimpan');
+			
 				
 			}
 		});
 	});
 </script>
+
 </html>

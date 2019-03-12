@@ -1,8 +1,15 @@
 <?php
     if(isset($_POST['pasien_submit'])) {
         require_once '../../koneksi.php';
+$num1='0';
 
-        $ID_ps = $conn->real_escape_string($_POST['ID_ps']);
+$ambil=$conn->query("SELECT * FROM pukesmas  ");
+      WHILE ($unit1 =$ambil->fetch_assoc()){ 
+
+    $num1++; }
+    $oid =$num1 ;
+    $hasilid ='A' .('00'. $oid);
+
         $name_ps = $conn->real_escape_string($_POST['Nama_ps']);
         $alm_ps = $conn->real_escape_string($_POST['Alamat_ps']);
         $jb_ps = $conn->real_escape_string($_POST['Jambuka_ps']);
@@ -15,7 +22,7 @@
 
 
 
-        $sql = "INSERT INTO pukesmas (ID_pukesmas, nama_pukesmas , alamat_pukesmas , jambuka_pukesmas, jamtutup_pukesmas, pemilik_pukesmas ,no_op_pukesmas , no_telp_pukesmas ,cuti_pukesmas) VALUES ('$ID_ps', ' $name_ps', ' $alm_ps ', '$jb_ps', '$jt_ps', '$nmp_ps',' $noop_ps',' $notpl_ps','$cuti_ps')";
+        $sql = "INSERT INTO pukesmas (ID_pukesmas, nama_pukesmas , alamat_pukesmas , jambuka_pukesmas, jamtutup_pukesmas, pemilik_pukesmas ,no_op_pukesmas , no_telp_pukesmas ,cuti_pukesmas) VALUES ('$hasilid', ' $name_ps', ' $alm_ps ', '$jb_ps', '$jt_ps', '$nmp_ps',' $noop_ps',' $notpl_ps','$cuti_ps')";
 
         $hasil = $conn->query($sql);
 

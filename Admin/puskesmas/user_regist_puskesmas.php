@@ -43,11 +43,7 @@
         <div class="row">
             <div>   
                 <div id="profile">
-                    <form action="proses/daftar.php" method="post">
-                        <div class="form-group col-lg-6">
-                            <label for="ID_ps">ID Puskesmas</label>
-                            <input type="text" name="ID_ps" id="ID_ps" class="form-control" placeholder="ID " required>
-                        </div>
+                    <form action="proses/daftar.php" method="post">               
                         <div class="form-group col-lg-6">
                             <label for="Nama_ps">Nama Puskesmas</label>
                             <input type="text" name="Nama_ps" id="Nama_ps" class="form-control" placeholder="nama Puskesmas"required>

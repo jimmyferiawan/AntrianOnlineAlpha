@@ -1,6 +1,8 @@
 <?php
     if(isset($_POST['pasien_submit'])) {
         require_once '../koneksi.php';
+            
+
         $status='2';
         $uname = $conn->real_escape_string($_POST['username']);
         $nama = $conn->real_escape_string($_POST['nama_lengkap']);
