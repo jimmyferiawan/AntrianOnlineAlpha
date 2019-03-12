@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 <html>
 <?php session_unset(); ?>
-<?php session_start() ?>
+<?php session_start(); ?>
 <?php include 'operator/rdmpin.php'; ?>
+
+<?php if (isset($_SESSION['u'])): ?>
+<?php session_unset(); ?>
+<?php session_start(); ?>
+<?php endif ?>
+
+
+
 <?php if (!isset( $_SESSION["id"]["id_op"])) 
  {
 echo "<script> alret('LOGIN FIRST');</script>";
@@ -10,6 +18,13 @@ echo "<script> location='login_AD.php';</script>";
 header('location:login_AD.php');
 exit();
  } ?>
+
+
+
+
+
+
+
 <head>
 	<meta http-equiv="refresh" content="60" > 
 	<meta charset="utf-8"> 

@@ -146,12 +146,12 @@ exit();
             </div>
         <div class="col-lg-4">
                         <div class="row">
-                        <div class="col-lg-12"><img id="foto1" src="img/bgad2.jpg" class="img-responsive" alt="" style=" width: 100%; height: 350px;"></div>
+                        <div class="col-lg-12"><img id="foto1" src="img/usr.png" class="img-responsive" alt="" style=" width: 100%; height: 350px;"></div>
                         <div class="col-lg-12" style="padding: 10px 0px;">
-                            <img id="foto2" src="img/bgad2.jpg" class="img-responsive col-sm-3 col-lg-3" alt="">
-                            <img id="foto3" src="img/bgad2.jpg" class="img-responsive col-sm-3 col-lg-3" alt="">
-                            <img id="foto4" src="img/bgad2.jpg" class="img-responsive col-sm-3 col-lg-3" alt="">
-                            <img id="foto5" src="img/bgad2.jpg" class="img-responsive col-sm-3 col-lg-3" alt="">
+                            <img id="foto2" src="img/logoas.png" class="img-responsive col-sm-3 col-lg-3" alt="">
+                            <img id="foto3" src="img/logoas.png" class="img-responsive col-sm-3 col-lg-3" alt="">
+                            <img id="foto4" src="img/logoas.png" class="img-responsive col-sm-3 col-lg-3" alt="">
+                            <img id="foto5" src="img/logoas.png" class="img-responsive col-sm-3 col-lg-3" alt="">
                         </div>
 
                         </div>
@@ -178,7 +178,7 @@ exit();
                                          <th>Alamat</th>
                                          <td id="info-alamat">Jl. Raya Jemursari No.197, Sidosermo, Wonocolo, Kota SBY, Jawa Timur 60239</td>
                                      </tr>
-                                     <tr>
+                                <!--      <tr>
                                          <th>Jam Buka</th>
                                          <td>Selasa 07.30–16.00
 Rabu    07.30–16.00
@@ -191,9 +191,9 @@ Senin   07.30–16.00</td>
                                      <tr>
                                          <th>Provinsi</th>
                                          <td>Jawa Timur</td>
-                                     </tr>
+                                     </tr> -->
                                      <tr>
-                                         <th>No Telepon</th>
+                                         <th>No Telepon :  </th>
                                          <td id="info-notelp">(031) 8439473</td>
                                      </tr>
                                  </table>
