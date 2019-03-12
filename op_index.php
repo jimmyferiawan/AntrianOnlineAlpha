@@ -62,34 +62,6 @@ exit();
         color: #fff;
         background-color: #36d7b7;
     }
-	
-    .navbar-default .navbar-nav li:hover:not(#dropnot)::after {
-	    content: "";
-	    position: absolute;
-	    width: 0;
-	    height: 0;
-	    margin-left: -0.5px;
-	    bottom: -2px;
-	    top: 52px;
-	    left: 60%;
-	    box-sizing: border-box;
-	    
-	    border: 5px solid black;
-	    border-color: transparent transparent #fff #fff;
-	    
-	    transform-origin: 0 0;
-	    transform: rotate(-225deg);
-	    
-	    box-shadow: -3px 3px 3px 0 rgba(0, 0, 0, 0.4);
-
-	    color: #36d7b7;
-    }
-
-    .navbar-default .navbar-nav li:hover {
-    	display: hidden;
-        color: #36d7b7;
-
-    }
 
    @font-face {
          font-family: "Roboto Thin";
@@ -108,10 +80,32 @@ exit();
 	.form-control {
 		border-radius: 2px;
 	}
+	
+	.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, 
+	.navbar-default .navbar-nav>.active>a:hover {            
+            background-color: transparent;
+            color: #36d7b7;          
+    }
 
-	.dropdown-menu > li > a:hover {
-		border: none;
-	}
+    .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, 
+    .navbar-default .navbar-nav>.open>a:hover {
+            background-color: transparent;
+            color: grey;
+    }
+
+    .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, 
+    .navbar-default .navbar-nav>.open>a:hover {
+            background-color: transparent;
+    }
+
+    .navbar-default .navbar-nav>.open>a:hover {
+            border: none;
+    }
+
+    .navbar-default .navbar-nav>li>a:hover:not(#dropnot) {
+		background-color: #36d7b7;
+		color: white;
+    }
 
 </style>
 <script src="framework/js/jquery-3.3.1.min.js"></script>

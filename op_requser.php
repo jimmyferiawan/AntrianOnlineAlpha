@@ -21,7 +21,7 @@ exit();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="framework/css/bootstrap.min.css">
-    <title>Oprator Antri Sehat</title>
+    <title>Operator Antri Sehat</title>
     <style>
         body{
             padding-top: 70px;
@@ -46,13 +46,31 @@ exit();
             background-color: white;
         }
 
-        .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
-            color: #36d7b7;
-        }
+        .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, 
+    .navbar-default .navbar-nav>.active>a:hover {            
+            background-color: transparent;
+            color: #36d7b7;          
+    }
 
-        .navbar-default .navbar-nav li>a:hover {
-            color: #36d7b7;
-        }
+    .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, 
+    .navbar-default .navbar-nav>.open>a:hover {
+            background-color: transparent;
+            color: grey;
+    }
+
+    .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, 
+    .navbar-default .navbar-nav>.open>a:hover {
+            background-color: transparent;
+    }
+
+    .navbar-default .navbar-nav>.open>a:hover {
+            border: none;
+    }
+
+    .navbar-default .navbar-nav>li>a:hover:not(#dropnot) {
+        background-color: #36d7b7;
+        color: white;
+    }
     </style>
 </head>
 <body>
