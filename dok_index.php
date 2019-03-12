@@ -51,7 +51,7 @@ exit();
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="">
-                     <img src="img/logoas.png" alt="" width="auto" height="40px">
+                     <img src="img/logoas.png" alt="" width="auto" height="30px">
                 </a>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navheader-collapse" aria-expanded="false">
                     <span class="glyphicon glyphicon-menu-hamburger"></span>
@@ -68,7 +68,7 @@ exit();
     <div class="row">
         <div class="col-xs-12 col-md-6 col-lg-4" style="margin-top: 80px;">
             <div class="container-fluid">
-            <img src="image/2.png" class="img-responsive col-xs-12 col-lg-10 col-lg-offset-2">
+            <img src="img/usr.png" class="img-responsive col-xs-12 col-lg-10 col-lg-offset-2">
             </div>
         </div>
         <div class="col-xs-12 col-lg-8">
