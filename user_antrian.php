@@ -52,10 +52,8 @@ exit();
             color: #36d7b7;
         }
 
-        .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
-            
+        .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {            
             background-color: transparent;
-
             border-bottom: 2px solid #36d7b7;          
         }
         
@@ -78,7 +76,6 @@ exit();
 
         .navbar-default .navbar-nav>li>a {
             font-size: 13px;
-
             padding: 15px 20px;
         }
 
