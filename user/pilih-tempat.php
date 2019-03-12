@@ -48,7 +48,7 @@
             $instansi = "$pref.nama_$pref as nama_instansi, alamat_$pref as alamat_instansi, $pref.no_telp_$pref as telp_instansi";
             $foto = "foto_lokasi.foto1, foto_lokasi.foto2, foto_lokasi.foto3, foto_lokasi.foto4, foto_lokasi.foto5";
             // SELECT antri.sekarang, antri.total,rumahsakit.nama_rumahsakit as nama_instansi, alamat_rumahsakit as alamat_instansi, rumahsakit.no_telp_rumahsakit as telp_instansi, foto_lokasi.foto1, foto_lokasi.foto2, foto_lokasi.foto3, foto_lokasi.foto4, foto_lokasi.foto5 FROM antri JOIN rumahsakit ON antri.lokasi = rumahsakit.ID_rumahsakit JOIN foto_lokasi ON rumahsakit.ID_rumahsakit=foto_lokasi.id_tempat WHERE antri.lokasi = "C001"
-            $sql = "SELECT $antri, $instansi, $foto FROM antri JOIN rumahsakit ON antri.lokasi = rumahsakit.ID_rumahsakit JOIN foto_lokasi ON rumahsakit.ID_rumahsakit=foto_lokasi.id_tempat $where";
+            $sql = "SELECT $antri, $instansi, $foto FROM antri JOIN $pref ON antri.lokasi =$pref.ID_$pref JOIN foto_lokasi ON $pref.ID_$pref=foto_lokasi.id_tempat $where";
             $query = $conn->query($sql);
             $data_antrian = [
                 "sekarang" => 0,
@@ -73,3 +73,4 @@
         }
         
     }
+?>
