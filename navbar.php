@@ -14,12 +14,10 @@
 
             </div>
             <div class="collapse navbar-collapse navheader-collapse">
-            <ul class="nav navbar-nav" style="font-family: arial">
-                <li><a href=""><i class="glyphicon glyphicon-home"></i> home</a></li>
-                <li class="active"><a href=""><i class="glyphicon glyphicon-forward"></i> antri</a></li>
-                <li><a href=""><i class="glyphicon glyphicon-envelope"></i> pesan</a></li>
-            </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li><a href="">home</a></li>
+                <li><a href="">antri</a></li>
+                <li><a href="">pesan</a></li>
 					<li class="dropdown">
 		          	<a href="#" class="dropdown-toggle" style="text-transform: capitalize;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"  id="aw"><span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['u']; ?> <span class="caret"></span> </a>
 		       		<ul class="dropdown-menu">
