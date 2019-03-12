@@ -1,25 +1,17 @@
-
-<?php include '../../koneksi.php'; ?>
-        <!-- 
-    - format diganti .php kecil semua
-    - bootstrap butuh jquery agar manipulasi seperti dropdown bisa bekerja
-    - berasumsi bahwa file css dan js ada di root server
- -->
+<?php
+    require_once "../koneksi.php";
+?>
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- Bootstrap DataTables CSS -->
-<!-- Jquery -->
-<script type="text/javascript" language="javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-<!-- Jquery DataTables -->
-<script type="text/javascript" language="javascript" src="http:////cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
-<!-- Bootstrap dataTables Javascript -->
-<script type="text/javascript" language="javascript" src="http://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/bootstrap/3/dataTables.bootstrap.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../../framework/css/bootstrap.min.css">
-    <title>User</title>
+    <link rel="stylesheet" href="/AntrianOnlineAlpha/framework/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="/AntrianOnlineAlpha/framework/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/AntrianOnlineAlpha/framework/css/dataTables.bootstrap.min.css">
+    
+    <title>Document</title>
     <style>
 
         body{
@@ -44,6 +36,9 @@
             color: #36d7b7;
             background-color: white;
         }
+        .img-thumbnail {
+            width: 64px;
+        }
 
     </style>
 </head>
@@ -57,110 +52,95 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#form-login" aria-expanded="false">Login</button>
 
             </div>
- <?php include 'proses_us/back.php'; ?>
+            <?php include 'proses_us/back.php'; ?>
         </div>
     </nav>
+
     <div class="container">
         <div class="row">
-           <?php
+            <?php
+                // $sql = "SELECT id_tempat ,foto1,foto2,foto3,foto4,foto5 FROM foto_lokasi ";
+                // $hasil = $conn->query($sql);
 
- $sql = " SELECT    id_tempat ,foto1,foto2,foto3,foto4,foto5 FROM foto_lokasi ";
+                // if(!$hasil) {
 
-        $hasil = $conn->query($sql);
+                // } else {
 
-        if(!$hasil) {
-            if($conn->errno == 1062) {
-                // 1062 error kode duplicate primary key
-                echo "<h1>ID Pasien sudah ada sudah digunakan</h1>";
-            } else {
-                echo "Maaf terjadi kesalahan ". $conn->error; // fungsi debug 
-           
-            }
-        } else {
-             ?><table class="table table-hover text-center  table-striped table-bordered table-paginate" cellspacing="0" width="100%" >
-		<thead>
-			<tr>
-				<th>NO</th>
-				<th >ID Puskesmas</th>
-				<th>Foto 1</th>
-				<th>Foto 2</th>
-				<th>Foto 3</th>
-                <th>Foto 4</th>
-				<th>Foto 5</th>
-                <th>Update </th>
+                // }
+            ?>
+            <table class="table table-hover text-center table-striped tbale-bordered table-paginate display nowrap" id="tabel-insert-gambar">
+                <thead>
+                    <tr>
+                        <th>NO</th>
+                        <th >ID Puskesmas</th>
+                        <th>Foto 1</th>
+                        <th>Foto 2</th>
+                        <th>Foto 3</th>
+                        <th>Foto 4</th>
+                        <th>Foto 5</th>
+                        <th>Update </th>
+                    </tr>
+                </thead>
 
-			</tr>
-		</thead>
-		<tbody>
-<?php  
-if ($hasil ->num_rows >=0){
-		$no=1;
-		while($row = $hasil->fetch_assoc()){
-			?>
-			<td align='right'><?php echo $no  ;?></td>
-			<td><?php echo $row["id_tempat"];?></td>
-			<td align='left'>
-                 <img src="../../img-tempat/<?php echo $row["foto1"]; ?>" class="img-responsive img-thumbnail col-sm-3 col-lg-3" alt="">
-                 <input class="col-md btn-sm" type="file" name="file" id="user-profile" class="form-control col-lg-4" placeholder="user1" >
-                 </td>
-			     <td> 
-                 <img src="../../img-tempat/<?php echo $row["foto2"]; ?>" class="img-responsive img-thumbnail col-sm-3 col-lg-3" alt="">
-                <br>
-                <input class="col-sm btn-sm" type="file" name="file" id="user-profile" class="form-control col-lg-4" placeholder="user1"></td>
-            <td> <img src="../../img-tempat/<?php echo $row["foto3"]; ?>" class="img-responsive img-thumbnail col-sm-3 col-lg-3" alt="">
-                <br> 
-                <input class="col-md btn-sm"  type="file" name="file" id="user-profile" class="form-control col-lg-4" placeholder="user1" ></td>
-			<td> <img src="../../img-tempat/<?php echo $row["foto4"]; ?>" class="img-responsive img-thumbnail col-sm-3 col-lg-3" alt="">
-                <br>file
-                 <input class="col-md btn-sm"  type="file" name="file" id="user-profile" class="form-control col-lg-4" placeholder="user1"></td>
-			<td> 
-                <img src="../../img-tempat/<?php echo $row["foto5"]; ?>" class="img-responsive img-thumbnail col-sm-3 col-lg-3" alt="">
-                <br>
-             <input class="col-md btn-sm"  type="file" name="file" id="user-profile" class="form-control col-lg-4" placeholder="user1" >
-            <td>     
-                <form method='post' action='proses_us/tambah_tempatps.php' enctype="multipart/form-data">
-                    <input class="btn-danger form-control" type='submit' name='hapus' value='Update'>
-                    <input type='hidden' name='npm' value='<?php echo $row["id_tempat"] ?>'>
-                </form>
-                  </td>
-
-             
-				
-			</td></tr><?php
-			;
-			$no++;
-		}
-	}?>
- </table>;
-<?php  
-
-// 	echo '<tr>
-// 			<td>'.$row[0].'</td>
-// 			<td>'.$row[1].'</td>
-// 			<td>'.$row[2].'</td>
-// 			<td class="right">'.$row[3].'</td>
-// 			<td>
-// 			<button class="btn btn-primary col-md-12" type="submit" name="pasien_submit">Hapus</button>
-// 			</td>
-// 		</tr>';
-// }
-// echo '
-// 	</tbody>
-// </table>';
-
-
-        } 
-
-?>        </div>
+                <tbody>
+                    <?php
+                        $sql = "SELECT id_tempat ,foto1,foto2,foto3,foto4,foto5 FROM foto_lokasi ";
+                        $hasil = $conn->query($sql);
+                        $no = 1;
+                        if($hasil->num_rows > 0) { // 1
+                            while($row = $hasil->fetch_assoc()) { // 2
+                    ?>
+                    <tr>
+                        <form method='post' action='proses_us/tambah_tempatps.php' enctype="multipart/form-data">
+                        <td> <?= $no ?> </td>
+                        <td> <?= $row["id_tempat"] ?> </td>
+                        <td> 
+                            <img src="../../img-tempat/<?= $row["foto1"] ?>" class="img-responsive img-thumbnail col-sm-3 col-lg-3" alt="">
+                            <input class="col-md btn-sm" type="file" name="file1" id="user-profile" class="form-control col-lg-4" placeholder="user1" >
+                        </td>
+                        <td> 
+                            <img src="../../img-tempat/<?= $row["foto2"] ?>" class="img-responsive img-thumbnail col-sm-3 col-lg-3" alt="">
+                            <input class="col-md btn-sm" type="file" name="file2" id="user-profile" class="form-control col-lg-4" placeholder="user1" >
+                        </td>
+                        <td> 
+                            <img src="../../img-tempat/<?= $row["foto3"] ?>" class="img-responsive img-thumbnail col-sm-3 col-lg-3" alt="">
+                            <input class="col-md btn-sm" type="file" name="file3" id="user-profile" class="form-control col-lg-4" placeholder="user1" >
+                        </td>
+                        <td> 
+                            <img src="../../img-tempat/<?= $row["foto4"] ?>" class="img-responsive img-thumbnail col-sm-3 col-lg-3" alt="">
+                            <input class="col-md btn-sm" type="file" name="file4" id="user-profile" class="form-control col-lg-4" placeholder="user1" >
+                        </td>
+                        <td> 
+                            <img src="../../img-tempat/<?= $row["foto5"] ?>" class="img-responsive img-thumbnail col-sm-3 col-lg-3" alt="">
+                            <input class="col-md btn-sm" type="file" name="file5" id="user-profile" class="form-control col-lg-4" placeholder="user1" >
+                        </td>
+                        <td>
+                                <input class="btn-danger form-control" type='submit' name='hapus' value='Update'>
+                                <input type='hidden' name='id_tempat' value='<?php echo $row["id_tempat"] ?>'>
+                        </td>
+                        </form>
+                    </tr>
+                    <?php   
+                                $no++;
+                            } // 2.end while($row = $hasil->fetch_assoc())
+                        } // 1.end if($hasil->num_rows > 0) {
+                    ?>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <script src="framework/js/jquery-3.3.1.min.js"></script>
-    <script src="framework/js/bootstrap.min.js"></script>
-<!-- Panggil Fungsi -->
-<script type="text/javascript" charset="utf-8">
-    $(document).ready(function() {
- $('.table-paginate').dataTable();
- } );
-</script>
+
+    <script src="/AntrianOnlineAlpha/framework/js/jquery-3.3.1.min.js"></script>
+    <script src="/AntrianOnlineAlpha/framework/js/jquery.dataTables.js"></script>
+    <script src="/AntrianOnlineAlpha/framework/js/bootstrap.min.js"></script>
+    <script src="/AntrianOnlineAlpha/framework/js/dataTables.bootstrap.min.js"></script>
+    <script>
+        
+        $(document).ready(function() {
+            $('#tabel-insert-gambar').DataTable({
+                scrollX: true
+            });
+        });
+    </script>
 </body>
 </html>
-      
