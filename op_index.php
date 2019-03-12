@@ -62,34 +62,16 @@ exit();
         color: #fff;
         background-color: #36d7b7;
     }
-	
-    .navbar-default .navbar-nav li:hover:not(#dropnot)::after {
-	    content: "";
-	    position: absolute;
-	    width: 0;
-	    height: 0;
-	    margin-left: -0.5px;
-	    bottom: -2px;
-	    top: 52px;
-	    left: 60%;
-	    box-sizing: border-box;
-	    
-	    border: 5px solid black;
-	    border-color: transparent transparent #fff #fff;
-	    
-	    transform-origin: 0 0;
-	    transform: rotate(-225deg);
-	    
-	    box-shadow: -3px 3px 3px 0 rgba(0, 0, 0, 0.4);
 
-	    color: #36d7b7;
+
+    .navbar-default .navbar-nav li a:hover {
+        color: #36d7b7;
     }
 
     .navbar-default .navbar-nav li:hover {
-    	display: hidden;
-        color: #36d7b7;
-
+        border-bottom: 1px solid #36d7b7; 
     }
+
 
    @font-face {
          font-family: "Roboto Thin";
