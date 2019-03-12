@@ -5,7 +5,13 @@
  -->
  <?php session_start(); ?>
 <?php include 'navbar.php'; ?>
-
+<?php if (!isset( $_SESSION["id"]["id_op"])) 
+ {
+echo "<script> alret('LOGIN FIRST');</script>";
+echo "<script> location='login_AD.php';</script>";
+header('location:login_AD.php');
+exit();
+ } ?>
 <!DOCTYPE html>
 
 <html lang="id">

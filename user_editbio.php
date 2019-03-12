@@ -111,10 +111,10 @@
             <div>   
                 <div id="profile">
                     <form action="user/edit.php" method="post" enctype="multipart/form-data" id="form-edit-data">
-                        <div class="form-group col-lg-12">
+                  <!--       <div class="form-group col-lg-12">
                             <label for="user-profile">Foto</label>
                             <input type="file" name="user_profile" id="user-profile" class="form-control col-lg-4" placeholder="user1" <?= $disable_input ?>>
-                        </div>
+                        </div> -->
                         <div class="form-group col-lg-6">
                             <label for="username">Username</label>
                             <input type="text" name="username" id="username" class="form-control" placeholder="user1" value="<?= $username ?>" <?= $disable_input ?> >
@@ -164,7 +164,7 @@
 
                         <div class="col-lg-12">
                             <button class="btn btn-primary col-lg-4 <?= $disable_input ?>" type="submit" name="pasien_edit">Update</button>
-                            <button class="btn btn-danger col-lg-4" style="float: right;" type="reset">Batal</button>
+                            <!-- <button class="btn btn-danger col-lg-4" style="float: right;" type="reset">Batal</button> -->
                         </div>
                     </form>
                 </div>
