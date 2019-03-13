@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Mar 2019 pada 07.40
+-- Waktu pembuatan: 13 Mar 2019 pada 02.35
 -- Versi server: 10.1.36-MariaDB
 -- Versi PHP: 7.1.22
 
@@ -296,7 +296,7 @@ INSERT INTO `rumahsakit` (`ID_rumahsakit`, `nama_rumahsakit`, `alamat_rumahsakit
 
 CREATE TABLE `temp` (
   `id_user_temp` varchar(20) NOT NULL,
-  `no_antrian` varchar(5) NOT NULL,
+  `no_antrian` int(5) NOT NULL,
   `jam_ambil_antrian` varchar(10) NOT NULL,
   `lokasi` varchar(80) NOT NULL,
   `tgl` varchar(10) NOT NULL,
@@ -309,7 +309,7 @@ CREATE TABLE `temp` (
 --
 
 INSERT INTO `temp` (`id_user_temp`, `no_antrian`, `jam_ambil_antrian`, `lokasi`, `tgl`, `pin_temp`, `status_temp`) VALUES
-('P000001', '1', '18:37:34', 'A001', '05/03/2019', '353260fV201686', 2);
+('P000001', 1, '18:37:34', 'A001', '05/03/2019', '353260fV201686', 2);
 
 -- --------------------------------------------------------
 
@@ -319,7 +319,7 @@ INSERT INTO `temp` (`id_user_temp`, `no_antrian`, `jam_ambil_antrian`, `lokasi`,
 
 CREATE TABLE `tempbesok` (
   `id_user_temp` varchar(20) NOT NULL,
-  `no_antrian` varchar(5) NOT NULL,
+  `no_antrian` int(5) NOT NULL,
   `jam_ambil_antrian` varchar(10) NOT NULL,
   `lokasi` varchar(80) NOT NULL,
   `tgl` varchar(10) NOT NULL,
