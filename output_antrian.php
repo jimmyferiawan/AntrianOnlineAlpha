@@ -39,6 +39,22 @@
         // todo jangan ambil antrian user dari user
         $no_antrian = $_SESSION['u_antrian_nomor'];
         $pin = $_SESSION['u_antrian_pin'];
+        $status_temp = "";
+        $sql = "SELECT status_temp FROM temp WHERE pin_temp='$pin'";
+        $hasil = $conn->query($sql);
+        if($hasil) {
+            while($row = $hasil->fetch_assoc()) {
+                $status_temp = $row['status_temp'];
+            }
+        }
+        echo $status_temp;
+        if($status_temp == 0) {
+            unset($_SESSION['u_antrian_nomor']);
+            unset($_SESSION['u_antrian_pin']);
+            unset($_SESSION['u_antrian_lokasi']);
+            header('Location: /AntrianOnlineAlpha/user_antrian.php');
+            exit;
+        }
         $antrian = cek_antrian($conn, $lokasi);
         $sekarang = $antrian['sekarang'];
         $nama_instansi = $antrian['nama_lokasi'];
