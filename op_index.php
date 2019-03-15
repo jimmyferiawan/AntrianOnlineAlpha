@@ -26,7 +26,7 @@ exit();
 
 
 <head>
-	<meta http-equiv="refresh" content="60" > 
+	<meta http-equiv="refresh" content="600" > 
 	<meta charset="utf-8"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	  <title>Oprator Antri Sehat</title>

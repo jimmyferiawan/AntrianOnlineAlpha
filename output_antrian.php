@@ -195,7 +195,7 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="">
-                    LOGO
+                     <img src="img/logoas.png" alt="" width="auto" height="30px">
                 </a>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navheader-collapse" aria-expanded="false">
                     <span class="glyphicon glyphicon-menu-hamburger"></span>
