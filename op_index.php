@@ -131,9 +131,14 @@ exit();
 	$row = mysqli_fetch_array($sql_antri);
 	$now = $row[0];
 	$total = $row[1];
-	//$_SESSION["loc"]["sekarang"]=$now-1;
-  
-  $nama = "";
+	//$_SESSION["loc"]["sekarang"]=$now-1;	
+    $sql_bpjs = mysqli_query($conn, "SELECT p.no_bpjs_pasien FROM pasien AS p INNER JOIN temp AS t WHERE t.no_antrian='$now' AND t.id_user_temp=p.ID_pasien ");
+	$row_bpjs = mysqli_fetch_array($sql_bpjs);
+	$no_bpjs = $row_bpjs[0];	
+	
+    //Inisialisasi
+    
+    $nama = "";
 	$no_antrian ="";
 	$tgl = "";
 	$jam = "";
@@ -195,6 +200,9 @@ exit();
 </div>
 
 <div class="container" style="margin-top: 90px;">
+	<div class="container" style="margin-left: 200px">
+		<label ><?php echo $no_bpjs;?></label>
+	</div>
 	<div class="row">
 		<div class="col-lg-6">
 			<div class="jumbotron" style="border-radius: 3px; border: none; background-image: linear-gradient(to bottom right, #65FDF0,  #1D6FA3); padding: 45px 35px 45px;  padding-bottom: 20px; padding-top: 20px;">
