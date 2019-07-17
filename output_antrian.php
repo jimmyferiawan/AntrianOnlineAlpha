@@ -47,7 +47,7 @@
                 $status_temp = $row['status_temp'];
             }
         }
-        echo $status_temp;
+       
         if($status_temp == 0) {
             unset($_SESSION['u_antrian_nomor']);
             unset($_SESSION['u_antrian_pin']);
@@ -216,12 +216,12 @@
         <div class="row" style="padding-top: 0px;">
             <div class="col-sm-12 col-lg-4 col-lg-offset-4">
                 <div class="panel">
-                    <div class="panel-body">
+                    <div class="panel-body "  ">
                         <h2><?= $sekarang ?> / <?= $total ?></h2>
                         <h4>anda telah berhasil mengantri,<br>tunjukkan ini ke tempat anda berobat</h4>
                             <i class="glyphicon glyphicon-map-marker text-center col-xs-12 col-lg-12" style="margin-bottom: 5px;"></i>
                             <span><h5><i>di <u><?= $nama_instansi ?></u></i></h5></span>
-                        <h5><?= $no_antrian ?></h5>
+                        <h5>No antrian anda : <?= $no_antrian ?></h5>
                         
                         <div class="row">
                             <div id="qrcode" class="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2"></div>

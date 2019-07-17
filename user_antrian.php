@@ -147,11 +147,11 @@ exit();
                                  <table>
                                      <tr>
                                          <th colspan="1">Nama</th>
-                                         <td id="info-nama">Dinas Kesehatan Kota Surabaya</td>
+                                         <td id="info-nama">-</td>
                                      </tr>
                                       <tr>
                                          <th>Alamat</th>
-                                         <td id="info-alamat">Jl. Raya Jemursari No.197, Sidosermo, Wonocolo, Kota SBY, Jawa Timur 60239</td>
+                                         <td id="info-alamat">-</td>
                                      </tr>
                                 <!--      <tr>
                                          <th>Jam Buka</th>
@@ -168,9 +168,35 @@ Senin   07.30–16.00</td>
                                          <td>Jawa Timur</td>
                                      </tr> -->
                                      <tr>
-                                         <th>No Telepon :  </th>
-                                         <td id="info-notelp">(031) 8439473</td>
+                                         <th>No Telepon  </th>
+                                         <td id="info-notelp">-</td>
                                      </tr>
+                                     <!-- update tabel sql=fst-->
+                                        <tr>
+                                         <th>poli  </th>
+                                         <td id="">-</td>
+                                     </tr>
+                                         <tr>
+                                         <th>R.Inap   </th>
+                                         <td id="">-</td>
+                                     </tr>
+                                          <tr>
+                                         <th>D.Sepesialis   </th>
+                                         <td id="">-</td>
+                                     </tr>
+                                         <tr>
+                                         <th>Ambulance   </th><br>
+                                         <td id="">-</td>
+                                     </tr>
+                                     <tr>
+                                         <th>Alat  </th>
+                                         <td id="">-</td>
+                                     </tr>
+                                     <tr>
+                                         <th>Kelebihan    </th>
+                                         <td id="">-</td>
+                                     </tr>
+                                     <!-- end -->
                                  </table>
                             </div>
                         </div>
@@ -187,7 +213,7 @@ Senin   07.30–16.00</td>
                 <div class="col-lg-8" style="padding-left: 0;">
                     <div class="row">
                         <div class="col-lg-6">
-                            <b>Noob User</b>
+                            <b>Sulasri</b>
                         </div>
                         <div class="col-lg-12">
                             Pelayanan Cepat Memuaskan....Terima Kasih Banyak.....
