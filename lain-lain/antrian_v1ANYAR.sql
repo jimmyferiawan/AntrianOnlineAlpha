@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2019 at 06:13 AM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.2.12
+-- Waktu pembuatan: 13 Mar 2019 pada 02.35
+-- Versi server: 10.1.36-MariaDB
+-- Versi PHP: 7.1.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `antri`
+-- Struktur dari tabel `antri`
 --
 
 CREATE TABLE `antri` (
@@ -35,20 +35,20 @@ CREATE TABLE `antri` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `antri`
+-- Dumping data untuk tabel `antri`
 --
 
 INSERT INTO `antri` (`lokasi`, `sekarang`, `total`) VALUES
-('A001', 0, 0),
-('A003', 0, 0),
-('B001', 0, 0),
-('C001', 0, 0),
-('D001', 0, 0);
+('A0001', 0, 1),
+('A0002', 0, 0),
+('A0003', 0, 1),
+('A0004', 2, 8),
+('A0005', 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dokter`
+-- Struktur dari tabel `dokter`
 --
 
 CREATE TABLE `dokter` (
@@ -61,16 +61,18 @@ CREATE TABLE `dokter` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `dokter`
+-- Dumping data untuk tabel `dokter`
 --
 
 INSERT INTO `dokter` (`ID_dk`, `username_dk`, `pasword_dk`, `id_praktek_dk`, `no_ijin_dk`, `alamat_tinngal_dk`) VALUES
-('1', 'dokter', 'dokter', '001', '001', '001');
+('DK001', 'dokter1', 'dokter1', '-', '34.2.1.100.1.18.206248', 'kediri'),
+('DK002', 'dokter2', 'dokter2', '-', '34.2.1.100.1.18.206249', 'NGANJUK'),
+('DK003', 'dokter3', 'dokter3', '-', '34.2.1.100.1.18.206250', 'TULUNGAGUNG');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dokterumum`
+-- Struktur dari tabel `dokterumum`
 --
 
 CREATE TABLE `dokterumum` (
@@ -86,33 +88,46 @@ CREATE TABLE `dokterumum` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `dokterumum`
+-- Dumping data untuk tabel `dokterumum`
 --
 
 INSERT INTO `dokterumum` (`ID_dokterumum`, `nama_dokterumum`, `alamat_dokterumum`, `jambuka_dokterumum`, `jamtutup_dokterumum`, `pemilik_dokterumum`, `no_op_dokterumum`, `no_telp_dokterumum`, `cuti_dokterumum`) VALUES
-('D001', 'andi', 'disini', '0100', '0500', 'kerbau', '0854784568', '022659599', '');
+('DU001', 'dr. Andi Nirmalasari', 'kediri', '09.00', '13.00', 'dr. Andi Nirmalasari', '0888-0000-0000', '0888-0000-0000', '-'),
+('DU002', 'dr. Irda Yulianti', 'kediri', '13.00', '16.00', 'dr. Irda Yulianti', '0888-0000-0000', '0888-0000-0000', '-'),
+('DU003', 'dr. Maulina Yunus', 'kediri', '16.00', '20.00', 'dr. Maulina Yunus', '0888-0000-0000', '0888-0000-0000', '-'),
+('DU004', 'dr. Nurul Indah Pratiwi', 'kediri', '13.00', '16.00', 'dr. Nurul Indah Pratiwi', '0888-0000-0000', '0888-0000-0000', '-'),
+('DU005', 'dr. Firdaus', 'kediri', '18.00', '20.00', 'dr. Firdaus', '0888-0000-0000', '0888-0000-0000', '1');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `fasilitas`
+-- Struktur dari tabel `foto_lokasi`
 --
 
-CREATE TABLE `fasilitas` (
-  `ID_fas` int(10) NOT NULL,
-  `ID_ins` int(30) NOT NULL,
-  `poli` varchar(300) NOT NULL,
-  `R_inap` varchar(200) NOT NULL,
-  `D_Sps` varchar(50) NOT NULL,
-  `ambulance` int(20) NOT NULL,
-  `kelebihan` varchar(300) NOT NULL,
-  `alat_k` varchar(500) NOT NULL
+CREATE TABLE `foto_lokasi` (
+  `id_tempat` varchar(15) NOT NULL,
+  `foto1` text NOT NULL,
+  `foto2` text NOT NULL,
+  `foto3` text NOT NULL,
+  `foto4` text NOT NULL,
+  `foto5` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `foto_lokasi`
+--
+
+INSERT INTO `foto_lokasi` (`id_tempat`, `foto1`, `foto2`, `foto3`, `foto4`, `foto5`) VALUES
+('A0001', 'A0001-6b02d9505cb63170d0d01cd1800b5b6f.png', 'A0001-f23ddb809ea8fb03a3958653921823b8.png', 'A0001-ae489b58d7fbdf6b6b83084511fd281b.png', 'A0001-861fb68945895ad148d2c626fc5759e9.png', 'A0001-d47c309aaec8a0d2ce61cc3abad99e31.png'),
+('A0002', 'A0002-f3bd52761560d2cc9979b14c473c2c9a.png', 'A0002-8d5a34453d52ccc7e55e985664450255.png', 'A0002-20dc98e89a898e8a10acad60769704af.png', 'A0002-4a837d7aee440bfb747c322b70736ed6.png', 'A0002-901cdd7dafc4df28d12127d35a745a70.png'),
+('A0003', 'A0003-d26c81b436d08c0967f220cb386fffad.png', 'A0003-63814e16499a89756d9ea2c02f580f6d.png', 'A0003-1ffadbf6e2778a94ff3b1f40839faed5.png', 'A0003-e3b829ba7503c02803cdb8ee64df898a.png', 'A0003-ecbf058478b1a195cd79a612c2c8baab.png'),
+('A0004', 'A0004-358078e0dc64b450c3ec11e005053b2a.png', 'A0004-95414f90972f994491aaeeff0e2e7423.png', 'A0004-ea9c5c7d8bfa486e6c0cf32bad8f7c4b.png', 'A0004-358078e0dc64b450c3ec11e005053b2a.png', 'A0004-358078e0dc64b450c3ec11e005053b2a.png'),
+('A0005', 'A0005-e70d43ff5bee187d38c7521ed57300c8.png', 'A0005-ae898f2899cd6f8c31a391892d016e9b.png', 'A0005-5f06494578189f5e07547374150270bb.png', 'A0005-281ff92e69584ad65fe824d0c378fa33.png', 'A0005-f452f251a3455f0e0dcbfced3bbebbf7.png');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `klinik`
+-- Struktur dari tabel `klinik`
 --
 
 CREATE TABLE `klinik` (
@@ -128,16 +143,20 @@ CREATE TABLE `klinik` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `klinik`
+-- Dumping data untuk tabel `klinik`
 --
 
 INSERT INTO `klinik` (`ID_klinik`, `nama_klinik`, `alamat_klinik`, `jambuka_klinik`, `jamtutup_klinik`, `pemilik_klinik`, `no_op_klinik`, `no_telp_klinik`, `cuti_klinik`) VALUES
-('B001', 'budi dama', 'disini', '0200', '0600', 'andi', '0248', '05484', '');
+('B001', 'Klinik Salsabila Medika', 'No.87, Kelurahan, Jl. Penanggungan, Lirboyo, Mojoroto, Kota Kediri, Jawa Timur 64117', '10.00', '21.00', '-', '0812-1671-694', '0812-1671-695', '-'),
+('B002', 'Klinik Pusat Kesehatan PT. G', 'Jalan Selowarih No.69, Ngadirejo, Dandangan, Kec. Kota Kediri, Kediri, Jawa Timur 64129', '10.00', '16.00', '-', '(0354) 682090', '(0354) 682091', '-'),
+('B003', 'Klinik Dahlia Medika', 'Jl. Sriwijaya No.84, Jagalan, Kec. Kota Kediri, Kota Kediri, Jawa Timur 64125', '10.00', '16.00', '-', '(0354) 692822', '(0354) 692823', '-'),
+('B004', 'Klinik Ortopedi Samudra Husada Kusuma Official', 'No 15, 64121, Jl. Sultan Iskandar Muda, Semampir, Mojoroto, Kediri, Jawa Timur 64112', '24/7', '-', '-', '(0354) 699957', '(0354) 699958', '-'),
+('B005', 'Klinik Mata Kediri (KliMaK)', 'Jl. Perumahan Mojoroto Indah No.mor 09, Mojoroto, Kota Kediri, Jawa Timur 64112', '06.00', '20.00', '-', '(0354) 774770', '(0354) 774771', '-');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `nimda`
+-- Struktur dari tabel `nimda`
 --
 
 CREATE TABLE `nimda` (
@@ -147,20 +166,22 @@ CREATE TABLE `nimda` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `nimda`
+-- Dumping data untuk tabel `nimda`
 --
 
 INSERT INTO `nimda` (`ID_nimda`, `username_nimda`, `password_nimda`) VALUES
-('AD001', 'aku', 'aku');
+('AD001', 'dev1', 'dev1'),
+('AD002', 'dev2', 'dev2'),
+('AD003', 'dinkes', 'dinkes');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `oprator`
+-- Struktur dari tabel `oprator`
 --
 
 CREATE TABLE `oprator` (
-  `ID_op` varchar(16) NOT NULL,
+  `ID_op` varchar(30) NOT NULL,
   `username_op` varchar(30) NOT NULL,
   `password_op` varchar(30) NOT NULL,
   `tingkat_op` varchar(2) NOT NULL,
@@ -173,19 +194,20 @@ CREATE TABLE `oprator` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `oprator`
+-- Dumping data untuk tabel `oprator`
 --
 
 INSERT INTO `oprator` (`ID_op`, `username_op`, `password_op`, `tingkat_op`, `nama_op`, `no_op`, `jk_op`, `alamat_op`, `lokasi_op`, `status_op`) VALUES
-('1', 'admin', 'admin', '1', '', '', '', '', 'A003', '2'),
-('2', 'admin2', 'admin3', '2', '', '', '', '', 'A003', '1'),
-('3', 'yuto', '123', '1', '', '', '', '', 'A001', '1'),
-('5', 'coba2', 'coba2', '1', '', '', '', '', 'A003', '1');
+('OP1050241708900001', 'op1', 'op1', '1', 'yayan', '0888-0000-0000', '1', 'nganjuk', 'A0001', '1'),
+('OP1050241708900002', 'op2', 'op2', '2', 'ardi', '0888-0000-0000', '1', 'kediri', 'A0002', '1'),
+('OP1050241708900003', 'op3', 'op3', '2', 'tejo', '0888-0000-0000', '1', 'kediri', 'A0003', '1'),
+('OP1050241708900004', 'op4', 'op4', '2', 'uno', '0888-0000-0000', '1', 'kediri', 'A0004', '1'),
+('OP1050241708900005', 'op5', 'op5', '1', 'dany', '0888-0000-0000', '1', 'kediri', 'A0005', '1');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pasien`
+-- Struktur dari tabel `pasien`
 --
 
 CREATE TABLE `pasien` (
@@ -202,29 +224,20 @@ CREATE TABLE `pasien` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pasien`
+-- Dumping data untuk tabel `pasien`
 --
 
 INSERT INTO `pasien` (`ID_pasien`, `username_pasien`, `password_pasien`, `nama_pasien`, `jenis_kelamin_pasien`, `alamat_pasien`, `no_hp_pasien`, `foto_profil_pasien`, `no_bpjs_pasien`, `status_pasien`) VALUES
-('P000001', 'noob', 'noob', '', '', '', '', '', NULL, 1),
-('P000002', 'noob', '', '', '', '', '', '', NULL, 1),
-('P000003', 'dirimu', '', '', '', '', '', '', NULL, 1),
-('P000004', 'd8iriku', '', '', '', '', '', '', NULL, 1),
-('P000005', 'aku', '', '', '', '', '', '', NULL, 1),
-('P000006', 'aku', '', '', '', '', '', '', NULL, 1),
-('P000007', 'bagas', '', '', '', '', '', '', NULL, 0),
-('P000008', 'aku', '', '', '', '', '', '', NULL, 0),
-('P000009', 'noob', '', '', '', '', '', '', NULL, 0),
-('P000010', 'noob', '', '', '', '', '', '', NULL, 0),
-('P000011', 'aku', '', '', '', '', '', '', NULL, 0),
-('P000012', 'aku', '', '', '', '', '', '', NULL, 1),
-('P000013', 'bagas', '', '', '', '', '', '', NULL, 1),
-('P000014', 'aji', '', '', '', '', '', '', NULL, 1);
+('1050241708900001', 'pasien1', 'pasien1', 'anita nurrahmawati', '2', 'kediri', '088800000000', '', '-', 1),
+('1050241708900002', 'pasien2', 'pasien2', 'andi fatkhurahman', '1', 'tulung agung', '088800000000', '', '-', 0),
+('1050241708900003', 'pasien3', 'pasien3', 'jimmy feriawan', '1', 'kediri', '088800000000', '', NULL, 1),
+('1050241708900004', 'pasien4', '', 'yulianto', '1', 'kertosono', '088800000000', '', '-', 1),
+('1050241708900005', 'pasien5', 'pasien5', 'bagas aji nugroho', '1', 'blitar', '088800000000', '', '-', 2);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pukesmas`
+-- Struktur dari tabel `pukesmas`
 --
 
 CREATE TABLE `pukesmas` (
@@ -240,17 +253,20 @@ CREATE TABLE `pukesmas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pukesmas`
+-- Dumping data untuk tabel `pukesmas`
 --
 
 INSERT INTO `pukesmas` (`ID_pukesmas`, `nama_pukesmas`, `alamat_pukesmas`, `jambuka_pukesmas`, `jamtutup_pukesmas`, `pemilik_pukesmas`, `no_op_pukesmas`, `no_telp_pukesmas`, `cuti_pukesmas`) VALUES
-('A001', 'ok', 'ya', '', '', '', '', '', ''),
-('A003', 'disnin', 'alah mbuh', '0855', '0123', 'bagas', '023', '0122', '032');
+('A0001', 'Puskesmas Balowerti', 'Jl. Balowerti V, Balowerti, Kec. Kota Kediri, Kediri, Jawa Timur 64129', '08.00', '20.00', '-', '-', '-', '-'),
+('A0002', 'Puskesmas Sukorame', 'Jl. Veteran No.50A, Mojoroto, Kec. Kota Kediri, Kota Kediri, Jawa Timur 64112', '08.55', '16.00', '-', '(0354) 778604', '(0354) 778604', '-'),
+('A0003', 'Puskesmas Pembantu Lirboyo', 'Jalan Pondok Pesantren, Mojoroto, Bandar Lor, Mojoroto, Kediri, Jawa Timur 64117', '08.00', '20.00', '-', '-', '-', '-'),
+('A0004', 'Puskesmas Pembantu Ngadirejo', 'Ngadirejo, Kec. Kota Kediri, Kota Kediri, Jawa Timur 64129', '08.00', '12.00', '-', '-', '-', 'jumat, sabtu, minggu'),
+('A0005', 'Puskesmas Pesantren 2', 'Jl. Cendana No.30, Singonegaran, Pesantren, Kota Kediri, Jawa Timur 64132', '07.30', '11.30', '-', '(0354) 689055', '(0354) 689055', 'minggu');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rumahsakit`
+-- Struktur dari tabel `rumahsakit`
 --
 
 CREATE TABLE `rumahsakit` (
@@ -266,7 +282,7 @@ CREATE TABLE `rumahsakit` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `rumahsakit`
+-- Dumping data untuk tabel `rumahsakit`
 --
 
 INSERT INTO `rumahsakit` (`ID_rumahsakit`, `nama_rumahsakit`, `alamat_rumahsakit`, `jambuka_rumahsakit`, `jamtutup_rumahsakit`, `pemilik_rumahsakit`, `no_op_rumahsakit`, `no_telp_rumahsakit`, `cuti_rumahsakit`) VALUES
@@ -275,12 +291,12 @@ INSERT INTO `rumahsakit` (`ID_rumahsakit`, `nama_rumahsakit`, `alamat_rumahsakit
 -- --------------------------------------------------------
 
 --
--- Table structure for table `temp`
+-- Struktur dari tabel `temp`
 --
 
 CREATE TABLE `temp` (
-  `id_user_temp` varchar(10) NOT NULL,
-  `no_antrian` varchar(5) NOT NULL,
+  `id_user_temp` varchar(20) NOT NULL,
+  `no_antrian` int(5) NOT NULL,
   `jam_ambil_antrian` varchar(10) NOT NULL,
   `lokasi` varchar(80) NOT NULL,
   `tgl` varchar(10) NOT NULL,
@@ -289,22 +305,21 @@ CREATE TABLE `temp` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `temp`
+-- Dumping data untuk tabel `temp`
 --
 
 INSERT INTO `temp` (`id_user_temp`, `no_antrian`, `jam_ambil_antrian`, `lokasi`, `tgl`, `pin_temp`, `status_temp`) VALUES
-('P000013', '1', '08:53:41', 'A003', '28-02-19', '4756ZmS9517LwA', 1),
-('P000014', '2', '08:53:47', 'A003', '28-02-19', '9597ChW8020EQH', 1);
+('P000001', 1, '18:37:34', 'A001', '05/03/2019', '353260fV201686', 2);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tempbesok`
+-- Struktur dari tabel `tempbesok`
 --
 
 CREATE TABLE `tempbesok` (
-  `id_user_temp` varchar(10) NOT NULL,
-  `no_antrian` varchar(5) NOT NULL,
+  `id_user_temp` varchar(20) NOT NULL,
+  `no_antrian` int(5) NOT NULL,
   `jam_ambil_antrian` varchar(10) NOT NULL,
   `lokasi` varchar(80) NOT NULL,
   `tgl` varchar(10) NOT NULL,
@@ -316,73 +331,67 @@ CREATE TABLE `tempbesok` (
 --
 
 --
--- Indexes for table `antri`
+-- Indeks untuk tabel `antri`
 --
 ALTER TABLE `antri`
   ADD PRIMARY KEY (`lokasi`);
 
 --
--- Indexes for table `dokter`
+-- Indeks untuk tabel `dokter`
 --
 ALTER TABLE `dokter`
   ADD PRIMARY KEY (`ID_dk`);
 
 --
--- Indexes for table `dokterumum`
+-- Indeks untuk tabel `dokterumum`
 --
 ALTER TABLE `dokterumum`
   ADD PRIMARY KEY (`ID_dokterumum`);
 
 --
--- Indexes for table `fasilitas`
---
-ALTER TABLE `fasilitas`
-  ADD PRIMARY KEY (`ID_fas`);
-
---
--- Indexes for table `klinik`
+-- Indeks untuk tabel `klinik`
 --
 ALTER TABLE `klinik`
   ADD PRIMARY KEY (`ID_klinik`);
 
 --
--- Indexes for table `nimda`
+-- Indeks untuk tabel `nimda`
 --
 ALTER TABLE `nimda`
   ADD PRIMARY KEY (`ID_nimda`);
 
 --
--- Indexes for table `oprator`
+-- Indeks untuk tabel `oprator`
 --
 ALTER TABLE `oprator`
   ADD PRIMARY KEY (`ID_op`);
 
 --
--- Indexes for table `pasien`
+-- Indeks untuk tabel `pasien`
 --
 ALTER TABLE `pasien`
   ADD PRIMARY KEY (`ID_pasien`);
 
 --
--- Indexes for table `pukesmas`
+-- Indeks untuk tabel `pukesmas`
 --
 ALTER TABLE `pukesmas`
   ADD PRIMARY KEY (`ID_pukesmas`);
 
 --
--- Indexes for table `rumahsakit`
+-- Indeks untuk tabel `rumahsakit`
 --
 ALTER TABLE `rumahsakit`
   ADD PRIMARY KEY (`ID_rumahsakit`);
 
 --
--- Indexes for table `temp`
+-- Indeks untuk tabel `temp`
 --
 ALTER TABLE `temp`
   ADD PRIMARY KEY (`id_user_temp`);
 
 --
--- Indexes for table `tempbesok`
+-- Indeks untuk tabel `tempbesok`
 --
 ALTER TABLE `tempbesok`
   ADD PRIMARY KEY (`id_user_temp`);

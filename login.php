@@ -61,6 +61,9 @@
 		<div class="container">
 
 		<div class="row" style="margin-top: 150px; position: relative;">
+			
+			<div ></div>
+			
 			<div class="box col-sm-12 col-lg-4 col-lg-offset-2" style="background-color: #239A51; padding: 0px; height: 357px;">
 				<img src="img/queue2.jpg" class="img-responsive col-sm-12" style="opacity: 0.4; border-radius: 0px; height: 357px; padding: 0; position: absolute; z-index: 0; display: block; margin: auto;">
 				<ul class="list-inline center-block text-center" style="z-index: 1; padding-top: 250px; position: relative;">
@@ -70,7 +73,13 @@
 				</ul>
 				<h6 style="z-index: 1; position: relative; padding-top: 10px;" class="text-center"><a href="user_regist.php" style="color: white;">Belum Punya Akun ?</a></h6>
 				<h6 style="z-index: 1; position: relative;" class="text-center"><a href="user_regist.php" style="color: white;"><u>Daftar</u></a></h6>
+
+<!-- Update sourcut ke admin  -->
+				<div class="btn bnt-sm" name="adminscr" id="adminscr"  > <a href="/AntrianOnlineAlpha/login_AD.php" style="opacity: 0">-----------</a> </div>
+			
+
 			</div>
+
 			<div class="box col-sm-12 col-lg-3 col-lg-offset-0">
 				<form action="user/login.php" method="POST" id="form-login">
 					<img class="img-responsiv center-block" src="img/logoas.png" style="width: 88%; padding-bottom: 19px;">
@@ -92,6 +101,13 @@
 				</form>
 			</div>
 			<script>
+
+				if (adminscr==true) {
+
+                location='../login_AD.php';
+           
+				}
+
 				var inputPassword = document.getElementById('inputpassword');
 				var inputUsername = document.getElementById('inputusername');
 				var showPassword = document.getElementById('showpassword');
@@ -127,4 +143,5 @@
 			</script>
 			
 </body>
+
 </html>
