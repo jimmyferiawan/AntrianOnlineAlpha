@@ -132,9 +132,12 @@ exit();
 	$now = $row[0];
 	$total = $row[1];
 	//$_SESSION["loc"]["sekarang"]=$now-1;	
-    $sql_bpjs = mysqli_query($conn, "SELECT p.no_bpjs_pasien FROM pasien AS p INNER JOIN temp AS t WHERE t.no_antrian='$now' AND t.id_user_temp=p.ID_pasien ");
+
+	//Info BPJS
+    $sql_bpjs = mysqli_query($conn, "SELECT p.no_bpjs_pasien, p.nama_pasien FROM pasien AS p INNER JOIN temp AS t WHERE t.no_antrian='$now' AND t.id_user_temp=p.ID_pasien ");
 	$row_bpjs = mysqli_fetch_array($sql_bpjs);
-	$no_bpjs = $row_bpjs[0];	
+	$no_bpjs = $row_bpjs[0];
+	$nama_bpjs = $row_bpjs[1];
 	
     //Inisialisasi
     
@@ -173,7 +176,8 @@ exit();
   	  $statusonline ='1';
   	  $pin=$_SESSION["op"]["pin"];
 	  $pid = $_POST['nik'];
-	  $s = mysqli_query($conn, "INSERT INTO pasien(ID_pasien ,status_pasien ) values('$pid','$statuspsn')");	  
+	  $s = mysqli_query($conn, "INSERT INTO pasien(ID_pasien ,status_pasien ) values('$pid','$statuspsn')");
+	    
 	  
 	  $total = 1 + $total;
 	  $s = mysqli_query($conn, "UPDATE antri SET total = $total where lokasi =  '$lokasiberobat'");
@@ -200,8 +204,10 @@ exit();
 </div>
 
 <div class="container" style="margin-top: 90px;">
-	<div class="container" style="margin-left: 200px">
-		<label ><?php echo $no_bpjs;?></label>
+	<div class="container" style="border: none; border-radius: 3px; background-color: #eee; ">
+		<div class="col-sm-2"><label>BPJS</label></div>
+		<div class="col-sm-2"><label ><?php echo $nama_bpjs;?></label></div>
+		<div class="col-sm-4"><label ><?php echo $no_bpjs;?></label></div>
 	</div>
 	<div class="row">
 		<div class="col-lg-6">
