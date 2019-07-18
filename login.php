@@ -40,14 +40,14 @@
 	}
 
     .background-wall {
-			width: 100%;
-			height: 100%;
-			background-image: url("img/bg2.jpg");
-			background-size: cover;
-			filter: blur(3px);
-			opacity: 0.5;
-			position: absolute;
-			z-index: =0;
+		width: 100%;
+		height: 100%;
+		background-image: url("img/bg2.jpg");
+		background-size: cover;
+		filter: blur(3px);
+		opacity: 0.5;
+		position: absolute;
+		z-index: 0;
 
     }
     .container {
