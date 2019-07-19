@@ -110,6 +110,27 @@ exit();
 		color: white;
   }
 
+  /* Style Jumbotron */
+
+	.jumbotron {
+		border-radius: 3px;
+		border: none; background-image: linear-gradient(to bottom right, #65FDF0,  #1D6FA3);
+	}
+
+	.jumbotron .row.text-center {
+		margin-left: -35px;
+		margin-right: -35px;
+		border: 2px solid white;
+		border-radius: 5px;"
+	}
+
+	button#refresh-antrian {
+		background-color: transparent;
+		border: none;
+		margin-top: 10px;
+		margin-right: 30px;
+	}
+
 </style>
 <!-- Akhir CSS -->
 
@@ -221,14 +242,12 @@ exit();
 	</div>
 	<div class="row">
 		<div class="col-lg-6">
-			<div class="jumbotron" style="border-radius: 3px; border: none; background-image: linear-gradient(to bottom right, #65FDF0,  #1D6FA3); padding: 45px 35px 45px;  padding-bottom: 20px; padding-top: 20px;">
-				<div class="row text-center" style="border: 2px solid white; border-radius: 5px;">
+			<div class="jumbotron">
+				<div class="row text-center">
 					<div class="col-lg-12">
 						<div class="col-lg-12 col-lg-offset-6">
-						<button type="button" class="btn btn-default btn-lg" id="refresh-antrian" style="background-color: transparent; border: none; margin-top: 10px; margin-right: 30px;">
-                         <span class="glyphicon glyphicon-refresh" aria-hidden="true" style="color: white;"></span>
-                        </button>
-            		   </div>
+						<button type="button" class="btn btn-default btn-lg" id="refresh-antrian"><span class="glyphicon glyphicon-refresh" aria-hidden="true" style="color: white;"></span></button>
+            </div>
 					</div>
 					<div class="col-lg-12">
 						<div class="row">

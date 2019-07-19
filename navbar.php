@@ -42,7 +42,7 @@
                
 				<?php
 				if($_SESSION["id"]["tingkat_op"]==1){
-				echo '<li><a href="op_requser.php">operator baru</a></li>';}?>
+				echo '<li><a href="op_requser.php">Operator Baru</a></li>';}?>
 				<li><a href="op_index.php">Info Antrian</a></li>               
                 <li class="dropdown">
 		          	<a href="#" id="dropnot" class="dropdown-toggle" style="text-transform: capitalize;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION["id"]["user_op"]; ?> <span class="caret"></span></a>
