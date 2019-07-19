@@ -30,52 +30,55 @@ exit();
 	<meta charset="utf-8"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	  <title>Oprator Antri Sehat</title>
+	  <!-- Baris include CSS Bootstrap -->
 	  <link href="framework/css/bootstrap.css" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-<style type="text/css">
+	  <!-- Baris Include Font -->
+	  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+	<style type="text/css">
 	form .form-horizontal .form-group label .control-label {
-    	display: inline-block;
-    	max-width: 100%;
-    	margin-bottom: 5px;
-    	font-weight: bold;
-    	text-align: left;
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: left;
 	}
 
 	.jumbotron {
-    	padding-top: 30px;
-    	padding-bottom: 30px;
-    	margin-bottom: 30px;
-    	color: inherit;
-    	background-color: white;
-    	border-radius: 0px;
-    	border: dashed 4px #36d7b7;
-
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: white;
+    border-radius: 0px;
+    border: dashed 4px #36d7b7;
 	}
 
 	.btn-primary {
-            color: #fff;
-            background-color: #36d7b7;
-            box-shadow: 1px 1px 7px -2px;
-    }
+    color: #fff;
+    background-color: #36d7b7;
+    box-shadow: 1px 1px 7px -2px;
+  }
 
-    .btn-primary:hover {
-        color: #fff;
-        background-color: #36d7b7;
-    }
+  .btn-primary:hover {
+     color: #fff;
+     background-color: #36d7b7;
+  }
 
-   @font-face {
-         font-family: "Roboto Thin";
-         src: url('framework/fonts/Roboto-Thin.ttf');
-         }
+		/* Style Font CSS */
+  @font-face {
+     font-family: "Roboto Thin";
+     src: url('framework/fonts/Roboto-Thin.ttf');
+  }
 
 	.form-control:focus {
-	        -webkit-border-image: -webkit-linear-gradient(top left, #79F1A4, #0E5CAD);
-	        -o-border-image: -o-linear-gradient(top left, #79F1A4, #0E5CAD);
-	        border-image: linear-gradient(to bottom right, #79F1A4, #0E5CAD);
-	        border-image-slice: 1;
-			border-image-width: 2px;
-			border-radius: 8px;	
-	    }
+	  -webkit-border-image: -webkit-linear-gradient(top left, #79F1A4, #0E5CAD);
+	  -o-border-image: -o-linear-gradient(top left, #79F1A4, #0E5CAD);
+	  border-image: linear-gradient(to bottom right, #79F1A4, #0E5CAD);
+	  border-image-slice: 1;
+		border-image-width: 2px;
+		border-radius: 8px;	
+	}
 
 	.form-control {
 		border-radius: 2px;
@@ -83,47 +86,54 @@ exit();
 	
 	.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, 
 	.navbar-default .navbar-nav>.active>a:hover {            
-            background-color: transparent;
-            color: #36d7b7;          
-    }
+    background-color: transparent;
+    color: #36d7b7;          
+  }
 
-    .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, 
-    .navbar-default .navbar-nav>.open>a:hover {
-            background-color: transparent;
-            color: grey;
-    }
+  .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, 
+  .navbar-default .navbar-nav>.open>a:hover {
+    background-color: transparent;
+    color: grey;
+  }
 
-    .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, 
-    .navbar-default .navbar-nav>.open>a:hover {
-            background-color: transparent;
-    }
+  .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, 
+  .navbar-default .navbar-nav>.open>a:hover {
+    background-color: transparent;
+  }
 
-    .navbar-default .navbar-nav>.open>a:hover {
-            border: none;
-    }
+  .navbar-default .navbar-nav>.open>a:hover {
+    border: none;
+  }
 
-    .navbar-default .navbar-nav>li>a:hover:not(#dropnot) {
+  .navbar-default .navbar-nav>li>a:hover:not(#dropnot) {
 		background-color: #36d7b7;
 		color: white;
-    }
+  }
 
 </style>
+<!-- Akhir CSS -->
+
+<!-- Awal Baris JavaScript  -->
 <script src="framework/js/jquery-3.3.1.min.js"></script>
-    <script src="framework/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-    	$("#check").click(function(){
-  		$("#offline").removeClass(".active");
-  		$("#online").addClass(".active");
+<script src="framework/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+   	$("#check").click(function(){
+  	$("#offline").removeClass(".active");
+  	$("#online").addClass(".active");
 		});
 	});
-    </script>
+</script>
+<!-- Akhir Baris javascript -->
 </head>
+
 <body>
+	<!-- Awal baris PHP -->
 <?php
 // sesion tempat diambil dari oprator (lokasi)
  $lokasiberobat = $_SESSION["loc"]["lokasi"];
 // end
+
   include "koneksi.php";
   $sql_temp = mysqli_query($conn, "select * from temp where lokasi  = '$lokasiberobat' ");
   
@@ -199,7 +209,7 @@ exit();
 
     <?php include 'navbar.php'; ?>
 
-    
+ <!-- Akhir Baris PHP -->   
 
 </div>
 
