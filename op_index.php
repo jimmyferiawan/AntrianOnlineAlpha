@@ -125,7 +125,28 @@ exit();
 		margin-top: 10px;
 		margin-right: 30px;
 	}
+
+	button#next {
+		margin-top: 15px;
+		border-radius: 50px;
+		background-color: white;
+		color: #36d7b7;
+		box-shadow: 1px 1px 8px -4px black;
+		border: none;
+		font-weight: bolder;"
+	}
 	
+	button#antri, input#validasi  {
+		border-radius: 0px;
+		border: none;" 
+	}
+
+	input#check {
+		border-radius: 0px;
+		border: none;
+		margin-top:25px;
+	}
+
 	/* Style Text Jumbotron */
 	h4#text1 {
 		 color: white;
@@ -154,6 +175,20 @@ exit();
 		font-size: 100px;
 		padding-top: 20px;
 		color: white;"
+	}
+
+	h1#text5 {
+		font-size: 170px;
+		font-family: Roboto Thin;
+		color: white;
+		margin-bottom: 0px;
+	}
+
+	h4#text6 {
+		 color: white;
+		 text-transform: uppercase;
+		 font-weight: bolder;
+		 margin-top: 0px;
 	}
 
 	/* Pengaturan Style Responsive Website */
@@ -296,13 +331,13 @@ exit();
 							<h1 id="text4">:</h1>
 						</div>
 					<div class="col-sm-5">
-						<h1 style="font-size: 170px; font-family: Roboto Thin; color: white; margin-bottom: 0px;"><?php echo $total; ?></h1>
-						<h4 style="color: white; text-transform: uppercase; font-weight: bolder; margin-top: 0px;">TOTAL</h4>
+						<h1 id="text5"><?php echo $total; ?></h1>
+						<h4 id="text6">TOTAL</h4>
 					</div>
 				<div class="col-lg-12" style="padding-bottom: 40px;">
 					<form action="op_index.php" method="post">
 					<div class="form-group">
-					<button class="btn btn-primary btn-lg col-lg-4 col-lg-offset-4" name="next" id="next" style="margin-top: 15px;border-radius: 50px; background-color: white; color: #36d7b7; box-shadow: 1px 1px 8px -4px black; border: none; font-weight: bolder;">L A N J U T
+					<button class="btn btn-primary btn-lg col-lg-4 col-lg-offset-4" name="next" id="next">L A N J U T
 					</button>
 					</div>
 			</form>
@@ -325,7 +360,7 @@ exit();
 		<input type="text" class="form-control input-sm" id="pin" name="pin" >
 	</div>
 	<div class="col-sm-4">
-		<input type="submit" class="btn btn-primary" style="background-color:  linear-gradient(to bottom right, #79F1A4, #0E5CAD); border-radius: 0px; border: none; margin-top:25px;" name="check" id="check" value="Check">
+		<input type="submit" class="btn btn-primary" name="check" id="check" value="Check">
 	</div>
   </div>
   <div class="form-group">
@@ -360,7 +395,7 @@ exit();
   </div>
   <div class="form-group">
   	<div class="col-sm-12 col-lg-4 col-lg-offset-4 text-center">
-	<input type="submit" class="btn btn-primary col-lg-12" style="background-color:  linear-gradient(to bottom right, #79F1A4, #0E5CAD); border-radius: 0px; border: none;" name="validasi" id="validasi" value="Validasi">
+	<input type="submit" class="btn btn-primary col-lg-12" name="validasi" id="validasi" value="Validasi">
 	</div>
   </div>
 </form>
@@ -376,9 +411,7 @@ exit();
 
 	<div class="form-group">
 		<div class="col-sm-10 col-lg-12 text-center">
-		<button class="btn btn-primary col-lg-4" style="background-color: linear-gradient(to bottom right, 
-
-#79F1A4, #0E5CAD); border-radius: 0px; border: none;" name="antri" id="antri">ANTRI</button>
+		<button class="btn btn-primary col-lg-4" name="antri" id="antri">ANTRI</button>
 		</div>
 	</div>	
   </form>
