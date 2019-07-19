@@ -36,6 +36,7 @@ exit();
 	  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
 	<style type="text/css">
+
 	form .form-horizontal .form-group label .control-label {
     display: inline-block;
     max-width: 100%;
@@ -44,15 +45,6 @@ exit();
     text-align: left;
 	}
 
-	.jumbotron {
-    padding-top: 30px;
-    padding-bottom: 30px;
-    margin-bottom: 30px;
-    color: inherit;
-    background-color: white;
-    border-radius: 0px;
-    border: dashed 4px #36d7b7;
-	}
 
 	.btn-primary {
     color: #fff;
@@ -115,11 +107,14 @@ exit();
 	.jumbotron {
 		border-radius: 3px;
 		border: none; background-image: linear-gradient(to bottom right, #65FDF0,  #1D6FA3);
+		padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
 	}
 
 	.jumbotron .row.text-center {
-		margin-left: -35px;
-		margin-right: -35px;
+		margin-left: 0px;
+		margin-right: 0px;
 		border: 2px solid white;
 		border-radius: 5px;"
 	}
@@ -130,7 +125,44 @@ exit();
 		margin-top: 10px;
 		margin-right: 30px;
 	}
+	
+	/* Style Text Jumbotron */
+	h4#text1 {
+		 color: white;
+		 text-transform: uppercase;
+		 text-align: left;
+		 border-left: 2px solid white;
+		 padding-left: 10px;
+		 font-weight: bold;
+	}
 
+	h1#text2 {
+		font-size: 170px;
+		font-family: Roboto Thin;
+		color: white;
+		margin-bottom: 0px;
+	}
+
+	h4#text3 {
+		color: white;
+		text-transform: uppercase;
+		font-weight: bolder;
+		margin-top: 0px;
+	}
+
+	h1#text4 {
+		font-size: 100px;
+		padding-top: 20px;
+		color: white;"
+	}
+
+	/* Pengaturan Style Responsive Website */
+	@media screen and (min-width: 768px) {
+	.container .jumbotron, .container-fluid .jumbotron {
+    padding-right: 20px;
+    padding-left: 20px;
+		}
+	}
 </style>
 <!-- Akhir CSS -->
 
@@ -235,7 +267,7 @@ exit();
 </div>
 
 <div class="container" style="margin-top: 90px;">
-	<div class="container" style="border: none; border-radius: 3px; background-color: #eee; ">
+	<div class="container" style="border: none; border-radius: 3px; background-color: #eee;">
 		<div class="col-sm-2"><label>BPJS</label></div>
 		<div class="col-sm-2"><label ><?php echo $nama_bpjs;?></label></div>
 		<div class="col-sm-4"><label ><?php echo $no_bpjs;?></label></div>
@@ -252,16 +284,16 @@ exit();
 					<div class="col-lg-12">
 						<div class="row">
 						<div class="col-lg-6">
-							<h4 style="color: white; text-transform: uppercase; text-align: left; border-left: 2px solid white;  padding-left: 10px; font-weight: bold;"><span style="letter-spacing: 10px;">info</span><br><span style="letter-spacing: 5px;">antrian</span></h4>
+							<h4 id="text1"><span style="letter-spacing: 10px;">info</span><br><span style="letter-spacing: 5px;">antrian</span></h4>
 						</div>
 						</div>
 					</div>
 					<div class="col-sm-5">
-						<?php echo "<h1 style='font-size: 170px; font-family: Roboto Thin; color: white; margin-bottom: 0px;'>".$now."</h1>";?>
-						<h4 style="color: white; text-transform: uppercase; font-weight: bolder; margin-top: 0px;">SAAT INI</h4>
+						<?php echo "<h1 id='text2'>".$now."</h1>";?>
+						<h4 id="text3">SAAT INI</h4>
 					</div>
 						<div class="col-sm-2">
-							<h1 style="font-size: 100px; padding-top: 20px; color: white;">:</h1>
+							<h1 id="text4">:</h1>
 						</div>
 					<div class="col-sm-5">
 						<h1 style="font-size: 170px; font-family: Roboto Thin; color: white; margin-bottom: 0px;"><?php echo $total; ?></h1>
