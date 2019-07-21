@@ -47,8 +47,9 @@
             $antri = "antri.sekarang,antri.total";
             $instansi = "$pref.nama_$pref as nama_instansi, alamat_$pref as alamat_instansi, $pref.no_telp_$pref as telp_instansi";
             $foto = "foto_lokasi.foto1, foto_lokasi.foto2, foto_lokasi.foto3, foto_lokasi.foto4, foto_lokasi.foto5";
+            $fst = "fst.poli, fst.R_inap, fst.D_sps, fst.ambulance, fst.kelebihan, fst.alat_k";
             // SELECT antri.sekarang, antri.total,rumahsakit.nama_rumahsakit as nama_instansi, alamat_rumahsakit as alamat_instansi, rumahsakit.no_telp_rumahsakit as telp_instansi, foto_lokasi.foto1, foto_lokasi.foto2, foto_lokasi.foto3, foto_lokasi.foto4, foto_lokasi.foto5 FROM antri JOIN rumahsakit ON antri.lokasi = rumahsakit.ID_rumahsakit JOIN foto_lokasi ON rumahsakit.ID_rumahsakit=foto_lokasi.id_tempat WHERE antri.lokasi = "C001"
-            $sql = "SELECT $antri, $instansi, $foto FROM antri JOIN $pref ON antri.lokasi =$pref.ID_$pref JOIN foto_lokasi ON $pref.ID_$pref=foto_lokasi.id_tempat $where";
+            $sql = "SELECT $antri, $instansi, $foto, $fst FROM antri JOIN $pref ON antri.lokasi =$pref.ID_$pref JOIN foto_lokasi ON $pref.ID_$pref=foto_lokasi.id_tempat JOIN fst ON $pref.ID_$pref=fst.ID_ins $where";
             $query = $conn->query($sql);
             $data_antrian = [
                 "sekarang" => 0,
@@ -60,7 +61,13 @@
                 "foto2" => "",
                 "foto3" => "",
                 "foto4" => "",
-                "foto5" => ""
+                "foto5" => "",
+                "poli" => "",
+                "R_inap" => "",
+                "D_sps" => "",
+                "ambulance" => "",
+                "kelebihan" => "",
+                "alat_k" => ""
             ];
             if($query->num_rows > 0) {
                 $data_antrian = "";

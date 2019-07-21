@@ -174,27 +174,27 @@ Senin   07.30–16.00</td>
                                      <!-- update tabel sql=fst-->
                                         <tr>
                                          <th>poli  </th>
-                                         <td id="">-</td>
+                                         <td id="info-poli">-</td>
                                      </tr>
                                          <tr>
                                          <th>R.Inap   </th>
-                                         <td id="">-</td>
+                                         <td id="info-inap">-</td>
                                      </tr>
                                           <tr>
                                          <th>D.Sepesialis   </th>
-                                         <td id="">-</td>
+                                         <td id="info-spesialis">-</td>
                                      </tr>
                                          <tr>
                                          <th>Ambulance   </th><br>
-                                         <td id="">-</td>
+                                         <td id="info-ambulance">-</td>
                                      </tr>
                                      <tr>
                                          <th>Alat  </th>
-                                         <td id="">-</td>
+                                         <td id="info-alat">-</td>
                                      </tr>
                                      <tr>
                                          <th>Kelebihan    </th>
-                                         <td id="">-</td>
+                                         <td id="info-kelebihan">-</td>
                                      </tr>
                                      <!-- end -->
                                  </table>
@@ -276,6 +276,12 @@ Senin   07.30–16.00</td>
         var infoNama = document.getElementById('info-nama');
         var infoAlamat = document.getElementById('info-alamat');
         var infoNoTelp = document.getElementById('info-notelp');
+        var infoPoli = document.getElementById('info-poli');
+        var infoInap = document.getElementById('info-inap');
+        var infoSpesialis = document.getElementById('info-spesialis');
+        var infoAmbulance = document.getElementById('info-ambulance');
+        var infoAlat = document.getElementById('info-alat');
+        var infoKelebihan = document.getElementById('info-kelebihan');
         var fotoInstansi1 = document.getElementById('foto1');
         var fotoInstansi2 = document.getElementById('foto2');
         var fotoInstansi3 = document.getElementById('foto3');
@@ -306,7 +312,7 @@ Senin   07.30–16.00</td>
             })
             .then(function(response) {
                 updateAntrian(response.data);
-                console.log(response.data);
+                // console.log(response.data);
             })
             .catch(function(error) {
                 // console.log("error getAntrianSekarang(idInstansi, idTempat): " + error)
@@ -320,6 +326,12 @@ Senin   07.30–16.00</td>
             infoNama.innerText = data.nama_instansi;
             infoAlamat.innerText = data.alamat_instansi;
             infoNoTelp.innerText = data.telp_instansi;
+            infoPoli.innerText = data.poli;
+            infoInap.innerText =data.R_inap;
+            infoSpesialis.innerText =data.D_sps;
+            infoAmbulance.innerText =data.ambulance;
+            infoAlat.innerText =data.alat_k;
+            infoKelebihan.innerText =data.kelebihan;
             fotoInstansi1.src = "img-tempat/" + data.foto1;
             fotoInstansi2.src = "img-tempat/" + data.foto2;
             fotoInstansi3.src = "img-tempat/" + data.foto3;
