@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Login Antri Sehat</title>
 <link href="framework/css/bootstrap.css" rel="stylesheet">
 <style type="text/css">
@@ -129,15 +130,25 @@
 		text-decoration: none;
 		color: red;
 	}
+
+	.row {
+		margin-top: 150px;
+	}
+
+	@media screen and (max-width: 500px) {
+		.row {
+			margin: 0;
+		}
+	}
 </style>
 
 </head>
 <body>
 	<div class="background-wall"></div>
 		<div class="container">
-			<div class="row" style="margin-top: 150px; position: relative;">			
+			<div class="row">	
+			</style>		
 				<div></div>
-
 				<!-- Awal Box sebelah Kiri -->
 				<div class="box kiri col-sm-12 col-lg-4 col-lg-offset-2">
 
@@ -159,8 +170,7 @@
 				</div>
 				<!-- Akhir Box Sebelah Kiri -->
 
-				<!-- Awal Box Sebelah Kanan -->
-				<div class="box col-sm-12 col-lg-3 col-lg-offset-0">
+				<!-- Awal Box Sebelah Kanan --><div class="box col-sm-12 col-lg-3 col-lg-offset-0">
 
 					<form action="user/login.php" method="POST" id="form-login">
 						<img class="img-responsive center-block" src="img/logoas.png">
