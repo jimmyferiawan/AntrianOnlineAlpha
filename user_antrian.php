@@ -123,10 +123,10 @@ exit();
                         <div class="row">
                         <div class="col-lg-12"><img id="foto1" src="img/usr.png" class="img-responsive" alt="" style=" width: 100%; height: 350px;"></div>
                         <div class="col-lg-12" style="padding: 10px 0px;">
-                            <img id="foto2" src="img/logoas.png" class="img-responsive col-sm-3 col-lg-3" alt="">
-                            <img id="foto3" src="img/logoas.png" class="img-responsive col-sm-3 col-lg-3" alt="">
-                            <img id="foto4" src="img/logoas.png" class="img-responsive col-sm-3 col-lg-3" alt="">
-                            <img id="foto5" src="img/logoas.png" class="img-responsive col-sm-3 col-lg-3" alt="">
+                            <img id="foto2" src="img/logoas.png" class="img-responsive col-sm-3 col-lg-3" alt=""  onclick="myFunction(this);">
+                            <img id="foto3" src="img/logoas.png" class="img-responsive col-sm-3 col-lg-3" alt=""  onclick="myFunction(this);">
+                            <img id="foto4" src="img/logoas.png" class="img-responsive col-sm-3 col-lg-3" alt=""  onclick="myFunction(this);">
+                            <img id="foto5" src="img/logoas.png" class="img-responsive col-sm-3 col-lg-3" alt=""  onclick="myFunction(this);">
                         </div>
 
                         </div>
@@ -259,6 +259,8 @@ Senin   07.30–16.00</td>
         </div>
         
     </div>
+
+    
     <script src="framework/js/jquery-3.3.1.min.js"></script>
     <script src="framework/js/bootstrap.min.js"></script>
     <script src="framework/js/axios.min.js"></script>
@@ -413,6 +415,20 @@ Senin   07.30–16.00</td>
             formAmbilAntrian.submit();
         });
 
+        // script gallery foto
+
+        function myFunction(imgs) {
+  // Get the expanded image
+  var expandImg = document.getElementById("foto1");
+  // Get the image text
+  // Use the same src in the expanded image as the image being clicked on from the grid
+  expandImg.src = imgs.src;
+  // Use the value of the alt attribute of the clickable image as text inside the expanded image
+  imgText.innerHTML = imgs.id;
+  // Show the container element (hidden with CSS)
+  expandImg.parentElement.style.display = "block";
+} 
+
 
         // script menyembunyikan kolom kanan 
         $(document).ready(function() {
@@ -432,6 +448,7 @@ Senin   07.30–16.00</td>
             $("#kolomkiri").addClass("col-lg-4");
             $("#kolomkiri").removeClass("col-lg-12");
         });
+        // Akhir Script
     </script>
 </body>
 </html>
