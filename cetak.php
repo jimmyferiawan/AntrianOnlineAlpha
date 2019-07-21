@@ -73,6 +73,8 @@
 
 		.logo {
 			width: 65px;
+			margin-left: 5px;
+			margin-top: 5px;
 		}
 
 		.title {
@@ -88,6 +90,7 @@
 
 		.container {
 			width: 200px;
+			border: 1px solid black;
 		}
 	</style>
 </head>
