@@ -380,6 +380,18 @@ exit();
 		<input type="text" class="form-control input-sm" id="antrian" value="<?php echo $no_antrian;?>" disabled>
 	</div>
   </div>
+    <div class="form-group">
+    <div class="col-sm-12">
+    	<label for="no_bpjs" style="text-align: left;">NO BPJS</label>
+		<input type="text" class="form-control input-sm" id="no_bpjs" value="<?php echo $no_bpjs;?>" disabled>
+	</div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-12">
+    	<label for="nama_bpjs" style="text-align: left;">Atas Nama BPJS</label>
+		<input type="text" class="form-control input-sm" id="no_bpjs" value="<?php echo $nama_bpjs;?>" disabled>
+	</div>
+  </div>
   <div class="form-group">
     <div class="col-sm-12">
     	<label for="jam" style="text-align: left;">Jam</label>
@@ -396,18 +408,6 @@ exit();
     <div class="col-sm-12">
     	<label for="lokasi" style="text-align: left;">Lokasi</label>
 		<input type="text" class="form-control input-sm" id="lokasi" value="<?php echo $lokasi;?>" disabled>
-	</div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-12">
-    	<label for="no_bpjs" style="text-align: left;">NO BPJS</label>
-		<input type="text" class="form-control input-sm" id="no_bpjs" value="<?php echo $no_bpjs;?>" disabled>
-	</div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-12">
-    	<label for="nama_bpjs" style="text-align: left;">Atas Nama BPJS</label>
-		<input type="text" class="form-control input-sm" id="no_bpjs" value="<?php echo $nama_bpjs;?>" disabled>
 	</div>
   </div>
   <div class="form-group">
