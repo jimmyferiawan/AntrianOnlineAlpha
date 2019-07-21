@@ -5,8 +5,8 @@
         <div class="container-fluid">
             <div class="navbar-header">
 <?php if (isset($_SESSION['u'])): ?>
-                <a class="navbar-brand" href="user_antrian.php">
-                    AntriSehat
+                <a class="navbar-brand" href="user_antrian.php" style="padding-top: 6px;">
+                    <img src="img/logoas.png" alt="" width="auto" height="40px">
                 </a>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navheader-collapse" aria-expanded="false">
                     <span class="glyphicon glyphicon-menu-hamburger"></span>
@@ -15,9 +15,8 @@
             </div>
             <div class="collapse navbar-collapse navheader-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="">home</a></li>
+                <li><a href="user_antrian.php">home</a></li>
                 <li><a href="">antri</a></li>
-                <li><a href="">pesan</a></li>
 					<li class="dropdown">
 		          	<a href="#" class="dropdown-toggle" style="text-transform: capitalize;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"  id="aw"><span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['u']; ?> <span class="caret"></span> </a>
 		       		<ul class="dropdown-menu">

@@ -260,7 +260,7 @@ exit();
   if(isset($_POST["check"])){
 	  $pin = $_REQUEST["pin"];
 	  $_SESSION["pincheck"]=$pin;
-	  $sql_pin = mysqli_query($conn, "SELECT p.nama_pasien, t.id_user_temp, t.no_antrian, t.jam_ambil_antrian, t.tgl, t.lokasi FROM pasien AS p INNER JOIN temp AS t WHERE t.pin_temp='$pin' AND t.id_user_temp=p.ID_pasien");
+	  $sql_pin = mysqli_query($conn, "SELECT p.nama_pasien, t.id_user_temp, t.no_antrian, t.jam_ambil_antrian, t.tgl, t.lokasi, p.no_bpjs_pasien, p.nama_pasien FROM pasien AS p INNER JOIN temp AS t WHERE t.pin_temp='$pin' AND t.id_user_temp=p.ID_pasien");
 	  $row = mysqli_fetch_array($sql_pin);
 	  $nama = $row[0];
 	  $no_antrian =$row[2];
@@ -268,12 +268,8 @@ exit();
 	  $tgl = $row[4];
 	  $jam = $row[3];
 	  $lokasi = $row[5];
-	
-	      $sql_bpjs = mysqli_query($conn, "SELECT p.no_bpjs_pasien, p.nama_pasien FROM pasien AS p INNER JOIN temp AS t WHERE  t.id_user_temp=p.ID_pasien ");
-	$row_bpjs = mysqli_fetch_array($sql_bpjs);
-	$no_bpjs = $row_bpjs[0];
-	$nama_bpjs = $row_bpjs[1];
-
+	  $no_bpjs = $row[6];
+	  $nama_bpjs = $row[7];
   }
   
   if(isset($_POST["validasi"])){
@@ -300,10 +296,10 @@ exit();
 	  $_SESSION['print_no_antrian'] = $total;
 	  $s = mysqli_query($conn, "UPDATE antri SET total = $total where lokasi =  '$lokasiberobat'");
 	  
-	  $tgl = date('d-m-y');
-	  $jam = date('h:i:s');
-	  $s = mysqli_query($conn, "INSERT INTO temp(id_user_temp, no_antrian,jam_ambil_antrian,lokasi, tgl, pin_temp, status_temp) values('$pid',$total,'$jam','$lokasiberobat','$tgl','$pin','$statusonline')");
-      header("refresh: 0;");
+	  $tglantri = date('d-m-y');
+	  $jamantri = date('h:i:s');
+	  $s = mysqli_query($conn, "INSERT INTO temp(id_user_temp, no_antrian,jam_ambil_antrian,lokasi, tgl, pin_temp, status_temp) values('$pid',$total,'$jamantri','$lokasiberobat','$tglantri','$pin','$statusonline')");
+      //header("refresh: 0;");
   }
 	$id_op = $_SESSION["id"]["id_op"];
 	$sql_op = mysqli_query($conn, "select username_op, tingkat_op from oprator where ID_op='$id_op'");

@@ -47,11 +47,12 @@ $sql_op = mysqli_query($conn, "SELECT no_antrian, status_temp, pin_temp  FROM te
 				}
 			}else{
 				$now++;
+				$sql_pass = mysqli_query($conn, "UPDATE temp SET status_temp=0 WHERE no_antrian='$now' ");
 				break;
 			}
 		}
 		$s = mysqli_query($conn, "UPDATE antri SET sekarang=$now , total = $total where lokasi =  '$lokasiberobat'");
 	}
 	}
-	 header("refresh: 0;");
+	 //header("refresh: 0;");
  ?>
