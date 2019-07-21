@@ -112,12 +112,12 @@
 				</div>
 				<div class="form-group col-sm-12 col-lg-8">
 				<div class="input-group user center-block">
-  					<input type="text" class="form-control" name="username_op" placeholder="username">
+  					<input type="text" class="form-control" name="username_op" placeholder="username" required>
 				</div>
 				</div>				
 				<div class="form-group col-sm-12 col-lg-8">
 				<div class="input-group pass center-block">
-					<input type="password" class="form-control"  name="password_op"  placeholder="password">
+					<input type="password" class="form-control"  name="password_op"  placeholder="password" required>
 				</div>
 				</div>
 				<div class="form-group col-sm-12 col-lg-8">

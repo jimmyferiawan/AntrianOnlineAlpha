@@ -178,10 +178,10 @@
 						<img class="img-responsive center-block" src="img/logoas.png">
 
 						<div class="form-group">
-						<input type="text" name="username_pasien" class="form-control" placeholder="username" id="inputusername">
+						<input type="text" name="username_pasien" class="form-control" placeholder="username" id="inputusername" required>
 						</div>
 						<div class="form-group">
-						<input type="password" name="password_pasien" class="form-control" placeholder="password" id="inputpassword">
+						<input type="password" name="password_pasien" class="form-control" placeholder="password" id="inputpassword" required>
 						</div>
 						<div class="form-group">
 						<label class="checkbox-inline"><input type="checkbox" id="showpassword">show password</label>
