@@ -18,20 +18,20 @@ $sql_antri = mysqli_query($conn, "select sekarang, total from antri where lokasi
   
   $sql_del = mysqli_query($conn, "DELETE FROM temp WHERE no_antrian<='$now' AND lokasi = '$locthpas'");
   
-	$sql = mysqli_query($conn, "SELECT * FROM temp where lokasi =' $locthpas' ");
+	$sql = mysqli_query($conn, "SELECT id_user_temp, no_antrian FROM temp WHERE lokasi = '$locthpas' ");
 	$count = mysqli_num_rows($sql);
 	if($count>0){
-		while ($row = mysqli_fetch_assoc($sql)){
-			$new = $row['no_antrian']-$now;
-			mysqli_query($conn, "UPDATE temp SET no_antrian='$new' WHERE id_user_temp='".$row['id_user_temp']."'");
+		while ($row = mysqli_fetch_array($sql)){
+			$new = $row[1]-$now;
+			mysqli_query($conn, "UPDATE temp SET no_antrian='$new' WHERE id_user_temp='$row[0]'");
 		}
 	}
 	
   $today = date('d-m-y');
   if ($date!=$today){
 	if($count>0){
-		while ($row = mysqli_fetch_assoc($sql)){
-			mysqli_query($conn, "UPDATE temp SET tgl='$today' WHERE id_user_temp='".$row['id_user_temp']."'");
+		while ($row = mysqli_fetch_array($sql)){
+			mysqli_query($conn, "UPDATE temp SET tgl='$today' WHERE id_user_temp='$row[0]'");
 		}
 	}
 }
