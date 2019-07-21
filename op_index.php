@@ -347,12 +347,12 @@ exit();
 		</div>
 		<div class="col-lg-5">
 			<ul class="nav nav-tabs col-sm-10" id="mytab" role="tablist">
-  				<li role="presentation"  class="active"><a role="tab" href="#offline" aria-controls="online" data-toggle="tab">Offline</a></li>
+  				<li role="presentation"  class="active"><a role="tab" href="#online" aria-controls="online" data-toggle="tab">Online</a></li>
   		
-  			<li role="presentation" ><a role="tab" href="#online" aria-controls="offline" data-toggle="tab">Online</a></li>
+  			<li role="presentation" ><a role="tab" href="#offline" aria-controls="offline" data-toggle="tab">Offline</a></li>
 			</ul>
 			<div class="tab-content col-lg-10" style="box-shadow: 1px 1px 5px -2px;">
-				<div class="tab-pane" id="online">
+				<div class="tab-pane active" id="online">
 			<form class="form-horizontal" action="op_index.php" method="post" style="margin-top: 20px;">
   <div class="form-group">
 	<div class="col-sm-8">
@@ -400,7 +400,7 @@ exit();
   </div>
 </form>
 </div>
-<div class="tab-pane active" id="offline">
+<div class="tab-pane" id="offline">
 <form class="form-horizontal" action="op_index.php" method="post" style="margin-top: 20px;">
 	<div class="form-group">
 		<div class="col-sm-12">
