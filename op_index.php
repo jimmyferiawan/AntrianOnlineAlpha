@@ -455,13 +455,5 @@ exit();
 		</div>
 	</div>
 </div>
-
-<?php 
-//
-	var_dump($_SESSION);
-	// var_dump($print_antrian);
-	// echo $sqllll->num_rows;
-	// echo "select no_antrian FROM temp where lokasi='$lokasiberobat'";
-?>
 </body>
 </html>
