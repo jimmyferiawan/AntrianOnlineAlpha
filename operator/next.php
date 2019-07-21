@@ -54,5 +54,5 @@ $sql_op = mysqli_query($conn, "SELECT no_antrian, status_temp, pin_temp  FROM te
 		$s = mysqli_query($conn, "UPDATE antri SET sekarang=$now , total = $total where lokasi =  '$lokasiberobat'");
 	}
 	}
-	 header("refresh: 0;");
+	 //header("refresh: 0;");
  ?>
