@@ -302,11 +302,6 @@ exit();
 </div>
 
 <div class="container" style="margin-top: 90px;">
-	<div class="container" style="border: none; border-radius: 3px; background-color: #eee;">
-		<div class="col-sm-2"><label>BPJS</label></div>
-		<div class="col-sm-2"><label ><?php echo $nama_bpjs;?></label></div>
-		<div class="col-sm-4"><label ><?php echo $no_bpjs;?></label></div>
-	</div>
 	<div class="row">
 		<div class="col-lg-6">
 			<div class="jumbotron">
@@ -351,12 +346,12 @@ exit();
   		
   			<li role="presentation" ><a role="tab" href="#offline" aria-controls="offline" data-toggle="tab">Offline</a></li>
 			</ul>
-			<div class="tab-content col-lg-10" style="box-shadow: 1px 1px 5px -2px;">
+			<div class="tab-content col-lg-10" style="box-shadow: 1px 1px 5px -2px; overflow: auto; height: 467px;">
 				<div class="tab-pane active" id="online">
 			<form class="form-horizontal" action="op_index.php" method="post" style="margin-top: 20px;">
   <div class="form-group">
 	<div class="col-sm-8">
-		<label for="nama" style="text-align: left;">PIN</label>
+		<label for="nama" style="text-align: left;">PIN Antrian</label>
 		<input type="text" class="form-control input-sm" id="pin" name="pin" >
 	</div>
 	<div class="col-sm-4">
@@ -391,6 +386,18 @@ exit();
     <div class="col-sm-12">
     	<label for="lokasi" style="text-align: left;">Lokasi</label>
 		<input type="text" class="form-control input-sm" id="lokasi" value="<?php echo $lokasi;?>" disabled>
+	</div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-12">
+    	<label for="no_bpjs" style="text-align: left;">NO BPJS</label>
+		<input type="text" class="form-control input-sm" id="no_bpjs" value="<?php echo $no_bpjs;?>" disabled>
+	</div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-12">
+    	<label for="nama_bpjs" style="text-align: left;">Atas Nama BPJS</label>
+		<input type="text" class="form-control input-sm" id="no_bpjs" value="<?php echo $nama_bpjs;?>" disabled>
 	</div>
   </div>
   <div class="form-group">
