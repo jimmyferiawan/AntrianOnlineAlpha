@@ -115,7 +115,7 @@
 
 
                  if($hasil2->num_rows > 0) {
-                      echo "<script>alert('Password / Username  salah  !!');history.go(-1);</script>";
+                      echo "<script>alert('Password / Username  salah  !!');</script>";
 
                
                     }
