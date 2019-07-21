@@ -138,6 +138,7 @@
 	@media screen and (max-width: 500px) {
 		.row {
 			margin: 0;
+			margin-top: 15px;
 		}
 	}
 </style>
