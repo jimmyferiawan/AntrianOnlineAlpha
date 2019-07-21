@@ -23,8 +23,6 @@ exit();
 
 
 
-
-
 <head>
 	<meta http-equiv="refresh" content="600" > 
 	<meta charset="utf-8"> 
@@ -34,7 +32,9 @@ exit();
 	  <link href="framework/css/bootstrap.css" rel="stylesheet">
 	  <!-- Baris Include Font -->
 	  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-
+	  <!-- /Desibel Back Buton/ -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <!-- ?// -->
 	<style type="text/css">
 
 	form .form-horizontal .form-group label .control-label {
@@ -216,6 +216,16 @@ exit();
 </head>
 
 <body>
+<!-- disabled back button  -->
+<script type="text/javascript">
+  $(document).ready(function() {
+      window.history.pushState(null, "", window.location.href);        
+      window.onpopstate = function() {
+          window.history.pushState(null, "", window.location.href);
+      };
+  });
+</script>
+<!-- end -->
 	<!-- Awal baris PHP -->
 <?php
 // sesion tempat diambil dari oprator (lokasi)
