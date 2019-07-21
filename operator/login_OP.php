@@ -78,12 +78,37 @@
  
        // jika login oprator benar
         if($is_login_op == true) {
-            $_SESSION["id"]["id_op"] = $data['ID_op'];
-            $_SESSION["loc"]["lokasi"] =  $data['lokasi_op'];
-            $loct=$data['lokasi_op'];
-            ($_SESSION["id"]["id_op"]);
-            $newantri = " lokasi  ";
-            $newantri2 = "WHERE lokasi  = '$loct'";
+
+         $_SESSION["id"]["id_op"] = $data['ID_op'];
+                 $_SESSION["loc"]["lokasi"] =  $data['lokasi_op'];
+                $loct=$data['lokasi_op'];
+               ($_SESSION["id"]["id_op"]);
+
+
+                 $newantri = " lokasi  ";
+                 $newantri2 = "WHERE lokasi  = '$loct'";
+
+
+
+                $sql2 = "SELECT $newantri FROM antri $newantri2";
+
+                $hasil2 = $conn->query($sql2);
+                $data2 = array();
+
+
+                 if($hasil2->num_rows > 0) {
+                       echo "<script>location='../op_index.php'; </script>";
+
+               
+                    }
+                    else{
+
+                       $sql3 = "INSERT INTO antri(lokasi, sekarang) values('$loct','0')";
+                        $hasil3 = $conn->query($sql3);
+                        echo "<script>location='../op_index.php'; </script>";
+
+                    }
+
 
             $sql2 = "SELECT $newantri FROM antri $newantri2";
 

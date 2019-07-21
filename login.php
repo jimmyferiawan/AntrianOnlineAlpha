@@ -135,12 +135,13 @@
 		margin-top: 150px;
 	}
 
-	@media screen and (max-width: 500px) {
+	@media screen and (max-width: 728px) {
 		.row {
 			margin: 0;
-			margin-top: 15px;
+			margin-top: 15px;			
 		}
 	}
+
 </style>
 
 </head>
@@ -151,9 +152,9 @@
 			</style>		
 				<div></div>
 				<!-- Awal Box sebelah Kiri -->
-				<div class="box kiri col-sm-12 col-lg-4 col-lg-offset-2">
+				<div class="box kiri col-sm-12 col-md-12 col-lg-4 col-lg-offset-2">
 
-					<img src="img/queue2.jpg" class="img-responsive img_wall_left col-sm-12">
+					<img src="img/queue2.jpg" class="img_wall_left col-sm-12 col-md-12 col-lg-12">
 					<ul class="list-inline center-block text-center">
 						<li><a href="#"><img src="img/fblogo.png"></a></li>
 						<li><a href="#"><img src="img/twitterlogo.png"></a></li>
@@ -177,10 +178,10 @@
 						<img class="img-responsive center-block" src="img/logoas.png">
 
 						<div class="form-group">
-						<input type="text" name="username_pasien" class="form-control" placeholder="username" id="inputusername">
+						<input type="text" name="username_pasien" class="form-control" placeholder="username" id="inputusername" required>
 						</div>
 						<div class="form-group">
-						<input type="password" name="password_pasien" class="form-control" placeholder="password" id="inputpassword">
+						<input type="password" name="password_pasien" class="form-control" placeholder="password" id="inputpassword" required>
 						</div>
 						<div class="form-group">
 						<label class="checkbox-inline"><input type="checkbox" id="showpassword">show password</label>

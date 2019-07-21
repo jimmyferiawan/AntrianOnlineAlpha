@@ -23,8 +23,6 @@ exit();
 
 
 
-
-
 <head>
 	<meta http-equiv="refresh" content="600" > 
 	<meta charset="utf-8"> 
@@ -34,7 +32,9 @@ exit();
 	  <link href="framework/css/bootstrap.css" rel="stylesheet">
 	  <!-- Baris Include Font -->
 	  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-
+	  <!-- /Desibel Back Buton/ -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <!-- ?// -->
 	<style type="text/css">
 
 	form .form-horizontal .form-group label .control-label {
@@ -216,6 +216,16 @@ exit();
 </head>
 
 <body>
+<!-- disabled back button  -->
+<script type="text/javascript">
+  $(document).ready(function() {
+      window.history.pushState(null, "", window.location.href);        
+      window.onpopstate = function() {
+          window.history.pushState(null, "", window.location.href);
+      };
+  });
+</script>
+<!-- end -->
 	<!-- Awal baris PHP -->
 <?php
 // sesion tempat diambil dari oprator (lokasi)
@@ -312,11 +322,6 @@ exit();
 </div>
 
 <div class="container" style="margin-top: 90px;">
-	<div class="container" style="border: none; border-radius: 3px; background-color: #eee;">
-		<div class="col-sm-2"><label>BPJS</label></div>
-		<div class="col-sm-2"><label ><?php echo $nama_bpjs;?></label></div>
-		<div class="col-sm-4"><label ><?php echo $no_bpjs;?></label></div>
-	</div>
 	<div class="row">
 		<div class="col-lg-6">
 			<div class="jumbotron">
@@ -357,16 +362,16 @@ exit();
 		</div>
 		<div class="col-lg-5">
 			<ul class="nav nav-tabs col-sm-10" id="mytab" role="tablist">
-  				<li role="presentation"  class="active"><a role="tab" href="#offline" aria-controls="online" data-toggle="tab">Offline</a></li>
+  				<li role="presentation"  class="active"><a role="tab" href="#online" aria-controls="online" data-toggle="tab">Online</a></li>
   		
-  			<li role="presentation" ><a role="tab" href="#online" aria-controls="offline" data-toggle="tab">Online</a></li>
+  			<li role="presentation" ><a role="tab" href="#offline" aria-controls="offline" data-toggle="tab">Offline</a></li>
 			</ul>
-			<div class="tab-content col-lg-10" style="box-shadow: 1px 1px 5px -2px;">
-				<div class="tab-pane" id="online">
+			<div class="tab-content col-lg-10" style="box-shadow: 1px 1px 5px -2px; overflow: auto; height: 467px;">
+				<div class="tab-pane active" id="online">
 			<form class="form-horizontal" action="op_index.php" method="post" style="margin-top: 20px;">
   <div class="form-group">
 	<div class="col-sm-8">
-		<label for="nama" style="text-align: left;">PIN</label>
+		<label for="nama" style="text-align: left;">PIN Antrian</label>
 		<input type="text" class="form-control input-sm" id="pin" name="pin" >
 	</div>
 	<div class="col-sm-4">
@@ -383,6 +388,18 @@ exit();
     <div class="col-sm-12">
     	<label for="antrian" style="text-align: left;">No Antrian</label>
 		<input type="text" class="form-control input-sm" id="antrian" value="<?php echo $no_antrian;?>" disabled>
+	</div>
+  </div>
+    <div class="form-group">
+    <div class="col-sm-12">
+    	<label for="no_bpjs" style="text-align: left;">NO BPJS</label>
+		<input type="text" class="form-control input-sm" id="no_bpjs" value="<?php echo $no_bpjs;?>" disabled>
+	</div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-12">
+    	<label for="nama_bpjs" style="text-align: left;">Atas Nama BPJS</label>
+		<input type="text" class="form-control input-sm" id="no_bpjs" value="<?php echo $nama_bpjs;?>" disabled>
 	</div>
   </div>
   <div class="form-group">
@@ -410,7 +427,7 @@ exit();
   </div>
 </form>
 </div>
-<div class="tab-pane active" id="offline">
+<div class="tab-pane" id="offline">
 <form class="form-horizontal" action="op_index.php" method="post" style="margin-top: 20px;">
 	<div class="form-group">
 		<div class="col-sm-12">
