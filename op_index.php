@@ -201,12 +201,8 @@ exit();
 	}
 
 ?>
-
-
-    <?php include 'navbar.php'; ?>
-
-    
-
+	<?php include 'navbar.php'; ?>
+	
 </div>
 
 <div class="container" style="margin-top: 90px;">
