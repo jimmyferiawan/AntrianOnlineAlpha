@@ -49,8 +49,10 @@
             $foto = "foto_lokasi.foto1, foto_lokasi.foto2, foto_lokasi.foto3, foto_lokasi.foto4, foto_lokasi.foto5";
             $fst = "fst.poli, fst.R_inap, fst.D_sps, fst.ambulance, fst.kelebihan, fst.alat_k";
             // SELECT antri.sekarang, antri.total,rumahsakit.nama_rumahsakit as nama_instansi, alamat_rumahsakit as alamat_instansi, rumahsakit.no_telp_rumahsakit as telp_instansi, foto_lokasi.foto1, foto_lokasi.foto2, foto_lokasi.foto3, foto_lokasi.foto4, foto_lokasi.foto5 FROM antri JOIN rumahsakit ON antri.lokasi = rumahsakit.ID_rumahsakit JOIN foto_lokasi ON rumahsakit.ID_rumahsakit=foto_lokasi.id_tempat WHERE antri.lokasi = "C001"
-            $sql = "SELECT $antri, $instansi, $foto, $fst FROM antri JOIN $pref ON antri.lokasi =$pref.ID_$pref JOIN foto_lokasi ON $pref.ID_$pref=foto_lokasi.id_tempat JOIN fst ON $pref.ID_$pref=fst.ID_ins $where";
+            $sql = "SELECT $antri, $instansi, $foto FROM antri JOIN $pref ON antri.lokasi =$pref.ID_$pref JOIN foto_lokasi ON $pref.ID_$pref=foto_lokasi.id_tempat $where";
+            $sql2 = "SELECT $fst FROM fst WHERE ID_ins='$id_instansi'";
             $query = $conn->query($sql);
+            $query2 = $conn->query($sql2);
             $data_antrian = [
                 "sekarang" => 0,
                 "total" => 0,
@@ -70,11 +72,28 @@
                 "alat_k" => ""
             ];
             if($query->num_rows > 0) {
-                $data_antrian = "";
                 while($row = $query->fetch_assoc()) {
-                    $data_antrian = $row;
+                    $data_antrian['sekarang'] = $row['sekarang'];
+                    $data_antrian['total'] = $row['total'];
+                    $data_antrian['nama_instansi'] = $row['nama_instansi'];
+                    $data_antrian['alamat_instansi'] = $row['alamat_instansi'];
+                    $data_antrian['telp_instansi'] = $row['telp_instansi'];
+                    $data_antrian['foto1'] = $row['foto1'];
+                    $data_antrian['foto2'] = $row['foto2'];
+                    $data_antrian['foto3'] = $row['foto3'];
+                    $data_antrian['foto4'] = $row['foto4'];
                 }
                 
+            }
+            if($query2->num_rows > 0) {
+                while($row = $query->fetch_assoc()) {
+                    $data_antrian['poli'] = $row['poli'];
+                    $data_antrian['R_inap'] = $row['R_inap'];
+                    $data_antrian['D_sps'] = $row['D_sps'];
+                    $data_antrian['ambulance'] = $row['ambulance'];
+                    $data_antrian['kelebihan'] = $row['kelebihan'];
+                    $data_antrian['alat_k'] = $row['alat_k'];
+                }
             }
             echo json_encode($data_antrian);
         }

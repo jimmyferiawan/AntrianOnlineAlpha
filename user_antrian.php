@@ -113,7 +113,7 @@ exit();
                             <input type="hidden" name="id_tempat" value="" id="form_id_tempat">
                             <input type="hidden" name="id_instansi" value="" id="form_id_instansi">
                             
-                                <button class="btn btn-primary <?= $btn_antri_disabled ?>" id="btn-ambil-antrian" style="border-radius: 0px;">Ambil Antrian</button>
+                            <button class="btn btn-primary <?= $btn_antri_disabled ?>" id="btn-ambil-antrian" style="border-radius: 0px;">Ambil Antrian</button>
                             
                         </form>       
                     </div>
