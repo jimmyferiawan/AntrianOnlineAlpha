@@ -103,24 +103,38 @@
         $jam_ambil_antrian = date("H:i:s");
         $tgl = date("d/m/Y");
         $pin = generate_pin();
-
-        $sql = "INSERT INTO temp (id_user_temp, no_antrian, jam_ambil_antrian, lokasi, tgl, pin_temp, status_temp) VALUES ('$id_user_temp', '$no_antrian', '$jam_ambil_antrian', '$id_instansi', '$tgl', '$pin', 2)";
-        $query = $conn->query($sql);
-        if($query) {
-            // echo "berhasil";
-            $hasil = update_total_antrian($conn, $id_instansi, $no_antrian);
-            if(!$hasil) {
-                $pin = "Gagal menghasilkan pin silahkan ulangi kembali";
-            } else if($conn->error) {
-                $pin = $conn->error;
-            }else {
-                // var_dump($hasil);
+        $sql_cek = "SELECT id_user_temp FROM temp WHERE id_user_temp='$id_user_temp'";
+        $query_cek = $conn->query($sql_cek);
+        if($query_cek->num_rows > 0) { // jika sudah pernah antri maka hanya update saja
+            $sql = "UPDATE temp SET no_antrian='$no_antrian', jam_ambil_antrian='$jam_ambil_antrian', lokasi='$id_instansi', tgl='$tgl', pin_temp='$pin', status_temp=2 WHERE id_user_temp='$id_user_temp'";
+            $query_update = $conn->query($sql);
+            if($query_update) {
+                $hasil = update_total_antrian($conn, $id_instansi, $no_antrian);
                 $_SESSION['u_antrian_nomor'] = $no_antrian;
                 $_SESSION['u_antrian_lokasi'] = $id_instansi;
                 $_SESSION['u_antrian_pin'] = $pin;
             }
             
+        } else {
+            $sql = "INSERT INTO temp (id_user_temp, no_antrian, jam_ambil_antrian, lokasi, tgl, pin_temp, status_temp) VALUES ('$id_user_temp', '$no_antrian', '$jam_ambil_antrian', '$id_instansi', '$tgl', '$pin', 2)";
+            $query = $conn->query($sql);
+            if($query) {
+                // echo "berhasil";
+                $hasil = update_total_antrian($conn, $id_instansi, $no_antrian);
+                if(!$hasil) {
+                    $pin = "Gagal menghasilkan pin silahkan ulangi kembali";
+                } else if($conn->error) {
+                    $pin = $conn->error;
+                }else {
+                    // var_dump($hasil);
+                    $_SESSION['u_antrian_nomor'] = $no_antrian;
+                    $_SESSION['u_antrian_lokasi'] = $id_instansi;
+                    $_SESSION['u_antrian_pin'] = $pin;
+                }
+                
+            }
         }
+        
         $antrian = cek_antrian($conn, $id_instansi);
         $sekarang = $antrian['sekarang'];
         $total = $antrian['total'];
