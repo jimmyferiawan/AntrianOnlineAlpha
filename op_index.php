@@ -254,7 +254,9 @@ exit();
 	$tgl = "";
 	$jam = "";
 	$lokasi = "";
-  
+  	$no_bpjs="";
+  	$nama_bpjs="";
+  	
   if(isset($_POST["check"])){
 	  $pin = $_REQUEST["pin"];
 	  $_SESSION["pincheck"]=$pin;
@@ -266,6 +268,12 @@ exit();
 	  $tgl = $row[4];
 	  $jam = $row[3];
 	  $lokasi = $row[5];
+	
+	      $sql_bpjs = mysqli_query($conn, "SELECT p.no_bpjs_pasien, p.nama_pasien FROM pasien AS p INNER JOIN temp AS t WHERE  t.id_user_temp=p.ID_pasien ");
+	$row_bpjs = mysqli_fetch_array($sql_bpjs);
+	$no_bpjs = $row_bpjs[0];
+	$nama_bpjs = $row_bpjs[1];
+
   }
   
   if(isset($_POST["validasi"])){
