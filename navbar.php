@@ -42,6 +42,9 @@
                
 				<?php
 				if($_SESSION["id"]["tingkat_op"]==1){
+                    if(isset($_SESSION['print_no_antrian']) && isset($_SESSION['loc']['lokasi'])) {
+                        echo '<li><a href="cetak.php?instansi='. $_SESSION['loc']['lokasi'] .'&no='. $_SESSION['print_no_antrian'] .'">print</a></li>';
+                    }
 				echo '<li><a href="op_requser.php">operator baru</a></li>';}?>
 				<li><a href="op_index.php">Info Antrian</a></li>               
                 <li class="dropdown">

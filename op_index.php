@@ -151,6 +151,7 @@ exit();
 	  $row = mysqli_fetch_array($sql_pin);
 	  $nama = $row[0];
 	  $no_antrian =$row[2];
+	  $_SESSION['print_no_antrian'] = $no_antrian;
 	  $tgl = $row[4];
 	  $jam = $row[3];
 	  $lokasi = $row[5];
@@ -159,7 +160,7 @@ exit();
   if(isset($_POST["validasi"])){
 	  $pincheck = $_SESSION["pincheck"];
 	  $sql_valid = mysqli_query($conn, "UPDATE temp SET status_temp=1 WHERE pin_temp='$pincheck'");
-}
+  }
   
   if(isset($_POST["next"])){
 	  if ($now<$total){
@@ -176,6 +177,7 @@ exit();
 	  $s = mysqli_query($conn, "INSERT INTO pasien(ID_pasien ,status_pasien ) values('$pid','$statuspsn')");	  
 	  
 	  $total = 1 + $total;
+	  $_SESSION['print_no_antrian'] = $total;
 	  $s = mysqli_query($conn, "UPDATE antri SET total = $total where lokasi =  '$lokasiberobat'");
 	  
 	  $tgl = date('d-m-y');
@@ -185,11 +187,19 @@ exit();
   }
 	$id_op = $_SESSION["id"]["id_op"];
 	$sql_op = mysqli_query($conn, "select username_op, tingkat_op from oprator where ID_op='$id_op'");
+	
 	$list_op = mysqli_fetch_array($sql_op);
 	$user_op = $list_op[0];
 	$tingkat_op = $list_op[1];
 	$_SESSION["id"]["user_op"] =  $user_op;
 	$_SESSION["id"]["tingkat_op"] =  $tingkat_op;
+	$sql_cetak_antri = $conn->query("select no_antrian FROM temp where lokasi='$lokasiberobat' ORDER BY no_antrian DESC LIMIT 0, 1");
+	if($sql_cetak_antri->num_rows > 0) {
+		while($row = $sql_cetak_antri->fetch_assoc()) {
+			$_SESSION['print_no_antrian'] = $row['no_antrian'];
+		}
+	}
+
 ?>
 
 
@@ -321,5 +331,12 @@ exit();
 	</div>
 </div>
 
+<?php 
+//
+	var_dump($_SESSION);
+	// var_dump($print_antrian);
+	// echo $sqllll->num_rows;
+	// echo "select no_antrian FROM temp where lokasi='$lokasiberobat'";
+?>
 </body>
 </html>
