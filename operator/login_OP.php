@@ -115,7 +115,8 @@
 
 
                  if($hasil2->num_rows > 0) {
-                       echo "<script>location='../op_index.php'; </script>";
+                      echo "<script>alert('Password / Username  salah  !!');history.go(-1);</script>";
+
                
                     }
                     else{
