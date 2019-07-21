@@ -46,8 +46,8 @@ $sql_op = mysqli_query($conn, "SELECT no_antrian, status_temp, pin_temp  FROM te
 					break;
 				}
 			}else{
-				$sql_pass = mysqli_query($conn, "UPDATE temp SET status_temp=0 WHERE no_antrian='$now' ");
 				$now++;
+				$sql_pass = mysqli_query($conn, "UPDATE temp SET status_temp=0 WHERE no_antrian='$now' ");
 				break;
 			}
 		}
