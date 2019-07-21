@@ -346,12 +346,12 @@ exit();
   		
   			<li role="presentation" ><a role="tab" href="#offline" aria-controls="offline" data-toggle="tab">Offline</a></li>
 			</ul>
-			<div class="tab-content col-lg-10" style="box-shadow: 1px 1px 5px -2px;">
+			<div class="tab-content col-lg-10" style="box-shadow: 1px 1px 5px -2px; overflow: auto; height: 467px;">
 				<div class="tab-pane active" id="online">
 			<form class="form-horizontal" action="op_index.php" method="post" style="margin-top: 20px;">
   <div class="form-group">
 	<div class="col-sm-8">
-		<label for="nama" style="text-align: left;">PIN</label>
+		<label for="nama" style="text-align: left;">PIN Antrian</label>
 		<input type="text" class="form-control input-sm" id="pin" name="pin" >
 	</div>
 	<div class="col-sm-4">
