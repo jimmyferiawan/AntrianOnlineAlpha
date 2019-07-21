@@ -7,15 +7,69 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Login Antri Sehat</title>
 <link href="framework/css/bootstrap.css" rel="stylesheet">
 <style type="text/css">
+
+	body {
+		background-color: #2CBF65;
+		z-index: 0;
+	}
+
+    .background-wall {
+		width: 100%;
+		height: 100%;
+		background-image: url("img/bg2.jpg");
+		background-size: cover;
+		filter: blur(3px);
+		opacity: 0.5;
+		position: absolute;
+		z-index: 0;
+    }
+
+    .container {
+    	opacity: 1;
+    }
+	
 	.box {
 		background-color: #fff;
 		padding: 20px;
 		border: 0px;
 	}
 
+	.box form .input-group input {
+		border-radius: 0px;
+	}
+
+	.kiri {
+		background-color: #239A51;
+		padding: 0px;
+		height: 357px;
+	}
+
+	.img_wall_left {
+		opacity: 0.4;
+		border-radius: 0px;
+		height: 357px;
+		padding: 0;
+		position: absolute;
+		z-index: 0;
+		display: block;
+		margin: auto;
+	}
+
+	ul li a img {
+		width: 30px;
+	}
+
+	ul {
+		z-index: 1;
+		padding-top: 250px;
+		position: relative;
+	}
+	
+	<!-- CSS untuk Pengaturan Font Dan Text -->
 	.box h4 {
 		text-align: center;
 		margin-bottom: 20px;
@@ -30,76 +84,118 @@
 		color: #36d7b7;
 	}
 
-	.box form .input-group input {
-		border-radius: 0px;
+	h6 {
+		z-index: 1;
+		position: relative;
+		color: white;
+		display: block;
 	}
 
-	body {
-		background-color: #2CBF65;
-		z-index: 0;
+	h6 a {
+		color: white;
+		text-decoration: underline;
 	}
 
-    .background-wall {
-			width: 100%;
-			height: 100%;
-			background-image: url("img/bg2.jpg");
-			background-size: cover;
-			filter: blur(3px);
-			opacity: 0.5;
-			position: absolute;
-			z-index: =0;
+	h6 a:hover {
+		text-decoration: none;
+		color: white;
+	}
 
-    }
-    .container {
-    	opacity: 1;
-    }
+	h6.text-center.text1 {
+		padding-top: 8px;
+	}
 
+	/* CSS untuk Box Kanan*/
+
+	#form-login img.img-responsive {
+		width: 88%;
+		padding-bottom: 19px;
+	}
+
+	#form-login label.checkbox-inline {
+		color: grey;
+	}
+	
+	#form-login button.btn.login {
+		color: white;
+		background-color: #19CC78FF; 
+	}
+	
+	#form-login a {
+		color: #19CC78FF;
+		text-decoration: underline;
+	}
+
+	#form-login a:hover {
+		text-decoration: none;
+		color: red;
+	}
+
+	.row {
+		margin-top: 150px;
+	}
+
+	@media screen and (max-width: 500px) {
+		.row {
+			margin: 0;
+			margin-top: 15px;
+		}
+	}
 </style>
+
 </head>
 <body>
-	<div class="background-wall""></div>
+	<div class="background-wall"></div>
 		<div class="container">
+			<div class="row">	
+			</style>		
+				<div></div>
+				<!-- Awal Box sebelah Kiri -->
+				<div class="box kiri col-sm-12 col-lg-4 col-lg-offset-2">
 
-		<div class="row" style="margin-top: 150px; position: relative;">
-			
-			<div ></div>
-			
-			<div class="box col-sm-12 col-lg-4 col-lg-offset-2" style="background-color: #239A51; padding: 0px; height: 357px;">
-				<img src="img/queue2.jpg" class="img-responsive col-sm-12" style="opacity: 0.4; border-radius: 0px; height: 357px; padding: 0; position: absolute; z-index: 0; display: block; margin: auto;">
-				<ul class="list-inline center-block text-center" style="z-index: 1; padding-top: 250px; position: relative;">
-					<li><a href="#"><img src="img/fblogo.png" style="width: 30px;"></a></li>
-					<li><a href="#"><img src="img/twitterlogo.png" style="width: 30px;"></a></li>
-					<li><a href="#"><img src="img/gogglelogo.png" style="width: 30px;"></a></li>
-				</ul>
-				<h6 style="z-index: 1; position: relative; padding-top: 10px;" class="text-center"><a href="user_regist.php" style="color: white;">Belum Punya Akun ?</a></h6>
-				<h6 style="z-index: 1; position: relative;" class="text-center"><a href="user_regist.php" style="color: white;"><u>Daftar</u></a></h6>
+					<img src="img/queue2.jpg" class="img-responsive img_wall_left col-sm-12">
+					<ul class="list-inline center-block text-center">
+						<li><a href="#"><img src="img/fblogo.png"></a></li>
+						<li><a href="#"><img src="img/twitterlogo.png"></a></li>
+						<li><a href="#"><img src="img/gogglelogo.png"></a></li>
+					</ul>
+					<h6 class="text-center text1">Belum Punya Akun ?</h6>
+					<h6 class="text-center"><a href="user_regist.php">Daftar</a></h6>
 
-<!-- Update sourcut ke admin  -->
-				<div class="btn bnt-sm" name="adminscr" id="adminscr"  > <a href="/AntrianOnlineAlpha/login_AD.php" style="opacity: 0">-----------</a> </div>
-			
+					<!-- Awal shortcut ke admin  -->
+					<div class="btn bnt-sm" name="adminscr" id="adminscr">
+						<a href="/AntrianOnlineAlpha/login_AD.php" style="opacity: 0">-----------</a>
+					</div>
+					<!-- Akhir Shortcut Ke Admin -->
+					
+				</div>
+				<!-- Akhir Box Sebelah Kiri -->
 
-			</div>
+				<!-- Awal Box Sebelah Kanan --><div class="box col-sm-12 col-lg-3 col-lg-offset-0">
 
-			<div class="box col-sm-12 col-lg-3 col-lg-offset-0">
-				<form action="user/login.php" method="POST" id="form-login">
-					<img class="img-responsiv center-block" src="img/logoas.png" style="width: 88%; padding-bottom: 19px;">
-					<div class="form-group">
-					<input type="text" name="username_pasien" class="form-control" placeholder="username" id="inputusername">
-					</div>
-					<div class="form-group">
-					<input type="password" name="password_pasien" class="form-control" placeholder="password" id="inputpassword">
-					</div>
-					<div class="form-group">
-					<label class="checkbox-inline"><input type="checkbox" id="showpassword">show password</label>
-					</div>
-					<div class="form-group">
-					<button class="btn btn-block" style="color: white; background-color: #19CC78FF" nam#71EEB8en_login" type="submit">Login</button>
-					</div>
-					<div class="form-group">
-						<a href="" class="form-inline text-center center-block" style="color: #19CC78FF"><h5>forgot password?</h5></a>
-					</div>
-				</form>
-			</div>
+					<form action="user/login.php" method="POST" id="form-login">
+						<img class="img-responsive center-block" src="img/logoas.png">
+
+						<div class="form-group">
+						<input type="text" name="username_pasien" class="form-control" placeholder="username" id="inputusername">
+						</div>
+						<div class="form-group">
+						<input type="password" name="password_pasien" class="form-control" placeholder="password" id="inputpassword">
+						</div>
+						<div class="form-group">
+						<label class="checkbox-inline"><input type="checkbox" id="showpassword">show password</label>
+						</div>
+						<div class="form-group">
+						<button class="btn login btn-block" type="submit">Login</button>
+						</div>
+						<div class="form-group">
+							<a href="" class="form-inline text-center center-block"><h5>forgot password?</h5></a>
+						</div>
+					</form>
+
+				</div>
+				<!-- Akhir Box Sebelah Kanan -->
+
 			<script>
 
 				if (adminscr==true) {
