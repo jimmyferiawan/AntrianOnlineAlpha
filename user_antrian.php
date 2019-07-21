@@ -91,7 +91,7 @@ exit();
 
 
     <div class="container">
-        <div class="col-sm-12 col-md-4 col-lg-4">
+        <div class="col-sm-12 col-md-4 col-lg-4" id="kolomkiri">
                 <div class="panel panel-success">
                     <div class="panel-heading">
                         <h5 class="panel-title">Pilih Tempat Berobat</h5>
@@ -119,7 +119,7 @@ exit();
                     </div>
                 </div>
             </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4"  id="kolomndelik">
                         <div class="row">
                         <div class="col-lg-12"><img id="foto1" src="img/usr.png" class="img-responsive" alt="" style=" width: 100%; height: 350px;"></div>
                         <div class="col-lg-12" style="padding: 10px 0px;">
@@ -131,7 +131,7 @@ exit();
 
                         </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-4" id="kolomndelik2">
                         <div class="jumbotron" style="padding-top: 10px; padding-bottom: 20px; margin-bottom: 10px; background-color: transparent; border: solid 1px DarkTurquoise;">
                             <div class="row text-center">
                                 <div class="col-lg-8 col-lg-offset-2" style="background-color: #36d7b7; color: white;"><h4 style="letter-spacing: 2px;">info antrian</h4></div>
@@ -201,7 +201,7 @@ Senin   07.30–16.00</td>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-8 col-lg-offset-4">
+                    <div class="col-lg-8 col-lg-offset-4" id="kolomndelik3">
         <div class="panel panel-success">
             <div class="panel-heading">
                 <div class="panel-title">Ulasan Mengenai Tempat</div>
@@ -358,6 +358,7 @@ Senin   07.30–16.00</td>
         });
 
         daftarNama.addEventListener('change', function() {
+
             if (this.hasAttribute("data-id-tempat")) {
                 var idTempat = this.getAttribute('data-id-tempat');
                 var idInstansi = this.value;
@@ -410,6 +411,26 @@ Senin   07.30–16.00</td>
         btnKonfirmasiAntri.addEventListener('click', function(e) {
             e.preventDefault();
             formAmbilAntrian.submit();
+        });
+
+
+        // script menyembunyikan kolom kanan 
+        $(document).ready(function() {
+            $("#kolomndelik").hide();
+            $("#kolomndelik2").hide();
+            $("#kolomndelik3").hide();
+
+            $("#kolomkiri").removeClass("col-lg-4");
+            $("#kolomkiri").addClass("col-lg-12");
+        });
+
+        daftarNama.addEventListener('change',function(){
+            $("#kolomndelik").show();
+            $("#kolomndelik2").show();
+            $("#kolomndelik3").show();
+
+            $("#kolomkiri").addClass("col-lg-4");
+            $("#kolomkiri").removeClass("col-lg-12");
         });
     </script>
 </body>
