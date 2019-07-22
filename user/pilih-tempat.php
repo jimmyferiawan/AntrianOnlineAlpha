@@ -82,6 +82,7 @@
                     $data_antrian['foto2'] = $row['foto2'];
                     $data_antrian['foto3'] = $row['foto3'];
                     $data_antrian['foto4'] = $row['foto4'];
+                    $data_antrian['foto5'] = $row['foto5'];
                 }
                 
             }
