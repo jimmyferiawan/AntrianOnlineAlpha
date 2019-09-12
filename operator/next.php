@@ -30,17 +30,27 @@ $sql_op = mysqli_query($conn, "SELECT no_antrian, status_temp, pin_temp  FROM te
 	$sql_stat = mysqli_query($conn, "SELECT status_temp FROM temp WHERE status_temp=1 AND lokasi = '$lokasiberobat' AND no_antrian>$now ORDER BY no_antrian ASC ");
 	$count_stat = mysqli_num_rows($sql_stat);
 	
-	$sql_antri = mysqli_query($conn, "SELECT no_antrian, status_temp, pin_temp  FROM temp WHERE lokasi = '$lokasiberobat' AND no_antrian>$now ORDER BY no_antrian ASC ");
+	$sql_antri = mysqli_query($conn, "SELECT no_antrian, status_temp, pin_temp, siklus_temp  FROM temp WHERE lokasi = '$lokasiberobat' AND no_antrian>$now ORDER BY no_antrian ASC ");
 	$count = mysqli_num_rows($sql_antri);
-	
+
+	/*$sql_siklus =mysqli_query($conn, "SELECT siklus_temp FROM temp WHERE lokasi= '$lokasiberobat' AND no_antrian='$now' ");
+	$siklus = mysqli_fetch_array($sql_siklus);
+	$siklus_temp = $siklus[0];
+	*/
 	if($count_stat>0){
 	if($count>0){
 		while ($row = mysqli_fetch_assoc($sql_antri)){
 			if($row['status_temp']==2){
+
 				if($total-$now>=$loop){
 					$now++;
-					$total++;
-					$s = mysqli_query($conn, "UPDATE temp SET no_antrian  = $total where pin_temp  =  '".$row['pin_temp']."'");
+					if($row['siklus_temp']<2){
+						$u = mysqli_query($conn, "UPDATE temp SET siklus_temp=2 WHERE pin_temp= '".$row['pin_temp']."' ");
+						$total++;
+						$s = mysqli_query($conn, "UPDATE temp SET no_antrian  = $total where pin_temp  =  '".$row['pin_temp']."'");
+					}else{
+						$u = mysqli_query($conn, "DELETE FROM temp WHERE pin_temp= '".$row['pin_temp']."' ");
+					}
 					$loop++;
 				}else{
 					break;
