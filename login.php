@@ -140,6 +140,10 @@
 			margin: 0;
 			margin-top: 15px;			
 		}
+
+		img.img_wall_left {
+			width: 100%;
+		}
 	}
 
 </style>
