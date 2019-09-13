@@ -49,7 +49,7 @@
                 $_SESSION['u_antrian_lokasi'] = $data_antrian_user['lokasi'];
                 $_SESSION['u_antrian_nomor'] = $data_antrian_user['no_antrian']; 
             }
-            header("Location: /AntrianOnlineAlpha/bpjs.php");
+            header("Location: /AntrianOnlineAlpha/user_antrian.php");
 
         } else {
             echo "<script>alert('Password / Username  salah  !!');history.go(-1);</script>";

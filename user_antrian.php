@@ -97,6 +97,11 @@ exit();
                         <h5 class="panel-title">Pilih Tempat Berobat</h5>
                     </div>
                     <div class="panel-body">  
+                        <select name ="jenis-antrian" id="jenis-antrian" class="form-control">
+                              <option selected disabled>Jenis Berobat</option>
+                            <option value="1">UMUM</option>
+                            <option value="2">BPJS</option>
+                         </select><br>
                         <select name="jenis-tempat" id="jenis-tempat" class="form-control">
                             <option selected disabled>Jenis tempat</option>
                             <option value="1">Rumah Sakit</option>
@@ -268,6 +273,7 @@ Senin   07.30–16.00</td>
         var jenisTempat = document.getElementById('jenis-tempat');
         var daftarNama = document.getElementById('daftar-nama');
         var nomorAntrian = document.getElementById('nomor-antrian');
+         var nomorbpjs = document.getElementById('jenis-antrian');
         var nomorAntrianSekarang = document.getElementById('nomor-antrian-sekarang');
         var btnAmbilAntrian = document.getElementById('btn-ambil-antrian');
         var inpAntrianTempat = document.getElementById('form_id_tempat');
@@ -289,6 +295,7 @@ Senin   07.30–16.00</td>
         var fotoInstansi3 = document.getElementById('foto3');
         var fotoInstansi4 = document.getElementById('foto4');
         var fotoInstansi5 = document.getElementById('foto5');
+
 
         function updateDaftarnama(listNamaTempat, idJenisTempat) {
             // update daftar instansi ketika jenis tempat diubah
