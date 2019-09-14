@@ -43,9 +43,13 @@
 	}
 
 	.kiri {
-		background-color: #239A51;
+		background-image: linear-gradient(to top left, #10D49F, #239A51);
 		padding: 0px;
 		height: 357px;
+	}
+	
+	.kiri:hover {
+		background-image: linear-gradient(to top left, #239A51, #10D49F);
 	}
 
 	.img_wall_left {
@@ -130,6 +134,23 @@
 		text-decoration: none;
 		color: red;
 	}
+	
+	.form-control {
+		color: #2CBF65;
+		font-weight: bolder;
+	}
+
+
+	.form-control:hover {
+		border-bottom: solid 1px #2CBF65;
+		box-shadow: none;
+		border-top: none;
+		border-left: none;
+		border-right: none;
+		border-radius: 0px;
+
+		color: #2CBF65;
+	}
 
 	.row {
 		margin-top: 150px;
@@ -200,6 +221,22 @@
 
 				</div>
 				<!-- Akhir Box Sebelah Kanan -->
+				<script src="framework/js/jquery-3.3.1.min.js"></script>
+				<script src="framework/js/bootstrap.js"></script>
+
+				<!-- script JS untuk merubah tampilan -->
+				<script>
+					$(document).ready(function(){
+						$("#inputusername").change(function(){
+							$(".form-control#inputusername").css({"border":"none"});
+						});
+
+						$("#inputpassword").change(function(){
+							$(".form-control#inputpassword").css({"border":"none"});
+						});
+					});
+				</script>
+				<!-- Akhir Script -->
 
 			<script>
 
