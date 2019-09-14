@@ -34,16 +34,16 @@ $df = disk_free_space("/");
 
 
  						<!-- speed internet  -->
-                    <div class="col-md-3 col-sm-6 col-xs-6panel panel-primary text-center no-boder bg-color-white">
+                    <!-- <div class="col-md-3 col-sm-6 col-xs-6panel panel-primary text-center no-boder bg-color-white">
                         <div class="panel panel-back noti-box ">
                                <i class="fa fa-dashboard fa-5x"></i><strong></strong>
-                             <h3 class="text-muted"><?php include 'speed.php';; ?></h3>
+                             <h3 class="text-muted"><?php ;; ?></h3>
                         </div>
                         <div class="panel-footer back-footer-blue">
                              SPEED / second
                             
                         </div>
-                    </div> 
+                    </div>  -->
  					<!-- Setorange free real                        -->
                     <div class="col-md-3 col-sm-6 col-xs-6panel panel-primary text-center no-boder bg-color-white">
                         <div class="panel  panel-back noti-box">
@@ -71,10 +71,10 @@ $df = disk_free_space("/");
                     <div class="col-md-3 col-sm-6 col-xs-6panel panel-primary text-center no-boder bg-color-white">
                         <div class="panel   panel-back noti-box">
                             <i class="fa fa-edit fa-5x"></i>
-                            <h3>20,000 </h3>
+                            <h3>5 </h3>
                         </div>
                         <div class="panel-footer back-footer-blue">
-                            Articles Pending
+                           Bug Report
                             
                         </div>
                     </div>    
