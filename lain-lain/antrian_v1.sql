@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 22 Jul 2019 pada 01.46
--- Versi server: 10.3.16-MariaDB
--- Versi PHP: 7.3.7
+-- Waktu pembuatan: 14 Sep 2019 pada 18.02
+-- Versi server: 10.4.6-MariaDB
+-- Versi PHP: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -39,11 +39,32 @@ CREATE TABLE `antri` (
 --
 
 INSERT INTO `antri` (`lokasi`, `sekarang`, `total`) VALUES
-('A0001', 3, 3),
-('A0002', 0, 0),
+('A0001', 5, 5),
+('A0002', 0, 1),
 ('A0003', 0, 0),
 ('A0004', 0, 0),
 ('A0005', 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `bpjs`
+--
+
+CREATE TABLE `bpjs` (
+  `id_bpjs` varchar(30) NOT NULL,
+  `kk_pasien` varchar(40) NOT NULL,
+  `bpjs_pasien` varchar(40) NOT NULL,
+  `Alamat_bpjs` varchar(40) NOT NULL,
+  `Keterangan` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `bpjs`
+--
+
+INSERT INTO `bpjs` (`id_bpjs`, `kk_pasien`, `bpjs_pasien`, `Alamat_bpjs`, `Keterangan`) VALUES
+('1050241708900001', '1234', '55555', 'A0001', 'qweqwe');
 
 -- --------------------------------------------------------
 
@@ -253,13 +274,33 @@ CREATE TABLE `pasien` (
 --
 
 INSERT INTO `pasien` (`ID_pasien`, `username_pasien`, `password_pasien`, `nama_pasien`, `jenis_kelamin_pasien`, `alamat_pasien`, `no_hp_pasien`, `foto_profil_pasien`, `no_bpjs_pasien`, `status_pasien`) VALUES
-('01', '', '', '', '', '', '', '', NULL, 1),
-('02', '', '', '', '', '', '', '', NULL, 1),
-('1050241708900001', 'pasien1', 'pasien1', 'anita nurrahmawati', '2', 'kediri', '088800000000', '', '-', 1),
+('0456', 'bagas', '123', 'bagas aji  n', 'L', 'coba', '056878', '', '02389689', 2),
+('1050241708900001', 'pasien1', 'pasien1', 'anita nurrahmawati', '2', 'kediri', '088800000000', '', '1234567897894', 1),
 ('1050241708900002', 'pasien2', 'pasien2', 'andi fatkhurahman', '1', 'tulung agung', '088800000000', '', '-', 0),
 ('1050241708900003', 'pasien3', 'pasien3', 'jimmy feriawan', '1', 'kediri', '088800000000', '', 'bpj01', 1),
 ('1050241708900004', 'pasien4', '', 'yulianto', '1', 'kertosono', '088800000000', '', '-', 1),
-('1050241708900005', 'pasien5', 'pasien5', 'bagas aji nugroho', '1', 'blitar', '088800000000', '', '-', 2);
+('1050241708900005', 'pasien5', 'pasien5', 'bagas aji nugroho', '1', 'blitar', '088800000000', '', '-', 2),
+('12314234', '', '', '', '', '', '', '', NULL, 1),
+('1234567890', 'Yanuar25', '12345678', 'M yanuar', 'L', 'Nganjuk', '08123456789', '', '0123456789', 2),
+('234234', '', '', '', '', '', '', '', NULL, 1),
+('2342534535', '', '', '', '', '', '', '', NULL, 1),
+('245345345', '', '', '', '', '', '', '', NULL, 1),
+('2q3qweqw', '', '', '', '', '', '', '', NULL, 1),
+('345345', '', '', '', '', '', '', '', NULL, 1),
+('345346546', '', '', '', '', '', '', '', NULL, 1),
+('45647567567', '', '', '', '', '', '', '', NULL, 1),
+('5365464634', '', '', '', '', '', '', '', NULL, 1),
+('5675445646', '', '', '', '', '', '', '', NULL, 1),
+('asdasd', '', '', '', '', '', '', '', NULL, 1),
+('asdasdad', '', '', '', '', '', '', '', NULL, 1),
+('asdasdaw', '', '', '', '', '', '', '', NULL, 1),
+('asdfdsfs', '', '', '', '', '', '', '', NULL, 1),
+('P000001', '', '', '', '', '', '', '', NULL, 1),
+('P000002', '', '', '', '', '', '', '', NULL, 1),
+('P000003', '', '', '', '', '', '', '', NULL, 1),
+('P000004', '', '', '', '', '', '', '', NULL, 1),
+('P000005', '', '', '', '', '', '', '', NULL, 1),
+('P000006', '', '', '', '', '', '', '', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -328,17 +369,19 @@ CREATE TABLE `temp` (
   `lokasi` varchar(80) NOT NULL,
   `tgl` varchar(10) NOT NULL,
   `pin_temp` varchar(20) NOT NULL,
-  `status_temp` int(11) NOT NULL
+  `status_temp` int(11) NOT NULL,
+  `siklus_temp` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `temp`
 --
 
-INSERT INTO `temp` (`id_user_temp`, `no_antrian`, `jam_ambil_antrian`, `lokasi`, `tgl`, `pin_temp`, `status_temp`) VALUES
-('01', 1, '03:25:43', 'A0001', '21-07-19', '7320sXe9637KpV', 0),
-('02', 2, '03:26:06', 'A0001', '21-07-19', '9462Amb442qrd', 0),
-('1050241708900003', 3, '15:27:13', 'A0001', '21/07/2019', '525242Gd723197', 0);
+INSERT INTO `temp` (`id_user_temp`, `no_antrian`, `jam_ambil_antrian`, `lokasi`, `tgl`, `pin_temp`, `status_temp`, `siklus_temp`) VALUES
+('1234567890', 1, '16:52:19', 'A0002', '13/09/2019', '809937qq527182', 2, 0),
+('P000001', 1, '06:36:25', 'A0001', '07-09-19', '3373MyI8738DQW', 0, 0),
+('P000003', 3, '06:36:35', 'A0001', '07-09-19', '3038ZrM6306wjO', 0, 0),
+('P000004', 5, '06:37:55', 'A0001', '07-09-19', '2033YfI7857PsZ', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -364,6 +407,12 @@ CREATE TABLE `tempbesok` (
 --
 ALTER TABLE `antri`
   ADD PRIMARY KEY (`lokasi`);
+
+--
+-- Indeks untuk tabel `bpjs`
+--
+ALTER TABLE `bpjs`
+  ADD PRIMARY KEY (`id_bpjs`);
 
 --
 -- Indeks untuk tabel `dokter`
