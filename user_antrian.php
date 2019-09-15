@@ -483,30 +483,40 @@ Senin   07.30–16.00</td>
             $("#kolomkiri").removeClass("col-lg-4");
             $("#kolomkiri").addClass("col-lg-12");
 
-            // $('#jenis-tempat').hide();
-            // $('#daftar-nama').hide();
-            document.getElementById("jenis-tempat").style.display = "none";
+            // // $('#jenis-tempat').hide();
+            // // $('#daftar-nama').hide();
+            // document.getElementById("jenis-tempat").style.display = "none";
             
-            document.getElementById("daftar-nama").style.display = "none";
+            // document.getElementById("daftar-nama").style.display = "none";
+
+            $("#jenis-tempat").hide();
+            $("#daftar-nama").hide();
 
             $('#jenis-antrian').on('change', function() {
                 if ( this.value == '1')
                   {
-                    $('#jenis-tempat').show();
-                    $('#daftar-nama').show();  
+                    $('#jenis-tempat').show(600);
+                    $('#daftar-nama').show(600);  
                   }
                 else if ( this.value == '2')
                   {
-                    document.getElementById("jenis-tempat").style.display = "none";
-                    document.getElementById("daftar-nama").style.display = "none";
+                    $("#jenis-tempat").hide();
+                    $("#daftar-nama").hide();
+
+                    $("#kolomndelik").fadeOut("slow");
+                    $("#kolomndelik2").fadeOut("slow");
+                    $("#kolomndelik3").fadeOut("slow");
+
+                    $("#kolomkiri").addClass("col-lg-12");
+                    $("#kolomkiri").removeClass("col-lg-4");
                   }
              });
         });
 
         daftarNama.addEventListener('change',function(){
-            $("#kolomndelik").show();
-            $("#kolomndelik2").show();
-            $("#kolomndelik3").show();
+            $("#kolomndelik").fadeToggle("slow");
+            $("#kolomndelik2").fadeToggle("slow");
+            $("#kolomndelik3").fadeToggle("slow");
 
             $("#kolomkiri").addClass("col-lg-4");
             $("#kolomkiri").removeClass("col-lg-12");
