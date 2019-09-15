@@ -182,7 +182,7 @@ exit();
                                 <hr>
                             </div>
                         </div>
-                        <div class="panel panel-info" style="padding: 15px;">
+                        <div class="panel panel-info" style="padding: 15px; box-shadow: 0px 1px 5px -2px; border: none;">
                             <div class="list-group">
                             <h4 class="list-group-item-heading">Info Tempat</h4>
                             <p class="list-group-item-text">
