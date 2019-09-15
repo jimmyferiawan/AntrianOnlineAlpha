@@ -445,6 +445,25 @@ Senin   07.30–16.00</td>
 
             $("#kolomkiri").removeClass("col-lg-4");
             $("#kolomkiri").addClass("col-lg-12");
+
+            $('#jenis-tempat').hide();
+            $('#daftar-nama').hide();
+
+
+            $('#jenis-antrian').on('change', function() {
+                if ( this.value == '1')
+                  {
+                    $('#jenis-tempat').show();
+                    $('#daftar-nama').show();
+
+                  }
+                else if ( this.value == '2')
+                  {
+                    $('#jenis-tempat').hide();
+                    $('#daftar-nama').hide();
+
+                  }
+             });
         });
 
         daftarNama.addEventListener('change',function(){
@@ -455,6 +474,8 @@ Senin   07.30–16.00</td>
             $("#kolomkiri").addClass("col-lg-4");
             $("#kolomkiri").removeClass("col-lg-12");
         });
+
+
         // Akhir Script
     </script>
 </body>
