@@ -94,8 +94,21 @@ exit();
         .panel-success>.panel-heading {
             background-image: linear-gradient(to top right, #11998e, #38ef7d);
             color: #fff;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
+
+        #btn-ambil-antrian {
+            box-shadow: 0px 2px 7px -2px;
+        }
+
+        select.form-control {
+            border: none;
+        }
+
+        select option[value]:hover {
+            background-color: green !important;
+        }
+    
     </style>
 </head>
 <body>
@@ -106,7 +119,7 @@ exit();
         <div class="col-sm-12 col-md-4 col-lg-4" id="kolomkiri">
                 <div class="panel panel-success">
                     <div class="panel-heading">
-                        <h5 class="panel-title">Pilih Tempat Berobat</h5>
+                        <h5 class="panel-title" style="font-size: 14px;"><span class="glyphicon glyphicon-map-marker" style="padding-right: 8px;"></span>Pilih Tempat</h5>
                     </div>
                     <div class="panel-body">  
                         <select name ="jenis-antrian" id="jenis-antrian" class="form-control mb-3">
@@ -128,7 +141,7 @@ exit();
                             <input type="hidden" name="id_tempat" value="" id="form_id_tempat">
                             <input type="hidden" name="id_instansi" value="" id="form_id_instansi">
                             
-                            <button class="btn btn-primary <?= $btn_antri_disabled ?>" id="btn-ambil-antrian" style="border-radius: 0px;">Ambil Antrian</button>
+                            <button class="btn btn-primary <?= $btn_antri_disabled ?> text-center" id="btn-ambil-antrian" style="border-radius: 0px;">Ambil Antrian</button>
                             
                         </form>       
                     </div>
