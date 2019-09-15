@@ -108,6 +108,20 @@ exit();
         select option[value]:hover {
             background-color: green !important;
         }
+
+        .jumbotron {
+            background-image: linear-gradient(to top right, #11998e, #38ef7d);
+            border: none;
+            color: white;
+        }
+
+        .jumbotron:hover {
+            background-image: linear-gradient(to top right, #38ef7d, #11998e);
+        }
+
+        body {
+            background-color: #F4F4F4;
+        }
     
     </style>
 </head>
@@ -160,7 +174,7 @@ exit();
                         </div>
                     </div>
                     <div class="col-lg-4" id="kolomndelik2">
-                        <div class="jumbotron" style="padding-top: 10px; padding-bottom: 20px; margin-bottom: 10px; background-color: transparent; border: solid 1px DarkTurquoise;">
+                        <div class="jumbotron" style="padding-top: 10px; padding-bottom: 20px; margin-bottom: 10px; background-color: transparent;">
                             <div class="row text-center">
                                 <div class="col-lg-8 col-lg-offset-2" style="background-color: #36d7b7; color: white;"><h4 style="letter-spacing: 2px;">info antrian</h4></div>
                                 <div class="col-lg-6"><h1 id="nomor-antrian-sekarang">0</h1> <h4>SEKARANG</h4></div>
@@ -232,7 +246,7 @@ Senin   07.30–16.00</td>
                     <div class="col-lg-8 col-lg-offset-4" id="kolomndelik3">
         <div class="panel panel-success">
             <div class="panel-heading">
-                <div class="panel-title">Ulasan Mengenai Tempat</div>
+                <div class="panel-title" style="font-size: 14px;"><span class="glyphicon glyphicon-comment" style="padding-right: 8px;"></span>Ulasan Mengenai Tempat</div>
             </div>
             <div class="panel-body">
                 <div class="col-lg-1" style="padding-right: 0; padding-top: 5px;">
