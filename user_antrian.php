@@ -113,10 +113,27 @@ exit();
             background-image: linear-gradient(to top right, #11998e, #38ef7d);
             border: none;
             color: white;
+
+            position: relative;
+            z-index: 1;
         }
 
-        .jumbotron:hover {
-            background-image: linear-gradient(to top right, #38ef7d, #11998e);
+        .jumbotron::before {
+           position: absolute;
+           content: "";
+           top: 0;
+           right: 0;
+           bottom: 0;
+           left: 0;
+           background-image: linear-gradient(to bottom right, #11998e, #38ef7d);
+          );
+           z-index: -1;
+           transition: opacity 0.5s linear;
+           opacity: 0;
+        }
+
+        .jumbotron:hover::before {
+            opacity: 1;
         }
 
         body {
@@ -195,20 +212,6 @@ exit();
                                          <th>Alamat</th>
                                          <td id="info-alamat">-</td>
                                      </tr>
-                                <!--      <tr>
-                                         <th>Jam Buka</th>
-                                         <td>Selasa 07.30–16.00
-Rabu    07.30–16.00
-Kamis   07.30–16.00
-Jumat   07.30–16.00
-Sabtu   Tutup
-Minggu  Tutup
-Senin   07.30–16.00</td>
-                                     </tr>
-                                     <tr>
-                                         <th>Provinsi</th>
-                                         <td>Jawa Timur</td>
-                                     </tr> -->
                                      <tr>
                                          <th>No Telepon  </th>
                                          <td id="info-notelp">-</td>
@@ -462,16 +465,16 @@ Senin   07.30–16.00</td>
         // script gallery foto
 
         function myFunction(imgs) {
-  // Get the expanded image
-  var expandImg = document.getElementById("foto1");
-  // Get the image text
-  // Use the same src in the expanded image as the image being clicked on from the grid
-  expandImg.src = imgs.src;
-  // Use the value of the alt attribute of the clickable image as text inside the expanded image
-  imgText.innerHTML = imgs.id;
-  // Show the container element (hidden with CSS)
-  expandImg.parentElement.style.display = "block";
-} 
+          // Get the expanded image
+          var expandImg = document.getElementById("foto1");
+          // Get the image text
+          // Use the same src in the expanded image as the image being clicked on from the grid
+          expandImg.src = imgs.src;
+          // Use the value of the alt attribute of the clickable image as text inside the expanded image
+          imgText.innerHTML = imgs.id;
+          // Show the container element (hidden with CSS)
+          expandImg.parentElement.style.display = "block";
+        } 
 
 
         // script menyembunyikan kolom kanan 
@@ -496,12 +499,14 @@ Senin   07.30–16.00</td>
                 if ( this.value == '1')
                   {
                     $('#jenis-tempat').show(600);
-                    $('#daftar-nama').show(600);  
+                    $('#daftar-nama').show(600); 
                   }
                 else if ( this.value == '2')
                   {
                     $("#jenis-tempat").hide();
                     $("#daftar-nama").hide();
+                    $("#jenis-tempat").val("");
+                    $("#daftar-nama").val("");
 
                     $("#kolomndelik").fadeOut("slow");
                     $("#kolomndelik2").fadeOut("slow");
