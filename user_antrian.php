@@ -82,8 +82,20 @@ exit();
             background-color: #36d7b7;
             color: white;
         }
-    
 
+        .mb-3 {
+            margin-bottom: 10px;
+        }
+
+        .panel-success {
+            border-radius: 0;
+        }
+    
+        .panel-success>.panel-heading {
+            background-image: linear-gradient(to top right, #11998e, #38ef7d);
+            color: #fff;
+            letter-spacing: 2px;
+        }
     </style>
 </head>
 <body>
@@ -97,23 +109,21 @@ exit();
                         <h5 class="panel-title">Pilih Tempat Berobat</h5>
                     </div>
                     <div class="panel-body">  
-                        <select name ="jenis-antrian" id="jenis-antrian" class="form-control">
+                        <select name ="jenis-antrian" id="jenis-antrian" class="form-control mb-3">
                               <option selected disabled>Jenis Berobat</option>
                             <option value="1">UMUM</option>
                             <option value="2">BPJS</option>
-                         </select><br>
-                        <select name="jenis-tempat" id="jenis-tempat" class="form-control">
+                         </select>
+                        <select name="jenis-tempat" id="jenis-tempat" class="form-control mb-3">
                             <option selected disabled>Jenis tempat</option>
                             <option value="1">Rumah Sakit</option>
                             <option value="2">Puskesmas</option>
                             <option value="3">Klinik</option>
                             <option value="4">Dokter Umum</option>
                         </select>
-                        <br>
-                        <select name="daftar-nama" id="daftar-nama" class="form-control">
+                        <select name="daftar-nama" id="daftar-nama" class="form-control mb-3">
                             <option selected disabled value="">Nama Tempat</option>
                         </select>
-                        <br>
                         <form action="output_antrian.php" method="post" id="form-ambil-antrian">
                             <input type="hidden" name="id_tempat" value="" id="form_id_tempat">
                             <input type="hidden" name="id_instansi" value="" id="form_id_instansi">
@@ -446,22 +456,22 @@ Senin   07.30–16.00</td>
             $("#kolomkiri").removeClass("col-lg-4");
             $("#kolomkiri").addClass("col-lg-12");
 
-            $('#jenis-tempat').hide();
-            $('#daftar-nama').hide();
-
+            // $('#jenis-tempat').hide();
+            // $('#daftar-nama').hide();
+            document.getElementById("jenis-tempat").style.display = "none";
+            
+            document.getElementById("daftar-nama").style.display = "none";
 
             $('#jenis-antrian').on('change', function() {
                 if ( this.value == '1')
                   {
                     $('#jenis-tempat').show();
-                    $('#daftar-nama').show();
-
+                    $('#daftar-nama').show();  
                   }
                 else if ( this.value == '2')
                   {
-                    $('#jenis-tempat').hide();
-                    $('#daftar-nama').hide();
-
+                    document.getElementById("jenis-tempat").style.display = "none";
+                    document.getElementById("daftar-nama").style.display = "none";
                   }
              });
         });
