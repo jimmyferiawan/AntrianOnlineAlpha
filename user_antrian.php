@@ -333,6 +333,7 @@ exit();
     <script src="framework/js/jquery-3.3.1.min.js"></script>
     <script src="framework/js/bootstrap.min.js"></script>
     <script src="framework/js/axios.min.js"></script>
+    <script src="framework/js/jquery-ui.min.js"></script>
     <script>
         var jenisTempat = document.getElementById('jenis-tempat');
         var daftarNama = document.getElementById('daftar-nama');
@@ -555,16 +556,11 @@ exit();
             $("#kolomkiri").addClass("col-lg-4");
             $("#kolomkiri").removeClass("col-lg-12");
         });
-
-        var header = document.getElementById('head1');
-
-        header.addEventListener('click',function() {
-            $('#head1').addClass('text-center');
+        
+        btnAmbilAntrian.addEventListener('mouseover', function() {
+            $('#btn-ambil-antrian').addClass('btn-block', 1000);
         });
 
-        btnAmbilAntrian.addEventListener('click', function() {
-            
-        });
         // Akhir Script
     </script>
 </body>

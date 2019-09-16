@@ -201,18 +201,6 @@ exit();
 </style>
 <!-- Akhir CSS -->
 
-<!-- Awal Baris JavaScript  -->
-<script src="framework/js/jquery-3.3.1.min.js"></script>
-<script src="framework/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-  $(document).ready(function() {
-   	$("#check").click(function(){
-  	$("#offline").removeClass(".active");
-  	$("#online").addClass(".active");
-		});
-	});
-</script>
-<!-- Akhir Baris javascript -->
 </head>
 
 <body>
@@ -376,7 +364,7 @@ exit();
   <div class="form-group">
 	<div class="col-sm-8">
 		<label for="nama" style="text-align: left;">PIN Antrian</label>
-		<input type="text" class="form-control input-sm" id="pin" name="pin" >
+		<input type="text" class="form-control input-sm" id="pin" name="pin" autofocus>
 	</div>
 	<div class="col-sm-4">
 		<input type="submit" class="btn btn-primary" name="check" id="check" value="Check">
@@ -452,4 +440,18 @@ exit();
 	</div>
 </div>
 </body>
+
+<!-- Awal Baris JavaScript  -->
+<script src="framework/js/jquery-3.3.1.min.js"></script>
+<script src="framework/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+   	$("#check").click(function(){
+  	$("#offline").removeClass(".active");
+  	$("#online").addClass(".active");
+		});
+
+	});
+</script>
+<!-- Akhir Baris javascript -->
 </html>
