@@ -44,7 +44,7 @@ exit();
         .btn-primary:hover {
             color: #fff;
             background-color: #16a085;
-            border-color: #16a085
+            border-color: #16a085;
         }
 
         .navbar-default .navbar-toggle:hover {
@@ -63,7 +63,7 @@ exit();
         }
       
         #form-ambil-antrian {
-            display: inline-block;
+            display: block;
         }
 
         .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
@@ -173,7 +173,7 @@ exit();
     <div class="container">
         <div class="col-sm-12 col-md-4 col-lg-4" id="kolomkiri">
                 <div class="panel panel-success">
-                    <div class="panel-heading">
+                    <div class="panel-heading" id="head1">
                         <h5 class="panel-title" style="font-size: 14px;"><span class="glyphicon glyphicon-map-marker" style="padding-right: 8px;"></span>Pilih Tempat</h5>
                     </div>
                     <div class="panel-body">  
@@ -204,7 +204,7 @@ exit();
             </div>
         <div class="col-lg-4"  id="kolomndelik">
                         <div class="row">
-                        <div class="col-lg-12"><img id="foto1" src="img/usr.png" class="img-responsive" alt="" style=" width: 100%; height: 350px;"></div>
+                        <div class="col-lg-12"><img id="foto1" src="img/usr.png" class="img-responsive" alt="" style=" width: 100%; height: 350px; box-shadow: 0px 2px 2px grey"></div>
                         <div class="col-lg-12" style="padding: 10px 0px;">
                             <img id="foto2" src="img/logoas.png" class="img-responsive col-sm-3 col-lg-3" alt=""  onclick="myFunction(this);">
                             <img id="foto3" src="img/logoas.png" class="img-responsive col-sm-3 col-lg-3" alt=""  onclick="myFunction(this);">
@@ -524,6 +524,8 @@ exit();
                   {
                     $('#jenis-tempat').show(600);
                     $('#daftar-nama').show(600); 
+                    $('#btn-ambil-antrian').addClass("btn-block");
+
                   }
                 else if ( this.value == '2')
                   {
@@ -531,10 +533,13 @@ exit();
                     $("#daftar-nama").hide(600);
                     $("#jenis-tempat").val("");
                     $("#daftar-nama").val("");
+                    $('#btn-ambil-antrian').removeClass("btn-block");
 
                     $("#kolomndelik").fadeOut("slow");
                     $("#kolomndelik2").fadeOut("slow");
                     $("#kolomndelik3").fadeOut("slow");
+
+
 
                     $("#kolomkiri").addClass("col-lg-12");
                     $("#kolomkiri").removeClass("col-lg-4");
@@ -551,7 +556,15 @@ exit();
             $("#kolomkiri").removeClass("col-lg-12");
         });
 
+        var header = document.getElementById('head1');
 
+        header.addEventListener('click',function() {
+            $('#head1').addClass('text-center');
+        });
+
+        btnAmbilAntrian.addEventListener('click', function() {
+            
+        });
         // Akhir Script
     </script>
 </body>
