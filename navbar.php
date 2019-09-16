@@ -1,12 +1,30 @@
 <style type="text/css">
+    .navbar-brand {
+        font-style: italic;
+        font-weight: bolder;
+        font-size: 20px;
 
+    }
+
+    .navbar-default .navbar-brand {
+        color: #11998e;
+        text-shadow: 0px 1px 3px #D5D5D5;
+    }
+
+    .navbar-default .navbar-brand:hover {
+        color: #36d7b7;
+    }
+
+    .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+        background-color: white;  
+    }
 </style>
 <nav class="navbar navbar-default navbar-fixed-top" style="background-color: white; box-shadow: 0px -1px 4px -1px;">
         <div class="container-fluid">
             <div class="navbar-header">
 <?php if (isset($_SESSION['u'])): ?>
-                <a class="navbar-brand" href="user_antrian.php" style="padding-top: 6px;">
-                    <img src="img/logoas.png" alt="" width="auto" height="40px">
+                <a class="navbar-brand" href="user_antrian.php">
+                    antrisehat.
                 </a>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navheader-collapse" aria-expanded="false">
                     <span class="glyphicon glyphicon-menu-hamburger"></span>
@@ -15,8 +33,8 @@
             </div>
             <div class="collapse navbar-collapse navheader-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="user_antrian.php">home</a></li>
-                <li><a href="">antri</a></li>
+                <li><a href="user_antrian.php">Beranda</a></li>
+                <li><a href="">Antri</a></li>
 					<li class="dropdown">
 		          	<a href="#" class="dropdown-toggle" style="text-transform: capitalize;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"  id="aw"><span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['u']; ?> <span class="caret"></span> </a>
 		       		<ul class="dropdown-menu">

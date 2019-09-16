@@ -23,7 +23,7 @@ exit();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="framework/css/bootstrap.min.css">
-      <title>User Antri Sehat</title>
+      <title>Homepage User</title>
     <style>
         .clearfix {
             content: "";
@@ -76,10 +76,12 @@ exit();
 
         .navbar-default .navbar-nav>li>a {
             padding: 15px 20px;
+            letter-spacing: 1px;
+            transition: background-color, 1s;
         }
 
         .navbar-default .navbar-nav>li>a:hover:not(#aw) {
-            background-color: #36d7b7;
+            background-color: #11998e;
             color: white;
         }
 
@@ -92,11 +94,32 @@ exit();
         }
     
         .panel-success>.panel-heading {
-            background-image: linear-gradient(to top right, #11998e, #38ef7d);
+            background-color: #11998e;
             color: #fff;
             letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+
+            font-family: "Roboto";
         }
 
+        .panel-success>.panel-heading::before {
+           position: absolute;
+           content: "";
+           top: 0;
+           right: 0;
+           bottom: 0;
+           left: 0;
+           background-image: linear-gradient(to top right, #11998e, #36d7b7);
+           z-index: -1;
+           transition: opacity 0.5s linear;
+           opacity: 0;
+        }
+        
+        .panel-success>.panel-heading:hover::before {
+            opacity: 1;
+        }
+        
         #btn-ambil-antrian {
             box-shadow: 0px 2px 7px -2px;
         }
@@ -105,12 +128,9 @@ exit();
             border: none;
         }
 
-        select option[value]:hover {
-            background-color: green !important;
-        }
 
         .jumbotron {
-            background-image: linear-gradient(to top right, #11998e, #38ef7d);
+            background-image: linear-gradient(to top right, #11998e, #36d7b7);
             border: none;
             color: white;
 
@@ -125,7 +145,7 @@ exit();
            right: 0;
            bottom: 0;
            left: 0;
-           background-image: linear-gradient(to bottom right, #11998e, #38ef7d);
+           background-image: linear-gradient(to bottom right, #11998e, #36d7b7);
           );
            z-index: -1;
            transition: opacity 0.5s linear;
@@ -140,6 +160,10 @@ exit();
             background-color: #F4F4F4;
         }
     
+        /* import font */
+         @font-face {
+         font-family: "Roboto";
+         src: url('Roboto Thin');
     </style>
 </head>
 <body>
@@ -154,7 +178,7 @@ exit();
                     </div>
                     <div class="panel-body">  
                         <select name ="jenis-antrian" id="jenis-antrian" class="form-control mb-3">
-                              <option selected disabled>Jenis Berobat</option>
+                              <option selected disabled>Jenis Antrian</option>
                             <option value="1">UMUM</option>
                             <option value="2">BPJS</option>
                          </select>
@@ -485,7 +509,7 @@ exit();
 
             $("#kolomkiri").removeClass("col-lg-4");
             $("#kolomkiri").addClass("col-lg-12");
-
+            $("#kolomkiri").addClass("col-md-12");
             // // $('#jenis-tempat').hide();
             // // $('#daftar-nama').hide();
             // document.getElementById("jenis-tempat").style.display = "none";
@@ -503,8 +527,8 @@ exit();
                   }
                 else if ( this.value == '2')
                   {
-                    $("#jenis-tempat").hide();
-                    $("#daftar-nama").hide();
+                    $("#jenis-tempat").hide(600);
+                    $("#daftar-nama").hide(600);
                     $("#jenis-tempat").val("");
                     $("#daftar-nama").val("");
 

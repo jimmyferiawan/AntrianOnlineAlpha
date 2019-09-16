@@ -138,6 +138,7 @@
 	.form-control {
 		color: #2CBF65;
 		font-weight: bolder;
+		transition: border-bottom, 2s;
 	}
 
 
