@@ -162,8 +162,9 @@ exit();
     
         /* import font */
          @font-face {
-         font-family: "Roboto";
-         src: url('Roboto Thin');
+            font-family: "Roboto";
+            src: url('Roboto Thin');
+         }
     </style>
 </head>
 <body>
@@ -335,10 +336,11 @@ exit();
     <script src="framework/js/axios.min.js"></script>
     <script src="framework/js/jquery-ui.min.js"></script>
     <script>
+        var nomorBpjs = document.getElementById('jenis-antrian');
         var jenisTempat = document.getElementById('jenis-tempat');
         var daftarNama = document.getElementById('daftar-nama');
         var nomorAntrian = document.getElementById('nomor-antrian');
-         var nomorbpjs = document.getElementById('jenis-antrian');
+        var nomorbpjs = document.getElementById('jenis-antrian');
         var nomorAntrianSekarang = document.getElementById('nomor-antrian-sekarang');
         var btnAmbilAntrian = document.getElementById('btn-ambil-antrian');
         var inpAntrianTempat = document.getElementById('form_id_tempat');
@@ -361,7 +363,62 @@ exit();
         var fotoInstansi4 = document.getElementById('foto4');
         var fotoInstansi5 = document.getElementById('foto5');
 
+        function cekBpjs() {
+            // mendapatkan info bpjs
+            axios.get('/AntrianOnlineAlpha/user/pilih-tempat.php', {
+                params: {
+                    cek_bpjs: "bpjs"
+                }
+            })
+            .then(function(response) {
+                
+                if(response.data.no_bpjs == null) {
+                    // console.log(response.data);
+                    // console.log("anda belum melengkapi info bpjs");
+                } else {
+                    // console.log(response.data);
+                    var bpjs = response.data;
+                    jenisTempat.value = "2";
+                    var idLokasi = jenisTempat.value;
 
+                    axios.get('/AntrianOnlineAlpha/user/pilih-tempat.php', {
+                            params: {
+                                id_tempat: idLokasi
+                            }
+                        })
+                        .then(function(response) {
+                            // console.log(response.data, idLokasi);
+                            updateDaftarnama(response.data, idLokasi);
+                            daftarNama.value = bpjs.alamat_bpjs;
+                            if (daftarNama.hasAttribute("data-id-tempat")) {
+                                var idTempat = daftarNama.getAttribute('data-id-tempat');
+                                var idInstansi = daftarNama.value;
+                                var namaInstansi = daftarNama.options[daftarNama.selectedIndex].text;
+                                daftarNama.setAttribute('data-nama-tempat', namaInstansi);
+                                getAntrianSekarang(daftarNama.value, idTempat);
+                                inpAntrianInstansi.value = idInstansi;
+                                $("#kolomndelik").show();
+                                $("#kolomndelik2").show();
+                                $("#kolomndelik3").show();
+                                $("#kolomkiri").addClass("col-lg-4");
+                                $("#kolomkiri").removeClass("col-lg-12");
+                                jenisTempat.disabled = true;
+                                daftarNama.disabled = true;
+                            }
+                            
+                        })
+                        .catch(function(error) {
+                            // TODO: lakukan sesuatu ketika error ambil data
+                            // contoh: tampil alert error atau modal dialog error
+                        });
+
+                }
+            })
+            .catch(function(error) {
+                // console.log(error)
+            });
+        }
+        
         function updateDaftarnama(listNamaTempat, idJenisTempat) {
             // update daftar instansi ketika jenis tempat diubah
             daftarNama.options.length = 0;
@@ -412,6 +469,27 @@ exit();
             fotoInstansi4.src = "img-tempat/" + data.foto4;
             fotoInstansi5.src = "img-tempat/" + data.foto5;
         }
+
+        // event bpjs/umum
+        nomorBpjs.addEventListener('change', function() {
+            // console.log("nilai: ", this.value);
+            if(this.value != "0") {
+                jenisTempat.disabled = false;
+                daftarNama.disabled = false;
+            }
+            if(this.value == 2) {
+                // console.log("tidak dapat memilih puskesmas");
+                cekBpjs();
+                if(false) { // jika belum mengisi info bpjs
+
+                } else { // jika sudah mengisi info bpjs
+
+                }
+            } else {
+                console.log("lossss milih");
+            }
+        });
+
 
         // pilih jenis tempat berobat
         jenisTempat.addEventListener('change', function() {

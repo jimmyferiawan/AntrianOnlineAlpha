@@ -8,6 +8,41 @@
 
     if("GET" == $_SERVER["REQUEST_METHOD"]) {
         require_once "../koneksi.php";
+
+        if (isset($_GET['cek_bpjs'])) {
+            session_start();
+            $data = array(
+                "no_bpjs" => null,
+                "alamat_bpjs" => null,
+                "keterangan" => null
+            );
+            $bpjs = $conn->real_escape_string($_GET['cek_bpjs']);
+            $id_pasien = $_SESSION['u_id_pasien'];
+            $sql_cek_bpjs = "SELECT no_bpjs_pasien FROM pasien WHERE ID_pasien='$id_pasien'";
+            $query_cek_bpjs = $conn->query($sql_cek_bpjs);
+            $no_bpjs = "";
+            $sql_bpjs = "";
+            if($query_cek_bpjs) {
+                while($row = $query_cek_bpjs->fetch_assoc()) {
+                    $no_bpjs = $row["no_bpjs_pasien"];
+                    $data['no_bpjs'] = $no_bpjs;
+                    // $sql_bpjs = "SELECT alamat_bpjs, Keterangan FROM bpjs WHERE id_bpjs='$no_bpjs'";
+                }
+                $sql_bpjs = "SELECT alamat_bpjs, Keterangan FROM bpjs WHERE id_bpjs='$no_bpjs'";
+                $query_bpjs = $conn->query($sql_bpjs);
+                if($query_bpjs) {
+                    while($row_bpjs = $query_bpjs->fetch_assoc()) {
+                        $data['alamat_bpjs'] = $row_bpjs['alamat_bpjs'];
+                        $data['keterangan'] = $row_bpjs['Keterangan'];
+                    } 
+                }
+            } else {
+                $no_bpjs = "";
+            }
+            // echo json_encode($no_bpjs);
+            echo json_encode($data);
+        }
+
         if(isset($_GET["id_tempat"])) {
 
             $idTempat = $conn->real_escape_string($_GET["id_tempat"]);
